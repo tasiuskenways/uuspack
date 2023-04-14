@@ -1,0 +1,267 @@
+function Load(name)
+	local resourceName = GetCurrentResourceName()
+	local chunk = LoadResourceFile(resourceName, ('data/%s.lua'):format(name))
+	if chunk then
+		local err
+		chunk, err = load(chunk, ('@@%s/data/%s.lua'):format(resourceName, name), 't')
+		if err then
+			error(('\n^1 %s'):format(err), 0)
+		end
+		return chunk()
+	end
+end
+
+local QBCore = exports['qb-core']:GetCoreObject()
+-------------------------------------------------------------------------------
+-- Settings
+-------------------------------------------------------------------------------
+
+Config = {}
+
+-- It's possible to interact with entities through walls so this should be low
+Config.MaxDistance = 7.0
+
+-- Enable debug options
+Config.Debug = false
+
+-- Supported values: true, false
+Config.Standalone = false
+
+-- Enable outlines around the entity you're looking at
+Config.EnableOutline = false
+
+-- Whether to have the target as a toggle or not
+Config.Toggle = false
+
+-- Draw a Sprite on the center of a PolyZone to hint where it's located
+Config.DrawSprite = true
+
+-- The default distance to draw the Sprite
+Config.DrawDistance = 10.0
+
+-- The color of the sprite in rgb, the first value is red, the second value is green, the third value is blue and the last value is alpha (opacity). Here is a link to a color picker to get these values: https://htmlcolorcodes.com/color-picker/
+Config.DrawColor = {255, 255, 255, 255}
+
+-- The color of the sprite in rgb when the PolyZone is targeted, the first value is red, the second value is green, the third value is blue and the last value is alpha (opacity). Here is a link to a color picker to get these values: https://htmlcolorcodes.com/color-picker/
+Config.SuccessDrawColor = {30, 144, 255, 255}
+
+-- The color of the outline in rgb, the first value is red, the second value is green, the third value is blue and the last value is alpha (opacity). Here is a link to a color picker to get these values: https://htmlcolorcodes.com/color-picker/
+Config.OutlineColor = {255, 255, 255, 255}
+
+-- Enable default options (Toggling vehicle doors)
+Config.EnableDefaultOptions = true
+
+-- Disable the target eye whilst being in a vehicle
+Config.DisableInVehicle = false
+
+-- Key to open the target eye, here you can find all the names: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+Config.OpenKey = 'LMENU' -- Left Alt
+
+-- Control for key press detection on the context menu, it's the Right Mouse Button by default, controls are found here https://docs.fivem.net/docs/game-references/controls/
+Config.MenuControlKey = 25
+
+-------------------------------------------------------------------------------
+-- Target Configs
+-------------------------------------------------------------------------------
+
+-- These are all empty for you to fill in, refer to the .md files for help in filling these in
+
+Config.CircleZones = {
+
+}
+
+Config.BoxZones = {
+	['CQCMugshot'] = {
+		name = 'CQCMugshot',
+		coords = vector3(484.64, -996.42, 25.51),
+		debugPoly = false,
+		length = 0.50,
+		width = 0.65,
+		heading = 131.24,
+		maxZ = 26.30,
+		minZ = 24.75,
+		options = {
+			{
+				icon = 'fas fa-camera',
+				label = 'Take Suspects Mugshots',
+				job = {
+					['police'] = 0,
+					['sast'] = 0,
+				},
+				action = function()
+					local player, distance = QBCore.Functions.GetClosestPlayer(GetEntityCoords(PlayerPedId()))
+                    if player ~= -1 and distance < 2.0 then
+                        local playerId = GetPlayerServerId(player)
+						TriggerServerEvent('cqc-mugshot:server:triggerSuspect', playerId)
+					end
+				end,
+			},
+		},
+		distance = 2.0,
+	},
+}
+
+Config.PolyZones = {
+
+}
+
+Config.TargetBones = {
+
+}
+
+Config.TargetModels = {
+	["chickensell"] = {
+        models = {
+            "csb_chef",
+        },
+        options = {
+            {
+                type = "client",
+                event = "Chickens:sell",
+                icon = "fas fa-archive",
+                label = "Sell Chicken Box",
+
+            },
+        },
+        distance = 2.5,
+    },
+}
+
+Config.GlobalPedOptions = {
+
+}
+
+Config.GlobalVehicleOptions = {
+
+}
+
+Config.GlobalObjectOptions = {
+
+}
+
+Config.GlobalPlayerOptions = {
+
+	-- options = { -- This is your options table, in this table all the options will be specified for the target to accept
+	-- 	{ -- This is the first table with options, you can make as many options inside the options table as you want
+	-- 	num = 1, -- This is the position number of your option in the list of options in the qb-target context menu (OPTIONAL)
+	-- 	type = "client", -- This specifies the type of event the target has to trigger on click, this can be "client", "server", "command" or "qbcommand", this is OPTIONAL and will only work if the event is also specified
+	-- 	event = "Test:Event", -- This is the event it will trigger on click, this can be a client event, server event, command or qbcore registered command, NOTICE: Normal command can't have arguments passed through, QBCore registered ones can have arguments passed through
+	-- 	icon = 'fas fa-example', -- This is the icon that will display next to this trigger option
+	-- 	label = 'Test', -- This is the label of this option which you would be able to click on to trigger everything, this has to be a string
+	-- 	}
+	-- },
+	-- distance = 2.5,
+
+}
+
+Config.Peds = {
+	{
+		model = `csb_chef`,
+		coords = vector4(-1178.16, -891.61, 12.76, 304.99),
+		gender = 'male',
+		freeze = true,
+		invincible = true,
+		blockevents = true,
+	},
+}
+
+-------------------------------------------------------------------------------
+-- Functions
+-------------------------------------------------------------------------------
+local function JobCheck() return true end
+local function GangCheck() return true end
+local function ItemCheck() return true end
+local function CitizenCheck() return true end
+
+CreateThread(function()
+	local state = GetResourceState('qb-core')
+	if state ~= 'missing' then
+		local timeout = 0
+		while state ~= 'started' and timeout <= 100 do
+			timeout += 1
+			state = GetResourceState('qb-core')
+			Wait(0)
+		end
+		Config.Standalone = false
+	end
+	if Config.Standalone then
+		local firstSpawn = false
+		local event = AddEventHandler('playerSpawned', function()
+			SpawnPeds()
+			firstSpawn = true
+		end)
+		-- Remove event after it has been triggered
+		while true do
+			if firstSpawn then
+				RemoveEventHandler(event)
+				break
+			end
+			Wait(1000)
+		end
+	else
+		local QBCore = exports['qb-core']:GetCoreObject()
+		local PlayerData = QBCore.Functions.GetPlayerData()
+
+		ItemCheck = QBCore.Functions.HasItem
+
+		JobCheck = function(job)
+			if type(job) == 'table' then
+				job = job[PlayerData.job.name]
+				if job and PlayerData.job.grade.level >= job then
+					return true
+				end
+			elseif job == 'all' or job == PlayerData.job.name then
+				return true
+			end
+			return false
+		end
+
+		GangCheck = function(gang)
+			if type(gang) == 'table' then
+				gang = gang[PlayerData.gang.name]
+				if gang and PlayerData.gang.grade.level >= gang then
+					return true
+				end
+			elseif gang == 'all' or gang == PlayerData.gang.name then
+				return true
+			end
+			return false
+		end
+
+		CitizenCheck = function(citizenid)
+			return citizenid == PlayerData.citizenid or citizenid[PlayerData.citizenid]
+		end
+
+		RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
+			PlayerData = QBCore.Functions.GetPlayerData()
+			SpawnPeds()
+		end)
+
+		RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
+			PlayerData = {}
+			DeletePeds()
+		end)
+
+		RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
+			PlayerData.job = JobInfo
+		end)
+
+		RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)
+			PlayerData.gang = GangInfo
+		end)
+
+		RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
+			PlayerData = val
+		end)
+	end
+end)
+
+function CheckOptions(data, entity, distance)
+	if distance and data.distance and distance > data.distance then return false end
+	if data.job and not JobCheck(data.job) then return false end
+	if data.gang and not GangCheck(data.gang) then return false end
+	if data.item and not ItemCheck(data.item) then return false end
+	if data.citizenid and not CitizenCheck(data.citizenid) then return false end
+	if data.canInteract and not data.canInteract(entity, distance, data) then return false end
+	return true
+end

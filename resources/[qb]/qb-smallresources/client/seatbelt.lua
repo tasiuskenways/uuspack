@@ -266,7 +266,21 @@ RegisterCommand('toggleseatbelt', function()
     if not IsPedInAnyVehicle(PlayerPedId(), false) or IsPauseMenuActive() then return end
     local class = GetVehicleClass(GetVehiclePedIsUsing(PlayerPedId()))
     if class == 8 or class == 13 or class == 14 then return end
-    ToggleSeatbelt()
+    QBCore.Functions.Progressbar('seatbelt', 'Toogle Seatbelt', 300, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        -- animDict = 'anim@gangops@facility@servers@',
+        -- anim = 'hotwire',
+        -- flags = 16,
+    }, {}, {}, function() -- Play When Done
+        --Stuff goes here
+        ToggleSeatbelt()
+    end, function() -- Play When Cancel
+        --Stuff goes here
+    end)
 end, false)
 
 RegisterKeyMapping('toggleseatbelt', 'Toggle Seatbelt', 'keyboard', 'B')

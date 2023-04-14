@@ -139,5 +139,5 @@ Config.Shops = {
     --             chosenVehicle = 'hexer'
     --         },
     --     }
-    }, -- Add your next table under this comma
+    -- }, -- Add your next table under this comma
 }

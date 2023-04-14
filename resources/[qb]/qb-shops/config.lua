@@ -1002,21 +1002,21 @@ Config.Locations = {
     },
 
     -- Weedshop Locations
-    ["weedshop"] = {
-        ["label"] = "Smoke On The Water",
-        ["coords"] = vector4(-1168.26, -1573.2, 4.66, 105.24),
-        ["ped"] = 'a_m_y_hippy_01',
-        ["scenario"] = "WORLD_HUMAN_AA_SMOKE",
-        ["radius"] = 1.5,
-        ["targetIcon"] = "fas fa-cannabis",
-        ["targetLabel"] = "Open Weed Shop",
-        ["products"] = Config.Products["weedshop"],
-        ["showblip"] = true,
-        ["blipsprite"] = 140,
-        ["blipscale"] = 0.8,
-        ["blipcolor"] = 0,
-        ["delivery"] = vector4(-1162.13, -1568.57, 4.39, 328.52)
-    },
+    -- ["weedshop"] = {
+    --     ["label"] = "Smoke On The Water",
+    --     ["coords"] = vector4(-1168.26, -1573.2, 4.66, 105.24),
+    --     ["ped"] = 'a_m_y_hippy_01',
+    --     ["scenario"] = "WORLD_HUMAN_AA_SMOKE",
+    --     ["radius"] = 1.5,
+    --     ["targetIcon"] = "fas fa-cannabis",
+    --     ["targetLabel"] = "Open Weed Shop",
+    --     ["products"] = Config.Products["weedshop"],
+    --     ["showblip"] = true,
+    --     ["blipsprite"] = 140,
+    --     ["blipscale"] = 0.8,
+    --     ["blipcolor"] = 0,
+    --     ["delivery"] = vector4(-1162.13, -1568.57, 4.39, 328.52)
+    -- },
 
     -- Sea Word Locations
     ["seaword"] = {

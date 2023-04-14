@@ -71,34 +71,6 @@ Config.CircleZones = {
 }
 
 Config.BoxZones = {
-	['CQCMugshot'] = {
-		name = 'CQCMugshot',
-		coords = vector3(484.64, -996.42, 25.51),
-		debugPoly = false,
-		length = 0.50,
-		width = 0.65,
-		heading = 131.24,
-		maxZ = 26.30,
-		minZ = 24.75,
-		options = {
-			{
-				icon = 'fas fa-camera',
-				label = 'Take Suspects Mugshots',
-				job = {
-					['police'] = 0,
-					['sast'] = 0,
-				},
-				action = function()
-					local player, distance = QBCore.Functions.GetClosestPlayer(GetEntityCoords(PlayerPedId()))
-                    if player ~= -1 and distance < 2.0 then
-                        local playerId = GetPlayerServerId(player)
-						TriggerServerEvent('cqc-mugshot:server:triggerSuspect', playerId)
-					end
-				end,
-			},
-		},
-		distance = 2.0,
-	},
 }
 
 Config.PolyZones = {
@@ -110,21 +82,6 @@ Config.TargetBones = {
 }
 
 Config.TargetModels = {
-	["chickensell"] = {
-        models = {
-            "csb_chef",
-        },
-        options = {
-            {
-                type = "client",
-                event = "Chickens:sell",
-                icon = "fas fa-archive",
-                label = "Sell Chicken Box",
-
-            },
-        },
-        distance = 2.5,
-    },
 }
 
 Config.GlobalPedOptions = {
@@ -155,14 +112,6 @@ Config.GlobalPlayerOptions = {
 }
 
 Config.Peds = {
-	{
-		model = `csb_chef`,
-		coords = vector4(-1178.16, -891.61, 12.76, 304.99),
-		gender = 'male',
-		freeze = true,
-		invincible = true,
-		blockevents = true,
-	},
 }
 
 -------------------------------------------------------------------------------

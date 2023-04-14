@@ -121,6 +121,7 @@ RegisterNetEvent('qb-cityhall:server:ApplyJob', function(job, cityhallCoords)
     else
         local JobInfo = QBCore.Shared.Jobs[job]
         Player.Functions.SetJob(data.job, 0)
+        exports['qb-phone']:hireUser(job, Player.PlayerData.citizenid, 0)
         TriggerClientEvent('QBCore:Notify', data.src, Lang:t('info.new_job', { job = JobInfo.label }))
     end
 end)

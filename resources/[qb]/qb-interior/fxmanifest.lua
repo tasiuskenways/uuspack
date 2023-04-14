@@ -14,6 +14,5 @@ client_scripts {
 files {
 }
 
-data_file 'DLC_ITYP_REQUEST' 
 
 lua54 'yes'

@@ -190,7 +190,7 @@ RegisterNetEvent('QBCore:Player:UpdatePlayerData', function()
 end)
 
 RegisterNetEvent('QBCore:Notify', function(text, type, length)
-    exports['tnj-notify']:Notify(text, texttype, length)
+    QBCore.Functions.Notify(text, type, length)
 end)
 
 -- This event is exploitable and should not be used. It has been deprecated, and will be removed soon.

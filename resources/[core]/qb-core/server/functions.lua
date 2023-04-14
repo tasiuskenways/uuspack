@@ -412,7 +412,7 @@ function QBCore.Functions.HasItem(source, items, amount)
 end
 
 function QBCore.Functions.Notify(source, text, type, length)
-    exports['tnj-notify']:Notify(source, text, type, length)
+    TriggerClientEvent('QBCore:Notify', source, text, type, length)
 end
 
 --- SQL Pattern Matching

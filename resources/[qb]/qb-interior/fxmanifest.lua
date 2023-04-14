@@ -12,9 +12,8 @@ client_scripts {
 }
 
 files {
-    'starter_shells_k4mb1.ytyp'
 }
 
-data_file 'DLC_ITYP_REQUEST' 'starter_shells_k4mb1.ytyp'
+data_file 'DLC_ITYP_REQUEST' 
 
 lua54 'yes'

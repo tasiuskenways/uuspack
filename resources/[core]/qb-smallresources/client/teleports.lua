@@ -35,8 +35,8 @@ CreateThread(function()
                 heading = portal.heading,
                 name = i,
                 debugPoly = false,
-                minZ = portal.coords.z - 5,
-                maxZ = portal.coords.z + 5,
+                minZ = portal.coords.z - 2,
+                maxZ = portal.coords.z + 2,
                 data = {pad = u}
             })
             local teleportCombo = ComboZone:Create(teleportPoly, {name = "teleportPoly"})

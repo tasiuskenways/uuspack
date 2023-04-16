@@ -45,7 +45,7 @@ Config.EnableWantedLevel = false
 
 -- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
 Config.Discord = {
-    ["IsEnabled"] = true, -- If set to true, then discord rich presence will be enabled
+    ["IsEnabled"] = false, -- If set to true, then discord rich presence will be enabled
     ["ApplicationId"] = '1043470567325573141', -- The discord application id
     ["IconLarge"] = 'logo_name', -- The name of the large icon
     ["IconLargeHoverText"] = 'This is a Large icon with text', -- The hover text of the large icon
@@ -285,29 +285,92 @@ Config.Teleports = {
         --     label = 'be sure to label all sections if more than 2'
         -- },
     },
-    --Coke Processing Enter/Exit
+    --MRPD
     [2] = {
         [1] = {
             ['poly'] = {
-                coords = vector3(909.49, -1589.22, 30.51),
-                heading = 92.24,
+                coords = vector3(467.17, -975.06, 25.47),
+                heading = 180.52,
                 length = 2,
                 width = 2
             },
             ["AllowVehicle"] = false,
-            label = '[E] Enter Coke Processing'
+            label = 'Basement'
         },
         [2] = {
             ['poly'] = {
-                coords = vector3(1088.81, -3187.57, -38.99),
-                heading = 181.7,
+                coords = vector3(465.73, -975.98, 30.72),
+                heading = 90.38,
                 length = 2,
                 width = 2
             },
             ["AllowVehicle"] = false,
-            label = '[E] Leave'
+            label = '1st Floor'
+        },
+        [3] = {
+            ['poly'] = {
+                coords = vector3(465.68, -976.07, 35.06),
+                heading = 84.52,
+                length = 2,
+                width = 2
+            },
+            ["AllowVehicle"] = false,
+            label = '2nd Floor'
+        },
+        [4] = {
+            ['poly'] = {
+                coords = vector3(465.69, -976.03, 39.42),
+                heading = 88.61,
+                length = 2,
+                width = 2
+            },
+            ["AllowVehicle"] = false,
+            label = '3rd Floor'
+        },
+        [5] = {
+            ['poly'] = {
+                coords = vector3(467.25, -975.95, 43.7),
+                heading = 179.94,
+                length = 2,
+                width = 2
+            },
+            ["AllowVehicle"] = false,
+            label = 'Helipad'
         }
-    }
+    },
+    -- Paleto Police Office
+    -- [3] = {
+    --     [1] = {
+    --         ['poly'] = {
+    --             coords = vector3(-450.25, 6010.38, 32.29),
+    --             heading = 221.5,
+    --             length = 2,
+    --             width = 2
+    --         },
+    --         ["AllowVehicle"] = false,
+    --         label = '1st Floor'
+    --     },
+    --     [2] = {
+    --         ['poly'] = {
+    --             coords = vector3(-450.13, 6010.5, 27.58),
+    --             heading = 223.96,
+    --             length = 2,
+    --             width = 2
+    --         },
+    --         ["AllowVehicle"] = false,
+    --         label = 'Basement'
+    --     },
+    --     [3] = {
+    --         ['poly'] = {
+    --             coords = vector3(-449.4, 6009.05, 37.0),
+    --             heading = 224.45,
+    --             length = 2,
+    --             width = 2
+    --         },
+    --         ["AllowVehicle"] = false,
+    --         label = '2nd Floor'
+    --     }
+    -- }
 }
 
 Config.DefaultPrice = 20 -- Default price for the carwash

@@ -12,7 +12,7 @@ Config.ChargePerTattoo = true -- Charge players per tattoo. Config.TattooCost wi
 -- Only set this to true if you're using rcore_tattoos
 Config.RCoreTattoosCompatibility = false
 
-Config.AsynchronousLoading = true -- Change this to false if you want the NUI data to load before displaying the appearance UI
+Config.AsynchronousLoading = false -- Change this to false if you want the NUI data to load before displaying the appearance UI
 
 Config.UseTarget = false
 
@@ -58,7 +58,7 @@ Config.GenderBasedOnPed = true
 Config.AlwaysKeepProps = true
 
 Config.PersistUniforms = true -- Keeps Job / Gang Outfits on player reconnects / logout
-Config.OnDutyOnlyClothingRooms = false -- Set to `true` to make the clothing rooms accessible only to players who are On Duty
+Config.OnDutyOnlyClothingRooms = true -- Set to `true` to make the clothing rooms accessible only to players who are On Duty
 
 Config.BossManagedOutfits = true -- Allows Job / Gang bosses to manage their own job / gang outfits
 
@@ -555,19 +555,28 @@ Config.Stores = {
 Config.ClothingRooms = {
     {
         job = "police",
-        coords = vector4(454.91, -990.89, 30.69, 193.4),
+        coords = vector4(444.82, -993.61, 35.53, 358.93),
         size = vector3(4, 4, 4),
         rotation = 45,
         usePoly = false,
         points = {
-            vector3(460.41918945312, -993.11444091797, 30.69),
-            vector3(449.39508056641, -993.60614013672, 30.69),
-            vector3(449.88696289062, -990.23779296875, 30.69),
-            vector3(450.97882080078, -989.71411132812, 30.69),
-            vector3(451.0325012207, -987.89904785156, 30.69),
-            vector3(453.47863769531, -987.76928710938, 30.69),
-            vector3(454.35513305664, -988.46459960938, 30.69),
-            vector3(460.4231262207, -987.94573974609, 30.69)
+            vector3(452.14, -998.0, 34.92),
+            vector3(438.72, -998.03, 35.02),
+            vector3(438.79, -990.48, 35.06),
+            vector3(452.03, -990.53, 35.06)
+        }
+    },
+    {
+        job = "police",
+        coords = vector4(1844.02, 3688.5, 34.58, 31.34),
+        size = vector3(4, 4, 4),
+        rotation = 45,
+        usePoly = false,
+        points = {
+            vector3(1844.47, 3684.59, 35.15),
+            vector3(1846.96, 3686.55, 34.76),
+            vector3(1843.26, 3693.5, 34.58),
+            vector3(1840.9, 3691.57, 34.68)
         }
     }
 }

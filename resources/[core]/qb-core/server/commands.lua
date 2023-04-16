@@ -222,7 +222,6 @@ QBCore.Commands.Add('setjob', Lang:t("command.setjob.help"), { { name = Lang:t("
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
         Player.Functions.SetJob(tostring(args[2]), tonumber(args[3]))
-        exports['qb-phone']:hireUser(tostring(args[2]), Player.PlayerData.citizenid, tonumber(args[3]))
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end
@@ -234,7 +233,6 @@ QBCore.Commands.Add('removejob', 'Removes A Players Job (Admin Only)', { { name 
         if Player.PlayerData.job.name == tostring(args[2]) then
             Player.Functions.SetJob("unemployed", 0)
         end
-        exports['qb-phone']:fireUser(tostring(args[2]), Player.PlayerData.citizenid)
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('error.not_online'), 'error')
     end

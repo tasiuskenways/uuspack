@@ -245,6 +245,46 @@ local function loadAnimDict(dict)
 	end
 end
 
+local function SetBedSCam()
+    isInHospitalBed = true
+    canLeaveBed = false
+    local player = PlayerPedId()
+
+    Wait(100)
+
+	if IsPedDeadOrDying(player) then
+		local pos = GetEntityCoords(player, true)
+		NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z, GetEntityHeading(player), true, false)
+    end
+
+    bedObject = GetClosestObjectOfType(bedOccupyingData.coords.x, bedOccupyingData.coords.y, bedOccupyingData.coords.z, 1.0, bedOccupyingData.model, false, false, false)
+    FreezeEntityPosition(bedObject, true)
+
+    SetEntityCoords(player, bedOccupyingData.coords.x, bedOccupyingData.coords.y, bedOccupyingData.coords.z + 0.02)
+    --SetEntityInvincible(PlayerPedId(), true)
+    Wait(500)
+    FreezeEntityPosition(player, true)
+
+    loadAnimDict(inBedDict)
+
+    TaskPlayAnim(player, inBedDict , inBedAnim, 8.0, 1.0, -1, 1, 0, 0, 0, 0 )
+    SetEntityHeading(player, bedOccupyingData.coords.w)
+
+    cam = CreateCam("DEFAULT_SCRIPTED_CAMERA", 1)
+    SetCamActive(cam, true)
+    RenderScriptCams(true, false, 1, true, true)
+    AttachCamToPedBone(cam, player, 31085, 0, 1.0, 1.0 , true)
+    SetCamFov(cam, 90.0)
+    local heading = GetEntityHeading(player)
+    heading = (heading > 180) and heading - 180 or heading + 180
+    SetCamRot(cam, -45.0, 0.0, heading, 2)
+
+    DoScreenFadeIn(1000)
+
+    Wait(1000)
+    FreezeEntityPosition(player, true)
+end
+
 local function SetBedCam()
     isInHospitalBed = true
     canLeaveBed = false
@@ -653,6 +693,16 @@ RegisterNetEvent('hospital:client:SendToBed', function(id, data, isRevive)
     end)
 end)
 
+RegisterNetEvent('hospital:client:LayInBed', function(id, data)
+    bedOccupying = id
+    bedOccupyingData = data
+    SetBedSCam()
+    CreateThread(function ()
+        Wait(5)
+        canLeaveBed = true
+    end)
+end)
+
 RegisterNetEvent('hospital:client:SetBed', function(id, isTaken)
     Config.Locations["beds"][id].taken = isTaken
 end)
@@ -879,6 +929,14 @@ RegisterNetEvent('qb-ambulancejob:beds', function()
     end
 end)
 
+RegisterNetEvent('qb-ambulancejob:layinbed', function()
+    if GetAvailableBed(closestBed) then
+        TriggerServerEvent("hospital:server:LayInBed", closestBed, false)
+    else
+        QBCore.Functions.Notify(Lang:t('error.beds_taken'), "error")
+    end
+end)
+
 -- Convar turns into a boolean
 if Config.UseTarget then
     CreateThread(function()
@@ -913,7 +971,7 @@ if Config.UseTarget then
                 options = {
                     {
                         type = "client",
-                        event = "qb-ambulancejob:beds",
+                        event = "qb-ambulancejob:layinbed",
                         icon = "fas fa-bed",
                         label = "Layin Bed",
                     }

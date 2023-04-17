@@ -4,7 +4,6 @@ local QBCore = exports['qb-core']:GetCoreObject()
 PlayerData = QBCore.Functions.GetPlayerData()
 
 local frontCam = false
-local CanDownloadApps = false
 
 FullyLoaded = LocalPlayer.state.isLoggedIn
 
@@ -227,12 +226,15 @@ local function OpenPhone()
         PhoneData.PlayerData = PlayerData
         SetNuiFocus(true, true)
         
+        local hasVPN = QBCore.Functions.HasItem(Config.VPNItem)
+
         SendNUIMessage({
             action = "open",
             Tweets = PhoneData.Tweets,
             AppData = Config.PhoneApplications,
             CallData = PhoneData.CallData,
             PlayerData = PhoneData.PlayerData,
+            hasVPN = hasVPN,
         })
         PhoneData.isOpen = true
         if Config.AllowWalking then
@@ -501,29 +503,25 @@ RegisterNUICallback('AddNewContact', function(data, cb)
     PhoneData.Contacts[#PhoneData.Contacts+1] = {
         name = data.ContactName,
         number = data.ContactNumber,
-        iban = data.ContactIban
     }
     Wait(100)
     cb(PhoneData.Contacts)
     if PhoneData.Chats[data.ContactNumber] and next(PhoneData.Chats[data.ContactNumber]) then
         PhoneData.Chats[data.ContactNumber].name = data.ContactName
     end
-    TriggerServerEvent('qb-phone:server:AddNewContact', data.ContactName, data.ContactNumber, data.ContactIban)
+    TriggerServerEvent('qb-phone:server:AddNewContact', data.ContactName, data.ContactNumber)
 end)
 
 RegisterNUICallback('EditContact', function(data, cb)
     local NewName = data.CurrentContactName
     local NewNumber = data.CurrentContactNumber
-    local NewIban = data.CurrentContactIban
     local OldName = data.OldContactName
     local OldNumber = data.OldContactNumber
-    local OldIban = data.OldContactIban
 
     for _, v in pairs(PhoneData.Contacts) do
         if v.name == OldName and v.number == OldNumber then
             v.name = NewName
             v.number = NewNumber
-            v.iban = NewIban
         end
     end
     if PhoneData.Chats[NewNumber] and next(PhoneData.Chats[NewNumber]) then
@@ -531,7 +529,7 @@ RegisterNUICallback('EditContact', function(data, cb)
     end
     Wait(100)
     cb(PhoneData.Contacts)
-    TriggerServerEvent('qb-phone:server:EditContact', NewName, NewNumber, NewIban, OldName, OldNumber, OldIban)
+    TriggerServerEvent('qb-phone:server:EditContact', NewName, NewNumber, OldName, OldNumber)
 end)
 
 RegisterNUICallback('UpdateProfilePicture', function(data, cb)
@@ -881,6 +879,11 @@ RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
     })
 end)
 
+RegisterNetEvent('qb-phone:client:clearAppAlerts', function()
+    Config.PhoneApplications["phone"].Alerts = 0
+    SendNUIMessage({ action = "RefreshAppAlerts", AppData = Config.PhoneApplications })
+end)
+
 AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then
         PlayerData = QBCore.Functions.GetPlayerData()
@@ -902,14 +905,6 @@ RegisterNUICallback('publicphoneclose', function(_, cb)
 end)
 
 --- SHIT THAT IS GONE
-
-RegisterNUICallback('SetupStoreApps', function(_, cb)
-    local data = {
-        StoreApps = Config.StoreApps,
-        PhoneData = PlayerData.metadata["phonedata"]
-    }
-    cb(data)
-end)
 
 RegisterNUICallback('CanTransferMoney', function(data, cb)
     local amount = tonumber(data.amountOf)
@@ -962,7 +957,6 @@ RegisterNetEvent('qb-phone:client:RemoveBankMoney', function(amount)
     end
 end)
 
-
 RegisterNetEvent('qb-phone:client:GiveContactDetails', function()
     local player, distance = QBCore.Functions.GetClosestPlayer()
     if player ~= -1 and distance < 2.5 then
@@ -973,29 +967,31 @@ RegisterNetEvent('qb-phone:client:GiveContactDetails', function()
     end
 end)
 
-RegisterNUICallback('InstallApplication', function(data, cb)
-    local ApplicationData = Config.StoreApps[data.app]
-    local NewSlot = nil
-    --  local NewSlot = 17
-
-    if not CanDownloadApps then
-        return
-    end
-
-    if NewSlot <= Config.MaxSlots then
-        TriggerServerEvent('qb-phone:server:InstallApplication', {
-            app = data.app,
-        })
-        cb({
-            app = data.app,
-            data = ApplicationData
-        })
-    else
-        cb(false)
+RegisterNetEvent("qb-phone:client:giveContactRequest", function(contactInfo)
+    local success = exports['qb-phone']:PhoneNotification("CONTACT REQUEST", contactInfo.name..' contact request', 'fas fa-phone', '#b3e0f2', "NONE", 'fas fa-check-circle', 'fas fa-times-circle')
+    if success then
+        TriggerServerEvent('qb-phone:server:acceptContactRequest', contactInfo)
     end
 end)
 
-RegisterNUICallback('RemoveApplication', function(data, cb)
-    TriggerServerEvent('qb-phone:server:RemoveInstallation', data.app)
-    cb("ok")
+RegisterNetEvent('qb-phone:client:updateContactInfo', function(contactInfo)
+    PhoneData.Contacts[#PhoneData.Contacts+1] = {
+        name = contactInfo.name,
+        number = contactInfo.number,
+        iban = 0
+    }
+    SendNUIMessage({
+        action = "RefreshContacts",
+        Contacts = PhoneData.Contacts
+    })
+end)
+
+RegisterNetEvent('qb-phone:RefreshPhone', function()
+    LoadPhone()
+    SetTimeout(250, function()
+        SendNUIMessage({
+            action = "RefreshAlerts",
+            AppData = Config.PhoneApplications,
+        })
+    end)
 end)

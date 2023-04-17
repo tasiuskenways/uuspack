@@ -82,7 +82,7 @@ Config.SpawnAtLastParkinglot = false -- spawn the vehicle at the last parked loc
 Config.GarageNameAsBlipName = true -- if set to true, the blips name will match the garage name
 Config.FuelScript = 'cdn-fuel' -- change to lj-fuel / cdn-fuel if you use lj-fuel / cdn-fuel or something else if you use any other LegcyFuel compatible script
 Config.AllowSpawningFromAnywhere = true -- if set to true, the car can be spawned from anywhere inside the zone on the closest parking lot, if set to false you will have to walk up to a parking lot 
-Config.AutoRespawn = true --True == auto respawn cars that are outside into your garage on script restart, false == does not put them into your garage and players have to go to the impound
+Config.AutoRespawn = false --True == auto respawn cars that are outside into your garage on script restart, false == does not put them into your garage and players have to go to the impound
 Config.WarpPlayerIntoVehicle = false -- True == Will Warp Player Into their vehicle after pulling it out of garage. False It will spawn on the parking lot / in front of them  (Global, can be overriden by each garage)
 Config.HouseParkingDrawText = 'Parking' -- text when driving on to the HOUSE parking lot
 Config.ParkingDistance = 2.0 -- Distance to the parking lot when trying to park the vehicle  (Global, can be overriden by each garage)
@@ -206,120 +206,6 @@ Config.Garages = {
         - plane
         - other
     ]]
-    ['pillboxgarage'] = {
-        ['Zone'] = {
-            ['Shape'] = {
-                vector2(75.48, -576.16),
-                vector2(63.96, -572.52),
-                vector2(55.68, -570.44),
-                vector2(48.57, -568.98),
-                vector2(38.42, -567.4),
-                vector2(31.73, -566.63),
-                vector2(20.83, -566.22),
-                vector2(19.61, -569.19),
-                vector2(15.02, -567.57),
-                vector2(3.76, -598.58),
-                vector2(23.77, -605.67),
-                vector2(7.99, -648.6),
-                vector2(21.81, -653.62),
-                vector2(20.7, -657.82),
-                vector2(32.76, -662.45),
-                vector2(34.63, -661.22),
-                vector2(48.2, -666.25),
-                vector2(78.06, -584.13),
-                vector2(73.72, -582.12),
-            },
-            ['minZ'] = 30.6,  -- min height of the parking zone
-            ['maxZ'] = 32.6,  -- max height of the parking zone
-        },
-        label = 'Lower Power St Parking',
-        showBlip = true,
-        blipcoords = vector3(37.08, -616.99, 34.19),
-        blipName = 'Public Parking',
-        blipNumber = 357,
-        type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(48.46, -600.58, 31.05, 339.83),
-            vector4(45.27, -598.81, 31.05, 337.94),
-            vector4(41.67, -597.67, 31.05, 340.45),
-            vector4(38.56, -596.16, 31.05, 338.12),
-            vector4(34.99, -595.47, 31.05, 340.89),
-            vector4(31.2, -593.92, 31.05, 339.65),
-            vector4(27.64, -592.9, 31.05, 341.86),
-            vector4(7.72, -596.58, 31.05, 251.56),
-            vector4(9.52, -592.97, 31.05, 249.91),
-            vector4(10.79, -589.67, 31.05, 248.15),
-            vector4(11.64, -586.28, 31.05, 250.38),
-            vector4(13.02, -582.73, 31.05, 250.56),
-            vector4(14.43, -579.28, 31.05, 250.48),
-            vector4(15.79, -575.91, 31.05, 250.57),
-            vector4(16.99, -572.2, 31.05, 250.35),
-            vector4(32.27, -579.78, 31.05, 338.59),
-            vector4(36.28, -581.01, 31.05, 342.11),
-            vector4(39.79, -581.82, 31.05, 339.93),
-            vector4(42.7, -583.86, 31.05, 338.52),
-            vector4(46.25, -584.88, 31.05, 343.14),
-            vector4(49.66, -586.2, 31.05, 341.91),
-            vector4(53.64, -586.94, 31.05, 341.75),
-            vector4(57.03, -588.71, 31.05, 340.63),
-            vector4(64.95, -576.19, 31.05, 163.06),
-            vector4(68.08, -577.66, 31.05, 154.95),
-            vector4(72.16, -578.61, 31.05, 155.89),
-            vector4(73.41, -586.19, 31.05, 69.64),
-            vector4(72.48, -589.82, 31.05, 67.8),
-            vector4(70.89, -592.9, 31.05, 68.41),
-            vector4(69.46, -596.76, 31.05, 68.6),
-            vector4(67.89, -600.17, 31.05, 69.91),
-            vector4(67.24, -603.68, 31.05, 67.92),
-            vector4(65.89, -607.19, 31.05, 68.69),
-            vector4(64.22, -611.22, 31.1, 68.4),
-            vector4(54.68, -638.55, 31.09, 246.21),
-            vector4(53.23, -641.75, 31.06, 69.7),
-            vector4(52.06, -645.06, 31.05, 70.13),
-            vector4(50.58, -648.56, 31.05, 67.35),
-            vector4(49.61, -652.33, 31.05, 69.85),
-            vector4(48.33, -655.49, 31.05, 68.67),
-            vector4(47.37, -659.23, 31.05, 69.73),
-            vector4(45.67, -662.47, 31.05, 66.96),
-        }
-    },
-    ['pillboxlowergarage'] = {
-        ['Zone'] = {
-            ['Shape'] = {
-                vector2(352.34439086914, -620.59851074219),
-                vector2(344.32354736328, -636.03747558594),
-                vector2(325.94189453125, -628.93359375),
-                vector2(331.88412475586, -613.10968017578)
-            },
-            ['minZ'] = 28.2,  -- min height of the parking zone
-            ['maxZ'] = 31.30,  -- max height of the parking zone
-        },
-        label = 'Pillbox Lower Parking',
-        showBlip = true,
-        blipcoords = vector3(341.7, -623.33, 29.29),
-        blipName = 'Public Parking',
-        blipNumber = 357,
-        type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(342.07, -632.51, 28.87, 340.17),
-            vector4(338.89, -631.43, 28.87, 341.89),
-            vector4(335.77, -630.04, 28.87, 340.85),
-            vector4(332.61, -628.68, 28.87, 342.74),
-            vector4(329.16, -627.36, 28.87, 341.84),
-            vector4(346.44, -620.82, 28.87, 157.15),
-            vector4(343.13, -619.38, 28.87, 157.56),
-            vector4(339.76, -619.01, 28.87, 157.43),
-            vector4(336.5, -617.88, 28.87, 162.09),
-            vector4(333.34, -616.15, 28.87, 160.22),
-            vector4(269.97, -322.62, 44.5, 248.07),
-        }
-    },
     ['mirrorpark'] = {
         ['Zone'] = {
             ['Shape'] = {
@@ -604,534 +490,6 @@ Config.Garages = {
             vector4(924.0, -89.35, 78.27, 237.62),
         }
     },
-    ['leigonsquarealley'] = {
-        ['Zone'] = {
-            ['Shape'] = {
-                vector2(69.414520263672, -849.34320068359),
-                vector2(59.563220977783, -876.13598632812),
-                vector2(53.812015533447, -873.94421386719),
-                vector2(52.552845001221, -876.92974853516),
-                vector2(58.53719329834, -879.25579833984),
-                vector2(49.19457244873, -904.89520263672),
-                vector2(12.526390075684, -891.47192382812),
-                vector2(32.711112976074, -835.94616699219),
-                vector2(43.370277404785, -840.03533935547),
-                vector2(41.773113250732, -844.49047851562),
-                vector2(44.550273895264, -845.6552734375),
-                vector2(46.358081817627, -841.06768798828)
-            },
-            ['minZ'] = 29.0,
-            ['maxZ'] = 31.10
-        },
-        label = 'Legion Square Parking',
-        showBlip = true,
-        blipcoords = vector3(52.41, -874.53, 30.42),
-        blipName = 'Public Parking',
-        blipNumber = 357,
-        type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(19.23, -880.71, 29.8, 341.54),
-            vector4(22.45, -882.16, 29.79, 340.09),
-            vector4(25.93, -883.46, 29.79, 343.72),
-            vector4(37.8, -887.64, 29.77, 160.81),
-            vector4(40.91, -889.25, 29.75, 160.21),
-            vector4(44.33, -890.22, 29.75, 159.58),
-            vector4(48.14, -890.77, 29.75, 161.49),
-            vector4(51.0, -892.1, 29.74, 158.87),
-            vector4(52.71, -887.68, 29.81, 158.88),
-            vector4(49.66, -885.99, 29.83, 161.45),
-            vector4(45.81, -885.22, 29.83, 161.8),
-            vector4(42.78, -884.27, 29.83, 161.42),
-            vector4(39.63, -883.03, 29.84, 159.02),
-            vector4(27.5, -878.27, 29.87, 160.31),
-            vector4(24.28, -877.02, 29.88, 158.81),
-            vector4(20.96, -876.17, 29.88, 157.99),
-            vector4(25.15, -864.12, 30.08, 161.27),
-            vector4(28.23, -865.24, 30.07, 158.11),
-            vector4(32.0, -866.64, 30.06, 158.96),
-            vector4(44.22, -870.05, 30.05, 159.97),
-            vector4(47.29, -872.04, 30.03, 160.4),
-            vector4(50.56, -873.75, 30.01, 158.52),
-            vector4(60.1, -866.79, 30.13, 159.36),
-            vector4(56.83, -865.6, 30.14, 161.35),
-            vector4(53.77, -864.08, 30.16, 158.58),
-            vector4(50.79, -863.1, 30.16, 159.63),
-            vector4(47.46, -861.17, 30.18, 160.06),
-            vector4(35.2, -857.05, 30.21, 160.46),
-            vector4(31.39, -855.98, 30.22, 163.34),
-            vector4(28.65, -854.67, 30.24, 156.84),
-            vector4(34.44, -839.08, 30.49, 161.56),
-            vector4(37.43, -840.18, 30.48, 159.6),
-            vector4(41.04, -841.14, 30.47, 157.63),
-            vector4(53.89, -846.47, 30.42, 159.93),
-            vector4(56.93, -847.64, 30.41, 162.76),
-            vector4(60.37, -848.47, 30.41, 161.79),
-            vector4(63.44, -850.18, 30.39, 157.81),
-            vector4(236.68, -795.08, 30.08, 66.13),
-            vector4(233.41, -774.07, 30.31, 248.68)
-        }
-    },
-    ['motelgarage'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(266.04238891602, -348.67025756836),
-                vector2(285.89639282227, -356.23840332031),
-                vector2(287.69180297852, -351.80249023438),
-                vector2(294.92953491211, -354.30316162109),
-                vector2(304.30255126953, -329.3703918457),
-                vector2(268.12475585938, -316.15463256836),
-                vector2(261.09896850586, -334.95642089844),
-                vector2(268.07708740234, -337.50454711914),
-                vector2(266.080078125, -343.24353027344),
-                vector2(267.49453735352, -344.12811279297)
-            },
-            ['minZ'] = 43.5,  -- min height of the parking zone
-            ['maxZ'] = 47.15,  -- max height of the parking zone
-        },
-        label = "Motel Parking",
-        showBlip = true,
-        blipcoords = vector3(273.43, -343.99, 44.91),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                -- public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},                --car, air, sea
-        drawText = 'Parking',
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(277.62, -340.01, 44.5, 70.08),
-            vector4(284.0, -342.32, 44.5, 70.09),
-            vector4(278.33, -336.51, 44.49, 70.34),
-            vector4(284.94, -338.87, 44.5, 70.28),
-            vector4(285.3, -335.65, 44.5, 70.49),
-            vector4(286.94, -332.56, 44.5, 67.79),
-            vector4(288.56, -329.41, 44.5, 69.87),
-            vector4(289.54, -325.98, 44.5, 70.81),
-            vector4(300.23, -330.3, 44.5, 69.25),
-            vector4(298.52, -333.09, 44.5, 69.25),
-            vector4(298.66, -337.07, 44.5, 67.98),
-            vector4(297.0, -340.11, 44.49, 69.9),
-            vector4(296.05, -342.85, 44.49, 68.75),
-            vector4(294.61, -346.22, 44.5, 67.07),
-            vector4(292.54, -349.49, 44.52, 68.4),
-            vector4(268.42, -325.58, 44.5, 249.47),
-            vector4(267.58, -329.12, 44.49, 247.62),
-            vector4(266.03, -332.22, 44.5, 247.32),
-            vector4(271.12, -319.16, 44.5, 67.31),
-            vector4(283.0, -323.71, 44.5, 73.83),
-            vector4(281.99, -326.86, 44.5, 69.26),
-            vector4(281.1, -330.43, 44.49, 71.55),
-            vector4(279.59, -333.68, 44.5, 71.98),
-            vector4(269.97, -322.62, 44.5, 248.07),
-        }
-    },
-    ['sapcounsel'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-362.48254394531, -793.2802734375),
-                vector2(-362.46408081055, -730.71594238281),
-                vector2(-360.078125, -727.29187011719),
-                vector2(-359.91299438477, -726.02014160156),
-                vector2(-355.41589355469, -725.94165039062),
-                vector2(-347.00802612305, -729.64282226562),
-                vector2(-312.21273803711, -742.18682861328),
-                vector2(-310.43478393555, -737.13165283203),
-                vector2(-266.06091308594, -753.01647949219),
-                vector2(-275.53680419922, -777.63562011719),
-                vector2(-284.21676635742, -774.40985107422),
-                vector2(-285.57073974609, -778.85809326172),
-                vector2(-287.20227050781, -778.1279296875),
-                vector2(-289.10836791992, -783.76214599609),
-                vector2(-319.63018798828, -772.48706054688),
-                vector2(-335.69149780273, -786.58020019531),
-                vector2(-345.55349731445, -791.60711669922)
-            },
-            ['minZ'] = 33.00,  -- min height of the parking zone
-            ['maxZ'] = 37.60,  -- max height of the parking zone
-        },
-        label = "San Andreas Parking",
-        showBlip = true,
-        blipcoords = vector3(-330.01, -780.33, 33.96),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        debug = false,                 --car, air, sea
-        ['ParkingSpots'] = {
-            vector4(-356.89, -749.29, 33.54, 270.15),
-            vector4(-356.83, -753.66, 33.54, 269.64),
-            vector4(-357.22, -756.74, 33.54, 269.93),
-            vector4(-357.17, -760.01, 33.54, 269.71),
-            vector4(-357.4, -764.54, 33.54, 268.82),
-            vector4(-357.14, -767.51, 33.54, 269.67),
-            vector4(-357.09, -770.59, 33.54, 271.03),
-            vector4(-357.09, -776.02, 33.54, 267.95),
-            vector4(-292.62, -763.17, 33.54, 160.52),
-            vector4(-357.37, -746.23, 33.54, 269.64),
-            vector4(-292.62, -763.17, 33.54, 160.52),
-            vector4(-289.82, -764.25, 33.54, 160.83),
-            vector4(-292.62, -763.17, 33.54, 160.52),
-            vector4(-295.59, -762.4, 33.54, 160.93),
-            vector4(-298.43, -761.45, 33.54, 159.95),
-            vector4(-302.41, -760.02, 33.54, 161.24),
-            vector4(-305.16, -758.37, 33.54, 158.98),
-            vector4(-308.23, -757.98, 33.54, 160.64),
-            vector4(-311.14, -757.03, 33.54, 158.78),
-            vector4(-315.09, -755.34, 33.54, 157.34),
-            vector4(-317.51, -753.39, 33.54, 160.53),
-            vector4(-320.45, -752.5, 33.55, 161.44),
-            vector4(-323.24, -751.76, 33.54, 158.57),
-            vector4(-329.02, -750.3, 33.54, 179.15),
-            vector4(-331.75, -750.26, 33.54, 179.53),
-            vector4(-334.52, -750.73, 33.54, 181.13),
-            vector4(-337.46, -751.25, 33.54, 183.02),
-            vector4(-342.14, -749.82, 33.55, 272.39),
-            vector4(-341.94, -753.53, 33.55, 94.28),
-            vector4(-341.97, -756.82, 33.55, 90.65),
-            vector4(-342.23, -760.49, 33.55, 88.42),
-            vector4(-341.84, -764.1, 33.55, 89.13),
-            vector4(-341.93, -767.36, 33.55, 91.18),
-            vector4(-357.3, -732.9, 33.54, 270.41),
-            vector4(-357.24, -737.63, 33.55, 269.9),
-            vector4(-357.33, -743.24, 33.54, 270.89),
-            vector4(-295.82, -778.26, 33.54, 342.22),
-            vector4(-299.37, -776.74, 33.54, 342.64),
-            vector4(-307.47, -773.5, 33.54, 340.32),
-            vector4(-303.19, -775.79, 33.54, 339.27),
-            vector4(-310.37, -772.78, 33.54, 339.1),
-            vector4(-313.07, -771.64, 33.54, 338.38),
-            vector4(-315.73, -770.26, 33.54, 339.87),
-            vector4(-273.07, -761.54, 33.54, 69.58),
-            vector4(-273.81, -765.05, 33.54, 71.99),
-            vector4(-276.05, -771.7, 33.54, 68.27),
-            vector4(-277.3, -775.37, 33.54, 70.28),
-            vector4(-277.07, -751.83, 33.54, 160.8),
-            vector4(-279.97, -750.75, 33.54, 160.08),
-            vector4(-284.28, -748.9, 33.54, 159.2),
-            vector4(-287.28, -748.29, 33.54, 160.63),
-            vector4(-290.22, -747.64, 33.54, 159.94),
-            vector4(-292.89, -746.25, 33.54, 160.17),
-            vector4(-297.03, -744.69, 33.54, 159.37),
-            vector4(-299.71, -743.7, 33.54, 159.26),
-            vector4(-302.62, -742.8, 33.54, 159.48),
-            vector4(-275.18, -768.22, 33.54, 71.26)
-        }
-    },
-    ['spanishave'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-1135.1311035156, -778.41644287109),
-                vector2(-1114.7188720703, -761.08288574219),
-                vector2(-1142.3354492188, -729.19293212891),
-                vector2(-1161.1352539062, -745.50402832031)
-            },
-            ['minZ'] = 17.69,  -- min height of the parking zone
-            ['maxZ'] = 20.61,  -- max height of the parking zone
-        },
-        label = "Spanish Ave Parking",
-        showBlip = true,
-        blipcoords = vector3(-1160.86, -741.41, 19.63),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false
-    },
-    ['caears24'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(76.188446044922, 7.9120540618896),
-                vector2(81.977760314941, 23.525623321533),
-                vector2(55.219917297363, 32.982769012451),
-                vector2(49.228351593018, 16.684007644653),
-                vector2(68.127639770508, 9.6578321456909),
-                vector2(68.597557067871, 10.655039787292)
-            },
-            ['minZ'] = 68.00,  -- min height of the parking zone
-            ['maxZ'] = 70.45,  -- max height of the parking zone
-        },
-        label = "Caesar 24h Parking",
-        showBlip = true,
-        blipcoords = vector3(69.84, 12.6, 68.96),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(54.49, 19.49, 69.14, 339.68),
-            vector4(57.48, 17.98, 68.92, 340.13),
-            vector4(60.49, 16.99, 68.8, 338.05),
-            vector4(64.03, 16.28, 68.75, 337.71),
-        }
-    },
-    ['caears242'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-480.87042236328, -819.84265136719),
-                vector2(-441.08392333984, -820.39178466797),
-                vector2(-440.29922485352, -795.61010742188),
-                vector2(-450.12713623047, -795.83892822266),
-                vector2(-450.57876586914, -792.54748535156),
-                vector2(-480.38143920898, -792.79217529297)
-            },
-            ['minZ'] = 29.47,  -- min height of the parking zone
-            ['maxZ'] = 32.82,  -- max height of the parking zone
-        },
-        label = "Caesar 24h Parking",
-        showBlip = true,
-        blipcoords = vector3(-475.31, -818.73, 30.46),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(-477.62, -816.44, 30.05, 271.2),
-            vector4(-477.28, -813.29, 30.1, 265.04),
-            vector4(-477.3, -809.77, 30.12, 268.93),
-            vector4(-477.37, -806.7, 30.12, 271.51),
-            vector4(-477.45, -803.55, 30.12, 268.73),
-            vector4(-477.12, -800.59, 30.12, 270.28),
-            vector4(-476.98, -796.99, 30.12, 269.26),
-            vector4(-476.98, -796.99, 30.12, 269.26),
-            vector4(-476.99, -794.09, 30.13, 268.72),
-            vector4(-459.54, -797.15, 30.12, 267.11),
-            vector4(-460.45, -800.21, 30.12, 270.89),
-            vector4(-460.18, -803.33, 30.11, 269.85),
-            vector4(-460.74, -809.84, 30.11, 270.31),
-            vector4(-460.21, -813.14, 30.13, 271.44),
-            vector4(-460.21, -816.42, 30.16, 269.02),
-            vector4(-444.8, -797.5, 30.12, 90.73),
-            vector4(-444.33, -801.16, 30.12, 92.51),
-            vector4(-444.6, -804.72, 30.11, 90.88),
-            vector4(-444.63, -808.75, 30.11, 89.24),
-            vector4(-443.84, -812.02, 30.13, 87.33),
-            vector4(-444.21, -816.02, 30.24, 89.21),
-            vector4(-460.34, -806.46, 30.11, 267.68),
-            vector4(-466.14, -816.36, 30.11, 88.66),
-            vector4(-466.18, -812.98, 30.11, 88.96),
-            vector4(-466.22, -809.72, 30.11, 89.54),
-            vector4(-467.38, -806.99, 30.11, 89.36),
-            vector4(-466.99, -803.3, 30.12, 85.98),
-            vector4(-466.81, -800.55, 30.12, 89.29),
-            vector4(-466.41, -797.08, 30.12, 88.09),
-            vector4(-460.34, -806.46, 30.11, 267.68),
-        }
-    },
-    ['lagunapi'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(358.69207763672, 302.30017089844),
-                vector2(351.44546508789, 277.92486572266),
-                vector2(355.01831054688, 277.03842163086),
-                vector2(353.3766784668, 270.50997924805),
-                vector2(387.72875976562, 257.78961181641),
-                vector2(399.73132324219, 290.71780395508),
-                vector2(364.49926757812, 300.54202270508),
-                vector2(362.70568847656, 295.12139892578),
-                vector2(359.67681884766, 296.56146240234),
-                vector2(361.49871826172, 301.58950805664)
-            },
-            ['minZ'] = 102.00,  -- min height of the parking zone
-            ['maxZ'] = 105.89,  -- max height of the parking zone
-        },
-        label = "Laguna Parking",
-        showBlip = true,
-        blipcoords = vector3(364.37, 297.83, 103.49),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(359.53, 270.99, 102.65, 341.37),
-            vector4(363.59, 269.88, 102.64, 341.77),
-            vector4(368.05, 267.75, 102.62, 337.77),
-            vector4(371.2, 266.77, 102.6, 340.94),
-            vector4(375.32, 265.38, 102.59, 339.29),
-            vector4(379.12, 264.74, 102.59, 337.98),
-            vector4(388.53, 269.67, 102.58, 68.7),
-            vector4(389.17, 272.93, 102.58, 72.26),
-            vector4(391.11, 276.63, 102.57, 69.67),
-            vector4(392.57, 280.58, 102.57, 70.77),
-            vector4(393.81, 283.91, 102.55, 71.82),
-            vector4(390.92, 290.55, 102.58, 163.29),
-            vector4(386.89, 291.62, 102.63, 162.58),
-            vector4(383.07, 292.87, 102.69, 164.08),
-            vector4(379.23, 293.87, 102.77, 162.43),
-            vector4(374.93, 294.49, 102.85, 162.54),
-            vector4(375.86, 274.26, 102.65, 157.86),
-            vector4(371.94, 275.54, 102.71, 158.54),
-            vector4(368.03, 277.26, 102.77, 156.9),
-            vector4(378.84, 281.93, 102.68, 336.98),
-            vector4(375.05, 283.0, 102.75, 339.72),
-            vector4(370.91, 284.66, 102.83, 337.04),
-            vector4(361.12, 293.52, 103.08, 251.69),
-            vector4(359.6, 290.0, 103.08, 249.21),
-            vector4(357.99, 286.45, 103.1, 248.69),
-            vector4(356.98, 283.01, 103.0, 248.05),
-        }
-    },
-    ['airportp'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-779.76104736328, -2023.2966308594),
-                vector2(-775.14440917969, -2019.8140869141),
-                vector2(-767.18334960938, -2012.3591308594),
-                vector2(-760.70989990234, -2004.76171875),
-                vector2(-756.01049804688, -1997.4604492188),
-                vector2(-753.18353271484, -1990.4525146484),
-                vector2(-751.64544677734, -1983.7036132812),
-                vector2(-748.98046875, -1969.5380859375),
-                vector2(-748.11468505859, -1967.5456542969),
-                vector2(-746.72650146484, -1965.5721435547),
-                vector2(-744.23596191406, -1963.4608154297),
-                vector2(-739.22473144531, -1961.9007568359),
-                vector2(-733.59368896484, -1962.0502929688),
-                vector2(-729.30279541016, -1963.3483886719),
-                vector2(-727.666015625, -1964.8414306641),
-                vector2(-725.72021484375, -1966.9916992188),
-                vector2(-714.04919433594, -2019.2927246094),
-                vector2(-710.76025390625, -2032.8103027344),
-                vector2(-707.01336669922, -2040.8115234375),
-                vector2(-704.6533203125, -2044.3029785156),
-                vector2(-703.19024658203, -2045.3291015625),
-                vector2(-701.63171386719, -2045.6253662109),
-                vector2(-699.74157714844, -2045.2917480469),
-                vector2(-687.05395507812, -2039.5653076172),
-                vector2(-685.76708984375, -2038.6518554688),
-                vector2(-684.13092041016, -2036.3044433594),
-                vector2(-672.29400634766, -2041.8348388672),
-                vector2(-670.67193603516, -2043.4077148438),
-                vector2(-665.39947509766, -2046.6591796875),
-                vector2(-657.96466064453, -2048.1787109375),
-                vector2(-655.55963134766, -2048.3508300781),
-                vector2(-651.94177246094, -2047.6011962891),
-                vector2(-649.02130126953, -2046.1932373047),
-                vector2(-633.71252441406, -2030.9672851562),
-                vector2(-631.34783935547, -2030.0726318359),
-                vector2(-628.30303955078, -2030.5014648438),
-                vector2(-616.89349365234, -2042.3790283203),
-                vector2(-616.16394042969, -2045.1605224609),
-                vector2(-617.02777099609, -2047.9118652344),
-                vector2(-648.34002685547, -2079.3305664062),
-                vector2(-652.69281005859, -2082.1706542969),
-                vector2(-658.36376953125, -2083.3293457031),
-                vector2(-671.02252197266, -2082.0708007812),
-                vector2(-676.02673339844, -2082.1984863281),
-                vector2(-684.85815429688, -2084.7019042969),
-                vector2(-695.00408935547, -2087.8937988281),
-                vector2(-701.19207763672, -2088.712890625),
-                vector2(-703.89630126953, -2088.4221191406),
-                vector2(-708.56176757812, -2085.2458496094),
-                vector2(-713.30065917969, -2087.1435546875),
-                vector2(-718.29937744141, -2082.3813476562),
-                vector2(-724.05651855469, -2078.2341308594),
-                vector2(-736.53204345703, -2071.5529785156),
-                vector2(-746.24493408203, -2067.9118652344),
-                vector2(-751.45703125, -2073.4653320312),
-                vector2(-787.72106933594, -2037.2147216797)
-            },
-            ['minZ'] = 8.85,  -- min height of the parking zone
-            ['maxZ'] = 10.10,  -- max height of the parking zone
-        },
-        label = "Airport Parking",
-        showBlip = true,
-        blipcoords = vector3(-796.86, -2024.85, 8.88),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        debug = false
-    },
-    ['beachp'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-1177.4599609375, -1504.8297119141),
-                vector2(-1170.6567382812, -1500.1866455078),
-                vector2(-1167.892578125, -1496.4272460938),
-                vector2(-1167.0075683594, -1491.4938964844),
-                vector2(-1168.083984375, -1487.3162841797),
-                vector2(-1184.8902587891, -1461.9444580078),
-                vector2(-1203.3045654297, -1475.2700195312),
-                vector2(-1202.2609863281, -1476.640625),
-                vector2(-1208.1496582031, -1480.9470214844),
-                vector2(-1207.1524658203, -1483.8693847656),
-                vector2(-1207.7424316406, -1485.8941650391),
-                vector2(-1188.0931396484, -1513.3830566406),
-                vector2(-1185.7036132812, -1511.7416992188),
-                vector2(-1187.1550292969, -1509.7088623047),
-                vector2(-1183.7425537109, -1507.1494140625),
-                vector2(-1182.2048339844, -1508.9814453125)
-            },
-            ['minZ'] = 3.20,  -- min height of the parking zone
-            ['maxZ'] = 6.53,  -- max height of the parking zone
-        },
-        label = "Beach Parking",
-        showBlip = true,
-        blipcoords = vector3(-1183.1, -1511.11, 4.36),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false
-    },
-    ["themotorhotel"] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(1140.2746582031, 2644.5261230469),
-                vector2(1108.8831787109, 2644.2172851562),
-                vector2(1108.5783691406, 2660.1645507812),
-                vector2(1089.9521484375, 2660.1198730469),
-                vector2(1091.3571777344, 2677.4743652344),
-                vector2(1133.5280761719, 2674.8422851562),
-                vector2(1133.7532958984, 2658.8393554688),
-                vector2(1140.4176025391, 2658.8898925781)
-            },
-            ['minZ'] = 36.78,  -- min height of the parking zone
-            ['maxZ'] = 39.74,  -- max height of the parking zone
-        },
-        label = "The Motor Hotel Parking",
-        showBlip = true,
-        blipcoords = vector3(1137.77, 2663.54, 37.9),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false
-    },
-    ['liqourparking'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(934.54669189453, 3604.5546875),
-                vector2(954.29815673828, 3604.1672363281),
-                vector2(954.35180664062, 3626.7893066406),
-                vector2(934.75305175781, 3626.3806152344)
-            },
-            ['minZ'] = 31.5,  -- min height of the parking zone
-            ['maxZ'] = 35.99,  -- max height of the parking zone
-        },
-        label = "Liquor Parking",
-        showBlip = true,
-        blipcoords = vector3(934.95, 3606.59, 32.81),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false
-    },
     ['haanparking'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
@@ -1177,111 +535,6 @@ Config.Garages = {
         drawText = 'Parking',                 --car, air, sea
         debug = false
     },
-    ['legionsquare'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(239.88751220703, -820.52038574219),
-                vector2(252.71513366699, -784.91027832031),
-                vector2(258.39483642578, -786.82489013672),
-                vector2(264.27755737305, -769.99841308594),
-                vector2(218.69738769531, -754.69787597656),
-                vector2(200.07238769531, -805.74285888672)
-            },
-            ['minZ'] = 29.07,  -- min height of the parking zone
-            ['maxZ'] = 40.0,  -- max height of the parking zone
-        },
-        label = "Legion Square Parking",
-        showBlip = true,
-        blipcoords = vector3(215.9499, -809.698, 30.731),
-        blipName = "Public Parking",
-        blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(219.38, -765.95, 30.41, 247.04),
-            vector4(218.07, -768.47, 30.41, 248.86),
-            vector4(216.93, -770.89, 30.42, 249.93),
-            vector4(216.35, -773.48, 30.43, 249.43),
-            vector4(215.02, -775.62, 30.44, 252.59),
-            vector4(214.22, -778.6, 30.45, 247.99),
-            vector4(213.67, -780.92, 30.45, 248.98),
-            vector4(212.9, -783.52, 30.46, 249.01),
-            vector4(210.97, -785.75, 30.5, 250.38),
-            vector4(210.35, -788.41, 30.51, 249.85),
-            vector4(209.74, -790.91, 30.51, 248.14),
-            vector4(209.21, -793.47, 30.52, 249.87),
-            vector4(207.96, -795.82, 30.55, 248.81),
-            vector4(206.91, -798.68, 30.57, 248.97),
-            vector4(205.45, -800.74, 30.6, 249.38),
-            vector4(234.07, -771.23, 30.33, 249.64),
-            vector4(232.09, -776.31, 30.3, 248.31),
-            vector4(230.94, -778.87, 30.29, 248.97),
-            vector4(230.7, -781.41, 30.28, 250.6),
-            vector4(229.02, -783.81, 30.28, 250.06),
-            vector4(227.64, -789.2, 30.26, 247.99),
-            vector4(226.28, -791.42, 30.26, 248.95),
-            vector4(225.72, -794.21, 30.24, 249.28),
-            vector4(224.66, -796.59, 30.24, 247.01),
-            vector4(223.2, -798.92, 30.25, 248.79),
-            vector4(222.61, -801.4, 30.25, 248.1),
-            vector4(221.77, -804.1, 30.26, 245.92),
-            vector4(221.6, -806.74, 30.25, 247.77),
-            vector4(219.83, -808.89, 30.26, 251.3),
-            vector4(228.63, -768.88, 30.36, 69.31),
-            vector4(227.76, -771.74, 30.35, 71.5),
-            vector4(226.39, -773.88, 30.35, 68.62),
-            vector4(225.43, -776.69, 30.35, 69.02),
-            vector4(224.35, -778.81, 30.34, 64.93),
-            vector4(224.25, -781.78, 30.33, 70.11),
-            vector4(222.81, -784.16, 30.34, 72.1),
-            vector4(221.16, -786.48, 30.35, 68.66),
-            vector4(221.04, -789.3, 30.34, 68.07),
-            vector4(219.76, -791.48, 30.34, 70.29),
-            vector4(218.97, -794.38, 30.34, 68.04),
-            vector4(218.34, -796.97, 30.34, 66.59),
-            vector4(217.56, -799.45, 30.35, 69.51),
-            vector4(216.23, -801.69, 30.37, 70.17),
-            vector4(215.69, -804.56, 30.38, 68.56),
-            vector4(228.66, -786.48, 30.27, 248.6),
-            vector4(233.41, -774.07, 30.31, 248.68),
-            vector4(236.32, -812.55, 29.88, 248.26),
-            vector4(237.41, -809.93, 29.89, 244.26),
-            vector4(238.45, -807.4, 29.9, 244.04),
-            vector4(238.94, -804.82, 29.93, 248.53),
-            vector4(240.36, -802.39, 29.94, 246.63),
-            vector4(241.52, -799.87, 29.96, 245.68),
-            vector4(242.03, -797.37, 29.98, 246.08),
-            vector4(243.06, -794.79, 30.01, 249.35),
-            vector4(244.27, -792.42, 30.03, 247.07),
-            vector4(245.14, -789.87, 30.06, 247.13),
-            vector4(246.18, -787.38, 30.08, 248.58),
-            vector4(246.61, -784.52, 30.12, 248.32),
-            vector4(248.17, -782.46, 30.14, 248.95),
-            vector4(249.12, -779.63, 30.18, 249.01),
-            vector4(249.32, -776.78, 30.22, 247.42),
-            vector4(250.19, -774.3, 30.26, 248.86),
-            vector4(244.75, -772.24, 30.29, 69.17),
-            vector4(228.66, -786.48, 30.27, 248.6),
-            vector4(233.41, -774.07, 30.31, 248.68),
-            vector4(231.42, -810.44, 30.01, 70.18),
-            vector4(231.62, -807.79, 30.03, 68.27),
-            vector4(232.96, -805.51, 30.02, 66.62),
-            vector4(234.88, -803.0, 30.02, 69.62),
-            vector4(235.38, -800.43, 30.04, 68.23),
-            vector4(236.58, -797.83, 30.05, 69.89),
-            vector4(236.68, -795.08, 30.08, 66.13),
-            vector4(237.88, -792.75, 30.08, 66.76),
-            vector4(238.84, -790.11, 30.11, 68.34),
-            vector4(240.15, -787.59, 30.13, 67.55),
-            vector4(241.01, -785.27, 30.15, 69.84),
-            vector4(244.51, -775.07, 30.26, 70.7),
-            vector4(243.65, -777.69, 30.22, 67.25),
-            vector4(242.44, -779.84, 30.2, 68.04),
-            vector4(241.32, -782.41, 30.18, 69.19),
-        }
-    },
     ['impoundlot'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
@@ -1319,18 +572,25 @@ Config.Garages = {
     ['police'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(427.85052490234, -1017.9293212891),
-                vector2(428.14498901367, -1030.7161865234),
-                vector2(459.05325317383, -1026.896484375),
-                vector2(459.12948608398, -1012.3634033203),
-                vector2(449.7737121582, -1012.4426879883),
-                vector2(449.38006591797, -1011.4791870117),
-                vector2(434.09115600586, -1011.4317016602),
-                vector2(434.05737304688, -1013.9020996094),
-                vector2(427.95745849609, -1013.9678344727)
+            vector2(424.04116821289, -996.57763671875),
+            vector2(424.06527709961, -989.26031494141),
+            vector2(425.71801757812, -989.09265136719),
+            vector2(425.81674194336, -976.69262695312),
+            vector2(435.88687133789, -976.69598388672),
+            vector2(435.67416381836, -988.36956787109),
+            vector2(460.57388305664, -988.056640625),
+            vector2(460.57315063477, -994.22918701172),
+            vector2(469.37850952148, -994.19567871094),
+            vector2(469.57803344727, -996.009765625),
+            vector2(475.79782104492, -996.11297607422),
+            vector2(475.79791259766, -1003.6975708008),
+            vector2(464.75442504883, -1003.6976318359),
+            vector2(463.52410888672, -998.36700439453),
+            vector2(454.23962402344, -998.45220947266),
+            vector2(454.173828125, -996.06066894531)
             },
-            ['minZ'] = 28.10,  -- min height of the parking zone
-            ['maxZ'] = 30.97,  -- max height of the parking zone
+            ['minZ'] = 22.10,  -- min height of the parking zone
+            ['maxZ'] = 26.97,  -- max height of the parking zone
         },
         label = "Police",
         showBlip = false,
@@ -1342,66 +602,18 @@ Config.Garages = {
         job = "police",
         debug = false,
         ['ParkingSpots'] = {
-            vector4(449.57, -1024.85, 28.06, 5.95),
-            vector4(446.04, -1025.62, 28.14, 5.18),
-            vector4(442.53, -1025.66, 28.2, 6.39),
-            vector4(438.8, -1025.99, 28.27, 7.28),
-            vector4(435.41, -1026.74, 28.35, 3.84),
+            vector4(426.36, -994.33, 24.79, 268.43),
+            vector4(426.37, -990.75, 24.79, 271.62),
+            vector4(427.25, -979.47, 24.79, 178.97),
+            vector4(430.76, -979.64, 24.79, 180.23),
+            vector4(434.53, -979.37, 24.79, 180.29),
+            vector4(439.53, -989.33, 24.79, 88.3),
+            vector4(445.22, -989.38, 24.79, 89.52),
+            vector4(451.53, -989.44, 24.79, 89.51),
+            vector4(457.67, -989.49, 24.79, 89.5),
+            vector4(473.43, -997.85, 24.79, 89.24),
+            vector4(472.7, -1001.74, 24.79, 89.56)
         }
-    },
-    ['policevinewood'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(635.9017944336, 22.776243209838),
-                vector2(631.24255371094, 20.99640083313),
-                vector2(577.78063964844, 37.087455749512),
-                vector2(575.10681152344, 41.017986297608),
-                vector2(593.0210571289, 39.446407318116)
-            },
-            ['minZ'] = 86.00,  -- min height of the parking zone
-            ['maxZ'] = 98.0,  -- max height of the parking zone
-        },
-        label = "Vinewood Police Station",
-        showBlip = false,
-        blipName = "Police",
-        blipNumber = 357,
-        type = 'job',                --public, job, gang, depot
-        vehicleCategories = {'emergency'},
-        drawText = 'Parking',              --car, air, sea
-        job = "police",
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(581.11, 38.73, 92.21, 265.09),
-            vector4(586.74, 37.68, 91.64, 260.63),
-            vector4(591.54, 36.7, 91.16, 256.37),
-            vector4(597.57, 34.71, 90.54, 250.52),
-            vector4(604.28, 32.61, 89.86, 251.49),
-            vector4(609.33, 30.9, 89.33, 251.35),
-            vector4(613.83, 29.36, 88.87, 251.19),
-            vector4(619.65, 27.35, 88.26, 250.98),
-            vector4(627.16, 24.64, 87.48, 247.88)
-        }
-    },
-    ['mechanic'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-321.17425537109, -166.47213745117),
-                vector2(-335.71780395508, -160.89682006836),
-                vector2(-330.77108764648, -147.37300109863),
-                vector2(-323.12185668945, -150.04736328125),
-                vector2(-322.16271972656, -148.189453125),
-                vector2(-315.29968261719, -150.44552612305)
-            },
-            ['minZ'] = 36.15,  -- min height of the parking zone
-            ['maxZ'] = 38.22,  -- max height of the parking zone
-            debug = false,
-        },
-        label = 'LS Customs',
-        type = 'job',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        job = 'mechanic',
-        debug = false
     },
     ['apartments'] = {
         ['Zone'] = {
@@ -1422,6 +634,10 @@ Config.Garages = {
 
         },
         label = 'Alta Apartments',
+        showBlip = true,
+        blipcoords = vector3(-330.57, -970.2, 31.08),
+        blipName = "Public Parking",
+        blipNumber = 357,
         type = 'public',
         vehicleCategories = {'car', 'motorcycle', 'other'},
         drawText = 'Parking',
@@ -1541,277 +757,144 @@ Config.Garages = {
         debug = false
 
     },
-    ['cityhall'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-            vector2(-475.55926513672, -222.67430114746),
-            vector2(-472.03475952148, -220.5464630127),
-            vector2(-498.85870361328, -173.8444366455),
-            vector2(-502.67169189454, -175.96449279786),
-            },
-            ['minZ'] = 35.0,  -- min height of the parking zone
-            ['maxZ'] = 39.0,  -- max height of the parking zone
-        },
-        label = 'City Hall Parking',
-        type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
-        ["ParkingSpots"] = {
-            vector4(-475.26, -219.26, 36.05, 30.12),
-            vector4(-478.26, -214.06, 36.21, 30.11),
-            vector4(-481.41, -208.59, 36.37, 30.32),
-            vector4(-484.34, -203.49, 36.52, 30.67),
-            vector4(-487.17, -198.51, 36.67, 30.37),
-            vector4(-490.26, -193.18, 36.83, 29.72),
-            vector4(-493.21, -187.98, 36.99, 29.64),
-            vector4(-496.19, -182.75, 37.14, 29.96),
-            vector4(-499.21, -177.5, 37.3, 30.1),
-        },
-        debug = false
-    },
-    ['pdfront'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-            vector2(405.13595581054, -998.57788085938),
-            vector2(410.59521484375, -1002.8664550782),
-            vector2(410.91711425782, -979.44134521484),
-            vector2(405.4065246582, -974.57928466796),
-            },
-            ['minZ'] = 28.0,  -- min height of the parking zone
-            ['maxZ'] = 31.0,  -- max height of the parking zone
-
-        },
-        label = 'Front of MRPD',
-        type = 'job',
-        job = "police",
-        vehicleCategories = {'emergency'},
-        drawText = 'Parking',
-        ["ParkingSpots"] = {
-            vector4(407.44, -997.7, 28.94, 52.87),
-            vector4(407.55, -992.85, 28.94, 51.63),
-            vector4(407.7, -988.49, 28.94, 52.48),
-            vector4(407.42, -983.95, 28.94, 51.54),
-            vector4(407.68, -979.62, 28.94, 51.69),
-        },
-        debug = false
-    },
     ['pdgarage'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-               	vector2(448.33670043945, -998.80895996094),
-                vector2(423.15826416016, -998.98077392578),
-                vector2(423.48205566406, -973.94946289063),
-                vector2(428.74041748047, -974.35272216797),
-                vector2(428.564453125, -984.02642822266),
-                vector2(448.21347045898, -983.94213867188),
+            vector2(431.99456787109, -1030.3159179688),
+            vector2(429.21585083008, -1011.6477661133),
+            vector2(459.07495117188, -1012.0342407227),
+            vector2(459.05596923828, -1026.5767822266)
             },
-            ['minZ'] = 24.0,  -- min height of the parking zone
-            ['maxZ'] = 27.0,  -- max height of the parking zone
+            ['minZ'] = 26.0,  -- min height of the parking zone
+            ['maxZ'] = 30.0,  -- max height of the parking zone
         },
         label = 'MRPD Garage',
         type = 'job',
         job = "police",
         --useVehicleSpawner = false,
         --jobGarageIdentifier = 'pd1',
-        vehicleCategories = {'emergency'},
+        vehicleCategories = {'emergency', 'car', 'motorcycle', 'other'},
         drawText = 'Parking',
         ["ParkingSpots"] = {
-            vector4(445.67, -997.0, 24.81, 269.98),
-            vector4(445.83, -994.31, 25.21, 267.42),
-            vector4(445.53, -991.53, 25.21, 269.55),
-            vector4(445.51, -988.84, 25.21, 269.43),
-            vector4(445.55, -986.12, 25.21, 270.71),
-            vector4(437.35, -986.1, 25.21, 89.31),
-            vector4(437.27, -988.86, 25.21, 90.05),
-            vector4(437.32, -991.57, 25.21, 90.47),
-            vector4(437.3, -994.26, 25.21, 90.38),
-            vector4(437.31, -996.97, 25.21, 90.1),
-            vector4(425.76, -997.07, 25.21, 270.57),
-            vector4(425.72, -994.41, 25.21, 269.31),
-            vector4(425.72, -991.68, 25.21, 269.53),
-            vector4(425.69, -989.03, 25.21, 270.22),
-            vector4(425.69, -984.26, 25.21, 269.65),
-            vector4(425.67, -981.55, 25.21, 269.33),
-            vector4(425.68, -978.88, 25.21, 269.76),
-            vector4(425.68, -976.24, 25.21, 270.49),
+            vector4(445.88, -1020.02, 28.2, 93.17)
         },
         debug = false
-    },
-    ['helipad'] = {
+    },    
+    ['pillbox_hospital'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-757.8896484375, -1469.876953125),
-                vector2(-744.54223632812, -1480.4110107422),
-                vector2(-733.07989501954, -1467.4460449218),
-                vector2(-746.4605102539, -1456.0607910156)
+            vector2(285.91815185547, -617.24877929688),
+            vector2(292.50628662109, -598.53607177734),
+            vector2(303.13314819336, -602.99102783203),
+            vector2(295.79602050781, -617.80078125),
+            vector2(290.91641235352, -616.05999755859),
+            vector2(289.79968261719, -618.69445800781)
             },
-            ['minZ'] = 4.0,  -- min height of the parking zone
-            ['maxZ'] = 8.0,  -- max height of the parking zone
+            ['minZ'] = 40.261405944824,  -- min height of the parking zone
+            ['maxZ'] = 45.35277557373,  -- max height of the parking zone
+
         },
-        label = 'Helipad',
+        label = 'Pillbox Hospital',
         type = 'public',
-        vehicleCategories = {'helicopter'},
-        drawText = 'Helipad',
-        showBlip = true,
-        blipName = "Helipad",
-        blipNumber = 64,
-        blipColor = 50,
-        blipcoords = vector3(-745.61, -1468.57, 4.37),
+        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        drawText = 'Parking',
         ["ParkingSpots"] = {
-            vector4(-745.53, -1468.68, 5.0, 321.19)
+            vector4(296.01, -610.95, 42.91, 69.3),
+            vector4(297.09, -608.15, 42.92, 69.88),
+            vector4(298.17, -605.33, 42.9, 67.62),
+            vector4(299.36, -602.59, 42.87, 68.68)
         },
-        ParkingDistance = 10.0,
         debug = false
+
     },
-    ['shoreheli'] = {
+    ['mechanic'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(1774.4047851562, 3246.9484863281),
-                vector2(1762.30859375, 3244.3928222656),
-                vector2(1765.3605957031, 3231.908203125),
-                vector2(1777.5689697266, 3235.4580078125)
+            vector2(846.28271484375, -2107.2751464844),
+            vector2(847.32403564453, -2096.1076660156),
+            vector2(858.75408935547, -2097.4619140625),
+            vector2(855.53039550781, -2132.5942382812),
+            vector2(844.02380371094, -2132.494140625)
             },
-            ['minZ'] = 40.0,  -- min height of the parking zone
-            ['maxZ'] = 46.0,  -- max height of the parking zone
-        },
-        label = 'Sandy Shores Helipad',
-        type = 'public',
-        vehicleCategories = {'helicopter'},
-        drawText = 'Sandy Shores Helipad',
-        showBlip = true,
-        blipName = 'Helipad',
-        blipNumber = 64,
-        blipColor = 50,
-        blipcoords = vector3(1769.62, 3240.14, 42.01),
-        ['ParkingSpots'] = {
-            vector4(1769.62, 3240.14, 42.01, 60.44),
-        },
-        ParkingDistance = 100.0,
-        debug = false
-    },
-    ['airdepot'] = {
-        ['Zone'] = {
-            ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-1235.3253173828, -3378.4008789062),
-                vector2(-1284.2642822266, -3350.1474609375),
-                vector2(-1284.5589599609, -3350.7241210938),
-                vector2(-1289.5042724609, -3348.0512695312),
-                vector2(-1308.7587890625, -3382.4091796875),
-                vector2(-1307.0877685547, -3383.8776855469),
-                vector2(-1307.6185302734, -3385.4577636719),
-                vector2(-1306.0087890625, -3386.4213867188),
-                vector2(-1308.2755126953, -3391.1662597656),
-                vector2(-1306.2180175781, -3392.1394042969),
-                vector2(-1264.1188964844, -3420.0451660156),
-                vector2(-1258.6077880859, -3412.1069335938),
-                vector2(-1258.1317138672, -3412.4846191406),
-                vector2(-1237.5152587891, -3387.8581542969),
-                vector2(-1236.4268798828, -3387.1162109375),
-                vector2(-1233.0942382812, -3380.8115234375),
-                vector2(-1233.4357910156, -3380.13671875),
-                vector2(-1235.1755371094, -3379.1962890625)
-            },
-            ['minZ'] = 12.00,  -- min height of the parking zone
-            ['maxZ'] = 20.0,  -- max height of the parking zone
-        },
-        label = 'Air Depot',
-        type = 'depot',
-        vehicleCategories = {'helicopter', 'plane'},
-        drawText = 'AIR DEPOT',
-        showBlip = true,
-        blipName = 'Air Depot',
-        blipNumber = 569,
-        blipColor = 33,
-        blipcoords = vector3(-1274.34, -3385.97, 13.94),
-        ParkingDistance = 200.0,
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(-1286.09, -3363.24, 14.54, 275.59),
-            vector4(-1292.65, -3383.11, 14.54, 280.17),
-            vector4(-1252.97, -3385.7, 14.54, 11.75),
-            vector4(-1268.63, -3402.56, 14.54, 14.72),
-            vector4(-1280.83, -3395.7, 14.54, 330.47),
+            ['minZ'] = 28.0,  -- min height of the parking zone
+            ['maxZ'] = 32.0,  -- max height of the parking zone
 
         },
-    },
-    ['boathouse1'] = {
-        ['Zone'] = {
-            ['Shape'] = {
-                vector2(-778.9291381836, -1513.3040771484),
-                vector2(-803.83276367188, -1521.1665039062),
-                vector2(-816.67852783204, -1493.2373046875),
-                vector2(-791.34436035156, -1481.7546386718)
-            },
-            ['minZ'] = 0.00,
-            ['maxZ'] = 5.00
-        },
-        label = 'Boat House',
+        label = 'Mechanic',
         type = 'public',
-        vehicleCategories = {'boat'},
-        drawText = 'BOAT HOUSE',
-        showBlip = true,
-        blipName = 'Boat House',
-        blipNumber = 427,
-        blipColor = 15,
-        blipcoords = vector3(-784.84, -1498.33, 0.2),
-        ParkingDistance = 20.0,
-        SpawnDistance = 10.0,
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(-798.39, -1499.15, 0.37, 109.87),
-            vector4(-797.47, -1506.73, 0.3, 114.49),
+        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        drawText = 'Parking',
+        ["ParkingSpots"] = {
+            vector4(850.2, -2105.33, 30.18, 267.88),
+            vector4(849.99, -2101.88, 30.17, 264.45),
+            vector4(850.03, -2098.27, 30.19, 264.68),
+            vector4(849.15, -2116.51, 30.19, 264.92),
+            vector4(848.67, -2119.68, 30.19, 266.52),
+            vector4(848.49, -2123.09, 30.19, 266.61),
+            vector4(848.25, -2126.75, 30.19, 262.87),
+            vector4(847.59, -2130.17, 30.19, 265.61)
         },
-        ExitWarpLocations = {
-            vector3(-807.15, -1496.86, 1.6),
-            vector3(-800.17, -1494.87, 1.6),
-            vector3(-792.92, -1492.18, 1.6),
-            vector3(-787.58, -1508.59, 1.6),
-            vector3(-794.89, -1511.16, 1.6),
-            vector3(-800.21, -1513.05, 1.6),
-        },
+        debug = false
+
     },
-    ['intairport'] = {
+    ['rs_kanpol_ss'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-992.59680175781, -2949.84375),
-                vector2(-1030.8975830078, -3016.2927246094),
-                vector2(-1030.3382568359, -3016.5925292969),
-                vector2(-1029.6291503906, -3017.0434570312),
-                vector2(-1028.7434082031, -3018.0705566406),
-                vector2(-1022.2585449219, -3021.5798339844),
-                vector2(-1021.3436279297, -3020.5522460938),
-                vector2(-1016.1632080078, -3023.6635742188),
-                vector2(-1016.3262329102, -3024.7385253906),
-                vector2(-966.09301757812, -3052.3435058594),
-                vector2(-965.42352294922, -3051.1135253906),
-                vector2(-961.01477050781, -3052.7600097656),
-                vector2(-923.76300048828, -2978.2124023438)
+            vector2(1868.2653808594, 3687.4372558594),
+            vector2(1872.0260009766, 3680.5764160156),
+            vector2(1820.9058837891, 3650.0981445312),
+            vector2(1816.3238525391, 3657.8671875)
             },
-            ['minZ'] = 12.00,  -- min height of the parking zone
-            ['maxZ'] = 20.0,  -- max height of the parking zone
-        },
-        label = 'Airport Hangar',
-        type = 'public',
-        vehicleCategories = {'helicopter', 'plane'},
-        drawText = 'Airport Hangar',
-        showBlip = true,
-        blipName = 'Hangar',
-        blipNumber = 359,
-        blipColor = 50,
-        blipcoords = vector3(-930.23, -2995.38, 19.85),
-        ParkingDistance = 100.0,
-        SpawnDistance = 100.0,
-        debug = false,
-        ['ParkingSpots'] = {
-            vector4(-985.04, -2965.05, 14.55, 128.92),
-            vector4(-964.84, -2974.78, 14.55, 125.92),
-            vector4(-945.49, -2985.63, 14.55, 117.77),
-            vector4(-967.17, -3034.71, 14.55, 14.16),
-            vector4(-990.13, -3022.86, 14.55, 15.42),
-            vector4(-1010.91, -3012.56, 14.55, 2.31),
-            vector4(-968.09, -3004.59, 14.55, 62.25)
-        },
+            ['minZ'] = 31.0,  -- min height of the parking zone
+            ['maxZ'] = 35.0,  -- max height of the parking zone
 
+        },
+        label = 'Shandy PDHS',
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        drawText = 'Parking',
+        ["ParkingSpots"] = {
+            vector4(1819.31, 3654.84, 33.79, 209.71),
+            vector4(1821.9, 3657.35, 33.7, 208.01),
+            vector4(1825.46, 3658.88, 33.64, 210.09),
+            vector4(1828.77, 3660.83, 33.55, 210.01),
+            vector4(1831.64, 3663.09, 33.51, 209.18),
+            vector4(1835.19, 3664.66, 33.4, 211.6),
+            vector4(1847.58, 3671.62, 33.35, 208.64),
+            vector4(1850.69, 3674.33, 33.41, 208.15),
+            vector4(1853.77, 3675.79, 33.4, 208.77),
+            vector4(1862.63, 3680.83, 33.36, 211.17),
+            vector4(1866.83, 3683.18, 33.36, 211.54)
+        },
+        debug = false
+    },
+    ['paletopd'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+            vector2(-450.36346435547, 6041.3549804688),
+            vector2(-478.63851928711, 6014.708984375),
+            vector2(-488.33721923828, 6024.4287109375),
+            vector2(-460.89953613281, 6051.8676757812)
+            },
+            ['minZ'] = 31.0,  -- min height of the parking zone
+            ['maxZ'] = 35.0,  -- max height of the parking zone
+
+        },
+        label = 'Paleto PD',
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        drawText = 'Parking',
+        ["ParkingSpots"] = {
+            vector4(-482.28, 6024.05, 30.99, 223.32),
+            vector4(-478.98, 6027.44, 30.99, 227.24),
+            vector4(-476.08, 6031.86, 30.99, 219.66),
+            vector4(-472.12, 6034.91, 30.99, 228.61),
+            vector4(-468.66, 6038.84, 30.99, 222.56),
+            vector4(-461.04, 6047.23, 30.99, 135.59),
+            vector4(-457.76, 6044.18, 30.99, 133.58),
+            vector4(-454.76, 6040.62, 30.99, 135.94)
+        },
+        debug = false
     },
 }
 

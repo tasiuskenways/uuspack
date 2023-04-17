@@ -1,7 +1,7 @@
 Config = {}
 Config.FuelDebug = false -- Used for debugging, although there are not many areas in yet (Default: false) + Enables Setfuel Commands (0, 50, 100). 
 Config.PolyDebug = false -- Enables Polyzone Debugging to see PolyZones!
-Config.ShowNearestGasStationOnly = true -- When enabled, only the nearest gas stations will be shown on the map.
+Config.ShowNearestGasStationOnly = false -- When enabled, only the nearest gas stations will be shown on the map.
 Config.LeaveEngineRunning = true -- When true, the vehicle's engine will be left running upon exit if the player *HOLDS* F.
 Config.VehicleBlowUp = true -- When true, there will be a configurable chance of the vehicle blowing up, if you fuel while the engine is on.
 Config.BlowUpChance = 5 -- Percentage for Chance of Engine Explosion (Default: 5% or 5)
@@ -53,7 +53,7 @@ Config.VehicleShutoffOnLowFuel = { -- If enabled, vehicles will turn off when th
 -- 2.1.0 End
 
 -- Phone --
-Config.RenewedPhonePayment = false -- Enables use of Renewed-Phone Payment System and Notifications
+Config.RenewedPhonePayment = true -- Enables use of Renewed-Phone Payment System and Notifications
 Config.NPWD = false -- Enables phone notifications for New-Phone-Who-Dis.
 
 -- Syphoning --
@@ -717,7 +717,7 @@ Config.AirAndWaterVehicleFueling = {
                 ['model'] = 'prop_gas_pump_1c',
                 ['coords'] = vector4(827.55, -1378.57, 36.67, 1.11)
             }
-        }
+        },
     },
     ['refuel_button'] = 47, -- "G" Button for Draw Text.
     ['nozzle_length'] = 20.0, -- The max distance you can go from the "Special Pump" before the nozzle in returned to the pump.

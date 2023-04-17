@@ -75,7 +75,7 @@ Config.Density = {
 }
 
 Config.Stun = {
-    active = false,
+    active = true,
     min = 4000,
     max = 7000
 }
@@ -219,6 +219,7 @@ Config.BlacklistedVehs = {
     [`deluxo`] = true,
     [`cargoplane2`] = true,
     [`voltic2`] = true,
+    [`policeb`] = true,
 }
 
 Config.BlacklistedPeds = {
@@ -285,7 +286,7 @@ Config.Teleports = {
         --     label = 'be sure to label all sections if more than 2'
         -- },
     },
-    --MRPD
+    -- MRPD
     [2] = {
         [1] = {
             ['poly'] = {

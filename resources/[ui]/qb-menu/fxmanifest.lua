@@ -10,7 +10,6 @@ ui_page 'html/index.html'
 
 files {
     'html/index.html',
-    'html/*.mp3',
     'html/script.js',
     'html/style.css'
 }

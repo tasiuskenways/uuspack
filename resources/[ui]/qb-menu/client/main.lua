@@ -1,17 +1,16 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-
 local headerShown = false
 local sendData = nil
 
 -- Functions
 local function openMenu(data)
     if not data or not next(data) then return end
-	for _,v in pairs(data) do
+	for k,v in pairs(data) do 
 		if v["icon"] then
-			local img = "qb-inventory/html/"
+			local img = "lj-inventory/html/"
 			if QBCore.Shared.Items[tostring(v["icon"])] then
-				if not string.find(QBCore.Shared.Items[tostring(v["icon"])].image, "images/") then
+				if not string.find(QBCore.Shared.Items[tostring(v["icon"])].image, "images/") then 
 					img = img.."images/"
 				end
 				v["icon"] = img..QBCore.Shared.Items[tostring(v["icon"])].image
@@ -58,7 +57,7 @@ end)
 
 -- NUI Callbacks
 
-RegisterNUICallback('clickedButton', function(option, cb)
+RegisterNUICallback('clickedButton', function(option)
     if headerShown then headerShown = false end
     PlaySoundFrontend(-1, 'Highlight_Cancel', 'DLC_HEIST_PLANNING_BOARD_SOUNDS', 1)
     SetNuiFocus(false)
@@ -81,14 +80,12 @@ RegisterNUICallback('clickedButton', function(option, cb)
             end
         end
     end
-    cb('ok')
 end)
 
-RegisterNUICallback('closeMenu', function(_, cb)
+RegisterNUICallback('closeMenu', function()
     headerShown = false
     sendData = nil
     SetNuiFocus(false)
-    cb('ok')
 end)
 
 -- Command and Keymapping
@@ -106,36 +103,3 @@ RegisterKeyMapping('playerFocus', 'Give Menu Focus', 'keyboard', 'LMENU')
 exports('openMenu', openMenu)
 exports('closeMenu', closeMenu)
 exports('showHeader', showHeader)
-
-
--- RegisterCommand("qbmenutest", function(source, args, raw)
---     openMenu({
---         {
---             header = "Main Title",
---             isMenuHeader = true, -- Set to true to make a nonclickable title
---         },
---         {
---             header = "Sub Menu Button",
---             txt = "This goes to a sub menu",
---             url = "https://media.discordapp.net/attachments/778996974497431563/883441553366978640/unknown.png",
---             params = {
---                 event = "qb-menu:client:testMenu2",
---                 args = {
---                     number = 1,
---                 }
---             }
---         },
---         {
---             header = "Sub Menu Button",
---             txt = "This goes to a sub menu",
---             disabled = true,
---             -- hidden = true, -- doesnt create this at all if set to true
---             params = {
---                 event = "qb-menu:client:testMenu2",
---                 args = {
---                     number = 1,
---                 }
---             }
---         },
---     })
--- end)

@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `apartments` (
   KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.apartments: ~1 rows (approximately)
+-- Dumping data for table uuspack.apartments: ~0 rows (approximately)
 REPLACE INTO `apartments` (`id`, `name`, `type`, `label`, `citizenid`) VALUES
 	(5, 'apartment38816', 'apartment1', 'Alta Street', 'OSB60946');
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `bank_cards` (
   KEY `record_id` (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table uuspack.bank_cards: ~1 rows (approximately)
+-- Dumping data for table uuspack.bank_cards: ~0 rows (approximately)
 REPLACE INTO `bank_cards` (`record_id`, `citizenid`, `cardNumber`, `cardPin`, `cardActive`, `cardLocked`, `cardType`) VALUES
 	(1, 'OSB60946', '5698001533673539', '1125', 1, 0, 'visa');
 
@@ -117,9 +117,9 @@ CREATE TABLE IF NOT EXISTS `crypto` (
   PRIMARY KEY (`crypto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.crypto: ~1 rows (approximately)
+-- Dumping data for table uuspack.crypto: ~0 rows (approximately)
 REPLACE INTO `crypto` (`crypto`, `worth`, `history`) VALUES
-	('qbit', 985, '[{"PreviousWorth":986,"NewWorth":980},{"PreviousWorth":986,"NewWorth":980},{"PreviousWorth":986,"NewWorth":980},{"PreviousWorth":980,"NewWorth":985}]');
+	('qbit', 1031, '[{"PreviousWorth":1038,"NewWorth":1030},{"PreviousWorth":1038,"NewWorth":1030},{"PreviousWorth":1038,"NewWorth":1030},{"PreviousWorth":1030,"NewWorth":1031}]');
 
 -- Dumping structure for table uuspack.crypto_transactions
 CREATE TABLE IF NOT EXISTS `crypto_transactions` (
@@ -366,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `mdt_clocking` (
 
 -- Dumping data for table uuspack.mdt_clocking: ~2 rows (approximately)
 REPLACE INTO `mdt_clocking` (`id`, `user_id`, `firstname`, `lastname`, `clock_in_time`, `clock_out_time`, `total_time`) VALUES
-	(8, 'OSB60946', 'Tasius', 'Kenways', '2023-04-15 11:32:48', '2023-04-16 17:11:31', '106723'),
+	(8, 'OSB60946', 'Tasius', 'Kenways', '2023-04-15 11:32:48', '2023-04-17 13:01:55', '178147'),
 	(7, 'XLJ25355', 'Tasius', 'Kenways', '2023-04-14 19:54:07', '2023-04-14 20:13:41', '1174');
 
 -- Dumping structure for table uuspack.mdt_convictions
@@ -687,11 +687,11 @@ CREATE TABLE IF NOT EXISTS `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.players: ~1 rows (approximately)
 REPLACE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`, `apps`, `widget`, `bt`, `cryptocurrency`, `cryptocurrencytransfers`) VALUES
-	(88, 'OSB60946', 1, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Ksatria Batang ganda', '{"cash":999411,"crypto":0,"bank":1005445}', '{"account":"US02QBCore3255543371","firstname":"Tasius","cid":1,"backstory":"placeholder backstory","phone":"2083394297","birthdate":"2000-12-29","gender":0,"nationality":"United States","card":5698001533673539,"lastname":"Kenways"}', '{"isboss":true,"grade":{"level":4,"name":"Chief"},"type":"ems","onduty":true,"name":"ambulance","payment":150,"label":"EMS"}', '{"isboss":false,"name":"none","grade":{"level":0,"name":"none"},"label":"No Gang Affiliaton"}', '{"x":234.64614868164063,"y":-601.6615600585938,"z":42.4227294921875}', '{"phonedata":{"InstalledApps":[],"SerialNumber":20329124},"commandbinds":[],"criminalrecord":{"hasRecord":false},"status":[],"jailitems":[],"jobrep":{"taxi":0,"tow":0,"trucker":0,"hotdog":0},"ishandcuffed":false,"isdead":false,"phone":[],"craftingrep":0,"thirst":67.0,"tracker":false,"walletid":"QB-48205093","hunger":67.0,"dealerrep":0,"inside":{"apartment":[]},"stress":9,"bloodtype":"O-","armor":0,"crypto":{"xcoin":0,"shung":0,"lme":0,"gne":0},"inlaststand":false,"fingerprint":"Yz640d86WFB3579","attachmentcraftingrep":0,"fitbit":[],"callsign":"NO CALLSIGN","licences":{"business":false,"weapon":false,"driver":true},"injail":0}', '[{"amount":1,"slot":1,"name":"weapon_pistol50","type":"weapon","info":{"quality":48.09999999999878,"ammo":136,"serie":"12nPJ4lk824DPfp"}},{"amount":1,"slot":7,"name":"driver_license","type":"item","info":{"firstname":"Tasius","lastname":"Kenways","type":"Class C Driver License","birthdate":"2000-12-29"}},{"amount":1,"slot":8,"name":"id_card","type":"item","info":{"firstname":"Tasius","nationality":"United States","lastname":"Kenways","gender":0,"citizenid":"OSB60946","birthdate":"2000-12-29"}},{"amount":1,"slot":9,"name":"weapon_petrolcan","type":"weapon","info":{"quality":100,"ammo":4500,"serie":"68QDW2Ww436iTjT"}},{"amount":1,"slot":10,"name":"visa","type":"item","info":{"cardActive":true,"cardNumber":5698001533673539,"name":"Tasius Kenways","cardPin":1125,"citizenid":"OSB60946","cardType":"visa"}},{"amount":1,"slot":4,"name":"weapon_rpg","type":"weapon","info":{"quality":98.64999999999997,"ammo":12,"serie":"96bAf6cp763AsCV"}},{"amount":1,"slot":12,"name":"phone","type":"item","info":[]},{"amount":1,"slot":2,"name":"harness","type":"item","info":{"uses":19}},{"amount":1,"slot":3,"name":"weapon_assaultrifle","type":"weapon","info":{"quality":90.39999999999964,"ammo":137,"serie":"40ljS8HM996XZST"}}]', '2023-04-16 10:11:31', NULL, NULL, NULL, NULL, NULL);
+	(88, 'OSB60946', 1, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Ksatria Batang ganda', '{"cash":999264.0,"bank":1006792,"crypto":0}', '{"card":5698001533673539,"cid":1,"phone":"2083394297","nationality":"United States","backstory":"placeholder backstory","account":"US02QBCore3255543371","firstname":"Tasius","gender":0,"lastname":"Kenways","birthdate":"2000-12-29"}', '{"name":"police","label":"Law Enforcement","type":"leo","grade":{"name":"Chief","level":4},"payment":150,"isboss":true,"onduty":true}', '{"name":"none","isboss":false,"label":"No Gang Affiliaton","grade":{"name":"none","level":0}}', '{"x":622.3780517578125,"y":282.5274658203125,"z":102.7281494140625}', '{"criminalrecord":{"hasRecord":false},"dealerrep":0,"phone":[],"fingerprint":"Yz640d86WFB3579","commandbinds":[],"tracker":false,"crypto":{"xcoin":0,"gne":0,"shung":0,"lme":0},"status":[],"attachmentcraftingrep":0,"callsign":"NO CALLSIGN","inside":{"apartment":[]},"hunger":97.0,"walletid":"QB-48205093","fitbit":[],"isdead":false,"phonedata":{"InstalledApps":[],"SerialNumber":20329124},"licences":{"driver":true,"business":false,"weapon":false},"craftingrep":0,"ishandcuffed":false,"bloodtype":"O-","armor":0,"inlaststand":false,"stress":0,"jailitems":[],"jobrep":{"hotdog":0,"trucker":0,"tow":0,"taxi":0},"injail":0,"thirst":97.0}', '[{"info":{"serie":"12nPJ4lk824DPfp","quality":39.84999999999886,"ammo":81},"slot":1,"amount":1,"name":"weapon_pistol50","type":"weapon"},{"info":{"uses":19},"slot":2,"amount":1,"name":"harness","type":"item"},{"info":{"serie":"40ljS8HM996XZST","quality":90.39999999999964,"ammo":137},"slot":3,"amount":1,"name":"weapon_assaultrifle","type":"weapon"},{"info":{"serie":"96bAf6cp763AsCV","quality":98.64999999999997,"ammo":12},"slot":4,"amount":1,"name":"weapon_rpg","type":"weapon"},{"info":{"gasamount":50},"slot":5,"amount":1,"name":"jerrycan","type":"item"},{"info":{"type":"Class C Driver License","firstname":"Tasius","birthdate":"2000-12-29","lastname":"Kenways"},"slot":7,"amount":1,"name":"driver_license","type":"item"},{"info":{"citizenid":"OSB60946","gender":0,"nationality":"United States","firstname":"Tasius","birthdate":"2000-12-29","lastname":"Kenways"},"slot":8,"amount":1,"name":"id_card","type":"item"},{"info":{"serie":"68QDW2Ww436iTjT","quality":100,"ammo":4500},"slot":9,"amount":1,"name":"weapon_petrolcan","type":"weapon"},{"info":{"citizenid":"OSB60946","cardActive":true,"name":"Tasius Kenways","cardNumber":5698001533673539,"cardType":"visa","cardPin":1125},"slot":10,"amount":1,"name":"visa","type":"item"},{"info":[],"slot":12,"amount":1,"name":"phone","type":"item"}]', '2023-04-17 06:36:07', NULL, NULL, NULL, NULL, NULL);
 
 -- Dumping structure for table uuspack.playerskins
 CREATE TABLE IF NOT EXISTS `playerskins` (
@@ -703,9 +703,9 @@ CREATE TABLE IF NOT EXISTS `playerskins` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table uuspack.playerskins: ~0 rows (approximately)
+-- Dumping data for table uuspack.playerskins: ~9 rows (approximately)
 REPLACE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
 	(8, 'OSB60946', 'BabyFree', '{"tattoos":[],"props":[{"texture":-1,"drawable":-1,"prop_id":0},{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7}],"faceFeatures":{"jawBoneWidth":0,"chinBoneSize":0,"eyeBrownHigh":0,"noseWidth":0,"jawBoneBackSize":0,"lipsThickness":0,"noseBoneTwist":0,"neckThickness":0,"cheeksWidth":0,"nosePeakHigh":0,"chinHole":0,"chinBoneLowering":0,"chinBoneLenght":0,"nosePeakLowering":0,"nosePeakSize":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"noseBoneHigh":0,"eyeBrownForward":0,"eyesOpening":0},"model":"BabyFree","eyeColor":-1,"headBlend":{"shapeFirst":0,"shapeSecond":0,"skinSecond":0,"skinFirst":0,"thirdMix":0,"skinMix":0,"shapeMix":0,"skinThird":0,"shapeThird":0},"components":[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":0},{"texture":0,"component_id":3,"drawable":0},{"texture":0,"component_id":4,"drawable":0},{"texture":0,"component_id":5,"drawable":0},{"texture":0,"component_id":6,"drawable":0},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":0},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":0},{"texture":0,"component_id":11,"drawable":0}],"hair":{"style":0,"texture":0,"color":-1,"highlight":-1},"headOverlays":{"blush":{"style":0,"opacity":0,"secondColor":0,"color":0},"eyebrows":{"style":0,"opacity":0,"secondColor":0,"color":0},"beard":{"style":0,"opacity":0,"secondColor":0,"color":0},"lipstick":{"style":0,"opacity":0,"secondColor":0,"color":0},"bodyBlemishes":{"style":0,"opacity":0,"secondColor":0,"color":0},"moleAndFreckles":{"style":0,"opacity":0,"secondColor":0,"color":0},"makeUp":{"style":0,"opacity":0,"secondColor":0,"color":0},"chestHair":{"style":0,"opacity":0,"secondColor":0,"color":0},"ageing":{"style":0,"opacity":0,"secondColor":0,"color":0},"complexion":{"style":0,"opacity":0,"secondColor":0,"color":0},"blemishes":{"style":0,"opacity":0,"secondColor":0,"color":0},"sunDamage":{"style":0,"opacity":0,"secondColor":0,"color":0}}}', 0),
 	(9, 'OSB60946', 'child1', '{"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"eyeColor":-1,"headOverlays":{"blemishes":{"color":0,"secondColor":0,"style":0,"opacity":0},"ageing":{"color":0,"secondColor":0,"style":0,"opacity":0},"eyebrows":{"color":0,"secondColor":0,"style":0,"opacity":0},"bodyBlemishes":{"color":0,"secondColor":0,"style":0,"opacity":0},"complexion":{"color":0,"secondColor":0,"style":0,"opacity":0},"blush":{"color":0,"secondColor":0,"style":0,"opacity":0},"sunDamage":{"color":0,"secondColor":0,"style":0,"opacity":0},"moleAndFreckles":{"color":0,"secondColor":0,"style":0,"opacity":0},"chestHair":{"color":0,"secondColor":0,"style":0,"opacity":0},"makeUp":{"color":0,"secondColor":0,"style":0,"opacity":0},"beard":{"color":0,"secondColor":0,"style":0,"opacity":0},"lipstick":{"color":0,"secondColor":0,"style":0,"opacity":0}},"model":"child1","props":[{"drawable":-1,"prop_id":0,"texture":-1},{"drawable":-1,"prop_id":1,"texture":-1},{"drawable":-1,"prop_id":2,"texture":-1},{"drawable":-1,"prop_id":6,"texture":-1},{"drawable":-1,"prop_id":7,"texture":-1}],"headBlend":{"skinThird":0,"skinFirst":0,"skinMix":0,"shapeMix":0,"shapeThird":0,"shapeFirst":0,"thirdMix":0,"shapeSecond":0,"skinSecond":0},"tattoos":[],"faceFeatures":{"eyeBrownForward":0,"neckThickness":0,"jawBoneWidth":0,"eyeBrownHigh":0,"lipsThickness":0,"chinBoneSize":0,"nosePeakHigh":0,"noseBoneTwist":0,"cheeksWidth":0,"eyesOpening":0,"cheeksBoneHigh":0,"chinBoneLowering":0,"chinBoneLenght":0,"jawBoneBackSize":0,"chinHole":0,"noseWidth":0,"nosePeakSize":0,"nosePeakLowering":0,"noseBoneHigh":0,"cheeksBoneWidth":0},"hair":{"color":-1,"highlight":-1,"style":0,"texture":0}}', 0),
@@ -713,9 +713,9 @@ REPLACE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
 	(13, 'OSB60946', 'Baby', '{"hair":{"texture":0,"color":-1,"style":0,"highlight":-1},"tattoos":[],"props":[{"texture":-1,"drawable":-1,"prop_id":0},{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7}],"eyeColor":-1,"headBlend":{"skinSecond":0,"skinThird":0,"shapeThird":0,"shapeMix":0,"skinFirst":0,"thirdMix":0,"shapeFirst":0,"skinMix":0,"shapeSecond":0},"faceFeatures":{"jawBoneBackSize":0,"chinBoneLenght":0,"eyesOpening":0,"nosePeakLowering":0,"cheeksBoneWidth":0,"noseBoneTwist":0,"neckThickness":0,"chinBoneLowering":0,"chinBoneSize":0,"lipsThickness":0,"chinHole":0,"cheeksBoneHigh":0,"jawBoneWidth":0,"nosePeakSize":0,"nosePeakHigh":0,"noseWidth":0,"eyeBrownForward":0,"noseBoneHigh":0,"cheeksWidth":0,"eyeBrownHigh":0},"components":[{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":11},{"texture":0,"drawable":0,"component_id":8}],"model":"Baby","headOverlays":{"ageing":{"opacity":0,"color":0,"secondColor":0,"style":0},"moleAndFreckles":{"opacity":0,"color":0,"secondColor":0,"style":0},"beard":{"opacity":0,"color":0,"secondColor":0,"style":0},"chestHair":{"opacity":0,"color":0,"secondColor":0,"style":0},"complexion":{"opacity":0,"color":0,"secondColor":0,"style":0},"eyebrows":{"opacity":0,"color":0,"secondColor":0,"style":0},"blush":{"opacity":0,"color":0,"secondColor":0,"style":0},"sunDamage":{"opacity":0,"color":0,"secondColor":0,"style":0},"makeUp":{"opacity":0,"color":0,"secondColor":0,"style":0},"blemishes":{"opacity":0,"color":0,"secondColor":0,"style":0},"lipstick":{"opacity":0,"color":0,"secondColor":0,"style":0},"bodyBlemishes":{"opacity":0,"color":0,"secondColor":0,"style":0}}}', 0),
 	(15, 'OSB60946', 'KidGirlAliciaFree_MILLERSTORE', '{"hair":{"texture":0,"color":-1,"style":0,"highlight":-1},"tattoos":[],"props":[{"texture":-1,"drawable":-1,"prop_id":0},{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7}],"eyeColor":-1,"headBlend":{"skinSecond":0,"skinThird":0,"shapeThird":0,"shapeMix":0,"skinFirst":0,"thirdMix":0,"shapeFirst":0,"skinMix":0,"shapeSecond":0},"faceFeatures":{"jawBoneBackSize":0,"chinBoneLenght":0,"eyesOpening":0,"nosePeakLowering":0,"cheeksBoneWidth":0,"noseBoneTwist":0,"neckThickness":0,"chinBoneLowering":0,"chinBoneSize":0,"lipsThickness":0,"chinHole":0,"cheeksBoneHigh":0,"jawBoneWidth":0,"nosePeakSize":0,"nosePeakHigh":0,"noseWidth":0,"eyeBrownForward":0,"noseBoneHigh":0,"cheeksWidth":0,"eyeBrownHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"model":"KidGirlAliciaFree_MILLERSTORE","headOverlays":{"ageing":{"opacity":0,"color":0,"secondColor":0,"style":0},"moleAndFreckles":{"opacity":0,"color":0,"secondColor":0,"style":0},"beard":{"opacity":0,"color":0,"secondColor":0,"style":0},"chestHair":{"opacity":0,"color":0,"secondColor":0,"style":0},"complexion":{"opacity":0,"color":0,"secondColor":0,"style":0},"eyebrows":{"opacity":0,"color":0,"secondColor":0,"style":0},"blush":{"opacity":0,"color":0,"secondColor":0,"style":0},"sunDamage":{"opacity":0,"color":0,"secondColor":0,"style":0},"makeUp":{"opacity":0,"color":0,"secondColor":0,"style":0},"blemishes":{"opacity":0,"color":0,"secondColor":0,"style":0},"lipstick":{"opacity":0,"color":0,"secondColor":0,"style":0},"bodyBlemishes":{"opacity":0,"color":0,"secondColor":0,"style":0}}}', 0),
 	(16, 'OSB60946', 'BabyTasha_WWMods', '{"headBlend":{"skinSecond":0,"skinFirst":0,"shapeFirst":0,"shapeMix":0,"shapeThird":0,"skinThird":0,"thirdMix":0,"shapeSecond":0,"skinMix":0},"model":"BabyTasha_WWMods","components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"texture":-1,"prop_id":0,"drawable":-1},{"texture":-1,"prop_id":1,"drawable":-1},{"texture":-1,"prop_id":2,"drawable":-1},{"texture":-1,"prop_id":6,"drawable":-1},{"texture":-1,"prop_id":7,"drawable":-1}],"faceFeatures":{"nosePeakSize":0,"cheeksBoneWidth":0,"jawBoneBackSize":0,"nosePeakLowering":0,"eyeBrownHigh":0,"cheeksWidth":0,"jawBoneWidth":0,"noseBoneHigh":0,"lipsThickness":0,"chinBoneSize":0,"eyesOpening":0,"eyeBrownForward":0,"cheeksBoneHigh":0,"chinBoneLowering":0,"chinHole":0,"noseWidth":0,"chinBoneLenght":0,"noseBoneTwist":0,"nosePeakHigh":0,"neckThickness":0},"tattoos":[],"hair":{"highlight":-1,"texture":0,"color":-1,"style":0},"headOverlays":{"complexion":{"opacity":0,"secondColor":0,"color":0,"style":0},"makeUp":{"opacity":0,"secondColor":0,"color":0,"style":0},"ageing":{"opacity":0,"secondColor":0,"color":0,"style":0},"lipstick":{"opacity":0,"secondColor":0,"color":0,"style":0},"blemishes":{"opacity":0,"secondColor":0,"color":0,"style":0},"blush":{"opacity":0,"secondColor":0,"color":0,"style":0},"sunDamage":{"opacity":0,"secondColor":0,"color":0,"style":0},"beard":{"opacity":0,"secondColor":0,"color":0,"style":0},"chestHair":{"opacity":0,"secondColor":0,"color":0,"style":0},"moleAndFreckles":{"opacity":0,"secondColor":0,"color":0,"style":0},"eyebrows":{"opacity":0,"secondColor":0,"color":0,"style":0},"bodyBlemishes":{"opacity":0,"secondColor":0,"color":0,"style":0}},"eyeColor":-1}', 0),
-	(20, 'OSB60946', 'mp_m_freemode_01', '{"hair":{"color":0,"texture":0,"highlight":0,"style":0},"headOverlays":{"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0}},"model":"mp_m_freemode_01","faceFeatures":{"chinBoneLowering":0,"lipsThickness":0,"jawBoneBackSize":0,"cheeksWidth":0,"noseBoneTwist":0,"nosePeakSize":0,"noseWidth":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"eyeBrownHigh":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinHole":0,"eyesOpening":0,"neckThickness":0,"nosePeakLowering":0,"jawBoneWidth":0,"chinBoneSize":0,"chinBoneLenght":0,"nosePeakHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinThird":0,"shapeMix":0,"skinMix":0,"thirdMix":0,"shapeFirst":0,"skinSecond":0,"shapeThird":0,"skinFirst":0,"shapeSecond":0},"eyeColor":0,"tattoos":[]}', 0),
 	(22, 'OSB60946', 'babyboy1', '{"hair":{"color":-1,"texture":0,"highlight":-1,"style":0},"headOverlays":{"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0}},"model":"babyboy1","faceFeatures":{"chinBoneLowering":0,"lipsThickness":0,"jawBoneBackSize":0,"cheeksWidth":0,"noseBoneTwist":0,"nosePeakSize":0,"noseWidth":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"eyeBrownHigh":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinHole":0,"eyesOpening":0,"neckThickness":0,"nosePeakLowering":0,"jawBoneWidth":0,"chinBoneSize":0,"chinBoneLenght":0,"nosePeakHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinThird":0,"shapeMix":0,"skinMix":0,"thirdMix":0,"shapeFirst":0,"skinSecond":0,"shapeThird":0,"skinFirst":0,"shapeSecond":0},"eyeColor":-1,"tattoos":[]}', 0),
-	(23, 'OSB60946', 'BabyBoyMatheusG_MILLERSTORE', '{"hair":{"color":-1,"texture":0,"highlight":-1,"style":0},"headOverlays":{"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0}},"model":"BabyBoyMatheusG_MILLERSTORE","faceFeatures":{"chinBoneLowering":0,"lipsThickness":0,"jawBoneBackSize":0,"cheeksWidth":0,"noseBoneTwist":0,"nosePeakSize":0,"noseWidth":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"eyeBrownHigh":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinHole":0,"eyesOpening":0,"neckThickness":0,"nosePeakLowering":0,"jawBoneWidth":0,"chinBoneSize":0,"chinBoneLenght":0,"nosePeakHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinThird":0,"shapeMix":0,"skinMix":0,"thirdMix":0,"shapeFirst":0,"skinSecond":0,"shapeThird":0,"skinFirst":0,"shapeSecond":0},"eyeColor":-1,"tattoos":[]}', 1);
+	(23, 'OSB60946', 'BabyBoyMatheusG_MILLERSTORE', '{"hair":{"color":-1,"texture":0,"highlight":-1,"style":0},"headOverlays":{"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0}},"model":"BabyBoyMatheusG_MILLERSTORE","faceFeatures":{"chinBoneLowering":0,"lipsThickness":0,"jawBoneBackSize":0,"cheeksWidth":0,"noseBoneTwist":0,"nosePeakSize":0,"noseWidth":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"eyeBrownHigh":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinHole":0,"eyesOpening":0,"neckThickness":0,"nosePeakLowering":0,"jawBoneWidth":0,"chinBoneSize":0,"chinBoneLenght":0,"nosePeakHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinThird":0,"shapeMix":0,"skinMix":0,"thirdMix":0,"shapeFirst":0,"skinSecond":0,"shapeThird":0,"skinFirst":0,"shapeSecond":0},"eyeColor":-1,"tattoos":[]}', 0),
+	(24, 'OSB60946', 'mp_m_freemode_01', '{"eyeColor":0,"headBlend":{"skinMix":0,"skinFirst":0,"shapeSecond":0,"shapeMix":0,"skinThird":0,"thirdMix":0,"skinSecond":0,"shapeFirst":0,"shapeThird":0},"props":[{"prop_id":0,"drawable":-1,"texture":-1},{"prop_id":1,"drawable":-1,"texture":-1},{"prop_id":2,"drawable":-1,"texture":-1},{"prop_id":6,"drawable":-1,"texture":-1},{"prop_id":7,"drawable":-1,"texture":-1}],"faceFeatures":{"cheeksBoneHigh":0,"eyesOpening":0,"chinBoneLowering":0,"cheeksBoneWidth":0,"noseWidth":0,"chinHole":0,"nosePeakLowering":0,"neckThickness":0,"eyeBrownHigh":0,"chinBoneSize":0,"noseBoneHigh":0,"chinBoneLenght":0,"cheeksWidth":0,"eyeBrownForward":0,"noseBoneTwist":0,"nosePeakHigh":0,"nosePeakSize":0,"lipsThickness":0,"jawBoneWidth":0,"jawBoneBackSize":0},"model":"mp_m_freemode_01","hair":{"texture":0,"style":0,"highlight":0,"color":0},"headOverlays":{"eyebrows":{"secondColor":0,"style":0,"opacity":0,"color":0},"sunDamage":{"secondColor":0,"style":0,"opacity":0,"color":0},"bodyBlemishes":{"secondColor":0,"style":0,"opacity":0,"color":0},"beard":{"secondColor":0,"style":0,"opacity":0,"color":0},"makeUp":{"secondColor":0,"style":0,"opacity":0,"color":0},"complexion":{"secondColor":0,"style":0,"opacity":0,"color":0},"blush":{"secondColor":0,"style":0,"opacity":0,"color":0},"lipstick":{"secondColor":0,"style":0,"opacity":0,"color":0},"ageing":{"secondColor":0,"style":0,"opacity":0,"color":0},"blemishes":{"secondColor":0,"style":0,"opacity":0,"color":0},"moleAndFreckles":{"secondColor":0,"style":0,"opacity":0,"color":0},"chestHair":{"secondColor":0,"style":0,"opacity":0,"color":0}},"components":[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":0},{"texture":0,"component_id":3,"drawable":0},{"texture":0,"component_id":4,"drawable":0},{"texture":0,"component_id":5,"drawable":0},{"texture":0,"component_id":6,"drawable":0},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":0},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":0},{"texture":0,"component_id":11,"drawable":0}],"tattoos":[]}', 1);
 
 -- Dumping structure for table uuspack.player_contacts
 CREATE TABLE IF NOT EXISTS `player_contacts` (
@@ -768,9 +768,9 @@ CREATE TABLE IF NOT EXISTS `player_jobs` (
   `employees` text DEFAULT NULL,
   `maxEmployee` tinyint(11) DEFAULT 15,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=316 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=466 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_jobs: ~210 rows (approximately)
+-- Dumping data for table uuspack.player_jobs: ~255 rows (approximately)
 REPLACE INTO `player_jobs` (`id`, `jobname`, `employees`, `maxEmployee`) VALUES
 	(106, 'cardealer', '[]', 15),
 	(107, 'reporter', '[]', 15),
@@ -981,7 +981,157 @@ REPLACE INTO `player_jobs` (`id`, `jobname`, `employees`, `maxEmployee`) VALUES
 	(312, 'mechanic', '[]', 15),
 	(313, 'realestate', '[]', 15),
 	(314, 'taxi', '[]', 15),
-	(315, 'garbage', '[]', 15);
+	(315, 'garbage', '[]', 15),
+	(316, 'taxi', '[]', 15),
+	(317, 'judge', '[]', 15),
+	(318, 'trucker', '[]', 15),
+	(319, 'tow', '[]', 15),
+	(320, 'cardealer', '[]', 15),
+	(321, 'hotdog', '[]', 15),
+	(322, 'reporter', '[]', 15),
+	(323, 'mechanic', '[]', 15),
+	(324, 'realestate', '[]', 15),
+	(325, 'vineyard', '[]', 15),
+	(326, 'bus', '[]', 15),
+	(327, 'police', '[]', 15),
+	(328, 'lawyer', '[]', 15),
+	(329, 'garbage', '[]', 15),
+	(330, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
+	(331, 'garbage', '[]', 15),
+	(332, 'judge', '[]', 15),
+	(333, 'lawyer', '[]', 15),
+	(334, 'ambulance', '{"OSB60946":{"grade":4,"cid":"OSB60946","name":"Tasius Kenways"}}', 15),
+	(335, 'police', '[]', 15),
+	(336, 'vineyard', '[]', 15),
+	(337, 'cardealer', '[]', 15),
+	(338, 'hotdog', '[]', 15),
+	(339, 'realestate', '[]', 15),
+	(340, 'mechanic', '[]', 15),
+	(341, 'tow', '[]', 15),
+	(342, 'reporter', '[]', 15),
+	(343, 'bus', '[]', 15),
+	(344, 'trucker', '[]', 15),
+	(345, 'taxi', '[]', 15),
+	(346, 'garbage', '[]', 15),
+	(347, 'taxi', '[]', 15),
+	(348, 'reporter', '[]', 15),
+	(349, 'police', '[]', 15),
+	(350, 'hotdog', '[]', 15),
+	(351, 'vineyard', '[]', 15),
+	(352, 'mechanic', '[]', 15),
+	(353, 'lawyer', '[]', 15),
+	(354, 'cardealer', '[]', 15),
+	(355, 'trucker', '[]', 15),
+	(356, 'realestate', '[]', 15),
+	(357, 'ambulance', '{"OSB60946":{"name":"Tasius Kenways","grade":4,"cid":"OSB60946"}}', 15),
+	(358, 'tow', '[]', 15),
+	(359, 'bus', '[]', 15),
+	(360, 'judge', '[]', 15),
+	(361, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
+	(362, 'realestate', '[]', 15),
+	(363, 'taxi', '[]', 15),
+	(364, 'reporter', '[]', 15),
+	(365, 'police', '[]', 15),
+	(366, 'tow', '[]', 15),
+	(367, 'lawyer', '[]', 15),
+	(368, 'hotdog', '[]', 15),
+	(369, 'judge', '[]', 15),
+	(370, 'mechanic', '[]', 15),
+	(371, 'garbage', '[]', 15),
+	(372, 'cardealer', '[]', 15),
+	(373, 'trucker', '[]', 15),
+	(374, 'bus', '[]', 15),
+	(375, 'vineyard', '[]', 15),
+	(376, 'vineyard', '[]', 15),
+	(377, 'hotdog', '[]', 15),
+	(378, 'mechanic', '[]', 15),
+	(379, 'police', '[]', 15),
+	(380, 'realestate', '[]', 15),
+	(381, 'taxi', '[]', 15),
+	(382, 'lawyer', '[]', 15),
+	(383, 'cardealer', '[]', 15),
+	(384, 'bus', '[]', 15),
+	(385, 'ambulance', '{"OSB60946":{"name":"Tasius Kenways","grade":4,"cid":"OSB60946"}}', 15),
+	(386, 'garbage', '[]', 15),
+	(387, 'reporter', '[]', 15),
+	(388, 'trucker', '[]', 15),
+	(389, 'tow', '[]', 15),
+	(390, 'judge', '[]', 15),
+	(391, 'trucker', '[]', 15),
+	(392, 'reporter', '[]', 15),
+	(393, 'tow', '[]', 15),
+	(394, 'bus', '[]', 15),
+	(395, 'realestate', '[]', 15),
+	(396, 'garbage', '[]', 15),
+	(397, 'mechanic', '[]', 15),
+	(398, 'judge', '[]', 15),
+	(399, 'taxi', '[]', 15),
+	(400, 'cardealer', '[]', 15),
+	(401, 'vineyard', '[]', 15),
+	(402, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
+	(403, 'hotdog', '[]', 15),
+	(404, 'lawyer', '[]', 15),
+	(405, 'police', '[]', 15),
+	(406, 'garbage', '[]', 15),
+	(407, 'mechanic', '[]', 15),
+	(408, 'police', '[]', 15),
+	(409, 'cardealer', '[]', 15),
+	(410, 'lawyer', '[]', 15),
+	(411, 'judge', '[]', 15),
+	(412, 'bus', '[]', 15),
+	(413, 'tow', '[]', 15),
+	(414, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
+	(415, 'vineyard', '[]', 15),
+	(416, 'reporter', '[]', 15),
+	(417, 'hotdog', '[]', 15),
+	(418, 'trucker', '[]', 15),
+	(419, 'taxi', '[]', 15),
+	(420, 'realestate', '[]', 15),
+	(421, 'realestate', '[]', 15),
+	(422, 'hotdog', '[]', 15),
+	(423, 'reporter', '[]', 15),
+	(424, 'police', '[]', 15),
+	(425, 'lawyer', '[]', 15),
+	(426, 'taxi', '[]', 15),
+	(427, 'mechanic', '[]', 15),
+	(428, 'tow', '[]', 15),
+	(429, 'garbage', '[]', 15),
+	(430, 'cardealer', '[]', 15),
+	(431, 'judge', '[]', 15),
+	(432, 'trucker', '[]', 15),
+	(433, 'vineyard', '[]', 15),
+	(434, 'bus', '[]', 15),
+	(435, 'ambulance', '{"OSB60946":{"grade":4,"cid":"OSB60946","name":"Tasius Kenways"}}', 15),
+	(436, 'ambulance', '[]', 15),
+	(437, 'bus', '[]', 15),
+	(438, 'realestate', '[]', 15),
+	(439, 'mechanic', '[]', 15),
+	(440, 'hotdog', '[]', 15),
+	(441, 'vineyard', '[]', 15),
+	(442, 'reporter', '[]', 15),
+	(443, 'taxi', '[]', 15),
+	(444, 'judge', '[]', 15),
+	(445, 'lawyer', '[]', 15),
+	(446, 'police', '{"OSB60946":{"grade":4,"name":"Tasius Kenways","cid":"OSB60946"}}', 15),
+	(447, 'garbage', '[]', 15),
+	(448, 'tow', '[]', 15),
+	(449, 'trucker', '[]', 15),
+	(450, 'cardealer', '[]', 15),
+	(451, 'ambulance', '[]', 15),
+	(452, 'police', '{"OSB60946":{"cid":"OSB60946","name":"Tasius Kenways","grade":4}}', 15),
+	(453, 'garbage', '[]', 15),
+	(454, 'reporter', '[]', 15),
+	(455, 'tow', '[]', 15),
+	(456, 'hotdog', '[]', 15),
+	(457, 'realestate', '[]', 15),
+	(458, 'cardealer', '[]', 15),
+	(459, 'bus', '[]', 15),
+	(460, 'trucker', '[]', 15),
+	(461, 'judge', '[]', 15),
+	(462, 'vineyard', '[]', 15),
+	(463, 'lawyer', '[]', 15),
+	(464, 'mechanic', '[]', 15),
+	(465, 'taxi', '[]', 15);
 
 -- Dumping structure for table uuspack.player_mails
 CREATE TABLE IF NOT EXISTS `player_mails` (
@@ -1074,12 +1224,15 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   KEY `citizenid` (`citizenid`),
   KEY `license` (`license`),
   CONSTRAINT `FK_playervehicles_players` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_vehicles: ~0 rows (approximately)
+-- Dumping data for table uuspack.player_vehicles: ~2 rows (approximately)
 REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`) VALUES
-	(5, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modCustomTiresF":false,"modHydrolic":-1,"modPlateHolder":-1,"modSuspension":-1,"interiorColor":93,"modSteeringWheel":-1,"modGrille":-1,"modSpoilers":-1,"modFrame":-1,"neonColor":[255,0,255],"modSmokeEnabled":false,"modKit21":-1,"modTrimA":-1,"modLivery":-1,"modTrimB":-1,"modKit17":-1,"modAirFilter":-1,"modCustomTiresR":false,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"modTurbo":false,"modTrunk":-1,"modRoof":-1,"tankHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"dashboardColor":65,"headlightColor":255,"wheelSize":0.0,"modTransmission":-1,"dirtLevel":0.0,"modFrontBumper":-1,"modRearBumper":-1,"plate":"03UGY881","modShifterLeavers":-1,"modArchCover":-1,"liveryRoof":-1,"modDoorSpeaker":-1,"modArmor":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"wheelWidth":0.0,"modKit47":-1,"plateIndex":0,"color2":0,"modBrakes":-1,"engineHealth":1000.0592475178704,"xenonColor":255,"modDashboard":-1,"modKit49":-1,"modVanityPlate":-1,"modKit19":-1,"tyreSmokeColor":[255,255,255],"pearlescentColor":73,"modFender":-1,"bodyHealth":1000.0592475178704,"modAPlate":-1,"neonEnabled":[false,false,false,false],"modHorns":-1,"modEngine":-1,"modStruts":-1,"modTank":-1,"modOrnaments":-1,"model":-1848994066,"color1":64,"wheelColor":0,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modExhaust":-1,"windowTint":-1,"modSeats":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modRightFender":-1,"modSideSkirt":-1,"modBackWheels":-1,"fuelLevel":100.08535757525947,"modXenon":false,"modSpeakers":-1,"modEngineBlock":-1,"modAerials":-1,"modFrontWheels":-1,"wheels":0,"extras":[],"modWindows":-1,"modDial":-1,"modHood":-1}', '03UGY881', NULL, NULL, 100, 1000, 1000, 1, 0, 820098, NULL, 0, 0, 0, 0),
-	(6, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modSteeringWheel":-1,"modSmokeEnabled":false,"neonEnabled":[false,false,false,false],"modTransmission":-1,"neonColor":[255,0,255],"modSideSkirt":-1,"modArchCover":-1,"tyreSmokeColor":[255,255,255],"wheelColor":156,"modEngine":-1,"modExhaust":-1,"modTrunk":-1,"plate":"41LWE226","extras":[],"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modBackWheels":-1,"modEngineBlock":-1,"modDoorSpeaker":-1,"wheelSize":1.0,"modHorns":-1,"modCustomTiresF":false,"modDashboard":-1,"modFender":-1,"modOrnaments":-1,"modFrame":-1,"modAirFilter":-1,"modFrontBumper":-1,"modSuspension":-1,"modSpeakers":-1,"color1":0,"engineHealth":1000.0592475178704,"fuelLevel":97.70237287108663,"modArmor":-1,"interiorColor":0,"modCustomTiresR":false,"modXenon":false,"modTrimA":-1,"modRightFender":-1,"modKit17":-1,"oilLevel":4.76596940834568,"modKit21":-1,"headlightColor":255,"modGrille":-1,"modTurbo":false,"modBrakes":-1,"liveryRoof":-1,"modLivery":2,"modStruts":-1,"modPlateHolder":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":0,"windowTint":-1,"wheels":6,"modKit47":-1,"tankHealth":1000.0592475178704,"wheelWidth":1.0,"modTrimB":-1,"modVanityPlate":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color2":0,"pearlescentColor":0,"dirtLevel":0.79432823472428,"modKit49":-1,"modHood":-1,"xenonColor":255,"dashboardColor":0,"modSpoilers":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modAPlate":-1,"modTank":-1,"modAerials":-1,"model":788045382,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modWindows":-1,"modDial":-1,"modSeats":-1,"modRearBumper":-1,"modKit19":-1,"modFrontWheels":-1,"modHydrolic":-1}', '41LWE226', NULL, 'apartments', 97, 1000, 1000, 1, 0, 870196, NULL, 0, 0, 0, 0);
+	(5, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontWheels":-1,"wheelSize":1.0,"model":-1848994066,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modTank":-1,"modSpeakers":-1,"modBackWheels":-1,"plateIndex":0,"modOrnaments":-1,"modBrakes":-1,"xenonColor":255,"modSideSkirt":-1,"modEngine":-1,"modCustomTiresF":false,"modSeats":-1,"modTrimA":-1,"modRightFender":-1,"modDoorSpeaker":-1,"modHood":-1,"modDashboard":-1,"color1":64,"modWindows":-1,"modExhaust":-1,"engineHealth":998.4705910484217,"modEngineBlock":-1,"modFrontBumper":-1,"modTrimB":-1,"modRearBumper":-1,"modFrame":-1,"modStruts":-1,"pearlescentColor":73,"modGrille":-1,"modSteeringWheel":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"liveryRoof":-1,"dirtLevel":2.38298470417284,"modAirFilter":-1,"modKit21":-1,"wheelColor":0,"modAPlate":-1,"modXenon":false,"tankHealth":1000.0592475178704,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modKit19":-1,"bodyHealth":998.4705910484217,"modFender":-1,"modCustomTiresR":false,"modShifterLeavers":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSpoilers":-1,"modSuspension":-1,"dashboardColor":65,"modPlateHolder":-1,"modKit47":-1,"plate":"03UGY881","modArchCover":-1,"modAerials":-1,"modVanityPlate":-1,"fuelLevel":96.90804463636234,"modDial":-1,"modKit49":-1,"modKit17":-1,"windowTint":-1,"modRoof":-1,"tyreSmokeColor":[255,255,255],"wheels":0,"modHydrolic":-1,"modArmor":-1,"oilLevel":4.76596940834568,"wheelWidth":1.0,"modTrunk":-1,"modTurbo":false,"interiorColor":93,"modTransmission":-1,"modHorns":-1,"modLivery":-1,"color2":0,"extras":[],"headlightColor":255,"neonColor":[255,0,255],"neonEnabled":[false,false,false,false],"modSmokeEnabled":false}', '03UGY881', NULL, 'pdgarage', 97, 999, 999, 1, 0, 2411, NULL, 0, 0, 0, 0),
+	(6, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modSteeringWheel":-1,"modSmokeEnabled":false,"neonEnabled":[false,false,false,false],"modTransmission":-1,"neonColor":[255,0,255],"modSideSkirt":-1,"modArchCover":-1,"tyreSmokeColor":[255,255,255],"wheelColor":156,"modEngine":-1,"modExhaust":-1,"modTrunk":-1,"plate":"41LWE226","extras":[],"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modBackWheels":-1,"modEngineBlock":-1,"modDoorSpeaker":-1,"wheelSize":1.0,"modHorns":-1,"modCustomTiresF":false,"modDashboard":-1,"modFender":-1,"modOrnaments":-1,"modFrame":-1,"modAirFilter":-1,"modFrontBumper":-1,"modSuspension":-1,"modSpeakers":-1,"color1":0,"engineHealth":1000.0592475178704,"fuelLevel":97.70237287108663,"modArmor":-1,"interiorColor":0,"modCustomTiresR":false,"modXenon":false,"modTrimA":-1,"modRightFender":-1,"modKit17":-1,"oilLevel":4.76596940834568,"modKit21":-1,"headlightColor":255,"modGrille":-1,"modTurbo":false,"modBrakes":-1,"liveryRoof":-1,"modLivery":2,"modStruts":-1,"modPlateHolder":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":0,"windowTint":-1,"wheels":6,"modKit47":-1,"tankHealth":1000.0592475178704,"wheelWidth":1.0,"modTrimB":-1,"modVanityPlate":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color2":0,"pearlescentColor":0,"dirtLevel":0.79432823472428,"modKit49":-1,"modHood":-1,"xenonColor":255,"dashboardColor":0,"modSpoilers":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modAPlate":-1,"modTank":-1,"modAerials":-1,"model":788045382,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modWindows":-1,"modDial":-1,"modSeats":-1,"modRearBumper":-1,"modKit19":-1,"modFrontWheels":-1,"modHydrolic":-1}', '41LWE226', NULL, 'apartments', 97, 1000, 1000, 1, 0, 870196, NULL, 0, 0, 0, 0),
+	(7, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modHydrolic":-1,"interiorColor":0,"modPlateHolder":-1,"modSeats":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTank":-1,"modKit49":-1,"tyreSmokeColor":[255,255,255],"dirtLevel":0.0,"modArchCover":-1,"modAirFilter":-1,"modHorns":-1,"liveryRoof":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"plate":"21YGE174","dashboardColor":0,"modDial":-1,"modTrunk":-1,"modKit19":-1,"modSmokeEnabled":false,"modDoorSpeaker":-1,"modTurbo":false,"neonColor":[255,0,255],"wheelColor":156,"modBackWheels":-1,"xenonColor":255,"modSpoilers":-1,"modAPlate":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"modOrnaments":-1,"headlightColor":255,"wheels":6,"color2":0,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modHood":-1,"fuelLevel":45.27670937928404,"modRearBumper":-1,"plateIndex":3,"modStruts":-1,"modDashboard":-1,"modSteeringWheel":-1,"modBrakes":-1,"modAerials":-1,"tankHealth":1000.0592475178704,"pearlescentColor":0,"extras":[],"modCustomTiresR":false,"modKit21":-1,"modFender":-1,"modTrimA":-1,"modFrontWheels":-1,"modVanityPlate":-1,"modCustomTiresF":false,"windowTint":-1,"modLivery":2,"modFrontBumper":-1,"modExhaust":-1,"modSuspension":-1,"wheelSize":0.0,"modTrimB":-1,"modRoof":-1,"modArmor":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color1":0,"neonEnabled":[false,false,false,false],"modGrille":-1,"modWindows":-1,"modSpeakers":-1,"modSideSkirt":-1,"oilLevel":4.76596940834568,"modEngine":-1,"modEngineBlock":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modFrame":-1,"modKit47":-1,"modTransmission":-1,"modRightFender":-1,"model":788045382,"engineHealth":1000.0592475178704}', '21YGE174', NULL, NULL, 45, 1000, 1000, 0, 0, 178749, NULL, 0, 0, 0, 0),
+	(8, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontBumper":-1,"modCustomTiresF":false,"plateIndex":0,"modRoof":-1,"modHood":-1,"modHorns":-1,"modStruts":-1,"modSpoilers":-1,"modXenon":false,"modExhaust":-1,"modFrontWheels":-1,"modFrame":-1,"pearlescentColor":73,"tyreSmokeColor":[255,255,255],"modDoorSpeaker":-1,"modTrimB":-1,"modAPlate":-1,"interiorColor":93,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSteeringWheel":-1,"modKit17":-1,"modCustomTiresR":false,"modRearBumper":-1,"windowTint":-1,"modSeats":-1,"modTrimA":-1,"modVanityPlate":-1,"dirtLevel":0.0,"color1":64,"modTurbo":false,"bodyHealth":994.4989498748004,"modShifterLeavers":-1,"modEngineBlock":-1,"oilLevel":4.76596940834568,"modBackWheels":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modRightFender":-1,"model":-1848994066,"modGrille":-1,"engineHealth":972.2577593025205,"dashboardColor":65,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"wheelColor":0,"modHydrolic":-1,"neonColor":[255,0,255],"modArchCover":-1,"xenonColor":255,"neonEnabled":[false,false,false,false],"modOrnaments":-1,"fuelLevel":42.8937246751112,"modSuspension":-1,"modAirFilter":-1,"modKit49":-1,"modLivery":-1,"modWindows":-1,"modTank":-1,"headlightColor":255,"modSideSkirt":-1,"plate":"24JDG097","modKit21":-1,"modSmokeEnabled":false,"modSpeakers":-1,"modEngine":-1,"wheelWidth":1.0,"modArmor":-1,"wheelSize":1.0,"extras":[],"modPlateHolder":-1,"modKit19":-1,"modTrunk":-1,"modAerials":-1,"modDial":-1,"color2":0,"modKit47":-1,"wheels":0,"modBrakes":-1,"tankHealth":996.8819345789732,"modTransmission":-1,"modFender":-1,"modDashboard":-1,"liveryRoof":-1}', '24JDG097', NULL, 'pillbox_hospital', 43, 973, 995, 1, 0, 646901, NULL, 0, 0, 0, 0),
+	(9, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"liveryRoof":-1,"modDoorSpeaker":-1,"modRightFender":-1,"dirtLevel":0.0,"fuelLevel":50.04267878762973,"modArmor":-1,"modTransmission":-1,"neonColor":[255,0,255],"model":-1848994066,"tyreSmokeColor":[255,255,255],"modKit19":-1,"modPlateHolder":-1,"modKit49":-1,"modTrimB":-1,"modTurbo":false,"modSpoilers":-1,"modSideSkirt":-1,"extras":[],"modHydrolic":-1,"modSmokeEnabled":false,"modFrontBumper":-1,"modSpeakers":-1,"modHood":-1,"modShifterLeavers":-1,"bodyHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAirFilter":-1,"engineHealth":1000.0592475178704,"modDashboard":-1,"tankHealth":1000.0592475178704,"xenonColor":255,"modOrnaments":-1,"modSuspension":-1,"wheelSize":1.0,"modTank":-1,"modAPlate":-1,"modEngine":-1,"modKit47":-1,"modTrimA":-1,"modBrakes":-1,"modBackWheels":-1,"modCustomTiresF":false,"modKit21":-1,"modFrame":-1,"modExhaust":-1,"color1":64,"modCustomTiresR":false,"modStruts":-1,"color2":0,"modArchCover":-1,"headlightColor":255,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"wheels":0,"plate":"82GGY937","modLivery":-1,"modVanityPlate":-1,"modHorns":-1,"modRearBumper":-1,"plateIndex":0,"windowTint":-1,"modXenon":false,"modEngineBlock":-1,"interiorColor":93,"modWindows":-1,"modRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modFender":-1,"dashboardColor":65,"pearlescentColor":73,"wheelWidth":1.0,"modSteeringWheel":-1,"modFrontWheels":-1,"modTrunk":-1,"wheelColor":0,"modGrille":-1,"modSeats":-1,"modAerials":-1,"modKit17":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false}}', '82GGY937', NULL, 'pdgarage', 50, 1000, 1000, 1, 0, 640319, NULL, 0, 0, 0, 0);
 
 -- Dumping structure for table uuspack.player_warns
 CREATE TABLE IF NOT EXISTS `player_warns` (
@@ -1166,7 +1319,7 @@ CREATE TABLE IF NOT EXISTS `twitter_account` (
   `avatar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.twitter_account: ~1 rows (approximately)
+-- Dumping data for table uuspack.twitter_account: ~0 rows (approximately)
 REPLACE INTO `twitter_account` (`id`, `name`, `phone`, `username`, `password`, `avatar`) VALUES
 	('OSB60946', 'Tasius Kenways', '2083394297', 'Tasius', 'susah213', 'default.png');
 

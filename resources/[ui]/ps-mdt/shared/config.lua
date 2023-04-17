@@ -23,8 +23,8 @@ Config.BillVariation = true
 -- However, if you're using a different inventory system, please refer to the "Inventory Edit | Automatic Add Weapons with images" section in ps-mdt's README.
 Config.InventoryForWeaponsImages = "lj-inventory"
 
--- "ps-fuel", "lj-fuel", "ps-fuel"
-Config.Fuel = "ps-fuel"
+-- "cdn-fuel", "lj-fuel", "cdn-fuel"
+Config.Fuel = "cdn-fuel"
 
 -- Google Docs Link
 Config.sopLink = {

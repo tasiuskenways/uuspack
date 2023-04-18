@@ -1,143 +1,202 @@
 Config = {}
-Config.UsingTarget = GetConvar('UseTarget', 'false') == 'true'
-Config.Commission = 0.10 -- Percent that goes to sales person from a full car sale 10%
-Config.FinanceCommission = 0.05 -- Percent that goes to sales person from a finance sale 5%
-Config.FinanceZone = vector3(-29.53, -1103.67, 26.42)-- Where the finance menu is located
-Config.PaymentWarning = 10 -- time in minutes that player has to make payment before repo
-Config.PaymentInterval = 24 -- time in hours between payment being due
-Config.MinimumDown = 10 -- minimum percentage allowed down
-Config.MaximumPayments = 24 -- maximum payments allowed
-Config.PreventFinanceSelling = false -- allow/prevent players from using /transfervehicle if financed
+Config.UseTarget = true--GetConvar('UseTarget', 'false') == 'true'
+Config.Debug = true
+
+Config.PlateLetters  = 4
+Config.PlateNumbers  = 4
+Config.PlateUseSpace = false
+
+Config.SpawnVehicle = true  -- TRUE if you want spawn vehicle when purchased (If set to false, MAKE SURE to provide a garage in the shop's config)
+Config.FuelSystem = "cdn-fuel"
+
+Config.BlacklistedVehicles = { -- These vehicles won't show up in the shop
+    ['akula'] = true,
+    ['alkonost'] = true,
+    ['annihilator'] = true,
+    ['annihilator2'] = true,
+    ['apc'] = true,
+    ['ardent'] = true,
+    ['avenger'] = true,
+    ['barrage'] = true,
+    ['blazer5'] = true,
+    ['bombushka'] = true,
+    ['boxville5'] = true,
+    ['bruiser'] = true,
+    ['brutus'] = true,
+    ['buffalo4'] = false,
+    ['buzzard'] = true,
+    ['buzzard2'] = true,
+    ['caracara'] = true,
+    ['cerberus'] = true,
+    ['cerberus2'] = true,
+    ['cerberus3'] = true,
+    ['champion'] = true,
+    ['chernobog'] = true,
+    ['comet4'] = false,
+    ['deathbike'] = true,
+    ['deity'] = false,
+    ['deluxo'] = true,
+    ['dinghy5'] = true,
+    ['dominator4'] = true,
+    ['dune3'] = true,
+    ['granger2'] = false,
+    ['halftrack'] = true,
+    ['hunter'] = true,
+    ['hydra'] = true,
+    ['impaler2'] = true,
+    ['impaler3'] = true,
+    ['imperator'] = true,
+    ['insurgent'] = true,
+    ['insurgent3'] = true,
+    ['issi4'] = true,
+    ['jb7002'] = true,
+    ['jet'] = true,
+    ['jubilee'] = false,
+    ['khanjali'] = true,
+    ['kosatka'] = true,
+    ['lazer'] = true,
+    ['limo2'] = true,
+    ['menacer'] = true,
+    ['microlight'] = true,
+    ['minitank'] = true,
+    ['mogul'] = true,
+    ['molotok'] = true,
+    ['monster3'] = true,
+    ['mule4'] = true,
+    ['nightshark'] = true,
+    ['nokota'] = true,
+    ['oppressor'] = true,
+    ['oppressor2'] = true,
+    ['paragon2'] = true,
+    ['patriot3'] = false,
+    ['patrolboat'] = true,
+    ['pounder2'] = true,
+    ['pyro'] = true,
+    ['rcbandito'] = true,
+    ['revolter'] = true,
+    ['rhino'] = true,
+    ['rogue'] = true,
+    ['ruiner2'] = true,
+    ['savage'] = true,
+    ['savestra'] = true,
+    ['scarab'] = true,
+    ['scarab2'] = true,
+    ['scarab3'] = true,
+    ['scramjet'] = true,
+    ['seabreeze'] = true,
+    ['seasparrow2'] = true,
+    ['seasparrow3'] = true,
+    ['slamvan4'] = true,
+    ['speedo4'] = true,
+    ['starling'] = true,
+    ['strikeforce'] = true,
+    ['stromberg'] = true,
+    ['tampa3'] = true,
+    ['technical'] = true,
+    ['technical2'] = true,
+    ['technical3'] = true,
+    ['terbyte'] = true,
+    ['thruster'] = true,
+    ['titan'] = true,
+    ['toreador'] = true,
+    ['trailerlarge'] = true,
+    ['trailersmall2'] = true,
+    ['tula'] = true,
+    ['valkyrie'] = true,
+    ['vigilante'] = true,
+    ['viseris'] = true,
+    ['volatol'] = true,
+    ['zr380'] = true,
+
+    -- OTHER
+    ['firetruk'] = true,
+    ['ambulance'] = true,
+    ['blimp'] = true,
+    ['blimp2'] = true,
+    ['blimp3'] = true,
+
+    ['frogger'] = true,
+    ['swift'] = true,
+    ['cargobob'] = true,
+    ['dune2'] = true,
+    ['monster'] = true,
+    ['polmav'] = true,
+    ['policeb'] = true,
+
+    ['seasparrow'] = true,
+    ['havok'] = true,
+    ['volatus'] = true,
+    ['supervolito'] = true,
+    ['supervolito2'] = true,
+
+    ['riot2'] = true,
+    ['voltic2'] = true,
+
+    ['airtug'] = true,
+    ['camper'] = true,
+    ['luxor'] = true,
+    ['luxor2'] = true,
+    ['maverick'] = true,
+    ['mule'] = true,
+    ['rrocket'] = true,
+    ['shamal'] = true,
+}
+
+Config.LimitQuantityVehicles = { -- These vehicles will be limited to the number set (This is only temporary, after the resource is restarted, it returns to its original amount)
+    --["blista"] = 1, -- vehicle/quantity
+}
+
+Config.PriceDiscount = {
+    --["blista"] = 1500 -- vehicle/price change (a positive number adds to the base value, while a negative number removes from the base value qb-core/shared/vehicles.lua)
+}
+
 Config.Shops = {
-    ['pdm'] = {
-        ['Type'] = 'free-use', -- no player interaction is required to purchase a car
-        ['Zone'] = {
-            ['Shape'] = {--polygon that surrounds the shop
-                vector2(-56.727394104004, -1086.2325439453),
-                vector2(-60.612808227539, -1096.7795410156),
-                vector2(-58.26834487915, -1100.572265625),
-                vector2(-35.927803039551, -1109.0034179688),
-                vector2(-34.427627563477, -1108.5111083984),
-                vector2(-32.02657699585, -1101.5877685547),
-                vector2(-33.342102050781, -1101.0377197266),
-                vector2(-31.292987823486, -1095.3717041016)
-            },
-            ['minZ'] = 25.0, -- min height of the shop zone
-            ['maxZ'] = 28.0, -- max height of the shop zone
-            ['size'] = 2.75 -- size of the vehicles zones
+    ['pdm'] = { -- The Shop identifier.
+        garage = "pillboxgarage", -- Value is not required. Used to set primary garage after purchase
+        coord = vector4(-56.5, -1096.58, 26.42-1, 28.94), -- used for the NPC and blip
+        blip = { -- Table is not required
+            sprite = 326,
+            scale = 0.75,
+            display = 4,
+            colour = 3,
+            shortrange = true,
+            label = "Premium Deluxe Motorsport"
         },
-        ['Job'] = 'none', -- Name of job or none
-        ['ShopLabel'] = 'Premium Deluxe Motorsport', -- Blip name
-        ['showBlip'] = true, -- true or false
-        ['blipSprite'] = 326, -- Blip sprite
-        ['blipColor'] = 3, -- Blip color
-        ['TestDriveTimeLimit'] = 0.5, -- Time in minutes until the vehicle gets deleted
-        ['Location'] = vector3(-45.67, -1098.34, 26.42), -- Blip Location
-        ['ReturnLocation'] = vector3(-44.74, -1082.58, 26.68), -- Location to return vehicle, only enables if the vehicleshop has a job owned
-        ['VehicleSpawn'] = vector4(-56.79, -1109.85, 26.43, 71.5), -- Spawn location when vehicle is bought
-        ['TestDriveSpawn'] = vector4(-56.79, -1109.85, 26.43, 71.5), -- Spawn location for test drive
-        ['ShowroomVehicles'] = {
-            [1] = {
-                coords = vector4(-45.65, -1093.66, 25.44, 69.5), -- where the vehicle will spawn on display
-                defaultVehicle = 'adder', -- Default display vehicle
-                chosenVehicle = 'adder', -- Same as default but is dynamically changed when swapping vehicles
-            },
-            [2] = {
-                coords = vector4(-48.27, -1101.86, 25.44, 294.5),
-                defaultVehicle = 'schafter2',
-                chosenVehicle = 'schafter2'
-            },
-            [3] = {
-                coords = vector4(-39.6, -1096.01, 25.44, 66.5),
-                defaultVehicle = 'comet2',
-                chosenVehicle = 'comet2'
-            },
-            [4] = {
-                coords = vector4(-51.21, -1096.77, 25.44, 254.5),
-                defaultVehicle = 'vigero',
-                chosenVehicle = 'vigero'
-            },
-            [5] = {
-                coords = vector4(-40.18, -1104.13, 25.44, 338.5),
-                defaultVehicle = 't20',
-                chosenVehicle = 't20'
-            },
-            [6] = {
-                coords = vector4(-43.31, -1099.02, 25.44, 52.5),
-                defaultVehicle = 'bati',
-                chosenVehicle = 'bati'
-            },
-            [7] = {
-                coords = vector4(-50.66, -1093.05, 25.44, 222.5),
-                defaultVehicle = 'bati',
-                chosenVehicle = 'bati'
-            },
-            [8] = {
-                coords = vector4(-44.28, -1102.47, 25.44, 298.5),
-                defaultVehicle = 'bati',
-                chosenVehicle = 'bati'
+        target = { -- Table is REQUIRED if Config.UseTarget is true
+            -- For peds
+            usePed = true, -- if you want to use a ped instead of a boxzone
+            pedModel = `a_m_m_indian_01`, -- the ped model
+            pedAnimation = "", -- the ped animation (not required)
+            -- For boxzones
+            length = 1,
+            width = 1,
+            minZ = 26.42,
+            maxZ = 27.42,
+            debugPoly = false,
+            -- For both
+            distance = 2.5,
+            properties = {
+                icon = "fas fa-car",
+                label = "Purchase a Vehicle",
+                job = "" -- if you want to set the interaction of the taget to a job. Can be job = "police" or job = {["police"] = 0, ["ambulance"] = 2}
             }
         },
+        setupStore = { -- Table is REQUIRED
+            allowTestDrive = { -- Table is not required
+                spawnTestLoc = vector4(-11.87, -1080.87, 25.71, 132.0), -- Where the test vehicle will spawn
+                testDriveTime = 30 -- in seconds
+            },
+            spawnPurchaseLoc = vector4(-56.79, -1109.85, 26.43, 71.5), -- where a purchased vehicle will spawn
+            shopVehicleLoc = vector4(-49.66, -1095.51, 26.11, 114.06), -- where the preview vehicle will spawn
+            shopCameraLoc = {-55.66, -1095.51, 28.21, 114.06, 0.0, 0.0} --posx,posy,poz,rotx,roty,rotz | this is where the camera will be
+        },
+        showVehicles = { -- Table is not required
+            -- [1] = {model = `granger2`, livery = 0, location = vector4(-43.22, -1094.51, 25.87, 218.0)},
+            -- [2] = {model = `windsor`, location = vector4(-45.92, -1102.95, 25.87, 293.39)},
+            -- [3] = {model = `vigero`, location = vector4(-39.54, -1095.73, 26.09, 212.0)},
+            -- [4] = {model = `schafter2`, location = vector4(-48.51, -1101.36, 26.01, 305.47)},
+            -- [5] = {model = `bati`, location = vector4(-40.02, -1106.04, 25.77, 303.97)},
+            -- [6] = {model = `tribike`, location = vector4(-41.42, -1105.42, 26.04, 8.98)},
+        }
     },
-    -- ['luxury'] = {
-    --     ['Type'] = 'managed', -- meaning a real player has to sell the car
-    --     ['Zone'] = {
-    --         ['Shape'] = {
-    --             vector2(-1260.6973876953, -349.21334838867),
-    --             vector2(-1268.6248779297, -352.87365722656),
-    --             vector2(-1274.1533203125, -358.29794311523),
-    --             vector2(-1273.8425292969, -362.73715209961),
-    --             vector2(-1270.5701904297, -368.6716003418),
-    --             vector2(-1266.0561523438, -375.14080810547),
-    --             vector2(-1244.3684082031, -362.70278930664),
-    --             vector2(-1249.8704833984, -352.03326416016),
-    --             vector2(-1252.9503173828, -345.85726928711)
-    --         },
-    --         ['minZ'] = 36.646457672119,
-    --         ['maxZ'] = 37.516143798828,
-    --         ['size'] = 2.75 -- size of the vehicles zones
-    --     },
-    --     ['Job'] = 'cardealer', -- Name of job or none
-    --     ['ShopLabel'] = 'Luxury Vehicle Shop',
-    --     ['showBlip'] = true, -- true or false
-    --     ['blipSprite'] = 326, -- Blip sprite
-    --     ['blipColor'] = 3, -- Blip color
-    --     ['TestDriveTimeLimit'] = 0.5,
-    --     ['Location'] = vector3(-1255.6, -361.16, 36.91),
-    --     ['ReturnLocation'] = vector3(-1231.46, -349.86, 37.33),
-    --     ['VehicleSpawn'] = vector4(-1231.46, -349.86, 37.33, 26.61),
-    --     ['TestDriveSpawn'] = vector4(-1232.81, -347.99, 37.33, 23.28), -- Spawn location for test drive
-    --     ['ShowroomVehicles'] = {
-    --         [1] = {
-    --             coords = vector4(-1265.31, -354.44, 35.91, 205.08),
-    --             defaultVehicle = 'italirsx',
-    --             chosenVehicle = 'italirsx'
-    --         },
-    --         [2] = {
-    --             coords = vector4(-1270.06, -358.55, 35.91, 247.08),
-    --             defaultVehicle = 'italigtb',
-    --             chosenVehicle = 'italigtb'
-    --         },
-    --         [3] = {
-    --             coords = vector4(-1269.21, -365.03, 35.91, 297.12),
-    --             defaultVehicle = 'nero',
-    --             chosenVehicle = 'nero'
-    --         },
-    --         [4] = {
-    --             coords = vector4(-1252.07, -364.2, 35.91, 56.44),
-    --             defaultVehicle = 'bati',
-    --             chosenVehicle = 'bati'
-    --         },
-    --         [5] = {
-    --             coords = vector4(-1255.49, -365.91, 35.91, 55.63),
-    --             defaultVehicle = 'carbonrs',
-    --             chosenVehicle = 'carbonrs'
-    --         },
-    --         [6] = {
-    --             coords = vector4(-1249.21, -362.97, 35.91, 53.24),
-    --             defaultVehicle = 'hexer',
-    --             chosenVehicle = 'hexer'
-    --         },
-    --     }
-    -- }, -- Add your next table under this comma
 }

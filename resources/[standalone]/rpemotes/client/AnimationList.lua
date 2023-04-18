@@ -591,6 +591,304 @@ RP.Shared = {
     -- Emotes will work with either SyncOffset or Attachto. We can attach players either in front of us, to a specific bone, or either side of us. --
 
 
+    ["kiss5"] = {
+        "tigerle@custom@couple@kissing1a",
+        "tigerle_couple_kissing1a",
+        "Kiss 5",
+        "kiss6",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["kiss6"] = {
+        "tigerle@custom@couple@kissing1b",
+        "tigerle_couple_kissing1b",
+        "Kiss 6",
+        "kiss5",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    }, 
+    ["kiss7"] = {
+        "tigerle@custom@couple@kissing2a",
+        "tigerle_couple_kissing2a",
+        "Kiss 7",
+        "kiss8",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["kiss8"] = {
+        "tigerle@custom@couple@kissing2b",
+        "tigerle_couple_kissing2b",
+        "Kiss 8",
+        "kiss7",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["cuddleet"] = {
+        "tigerle@custom@couple@cuddle1a",
+        "tigerle_couple_cuddle1a",
+        "Kiss 7",
+        "cuddleet2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["cuddleet2"] = {
+        "tigerle@custom@couple@cuddle1b",
+        "tigerle_couple_cuddle1b",
+        "Kiss 8",
+        "cuddleet",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["cuddleet3"] = {
+        "tigerle@custom@couple@cuddle@no2a",
+        "tigerle_couple_cuddleno2a",
+        "Kiss 7",
+        "cuddleet4",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["cuddleet4"] = {
+        "tigerle@custom@couple@cuddle@no2b",
+        "tigerle_couple_cuddleno2b",
+        "Kiss 8",
+        "cuddleet3",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["layying"] = {
+        "tigerle@custom@couple@laying1a",
+        "tigerle_couple_laying1a",
+        "Kiss 7",
+        "layying2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["layying2"] = {
+        "tigerle@custom@couple@laying1b",
+        "tigerle_couple_laying1b",
+        "Kiss 8",
+        "layying",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["sitting"] = {
+        "tigerle@custom@couple@sittingonbench@no1a",
+        "tigerle_couple_sittingonbench_no1a",
+        "Kiss 7",
+        "sitting2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["sitting2"] = {
+        "tigerle@custom@couple@sittingonbench@no1b",
+        "tigerle_couple_sittingonbench_no1b",
+        "Kiss 8",
+        "sitting",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["cuddleet5"] = {
+        "tigerle@custom@couple@standcuddle_a",
+        "tigerle_couple_standcuddle_a",
+        "Kiss 7",
+        "cuddleet6",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["cuddleet6"] = {
+        "tigerle@custom@couple@standcuddle_b",
+        "tigerle_couple_standcuddle_b",
+        "Kiss 8",
+        "cuddleet5",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.0,
+            yPos = 0.35,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 180.0,
+        }
+    },
+    ["standingg"] = {
+        "tigerle@custom@couple@standing_a",
+        "tigerle_couple_standing_a",
+        "Kiss 7",
+        "standingg2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["standingg2"] = {
+        "tigerle@custom@couple@standing_b",
+        "tigerle_couple_standing_b",
+        "Kiss 8",
+        "standingg",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.10,
+            yPos = 0.30,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["titanic"] = {
+        "tigerle@custom@pose@titanic1a",
+        "tigerle_pose_titanic1a",
+        "Kiss 7",
+        "titanic2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["titanic2"] = {
+        "tigerle@custom@pose@titanic1b",
+        "tigerle_pose_titanic1b",
+        "Kiss 8",
+        "titanic",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.10,
+            yPos = 0.30,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["bfff"] = {
+        "tigerle@custom@pose@bff1a",
+        "tigerle_pose_bff1a",
+        "Kiss 7",
+        "bfff2",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+        }
+    },
+    ["bfff2"] = {
+        "tigerle@custom@pose@bff1b",
+        "tigerle_pose_bff1b",
+        "Kiss 8",
+        "bfff",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            xPos = 0.70,
+            yPos = 0.0,
+            zPos = 0.0,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
+    ["pback"] = {
+        "anim@arena@celeb@flat@paired@no_props@",
+        "piggyback_c_player_a",
+        "Offer Piggy Back",
+        "pback2",
+        AnimationOptions = {
+            EmoteMoving = true,
+            EmoteLoop = true,
+        }
+    },
+    ["pback2"] = {
+        "anim@arena@celeb@flat@paired@no_props@",
+        "piggyback_c_player_b",
+        "Be Piggy Backed",
+        "pback",
+        AnimationOptions = {
+            EmoteMoving = false,
+            EmoteLoop = true,
+            Attachto = true,
+            bone = 0,
+            xPos = 0.0,
+            yPos = -0.07,
+            zPos = 0.4,
+            xRot = 0.0,
+            yRot = 0.0,
+            zRot = 0.0,
+        }
+    },
     ["handshake"] = {
         "mp_ped_interaction",
         "handshake_guy_a",
@@ -20301,4 +20599,43 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
    },
+   ["babe1"] = {
+    "anim@heists@box_carry@",
+    "idle",
+    "Baby Seat 1",
+    AnimationOptions = {
+        Prop = "prop_busbebek_dark_01",
+        PropBone = 28422,
+        PropPlacement = {
+            0.00,
+            -0.420,
+            -1.290,
+            0.0,
+            0.0,
+            0.0
+        },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    }
+},
+["babe2"] = {
+    "anim@heists@box_carry@",
+    "idle",
+    "Baby Seat 2",
+    AnimationOptions = {
+        Prop = "prop_busbebek_light_01",
+        PropBone = 28422,
+        PropPlacement = {
+            0.00,
+            -0.420,
+            -1.290,
+            0.0,
+            0.0,
+            0.0
+        },
+        EmoteLoop = true,
+        EmoteMoving = true,
+    }
+},
+
 }

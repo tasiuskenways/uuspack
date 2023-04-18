@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
         { { name = "emotename", help = "dance, camera, sit or any valid emote." } })
     if Config.SqlKeybinding then
         TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind an emote',
-            { { name = "key", help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
+            { { name = "key",     help = "num4, num5, num6, num7. num8, num9. Numpad 4-9!" },
                 { name = "emotename", help = "dance, camera, sit or any valid emote." } })
         TriggerEvent('chat:addSuggestion', '/emotebinds', 'Check your currently bound emotes.')
     end
@@ -95,6 +95,7 @@ if Config.SqlKeybinding then
     RegisterCommand('emotebinds', function(source, args, raw) EmoteBindsStart(source, args, raw) end)
 end
 RegisterCommand('emotemenu', function(source, args, raw) OpenEmoteMenu() end)
+RegisterCommand('em', function(source, args, raw) OpenEmoteMenu() end)
 RegisterCommand('emotes', function(source, args, raw) EmotesOnCommand() end)
 RegisterCommand('walk', function(source, args, raw) WalkCommandStart(source, args, raw) end)
 RegisterCommand('walks', function(source, args, raw) WalksOnCommand() end)
@@ -116,28 +117,27 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 function EmoteCancel()
-
     if ChosenDict == "MaleScenario" and IsInAnimation then
-      ClearPedTasksImmediately(PlayerPedId())
-      IsInAnimation = false
-      DebugPrint("Forced scenario exit")
+        ClearPedTasksImmediately(PlayerPedId())
+        IsInAnimation = false
+        DebugPrint("Forced scenario exit")
     elseif ChosenDict == "Scenario" and IsInAnimation then
-      ClearPedTasksImmediately(PlayerPedId())
-      IsInAnimation = false
-      DebugPrint("Forced scenario exit")
+        ClearPedTasksImmediately(PlayerPedId())
+        IsInAnimation = false
+        DebugPrint("Forced scenario exit")
     end
-  
+
     PtfxNotif = false
     PtfxPrompt = false
-  
+
     if IsInAnimation then
-      PtfxStop()
-      ClearPedTasks(GetPlayerPed(-1))
-      DestroyAllProps()
-      DetachEntity(GetPlayerPed(-1), true, false) --Das ist die Änderung hier ;) mehr nicht.
-      IsInAnimation = false
+        PtfxStop()
+        ClearPedTasks(GetPlayerPed(-1))
+        DestroyAllProps()
+        DetachEntity(GetPlayerPed(-1), true, false) --Das ist die Änderung hier ;) mehr nicht.
+        IsInAnimation = false
     end
-  end
+end
 
 function EmoteChatMessage(msg)
     if msg then
@@ -231,7 +231,7 @@ function pairsByKeys(t, f)
         table.insert(a, n)
     end
     table.sort(a, f)
-    local i = 0 -- iterator variable
+    local i = 0             -- iterator variable
     local iter = function() -- iterator function
         i = i + 1
         if a[i] == nil then
@@ -249,33 +249,41 @@ function EmoteMenuStart(args, hard)
 
     if etype == "whitecustom" then
         if DP.White3ro[name] ~= nil then
-            if OnEmotePlay(DP.White3ro[name]) then end
+            if OnEmotePlay(DP.White3ro[name]) then
+            end
         end
     elseif etype == "whitecustom2do" then
         if DP.White2do[name] ~= nil then
-            if OnEmotePlay(DP.White2do[name]) then end
+            if OnEmotePlay(DP.White2do[name]) then
+            end
         end
     elseif etype == "dances" then
         if DP.Dances[name] ~= nil then
-            if OnEmotePlay(DP.Dances[name]) then end
+            if OnEmotePlay(DP.Dances[name]) then
+            end
         end
     elseif etype == "animals" then
         if DP.AnimalEmotes[name] ~= nil then
-            if OnEmotePlay(DP.AnimalEmotes[name]) then end
+            if OnEmotePlay(DP.AnimalEmotes[name]) then
+            end
         end
     elseif etype == "props" then
         if DP.PropEmotes[name] ~= nil then
-            if OnEmotePlay(DP.PropEmotes[name]) then end
+            if OnEmotePlay(DP.PropEmotes[name]) then
+            end
         end
     elseif etype == "emotes" then
         if DP.Emotes[name] ~= nil then
-            if OnEmotePlay(DP.Emotes[name]) then end
+            if OnEmotePlay(DP.Emotes[name]) then
+            end
         else
-            if name ~= "🕺 Dance Emotes" then end
+            if name ~= "🕺 Dance Emotes" then
+            end
         end
     elseif etype == "expression" then
         if DP.Expressions[name] ~= nil then
-            if OnEmotePlay(DP.Expressions[name]) then end
+            if OnEmotePlay(DP.Expressions[name]) then
+            end
         end
     end
 end
@@ -296,22 +304,28 @@ function EmoteCommandStart(source, args, raw)
         end
 
         if DP.Emotes[name] ~= nil then
-            if OnEmotePlay(DP.Emotes[name]) then end
+            if OnEmotePlay(DP.Emotes[name]) then
+            end
             return
         elseif DP.Dances[name] ~= nil then
-            if OnEmotePlay(DP.Dances[name]) then end
+            if OnEmotePlay(DP.Dances[name]) then
+            end
             return
         elseif DP.White2do[name] ~= nil then
-            if OnEmotePlay(DP.White2do[name]) then end
+            if OnEmotePlay(DP.White2do[name]) then
+            end
             return
         elseif DP.White3ro[name] ~= nil then
-            if OnEmotePlay(DP.White3ro[name]) then end
+            if OnEmotePlay(DP.White3ro[name]) then
+            end
             return
         elseif DP.AnimalEmotes[name] ~= nil then
-            if OnEmotePlay(DP.AnimalEmotes[name]) then end
+            if OnEmotePlay(DP.AnimalEmotes[name]) then
+            end
             return
         elseif DP.PropEmotes[name] ~= nil then
-            if OnEmotePlay(DP.PropEmotes[name]) then end
+            if OnEmotePlay(DP.PropEmotes[name]) then
+            end
             return
         else
             EmoteChatMessage("'" .. name .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
@@ -416,7 +430,8 @@ function OnEmotePlay(EmoteName)
 
     if ChosenDict == "MaleScenario" or "Scenario" then
         CheckGender()
-        if ChosenDict == "MaleScenario" then if InVehicle then return end
+        if ChosenDict == "MaleScenario" then
+            if InVehicle then return end
             if PlayerGender == "male" then
                 ClearPedTasks(PlayerPedId())
                 TaskStartScenarioInPlace(PlayerPedId(), ChosenAnimation, 0, true)
@@ -427,7 +442,8 @@ function OnEmotePlay(EmoteName)
                 EmoteChatMessage(Config.Languages[lang]['maleonly'])
             end
             return
-        elseif ChosenDict == "ScenarioObject" then if InVehicle then return end
+        elseif ChosenDict == "ScenarioObject" then
+            if InVehicle then return end
             BehindPlayer = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0 - 0.5, -0.5);
             ClearPedTasks(PlayerPedId())
             TaskStartScenarioAtPosition(PlayerPedId(), ChosenAnimation, BehindPlayer['x'], BehindPlayer['y'],
@@ -436,7 +452,8 @@ function OnEmotePlay(EmoteName)
             IsInAnimation = true
             RunAnimationThread()
             return
-        elseif ChosenDict == "Scenario" then if InVehicle then return end
+        elseif ChosenDict == "Scenario" then
+            if InVehicle then return end
             ClearPedTasks(PlayerPedId())
             TaskStartScenarioInPlace(PlayerPedId(), ChosenAnimation, 0, true)
             DebugPrint("Playing scenario = (" .. ChosenAnimation .. ")")
@@ -462,7 +479,6 @@ function OnEmotePlay(EmoteName)
             if EmoteName.AnimationOptions.EmoteMoving then
                 MovementType = 51 -- 110011
             end
-
         elseif EmoteName.AnimationOptions.EmoteMoving then
             MovementType = 51 -- 110011
         elseif EmoteName.AnimationOptions.EmoteMoving == false then
@@ -470,7 +486,6 @@ function OnEmotePlay(EmoteName)
         elseif EmoteName.AnimationOptions.EmoteStuck then
             MovementType = 50 -- 110010
         end
-
     else
         MovementType = 0
     end
@@ -528,7 +543,8 @@ function OnEmotePlay(EmoteName)
             if EmoteName.AnimationOptions.SecondProp then
                 SecondPropName = EmoteName.AnimationOptions.SecondProp
                 SecondPropBone = EmoteName.AnimationOptions.SecondPropBone
-                SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(EmoteName
+                SecondPropPl1, SecondPropPl2, SecondPropPl3, SecondPropPl4, SecondPropPl5, SecondPropPl6 = table.unpack(
+                    EmoteName
                     .AnimationOptions.SecondPropPlacement)
                 SecondPropEmote = true
             else

@@ -2,7 +2,7 @@ Config = Config or {}
 
 -- Configs for Payment and Banking
 
-Config.RenewedBanking = true -- Either put this to true or false if you use Renewed Banking or not
+Config.RenewedBanking = false -- Either put this to true or false if you use Renewed Banking or not
 Config.RenewedFinances = false -- Either put this to true or false if you use Renewed Finances or not
 Config.RenewedCameras = false -- Either put this to true or false if you use Renewed Cameras or not
 
@@ -17,7 +17,7 @@ Config.Webhook = 'https://discord.com/api/webhooks/1097149229123768340/P6B4qG9ZP
 Config.VPNItem = 'vpn'
 
 -- The garage the vehicle goes to when you sell a car to a player
-Config.SellGarage = 'altastreet'
+Config.SellGarage = 'apartments'
 
 -- How Long Does The Player Have To Accept The Ping - This Is In Seconds
 Config.Timeout = 30

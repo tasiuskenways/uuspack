@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.4.27-MariaDB - mariadb.org binary distribution
+-- Server version:               10.4.28-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
 -- HeidiSQL Version:             12.4.0.6659
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `apartments` (
   KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.apartments: ~0 rows (approximately)
+-- Dumping data for table uuspack.apartments: ~2 rows (approximately)
 REPLACE INTO `apartments` (`id`, `name`, `type`, `label`, `citizenid`) VALUES
 	(5, 'apartment38816', 'apartment1', 'Alta Street', 'OSB60946'),
 	(6, 'apartment17064', 'apartment1', 'Alta Street 7064', 'RGC15616');
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `bank_cards` (
   KEY `record_id` (`record_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table uuspack.bank_cards: ~0 rows (approximately)
+-- Dumping data for table uuspack.bank_cards: ~1 rows (approximately)
 REPLACE INTO `bank_cards` (`record_id`, `citizenid`, `cardNumber`, `cardPin`, `cardActive`, `cardLocked`, `cardType`) VALUES
 	(1, 'OSB60946', '5698001533673539', '1125', 1, 0, 'visa');
 
@@ -159,54 +159,6 @@ CREATE TABLE IF NOT EXISTS `dealers` (
 
 -- Dumping data for table uuspack.dealers: ~0 rows (approximately)
 
--- Dumping structure for table uuspack.ethicalpixel_admin
-CREATE TABLE IF NOT EXISTS `ethicalpixel_admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cid` varchar(50) DEFAULT NULL,
-  `favorite` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`favorite`)),
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table uuspack.ethicalpixel_admin: ~2 rows (approximately)
-REPLACE INTO `ethicalpixel_admin` (`id`, `cid`, `favorite`) VALUES
-	(4, 'WAC28700', '[{"name":"changemodel"},{"name":"ban"},{"name":"bring"},{"name":"csay"},{"name":"fixvehicle"},{"name":"givecash"},{"name":"godmode"},{"name":"noclip"},{"name":"clothes"}]'),
-	(5, 'OSB60946', '[]');
-
--- Dumping structure for table uuspack.ethicalpixel_admin_banned
-CREATE TABLE IF NOT EXISTS `ethicalpixel_admin_banned` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `steam` varchar(50) DEFAULT NULL,
-  `reason` varchar(50) DEFAULT NULL,
-  `length` varchar(50) DEFAULT NULL,
-  `ip` varchar(50) DEFAULT NULL,
-  `discord` varchar(50) DEFAULT NULL,
-  `license` varchar(50) DEFAULT NULL,
-  `DisplayName` varchar(50) DEFAULT NULL,
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table uuspack.ethicalpixel_admin_banned: ~0 rows (approximately)
-
--- Dumping structure for table uuspack.ethicalpixel_admin_log
-CREATE TABLE IF NOT EXISTS `ethicalpixel_admin_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Identifier` varchar(50) DEFAULT NULL,
-  `log` longtext DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `date` varchar(50) DEFAULT NULL,
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- Dumping data for table uuspack.ethicalpixel_admin_log: ~6 rows (approximately)
-REPLACE INTO `ethicalpixel_admin_log` (`id`, `Identifier`, `log`, `name`, `date`) VALUES
-	(60, NULL, 'Bringed Player | ID: 1 | Display Name: Ksatria Batang ganda', 'Ksatria Batang ganda', '1681801183'),
-	(61, NULL, 'cSaid: test', 'Ksatria Batang ganda', '1681801188'),
-	(62, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: weed_ak47_seed ( AK47 Seed ) | Amount: 1', 'Ksatria Batang ganda', '1681801228'),
-	(63, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: iphone ( iPhone ) | Amount: 1', 'Ksatria Batang ganda', '1681801232'),
-	(64, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: pinger ( Pinger ) | Amount: 1', 'Ksatria Batang ganda', '1681801268'),
-	(65, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: printerdocument ( Document ) | Amount: 1', 'Ksatria Batang ganda', '1681801273'),
-	(66, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Announced:  test', 'Ksatria Batang ganda', '1681801280');
-
 -- Dumping structure for table uuspack.fuel_stations
 CREATE TABLE IF NOT EXISTS `fuel_stations` (
   `location` int(11) NOT NULL,
@@ -258,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `gloveboxitems` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.gloveboxitems: ~0 rows (approximately)
+-- Dumping data for table uuspack.gloveboxitems: ~1 rows (approximately)
 REPLACE INTO `gloveboxitems` (`id`, `plate`, `items`) VALUES
 	(1, '24JDG097', '[]');
 
@@ -422,7 +374,7 @@ CREATE TABLE IF NOT EXISTS `management_outfits` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.management_outfits: ~11 rows (approximately)
+-- Dumping data for table uuspack.management_outfits: ~13 rows (approximately)
 REPLACE INTO `management_outfits` (`id`, `job_name`, `type`, `minrank`, `name`, `gender`, `model`, `props`, `components`) VALUES
 	(27, 'police', 'Job', 1, 'Officer - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":0,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":147,"texture":0,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
 	(28, 'police', 'Job', 2, 'Sergeant - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":0,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":147,"texture":1,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
@@ -707,7 +659,7 @@ CREATE TABLE IF NOT EXISTS `phone_gallery` (
   `date` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.phone_gallery: ~0 rows (approximately)
+-- Dumping data for table uuspack.phone_gallery: ~1 rows (approximately)
 REPLACE INTO `phone_gallery` (`citizenid`, `image`, `date`) VALUES
 	('OSB60946', 'https://media.discordapp.net/attachments/1097149177697415228/1097414162147201114/screenshot.jpg', '2023-04-17 06:52:05');
 
@@ -926,9 +878,9 @@ CREATE TABLE IF NOT EXISTS `player_mails` (
   KEY `citizenid` (`citizenid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_mails: ~0 rows (approximately)
+-- Dumping data for table uuspack.player_mails: ~1 rows (approximately)
 REPLACE INTO `player_mails` (`id`, `citizenid`, `sender`, `subject`, `message`, `read`, `mailid`, `date`, `button`) VALUES
-	(49, 'OSB60946', 'Turner’s Auto Wrecking', 'Vehicle List', 'You Can Only Demolish A Number Of Vehicles.<br />You Can Keep Everything You Demolish For Yourself As Long As You Dont Bother Me.<br /><br /><strong>Vehicle List:</strong><br />Vapid Sandking SWB<br />Dinka Akuma<br />Obey Tailgater<br />Dundreary Landstalker<br />Vapid Slam Van<br />Vapid Stanier<br />Bravado Buffalo S<br />Fathom FQ2<br />Pfister Comet<br />Canis Seminole<br />Bravado Banshee<br />Vapid Dominator<br />Benefactor Feltzer<br />Albany Cavalcade II<br />Gallivanter Baller<br />Declasse Sabre GT Turbo<br />Ocelot F620<br />Dinka Blista Compact<br />Obey Rocoto<br />Bravado Buffalo<br />Albany Washington<br />Dinka Jester<br />Dewbauchee Exemplar<br />Übermacht Zion Cabrio<br />Bollokan Prairie<br />Maxwell Asbo<br />Dinka Thrust<br />Obey 9F<br />Grotti Turismo R<br />', 0, 825238, '2023-04-17 06:53:47', '[]');
+	(49, 'OSB60946', 'Turnerâ€™s Auto Wrecking', 'Vehicle List', 'You Can Only Demolish A Number Of Vehicles.<br />You Can Keep Everything You Demolish For Yourself As Long As You Dont Bother Me.<br /><br /><strong>Vehicle List:</strong><br />Vapid Sandking SWB<br />Dinka Akuma<br />Obey Tailgater<br />Dundreary Landstalker<br />Vapid Slam Van<br />Vapid Stanier<br />Bravado Buffalo S<br />Fathom FQ2<br />Pfister Comet<br />Canis Seminole<br />Bravado Banshee<br />Vapid Dominator<br />Benefactor Feltzer<br />Albany Cavalcade II<br />Gallivanter Baller<br />Declasse Sabre GT Turbo<br />Ocelot F620<br />Dinka Blista Compact<br />Obey Rocoto<br />Bravado Buffalo<br />Albany Washington<br />Dinka Jester<br />Dewbauchee Exemplar<br />Ãœbermacht Zion Cabrio<br />Bollokan Prairie<br />Maxwell Asbo<br />Dinka Thrust<br />Obey 9F<br />Grotti Turismo R<br />', 0, 825238, '2023-04-17 06:53:47', '[]');
 
 -- Dumping structure for table uuspack.player_notes
 CREATE TABLE IF NOT EXISTS `player_notes` (
@@ -954,7 +906,7 @@ CREATE TABLE IF NOT EXISTS `player_outfits` (
   KEY `citizenid` (`citizenid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.player_outfits: ~0 rows (approximately)
+-- Dumping data for table uuspack.player_outfits: ~1 rows (approximately)
 REPLACE INTO `player_outfits` (`id`, `citizenid`, `outfitname`, `model`, `props`, `components`) VALUES
 	(26, 'OSB60946', 'Selo', 'mp_f_freemode_01', '[{"texture":-1,"prop_id":0,"drawable":-1},{"texture":0,"prop_id":1,"drawable":18},{"texture":0,"prop_id":2,"drawable":0},{"texture":-1,"prop_id":6,"drawable":-1},{"texture":-1,"prop_id":7,"drawable":-1}]', '[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":199},{"texture":0,"component_id":3,"drawable":92},{"texture":0,"component_id":4,"drawable":57},{"texture":0,"component_id":5,"drawable":0},{"texture":2,"component_id":6,"drawable":51},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":15},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":16},{"texture":4,"component_id":11,"drawable":18}]');
 
@@ -967,7 +919,7 @@ CREATE TABLE IF NOT EXISTS `player_outfit_codes` (
   KEY `FK_player_outfit_codes_player_outfits` (`outfitid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.player_outfit_codes: ~0 rows (approximately)
+-- Dumping data for table uuspack.player_outfit_codes: ~1 rows (approximately)
 REPLACE INTO `player_outfit_codes` (`id`, `outfitid`, `code`) VALUES
 	(1, 26, 'ytqX_3vJBs');
 
@@ -993,6 +945,10 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   `paymentamount` int(11) NOT NULL DEFAULT 0,
   `paymentsleft` int(11) NOT NULL DEFAULT 0,
   `financetime` int(11) NOT NULL DEFAULT 0,
+  `nosColour` text DEFAULT NULL,
+  `traveldistance` int(50) DEFAULT 0,
+  `noslevel` int(10) DEFAULT 0,
+  `hasnitro` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_playervehicles_plate` (`plate`),
   KEY `plate` (`plate`),
@@ -1002,12 +958,12 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.player_vehicles: ~5 rows (approximately)
-REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`) VALUES
-	(5, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontWheels":-1,"wheelSize":1.0,"model":-1848994066,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modTank":-1,"modSpeakers":-1,"modBackWheels":-1,"plateIndex":0,"modOrnaments":-1,"modBrakes":-1,"xenonColor":255,"modSideSkirt":-1,"modEngine":-1,"modCustomTiresF":false,"modSeats":-1,"modTrimA":-1,"modRightFender":-1,"modDoorSpeaker":-1,"modHood":-1,"modDashboard":-1,"color1":64,"modWindows":-1,"modExhaust":-1,"engineHealth":998.4705910484217,"modEngineBlock":-1,"modFrontBumper":-1,"modTrimB":-1,"modRearBumper":-1,"modFrame":-1,"modStruts":-1,"pearlescentColor":73,"modGrille":-1,"modSteeringWheel":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"liveryRoof":-1,"dirtLevel":2.38298470417284,"modAirFilter":-1,"modKit21":-1,"wheelColor":0,"modAPlate":-1,"modXenon":false,"tankHealth":1000.0592475178704,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modKit19":-1,"bodyHealth":998.4705910484217,"modFender":-1,"modCustomTiresR":false,"modShifterLeavers":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSpoilers":-1,"modSuspension":-1,"dashboardColor":65,"modPlateHolder":-1,"modKit47":-1,"plate":"03UGY881","modArchCover":-1,"modAerials":-1,"modVanityPlate":-1,"fuelLevel":96.90804463636234,"modDial":-1,"modKit49":-1,"modKit17":-1,"windowTint":-1,"modRoof":-1,"tyreSmokeColor":[255,255,255],"wheels":0,"modHydrolic":-1,"modArmor":-1,"oilLevel":4.76596940834568,"wheelWidth":1.0,"modTrunk":-1,"modTurbo":false,"interiorColor":93,"modTransmission":-1,"modHorns":-1,"modLivery":-1,"color2":0,"extras":[],"headlightColor":255,"neonColor":[255,0,255],"neonEnabled":[false,false,false,false],"modSmokeEnabled":false}', '03UGY881', NULL, 'pdgarage', 97, 999, 999, 1, 0, 2411, NULL, 0, 0, 0, 0),
-	(6, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modSteeringWheel":-1,"modSmokeEnabled":false,"neonEnabled":[false,false,false,false],"modTransmission":-1,"neonColor":[255,0,255],"modSideSkirt":-1,"modArchCover":-1,"tyreSmokeColor":[255,255,255],"wheelColor":156,"modEngine":-1,"modExhaust":-1,"modTrunk":-1,"plate":"41LWE226","extras":[],"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modBackWheels":-1,"modEngineBlock":-1,"modDoorSpeaker":-1,"wheelSize":1.0,"modHorns":-1,"modCustomTiresF":false,"modDashboard":-1,"modFender":-1,"modOrnaments":-1,"modFrame":-1,"modAirFilter":-1,"modFrontBumper":-1,"modSuspension":-1,"modSpeakers":-1,"color1":0,"engineHealth":1000.0592475178704,"fuelLevel":97.70237287108663,"modArmor":-1,"interiorColor":0,"modCustomTiresR":false,"modXenon":false,"modTrimA":-1,"modRightFender":-1,"modKit17":-1,"oilLevel":4.76596940834568,"modKit21":-1,"headlightColor":255,"modGrille":-1,"modTurbo":false,"modBrakes":-1,"liveryRoof":-1,"modLivery":2,"modStruts":-1,"modPlateHolder":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":0,"windowTint":-1,"wheels":6,"modKit47":-1,"tankHealth":1000.0592475178704,"wheelWidth":1.0,"modTrimB":-1,"modVanityPlate":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color2":0,"pearlescentColor":0,"dirtLevel":0.79432823472428,"modKit49":-1,"modHood":-1,"xenonColor":255,"dashboardColor":0,"modSpoilers":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modAPlate":-1,"modTank":-1,"modAerials":-1,"model":788045382,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modWindows":-1,"modDial":-1,"modSeats":-1,"modRearBumper":-1,"modKit19":-1,"modFrontWheels":-1,"modHydrolic":-1}', '41LWE226', NULL, 'apartments', 97, 1000, 1000, 1, 0, 870196, NULL, 0, 0, 0, 0),
-	(7, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modHydrolic":-1,"interiorColor":0,"modPlateHolder":-1,"modSeats":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTank":-1,"modKit49":-1,"tyreSmokeColor":[255,255,255],"dirtLevel":0.0,"modArchCover":-1,"modAirFilter":-1,"modHorns":-1,"liveryRoof":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"plate":"21YGE174","dashboardColor":0,"modDial":-1,"modTrunk":-1,"modKit19":-1,"modSmokeEnabled":false,"modDoorSpeaker":-1,"modTurbo":false,"neonColor":[255,0,255],"wheelColor":156,"modBackWheels":-1,"xenonColor":255,"modSpoilers":-1,"modAPlate":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"modOrnaments":-1,"headlightColor":255,"wheels":6,"color2":0,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modHood":-1,"fuelLevel":45.27670937928404,"modRearBumper":-1,"plateIndex":3,"modStruts":-1,"modDashboard":-1,"modSteeringWheel":-1,"modBrakes":-1,"modAerials":-1,"tankHealth":1000.0592475178704,"pearlescentColor":0,"extras":[],"modCustomTiresR":false,"modKit21":-1,"modFender":-1,"modTrimA":-1,"modFrontWheels":-1,"modVanityPlate":-1,"modCustomTiresF":false,"windowTint":-1,"modLivery":2,"modFrontBumper":-1,"modExhaust":-1,"modSuspension":-1,"wheelSize":0.0,"modTrimB":-1,"modRoof":-1,"modArmor":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color1":0,"neonEnabled":[false,false,false,false],"modGrille":-1,"modWindows":-1,"modSpeakers":-1,"modSideSkirt":-1,"oilLevel":4.76596940834568,"modEngine":-1,"modEngineBlock":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modFrame":-1,"modKit47":-1,"modTransmission":-1,"modRightFender":-1,"model":788045382,"engineHealth":1000.0592475178704}', '21YGE174', NULL, NULL, 45, 1000, 1000, 0, 0, 178749, NULL, 0, 0, 0, 0),
-	(8, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontBumper":-1,"modCustomTiresF":false,"plateIndex":0,"modRoof":-1,"modHood":-1,"modHorns":-1,"modStruts":-1,"modSpoilers":-1,"modXenon":false,"modExhaust":-1,"modFrontWheels":-1,"modFrame":-1,"pearlescentColor":73,"tyreSmokeColor":[255,255,255],"modDoorSpeaker":-1,"modTrimB":-1,"modAPlate":-1,"interiorColor":93,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSteeringWheel":-1,"modKit17":-1,"modCustomTiresR":false,"modRearBumper":-1,"windowTint":-1,"modSeats":-1,"modTrimA":-1,"modVanityPlate":-1,"dirtLevel":0.0,"color1":64,"modTurbo":false,"bodyHealth":994.4989498748004,"modShifterLeavers":-1,"modEngineBlock":-1,"oilLevel":4.76596940834568,"modBackWheels":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modRightFender":-1,"model":-1848994066,"modGrille":-1,"engineHealth":972.2577593025205,"dashboardColor":65,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"wheelColor":0,"modHydrolic":-1,"neonColor":[255,0,255],"modArchCover":-1,"xenonColor":255,"neonEnabled":[false,false,false,false],"modOrnaments":-1,"fuelLevel":42.8937246751112,"modSuspension":-1,"modAirFilter":-1,"modKit49":-1,"modLivery":-1,"modWindows":-1,"modTank":-1,"headlightColor":255,"modSideSkirt":-1,"plate":"24JDG097","modKit21":-1,"modSmokeEnabled":false,"modSpeakers":-1,"modEngine":-1,"wheelWidth":1.0,"modArmor":-1,"wheelSize":1.0,"extras":[],"modPlateHolder":-1,"modKit19":-1,"modTrunk":-1,"modAerials":-1,"modDial":-1,"color2":0,"modKit47":-1,"wheels":0,"modBrakes":-1,"tankHealth":996.8819345789732,"modTransmission":-1,"modFender":-1,"modDashboard":-1,"liveryRoof":-1}', '24JDG097', NULL, 'pillbox_hospital', 43, 973, 995, 0, 0, 11184, NULL, 0, 0, 0, 0),
-	(9, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"liveryRoof":-1,"modDoorSpeaker":-1,"modRightFender":-1,"dirtLevel":0.0,"fuelLevel":50.04267878762973,"modArmor":-1,"modTransmission":-1,"neonColor":[255,0,255],"model":-1848994066,"tyreSmokeColor":[255,255,255],"modKit19":-1,"modPlateHolder":-1,"modKit49":-1,"modTrimB":-1,"modTurbo":false,"modSpoilers":-1,"modSideSkirt":-1,"extras":[],"modHydrolic":-1,"modSmokeEnabled":false,"modFrontBumper":-1,"modSpeakers":-1,"modHood":-1,"modShifterLeavers":-1,"bodyHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAirFilter":-1,"engineHealth":1000.0592475178704,"modDashboard":-1,"tankHealth":1000.0592475178704,"xenonColor":255,"modOrnaments":-1,"modSuspension":-1,"wheelSize":1.0,"modTank":-1,"modAPlate":-1,"modEngine":-1,"modKit47":-1,"modTrimA":-1,"modBrakes":-1,"modBackWheels":-1,"modCustomTiresF":false,"modKit21":-1,"modFrame":-1,"modExhaust":-1,"color1":64,"modCustomTiresR":false,"modStruts":-1,"color2":0,"modArchCover":-1,"headlightColor":255,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"wheels":0,"plate":"82GGY937","modLivery":-1,"modVanityPlate":-1,"modHorns":-1,"modRearBumper":-1,"plateIndex":0,"windowTint":-1,"modXenon":false,"modEngineBlock":-1,"interiorColor":93,"modWindows":-1,"modRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modFender":-1,"dashboardColor":65,"pearlescentColor":73,"wheelWidth":1.0,"modSteeringWheel":-1,"modFrontWheels":-1,"modTrunk":-1,"wheelColor":0,"modGrille":-1,"modSeats":-1,"modAerials":-1,"modKit17":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false}}', '82GGY937', NULL, 'pdgarage', 50, 1000, 1000, 1, 0, 640319, NULL, 0, 0, 0, 0);
+REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`, `nosColour`, `traveldistance`, `noslevel`, `hasnitro`) VALUES
+	(5, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontWheels":-1,"wheelSize":1.0,"model":-1848994066,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modTank":-1,"modSpeakers":-1,"modBackWheels":-1,"plateIndex":0,"modOrnaments":-1,"modBrakes":-1,"xenonColor":255,"modSideSkirt":-1,"modEngine":-1,"modCustomTiresF":false,"modSeats":-1,"modTrimA":-1,"modRightFender":-1,"modDoorSpeaker":-1,"modHood":-1,"modDashboard":-1,"color1":64,"modWindows":-1,"modExhaust":-1,"engineHealth":998.4705910484217,"modEngineBlock":-1,"modFrontBumper":-1,"modTrimB":-1,"modRearBumper":-1,"modFrame":-1,"modStruts":-1,"pearlescentColor":73,"modGrille":-1,"modSteeringWheel":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"liveryRoof":-1,"dirtLevel":2.38298470417284,"modAirFilter":-1,"modKit21":-1,"wheelColor":0,"modAPlate":-1,"modXenon":false,"tankHealth":1000.0592475178704,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modKit19":-1,"bodyHealth":998.4705910484217,"modFender":-1,"modCustomTiresR":false,"modShifterLeavers":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSpoilers":-1,"modSuspension":-1,"dashboardColor":65,"modPlateHolder":-1,"modKit47":-1,"plate":"03UGY881","modArchCover":-1,"modAerials":-1,"modVanityPlate":-1,"fuelLevel":96.90804463636234,"modDial":-1,"modKit49":-1,"modKit17":-1,"windowTint":-1,"modRoof":-1,"tyreSmokeColor":[255,255,255],"wheels":0,"modHydrolic":-1,"modArmor":-1,"oilLevel":4.76596940834568,"wheelWidth":1.0,"modTrunk":-1,"modTurbo":false,"interiorColor":93,"modTransmission":-1,"modHorns":-1,"modLivery":-1,"color2":0,"extras":[],"headlightColor":255,"neonColor":[255,0,255],"neonEnabled":[false,false,false,false],"modSmokeEnabled":false}', '03UGY881', NULL, 'pdgarage', 97, 999, 999, 1, 0, 2411, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
+	(6, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modSteeringWheel":-1,"modSmokeEnabled":false,"neonEnabled":[false,false,false,false],"modTransmission":-1,"neonColor":[255,0,255],"modSideSkirt":-1,"modArchCover":-1,"tyreSmokeColor":[255,255,255],"wheelColor":156,"modEngine":-1,"modExhaust":-1,"modTrunk":-1,"plate":"41LWE226","extras":[],"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modBackWheels":-1,"modEngineBlock":-1,"modDoorSpeaker":-1,"wheelSize":1.0,"modHorns":-1,"modCustomTiresF":false,"modDashboard":-1,"modFender":-1,"modOrnaments":-1,"modFrame":-1,"modAirFilter":-1,"modFrontBumper":-1,"modSuspension":-1,"modSpeakers":-1,"color1":0,"engineHealth":1000.0592475178704,"fuelLevel":97.70237287108663,"modArmor":-1,"interiorColor":0,"modCustomTiresR":false,"modXenon":false,"modTrimA":-1,"modRightFender":-1,"modKit17":-1,"oilLevel":4.76596940834568,"modKit21":-1,"headlightColor":255,"modGrille":-1,"modTurbo":false,"modBrakes":-1,"liveryRoof":-1,"modLivery":2,"modStruts":-1,"modPlateHolder":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":0,"windowTint":-1,"wheels":6,"modKit47":-1,"tankHealth":1000.0592475178704,"wheelWidth":1.0,"modTrimB":-1,"modVanityPlate":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color2":0,"pearlescentColor":0,"dirtLevel":0.79432823472428,"modKit49":-1,"modHood":-1,"xenonColor":255,"dashboardColor":0,"modSpoilers":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modAPlate":-1,"modTank":-1,"modAerials":-1,"model":788045382,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modWindows":-1,"modDial":-1,"modSeats":-1,"modRearBumper":-1,"modKit19":-1,"modFrontWheels":-1,"modHydrolic":-1}', '41LWE226', NULL, 'apartments', 97, 1000, 1000, 1, 0, 870196, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
+	(7, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modHydrolic":-1,"interiorColor":0,"modPlateHolder":-1,"modSeats":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTank":-1,"modKit49":-1,"tyreSmokeColor":[255,255,255],"dirtLevel":0.0,"modArchCover":-1,"modAirFilter":-1,"modHorns":-1,"liveryRoof":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"plate":"21YGE174","dashboardColor":0,"modDial":-1,"modTrunk":-1,"modKit19":-1,"modSmokeEnabled":false,"modDoorSpeaker":-1,"modTurbo":false,"neonColor":[255,0,255],"wheelColor":156,"modBackWheels":-1,"xenonColor":255,"modSpoilers":-1,"modAPlate":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"modOrnaments":-1,"headlightColor":255,"wheels":6,"color2":0,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modHood":-1,"fuelLevel":45.27670937928404,"modRearBumper":-1,"plateIndex":3,"modStruts":-1,"modDashboard":-1,"modSteeringWheel":-1,"modBrakes":-1,"modAerials":-1,"tankHealth":1000.0592475178704,"pearlescentColor":0,"extras":[],"modCustomTiresR":false,"modKit21":-1,"modFender":-1,"modTrimA":-1,"modFrontWheels":-1,"modVanityPlate":-1,"modCustomTiresF":false,"windowTint":-1,"modLivery":2,"modFrontBumper":-1,"modExhaust":-1,"modSuspension":-1,"wheelSize":0.0,"modTrimB":-1,"modRoof":-1,"modArmor":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color1":0,"neonEnabled":[false,false,false,false],"modGrille":-1,"modWindows":-1,"modSpeakers":-1,"modSideSkirt":-1,"oilLevel":4.76596940834568,"modEngine":-1,"modEngineBlock":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modFrame":-1,"modKit47":-1,"modTransmission":-1,"modRightFender":-1,"model":788045382,"engineHealth":1000.0592475178704}', '21YGE174', NULL, NULL, 45, 1000, 1000, 0, 0, 178749, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
+	(8, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontBumper":-1,"modCustomTiresF":false,"plateIndex":0,"modRoof":-1,"modHood":-1,"modHorns":-1,"modStruts":-1,"modSpoilers":-1,"modXenon":false,"modExhaust":-1,"modFrontWheels":-1,"modFrame":-1,"pearlescentColor":73,"tyreSmokeColor":[255,255,255],"modDoorSpeaker":-1,"modTrimB":-1,"modAPlate":-1,"interiorColor":93,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSteeringWheel":-1,"modKit17":-1,"modCustomTiresR":false,"modRearBumper":-1,"windowTint":-1,"modSeats":-1,"modTrimA":-1,"modVanityPlate":-1,"dirtLevel":0.0,"color1":64,"modTurbo":false,"bodyHealth":994.4989498748004,"modShifterLeavers":-1,"modEngineBlock":-1,"oilLevel":4.76596940834568,"modBackWheels":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modRightFender":-1,"model":-1848994066,"modGrille":-1,"engineHealth":972.2577593025205,"dashboardColor":65,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"wheelColor":0,"modHydrolic":-1,"neonColor":[255,0,255],"modArchCover":-1,"xenonColor":255,"neonEnabled":[false,false,false,false],"modOrnaments":-1,"fuelLevel":42.8937246751112,"modSuspension":-1,"modAirFilter":-1,"modKit49":-1,"modLivery":-1,"modWindows":-1,"modTank":-1,"headlightColor":255,"modSideSkirt":-1,"plate":"24JDG097","modKit21":-1,"modSmokeEnabled":false,"modSpeakers":-1,"modEngine":-1,"wheelWidth":1.0,"modArmor":-1,"wheelSize":1.0,"extras":[],"modPlateHolder":-1,"modKit19":-1,"modTrunk":-1,"modAerials":-1,"modDial":-1,"color2":0,"modKit47":-1,"wheels":0,"modBrakes":-1,"tankHealth":996.8819345789732,"modTransmission":-1,"modFender":-1,"modDashboard":-1,"liveryRoof":-1}', '24JDG097', NULL, 'pillbox_hospital', 43, 973, 995, 0, 0, 11184, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
+	(9, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"liveryRoof":-1,"modDoorSpeaker":-1,"modRightFender":-1,"dirtLevel":0.0,"fuelLevel":50.04267878762973,"modArmor":-1,"modTransmission":-1,"neonColor":[255,0,255],"model":-1848994066,"tyreSmokeColor":[255,255,255],"modKit19":-1,"modPlateHolder":-1,"modKit49":-1,"modTrimB":-1,"modTurbo":false,"modSpoilers":-1,"modSideSkirt":-1,"extras":[],"modHydrolic":-1,"modSmokeEnabled":false,"modFrontBumper":-1,"modSpeakers":-1,"modHood":-1,"modShifterLeavers":-1,"bodyHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAirFilter":-1,"engineHealth":1000.0592475178704,"modDashboard":-1,"tankHealth":1000.0592475178704,"xenonColor":255,"modOrnaments":-1,"modSuspension":-1,"wheelSize":1.0,"modTank":-1,"modAPlate":-1,"modEngine":-1,"modKit47":-1,"modTrimA":-1,"modBrakes":-1,"modBackWheels":-1,"modCustomTiresF":false,"modKit21":-1,"modFrame":-1,"modExhaust":-1,"color1":64,"modCustomTiresR":false,"modStruts":-1,"color2":0,"modArchCover":-1,"headlightColor":255,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"wheels":0,"plate":"82GGY937","modLivery":-1,"modVanityPlate":-1,"modHorns":-1,"modRearBumper":-1,"plateIndex":0,"windowTint":-1,"modXenon":false,"modEngineBlock":-1,"interiorColor":93,"modWindows":-1,"modRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modFender":-1,"dashboardColor":65,"pearlescentColor":73,"wheelWidth":1.0,"modSteeringWheel":-1,"modFrontWheels":-1,"modTrunk":-1,"wheelColor":0,"modGrille":-1,"modSeats":-1,"modAerials":-1,"modKit17":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false}}', '82GGY937', NULL, 'pdgarage', 50, 1000, 1000, 1, 0, 640319, NULL, 0, 0, 0, 0, NULL, 0, 0, 0);
 
 -- Dumping structure for table uuspack.player_warns
 CREATE TABLE IF NOT EXISTS `player_warns` (
@@ -1112,7 +1068,7 @@ CREATE TABLE IF NOT EXISTS `twitter_account` (
   `avatar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.twitter_account: ~0 rows (approximately)
+-- Dumping data for table uuspack.twitter_account: ~1 rows (approximately)
 REPLACE INTO `twitter_account` (`id`, `name`, `phone`, `username`, `password`, `avatar`) VALUES
 	('OSB60946', 'Tasius Kenways', '2083394297', 'Tasius', 'susah213', 'default.png');
 

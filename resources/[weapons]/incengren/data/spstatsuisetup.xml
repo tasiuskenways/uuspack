@@ -1,0 +1,7 @@
+<StatsSetup version="1">
+    <stats>
+		<Category label="SP_STATS7">  	<!-- Weapons -->
+			<stat name="INCENDIARY_KILLS"		type="int"		visible="ALWAYS_VISIBLE" />
+		</Category>
+	</stats>
+</StatsSetup>

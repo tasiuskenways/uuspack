@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeaponModelInfo__InitDataList>
+	<InitDatas>
+    <Item>
+      <modelName>w_mg_m240</modelName>
+      <txdName>w_mg_m240</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_mg_m240_mag1</modelName>
+      <txdName>w_mg_m240_mag1</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_m240_flsh</modelName>
+      <txdName>w_at_m240_flsh</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_scope_m240</modelName>
+      <txdName>w_at_scope_m240</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+			<modelName>w_at_m240_afgrip</modelName>
+			<txdName>w_at_m240_afgrip</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeaponModelInfo__InitDataList>
+	<InitDatas>
+		<!-- WEAPON_INCENDIARY -->
+		<Item>
+			<modelName>W_EX_Incendiary</modelName>
+			<txdName>W_EX_Incendiary</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="100"/>
+		</Item>
+	</InitDatas>
+</CWeaponModelInfo__InitDataList>

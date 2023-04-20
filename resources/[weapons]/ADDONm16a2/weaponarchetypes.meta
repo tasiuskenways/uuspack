@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeaponModelInfo__InitDataList>
+	<InitDatas>
+    <Item>
+      <modelName>W_AR_m16a2</modelName>
+      <txdName>W_AR_m16a2</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_ar_m16a2_mag1</modelName>
+      <txdName>w_ar_m16a2_mag1</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_m16a2_flsh</modelName>
+      <txdName>w_at_m16a2_flsh</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_scope_m16a2</modelName>
+      <txdName>w_at_scope_m16a2</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+			<modelName>w_at_m16a2_afgrip</modelName>
+			<txdName>w_at_m16a2_afgrip</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

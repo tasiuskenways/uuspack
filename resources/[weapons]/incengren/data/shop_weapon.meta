@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<WeaponShopItemArray>
+	<weaponShopItems>
+		<Item>
+			<lockHash>CU_WEP_INCENDIARY</lockHash>
+			<nameHash>WEAPON_INCENDIARY</nameHash>
+			<cost value ="250"/>
+			<ammoCost value="250"/>
+			<textLabel>WT_INCENDIARY</textLabel>
+			<weaponDesc>WTD_INCENDIARY</weaponDesc>
+			<weaponTT>WTT_INCENDIARY</weaponTT>
+			<weaponUppercase>WTU_INCENDIARY</weaponUppercase>
+			<id value = "32"/>
+			<weaponComponents />
+		</Item>
+	</weaponShopItems>
+</WeaponShopItemArray>	

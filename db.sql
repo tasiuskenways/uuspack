@@ -29,11 +29,12 @@ CREATE TABLE IF NOT EXISTS `apartments` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.apartments: ~0 rows (approximately)
 REPLACE INTO `apartments` (`id`, `name`, `type`, `label`, `citizenid`) VALUES
-	(5, 'apartment38816', 'apartment1', 'Alta Street', 'OSB60946');
+	(5, 'apartment38816', 'apartment1', 'Alta Street', 'OSB60946'),
+	(6, 'apartment17064', 'apartment1', 'Alta Street 7064', 'RGC15616');
 
 -- Dumping structure for table uuspack.bank_accounts
 CREATE TABLE IF NOT EXISTS `bank_accounts` (
@@ -117,9 +118,9 @@ CREATE TABLE IF NOT EXISTS `crypto` (
   PRIMARY KEY (`crypto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.crypto: ~0 rows (approximately)
+-- Dumping data for table uuspack.crypto: ~1 rows (approximately)
 REPLACE INTO `crypto` (`crypto`, `worth`, `history`) VALUES
-	('qbit', 1031, '[{"PreviousWorth":1038,"NewWorth":1030},{"PreviousWorth":1038,"NewWorth":1030},{"PreviousWorth":1038,"NewWorth":1030},{"PreviousWorth":1030,"NewWorth":1031}]');
+	('qbit', 1030, '[{"NewWorth":1040,"PreviousWorth":1031},{"NewWorth":1040,"PreviousWorth":1031},{"NewWorth":1040,"PreviousWorth":1031},{"NewWorth":1030,"PreviousWorth":1040}]');
 
 -- Dumping structure for table uuspack.crypto_transactions
 CREATE TABLE IF NOT EXISTS `crypto_transactions` (
@@ -158,6 +159,96 @@ CREATE TABLE IF NOT EXISTS `dealers` (
 
 -- Dumping data for table uuspack.dealers: ~0 rows (approximately)
 
+-- Dumping structure for table uuspack.ethicalpixel_admin
+CREATE TABLE IF NOT EXISTS `ethicalpixel_admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` varchar(50) DEFAULT NULL,
+  `favorite` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`favorite`)),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Dumping data for table uuspack.ethicalpixel_admin: ~2 rows (approximately)
+REPLACE INTO `ethicalpixel_admin` (`id`, `cid`, `favorite`) VALUES
+	(4, 'WAC28700', '[{"name":"changemodel"},{"name":"ban"},{"name":"bring"},{"name":"csay"},{"name":"fixvehicle"},{"name":"givecash"},{"name":"godmode"},{"name":"noclip"},{"name":"clothes"}]'),
+	(5, 'OSB60946', '[]');
+
+-- Dumping structure for table uuspack.ethicalpixel_admin_banned
+CREATE TABLE IF NOT EXISTS `ethicalpixel_admin_banned` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `steam` varchar(50) DEFAULT NULL,
+  `reason` varchar(50) DEFAULT NULL,
+  `length` varchar(50) DEFAULT NULL,
+  `ip` varchar(50) DEFAULT NULL,
+  `discord` varchar(50) DEFAULT NULL,
+  `license` varchar(50) DEFAULT NULL,
+  `DisplayName` varchar(50) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Dumping data for table uuspack.ethicalpixel_admin_banned: ~0 rows (approximately)
+
+-- Dumping structure for table uuspack.ethicalpixel_admin_log
+CREATE TABLE IF NOT EXISTS `ethicalpixel_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Identifier` varchar(50) DEFAULT NULL,
+  `log` longtext DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `date` varchar(50) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Dumping data for table uuspack.ethicalpixel_admin_log: ~6 rows (approximately)
+REPLACE INTO `ethicalpixel_admin_log` (`id`, `Identifier`, `log`, `name`, `date`) VALUES
+	(60, NULL, 'Bringed Player | ID: 1 | Display Name: Ksatria Batang ganda', 'Ksatria Batang ganda', '1681801183'),
+	(61, NULL, 'cSaid: test', 'Ksatria Batang ganda', '1681801188'),
+	(62, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: weed_ak47_seed ( AK47 Seed ) | Amount: 1', 'Ksatria Batang ganda', '1681801228'),
+	(63, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: iphone ( iPhone ) | Amount: 1', 'Ksatria Batang ganda', '1681801232'),
+	(64, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: pinger ( Pinger ) | Amount: 1', 'Ksatria Batang ganda', '1681801268'),
+	(65, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Spawned Item: printerdocument ( Document ) | Amount: 1', 'Ksatria Batang ganda', '1681801273'),
+	(66, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Announced:  test', 'Ksatria Batang ganda', '1681801280');
+
+-- Dumping structure for table uuspack.fuel_stations
+CREATE TABLE IF NOT EXISTS `fuel_stations` (
+  `location` int(11) NOT NULL,
+  `owned` int(11) DEFAULT NULL,
+  `owner` varchar(50) DEFAULT NULL,
+  `fuel` int(11) DEFAULT NULL,
+  `fuelprice` int(11) DEFAULT NULL,
+  `balance` int(255) DEFAULT NULL,
+  `label` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`location`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- Dumping data for table uuspack.fuel_stations: ~27 rows (approximately)
+REPLACE INTO `fuel_stations` (`location`, `owned`, `owner`, `fuel`, `fuelprice`, `balance`, `label`) VALUES
+	(1, 0, '0', 100000, 3, 0, 'Davis Avenue Ron'),
+	(2, 0, '0', 100000, 3, 0, 'Grove Street LTD'),
+	(3, 0, '0', 100000, 3, 0, 'Dutch London Xero'),
+	(4, 0, '0', 100000, 3, 0, 'Little Seoul LTD'),
+	(5, 0, '0', 100000, 3, 0, 'Strawberry Ave Xero'),
+	(6, 0, '0', 100000, 3, 0, 'Popular Street Ron'),
+	(7, 0, '0', 100000, 3, 0, 'Capital Blvd Ron'),
+	(8, 0, '0', 100000, 3, 0, 'Mirror Park LTD'),
+	(9, 0, '0', 100000, 3, 0, 'Clinton Ave Globe Oil'),
+	(10, 0, '0', 100000, 3, 0, 'North Rockford Ron'),
+	(11, 0, '0', 100000, 3, 0, 'Great Ocean Xero'),
+	(12, 0, '0', 100000, 3, 0, 'Paleto Blvd Xero'),
+	(13, 0, '0', 100000, 3, 0, 'Paleto Ron'),
+	(14, 0, '0', 100000, 3, 0, 'Paleto Globe Oil'),
+	(15, 0, '0', 100000, 3, 0, 'Grapeseed LTD'),
+	(16, 0, '0', 100000, 3, 0, 'Sandy Shores Xero'),
+	(17, 0, '0', 100000, 3, 0, 'Sandy Shores Globe Oil'),
+	(18, 0, '0', 100000, 3, 0, 'Senora Freeway Xero'),
+	(19, 0, '0', 100000, 3, 0, 'Harmony Globe Oil'),
+	(20, 0, '0', 100000, 3, 0, 'Route 68 Globe Oil'),
+	(21, 0, '0', 100000, 3, 0, 'Route 68 Workshop Globe O'),
+	(22, 0, '0', 100000, 3, 0, 'Route 68 Xero'),
+	(23, 0, '0', 100000, 3, 0, 'Route 68 Ron'),
+	(24, 0, '0', 100000, 3, 0, 'Rex\'s Diner Globe Oil'),
+	(25, 0, '0', 100000, 3, 0, 'Palmino Freeway Ron'),
+	(26, 0, '0', 100000, 3, 0, 'North Rockford LTD'),
+	(27, 0, '0', 100000, 3, 0, 'Alta Street Globe Oil');
+
 -- Dumping structure for table uuspack.gloveboxitems
 CREATE TABLE IF NOT EXISTS `gloveboxitems` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -165,9 +256,11 @@ CREATE TABLE IF NOT EXISTS `gloveboxitems` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`plate`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.gloveboxitems: ~0 rows (approximately)
+REPLACE INTO `gloveboxitems` (`id`, `plate`, `items`) VALUES
+	(1, '24JDG097', '[]');
 
 -- Dumping structure for table uuspack.houselocations
 CREATE TABLE IF NOT EXISTS `houselocations` (
@@ -277,6 +370,18 @@ CREATE TABLE IF NOT EXISTS `lapraces` (
 
 -- Dumping data for table uuspack.lapraces: ~0 rows (approximately)
 
+-- Dumping structure for table uuspack.logs
+CREATE TABLE IF NOT EXISTS `logs` (
+  `Type` text DEFAULT NULL,
+  `Steam` varchar(255) DEFAULT NULL,
+  `Date` timestamp NULL DEFAULT current_timestamp(),
+  `Log` text DEFAULT NULL,
+  `Cid` varchar(50) DEFAULT NULL,
+  `Data` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table uuspack.logs: ~0 rows (approximately)
+
 -- Dumping structure for table uuspack.management_funds
 CREATE TABLE IF NOT EXISTS `management_funds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -315,9 +420,23 @@ CREATE TABLE IF NOT EXISTS `management_outfits` (
   `props` varchar(1000) DEFAULT NULL,
   `components` varchar(1500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.management_outfits: ~0 rows (approximately)
+-- Dumping data for table uuspack.management_outfits: ~11 rows (approximately)
+REPLACE INTO `management_outfits` (`id`, `job_name`, `type`, `minrank`, `name`, `gender`, `model`, `props`, `components`) VALUES
+	(27, 'police', 'Job', 1, 'Officer - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":0,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":147,"texture":0,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(28, 'police', 'Job', 2, 'Sergeant - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":0,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":147,"texture":1,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(31, 'police', 'Job', 5, 'Commander - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":1,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":158,"texture":2,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(32, 'police', 'Job', 4, 'Captain - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":0,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":158,"texture":1,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(33, 'police', 'Job', 3, 'Lieutenant - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":0,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":158,"texture":0,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(34, 'police', 'Job', 6, 'Deputy Chief - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":1,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":158,"texture":3,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(35, 'police', 'Job', 7, 'Assistant Chief - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":1,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":158,"texture":4,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(36, 'police', 'Job', 8, 'Chief - Daily', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":143,"texture":1,"component_id":5},{"drawable":10,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":158,"texture":5,"component_id":10},{"drawable":552,"texture":0,"component_id":11}]'),
+	(37, 'police', 'Job', 0, 'Training', 'male', 'mp_m_freemode_01', '[{"drawable":216,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":-1,"texture":-1,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":263,"texture":0,"component_id":1},{"drawable":92,"texture":0,"component_id":2},{"drawable":0,"texture":0,"component_id":3},{"drawable":269,"texture":0,"component_id":4},{"drawable":0,"texture":0,"component_id":5},{"drawable":124,"texture":0,"component_id":6},{"drawable":228,"texture":0,"component_id":7},{"drawable":309,"texture":0,"component_id":8},{"drawable":12,"texture":0,"component_id":9},{"drawable":0,"texture":0,"component_id":10},{"drawable":561,"texture":0,"component_id":11}]'),
+	(41, 'police', 'Job', 2, 'Sergeant - Daily', 'female', 'mp_f_freemode_01', '[{"drawable":193,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":0,"texture":0,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":156,"texture":0,"component_id":1},{"drawable":199,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":188,"texture":0,"component_id":5},{"drawable":165,"texture":1,"component_id":6},{"drawable":211,"texture":0,"component_id":7},{"drawable":357,"texture":0,"component_id":8},{"drawable":175,"texture":2,"component_id":9},{"drawable":173,"texture":1,"component_id":10},{"drawable":557,"texture":0,"component_id":11}]'),
+	(42, 'police', 'Job', 1, 'Officer - Daily', 'female', 'mp_f_freemode_01', '[{"drawable":193,"texture":0,"prop_id":0},{"drawable":-1,"texture":-1,"prop_id":1},{"drawable":0,"texture":0,"prop_id":2},{"drawable":-1,"texture":-1,"prop_id":6},{"drawable":-1,"texture":-1,"prop_id":7}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":156,"texture":0,"component_id":1},{"drawable":199,"texture":0,"component_id":2},{"drawable":1,"texture":0,"component_id":3},{"drawable":268,"texture":5,"component_id":4},{"drawable":188,"texture":0,"component_id":5},{"drawable":165,"texture":1,"component_id":6},{"drawable":211,"texture":0,"component_id":7},{"drawable":357,"texture":0,"component_id":8},{"drawable":175,"texture":2,"component_id":9},{"drawable":173,"texture":0,"component_id":10},{"drawable":557,"texture":0,"component_id":11}]'),
+	(43, 'ambulance', 'Job', 2, 'Doctor', 'male', 'mp_m_freemode_01', '[{"texture":-1,"drawable":-1,"prop_id":0},{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7}]', '[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":65,"component_id":1},{"texture":0,"drawable":92,"component_id":2},{"texture":0,"drawable":87,"component_id":3},{"texture":4,"drawable":27,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":10,"component_id":6},{"texture":0,"drawable":209,"component_id":7},{"texture":4,"drawable":133,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":254,"component_id":11}]'),
+	(44, 'ambulance', 'Job', 1, 'Nurse', 'female', 'mp_f_freemode_01', '[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":0,"drawable":0},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}]', '[{"drawable":0,"texture":0,"component_id":0},{"drawable":0,"texture":0,"component_id":1},{"drawable":2,"texture":0,"component_id":2},{"drawable":141,"texture":0,"component_id":3},{"drawable":211,"texture":1,"component_id":4},{"drawable":0,"texture":0,"component_id":5},{"drawable":63,"texture":1,"component_id":6},{"drawable":0,"texture":0,"component_id":7},{"drawable":15,"texture":0,"component_id":8},{"drawable":0,"texture":0,"component_id":9},{"drawable":0,"texture":0,"component_id":10},{"drawable":341,"texture":7,"component_id":11}]');
 
 -- Dumping structure for table uuspack.mdt_bolos
 CREATE TABLE IF NOT EXISTS `mdt_bolos` (
@@ -366,7 +485,7 @@ CREATE TABLE IF NOT EXISTS `mdt_clocking` (
 
 -- Dumping data for table uuspack.mdt_clocking: ~2 rows (approximately)
 REPLACE INTO `mdt_clocking` (`id`, `user_id`, `firstname`, `lastname`, `clock_in_time`, `clock_out_time`, `total_time`) VALUES
-	(8, 'OSB60946', 'Tasius', 'Kenways', '2023-04-15 11:32:48', '2023-04-17 13:01:55', '178147'),
+	(8, 'OSB60946', 'Tasius', 'Kenways', '2023-04-15 11:32:48', '2023-04-19 16:15:06', '362538'),
 	(7, 'XLJ25355', 'Tasius', 'Kenways', '2023-04-14 19:54:07', '2023-04-14 20:13:41', '1174');
 
 -- Dumping structure for table uuspack.mdt_convictions
@@ -540,12 +659,11 @@ CREATE TABLE IF NOT EXISTS `phone_chatrooms` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `room_code` varchar(10) NOT NULL,
   `room_name` varchar(15) NOT NULL,
-  `room_owner_id` varchar(50) DEFAULT NULL,
+  `room_owner_id` varchar(20) DEFAULT NULL,
   `room_owner_name` varchar(60) DEFAULT NULL,
-  `room_members` text DEFAULT NULL,
+  `room_members` text DEFAULT '{}',
   `room_pin` varchar(50) DEFAULT NULL,
   `unpaid_balance` decimal(10,2) DEFAULT 0.00,
-  `is_masked` tinyint(1) DEFAULT 0,
   `is_pinned` tinyint(1) DEFAULT 0,
   `created` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
@@ -553,18 +671,18 @@ CREATE TABLE IF NOT EXISTS `phone_chatrooms` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.phone_chatrooms: ~3 rows (approximately)
-REPLACE INTO `phone_chatrooms` (`id`, `room_code`, `room_name`, `room_owner_id`, `room_owner_name`, `room_members`, `room_pin`, `unpaid_balance`, `is_masked`, `is_pinned`, `created`) VALUES
-	(1, '411', '411', 'official', 'Government', '{}', NULL, 0.00, 0, 1, '2023-04-14 21:32:53'),
-	(2, 'lounge', 'The Lounge', 'official', 'Government', '{}', NULL, 0.00, 0, 1, '2023-04-14 21:32:53'),
-	(3, 'events', 'Events', 'official', 'Government', '{}', NULL, 0.00, 0, 1, '2023-04-14 21:32:53');
+REPLACE INTO `phone_chatrooms` (`id`, `room_code`, `room_name`, `room_owner_id`, `room_owner_name`, `room_members`, `room_pin`, `unpaid_balance`, `is_pinned`, `created`) VALUES
+	(1, '411', '411', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-17 13:41:36'),
+	(2, 'lounge', 'The Lounge', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-17 13:41:36'),
+	(3, 'events', 'Events', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-17 13:41:36');
 
 -- Dumping structure for table uuspack.phone_chatroom_messages
 CREATE TABLE IF NOT EXISTS `phone_chatroom_messages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `room_id` int(10) unsigned DEFAULT NULL,
-  `member_id` varchar(50) DEFAULT NULL,
+  `member_id` varchar(20) DEFAULT NULL,
   `member_name` varchar(50) DEFAULT NULL,
-  `message` text DEFAULT NULL,
+  `message` text NOT NULL,
   `is_pinned` tinyint(1) DEFAULT 0,
   `created` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
@@ -590,6 +708,8 @@ CREATE TABLE IF NOT EXISTS `phone_gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table uuspack.phone_gallery: ~0 rows (approximately)
+REPLACE INTO `phone_gallery` (`citizenid`, `image`, `date`) VALUES
+	('OSB60946', 'https://media.discordapp.net/attachments/1097149177697415228/1097414162147201114/screenshot.jpg', '2023-04-17 06:52:05');
 
 -- Dumping structure for table uuspack.phone_invoices
 CREATE TABLE IF NOT EXISTS `phone_invoices` (
@@ -659,7 +779,7 @@ CREATE TABLE IF NOT EXISTS `phone_tweets` (
   `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=290 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.phone_tweets: ~0 rows (approximately)
 
@@ -687,11 +807,12 @@ CREATE TABLE IF NOT EXISTS `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=407 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.players: ~1 rows (approximately)
+-- Dumping data for table uuspack.players: ~2 rows (approximately)
 REPLACE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`, `apps`, `widget`, `bt`, `cryptocurrency`, `cryptocurrencytransfers`) VALUES
-	(88, 'OSB60946', 1, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Ksatria Batang ganda', '{"cash":999264.0,"bank":1006792,"crypto":0}', '{"card":5698001533673539,"cid":1,"phone":"2083394297","nationality":"United States","backstory":"placeholder backstory","account":"US02QBCore3255543371","firstname":"Tasius","gender":0,"lastname":"Kenways","birthdate":"2000-12-29"}', '{"name":"police","label":"Law Enforcement","type":"leo","grade":{"name":"Chief","level":4},"payment":150,"isboss":true,"onduty":true}', '{"name":"none","isboss":false,"label":"No Gang Affiliaton","grade":{"name":"none","level":0}}', '{"x":622.3780517578125,"y":282.5274658203125,"z":102.7281494140625}', '{"criminalrecord":{"hasRecord":false},"dealerrep":0,"phone":[],"fingerprint":"Yz640d86WFB3579","commandbinds":[],"tracker":false,"crypto":{"xcoin":0,"gne":0,"shung":0,"lme":0},"status":[],"attachmentcraftingrep":0,"callsign":"NO CALLSIGN","inside":{"apartment":[]},"hunger":97.0,"walletid":"QB-48205093","fitbit":[],"isdead":false,"phonedata":{"InstalledApps":[],"SerialNumber":20329124},"licences":{"driver":true,"business":false,"weapon":false},"craftingrep":0,"ishandcuffed":false,"bloodtype":"O-","armor":0,"inlaststand":false,"stress":0,"jailitems":[],"jobrep":{"hotdog":0,"trucker":0,"tow":0,"taxi":0},"injail":0,"thirst":97.0}', '[{"info":{"serie":"12nPJ4lk824DPfp","quality":39.84999999999886,"ammo":81},"slot":1,"amount":1,"name":"weapon_pistol50","type":"weapon"},{"info":{"uses":19},"slot":2,"amount":1,"name":"harness","type":"item"},{"info":{"serie":"40ljS8HM996XZST","quality":90.39999999999964,"ammo":137},"slot":3,"amount":1,"name":"weapon_assaultrifle","type":"weapon"},{"info":{"serie":"96bAf6cp763AsCV","quality":98.64999999999997,"ammo":12},"slot":4,"amount":1,"name":"weapon_rpg","type":"weapon"},{"info":{"gasamount":50},"slot":5,"amount":1,"name":"jerrycan","type":"item"},{"info":{"type":"Class C Driver License","firstname":"Tasius","birthdate":"2000-12-29","lastname":"Kenways"},"slot":7,"amount":1,"name":"driver_license","type":"item"},{"info":{"citizenid":"OSB60946","gender":0,"nationality":"United States","firstname":"Tasius","birthdate":"2000-12-29","lastname":"Kenways"},"slot":8,"amount":1,"name":"id_card","type":"item"},{"info":{"serie":"68QDW2Ww436iTjT","quality":100,"ammo":4500},"slot":9,"amount":1,"name":"weapon_petrolcan","type":"weapon"},{"info":{"citizenid":"OSB60946","cardActive":true,"name":"Tasius Kenways","cardNumber":5698001533673539,"cardType":"visa","cardPin":1125},"slot":10,"amount":1,"name":"visa","type":"item"},{"info":[],"slot":12,"amount":1,"name":"phone","type":"item"}]', '2023-04-17 06:36:07', NULL, NULL, NULL, NULL, NULL);
+	(88, 'OSB60946', 1, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Sukmadi - K', '{"bank":1012739,"cash":991638.0,"crypto":0}', '{"card":5698001533673539,"backstory":"placeholder backstory","phone":"2083394297","lastname":"Kenways","account":"US02QBCore3255543371","gender":0,"cid":1,"birthdate":"2000-12-29","nationality":"United States","firstname":"Tasius"}', '{"isboss":true,"payment":150,"type":"ems","onduty":true,"label":"EMS","name":"ambulance","grade":{"name":"Chief","level":4}}', '{"isboss":false,"grade":{"name":"none","level":0},"name":"none","label":"No Gang Affiliaton"}', '{"x":340.3252868652344,"y":-591.2439575195313,"z":43.2821044921875}', '{"inlaststand":false,"isdead":false,"callsign":"NO CALLSIGN","tracker":false,"phone":[],"armor":0,"walletid":"QB-48205093","ishandcuffed":false,"commandbinds":[],"jailitems":[],"criminalrecord":{"hasRecord":false},"status":[],"craftingrep":0,"hunger":74.5,"stress":0,"bloodtype":"O-","dealerrep":0,"thirst":74.5,"inside":{"apartment":[]},"licences":{"driver":true,"weapon":false,"business":false},"fingerprint":"Yz640d86WFB3579","jobrep":{"taxi":0,"trucker":0,"hotdog":0,"tow":0},"crypto":{"lme":0,"xcoin":0,"shung":0,"gne":0},"attachmentcraftingrep":0,"fitbit":[],"injail":0,"phonedata":{"InstalledApps":[],"SerialNumber":20329124}}', '[{"type":"weapon","name":"weapon_pistol50","amount":1,"slot":1,"info":{"quality":48.0,"ammo":170,"serie":"04EoH7Ye575MiDt"}},{"type":"item","name":"whiskey","amount":3,"slot":2,"info":[]},{"type":"item","name":"beer","amount":2,"slot":3,"info":[]},{"type":"weapon","name":"weapon_pistol","amount":1,"slot":4,"info":{"quality":100,"ammo":0,"serie":"46Mle6rL396fDok"}},{"type":"item","name":"weed_ak47_seed","amount":1,"slot":5,"info":[]},{"type":"item","name":"iphone","amount":1,"slot":6,"info":[]},{"type":"item","name":"pinger","amount":1,"slot":7,"info":[]},{"type":"item","name":"markedbills","amount":2,"slot":8,"info":{"worth":379}},{"type":"item","name":"markedbills","amount":1,"slot":9,"info":{"worth":318}},{"type":"item","name":"printerdocument","amount":1,"slot":10,"info":[]},{"type":"item","name":"phone","amount":1,"slot":12,"info":[]},{"type":"item","name":"markedbills","amount":3,"slot":13,"info":{"worth":263}},{"type":"item","name":"advancedlockpick","amount":8,"slot":14,"info":[]},{"type":"item","name":"stickynote","amount":1,"slot":15,"info":{"label":"Safe Code: 7870"}},{"type":"item","name":"water_bottle","amount":1,"slot":20,"info":[]},{"type":"item","name":"vodka","amount":2,"slot":17,"info":[]}]', '2023-04-19 09:15:06', NULL, NULL, NULL, NULL, NULL),
+	(362, 'RGC15616', 2, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Ksatria Batang ganda', '{"cash":500,"crypto":0,"bank":5180}', '{"cid":2,"phone":"8111592986","backstory":"placeholder backstory","gender":0,"birthdate":"2005-12-22","lastname":"Susanti","nationality":"Afghanistan","firstname":"Susi","account":"US07QBCore4585649660"}', '{"grade":{"name":"Chief","level":4},"label":"EMS","onduty":true,"isboss":true,"payment":150,"name":"ambulance","type":"ems"}', '{"isboss":false,"label":"No Gang Affiliaton","grade":{"name":"none","level":0},"name":"none"}', '{"x":335.5780334472656,"y":-592.4967041015625,"z":43.2821044921875}', '{"walletid":"QB-15945385","phone":[],"criminalrecord":{"hasRecord":false},"craftingrep":0,"jobrep":{"hotdog":0,"taxi":0,"tow":0,"trucker":0},"inlaststand":false,"stress":0,"phonedata":{"InstalledApps":[],"SerialNumber":85268382},"fingerprint":"VU925n44pQH0045","inside":{"apartment":[]},"commandbinds":[],"hunger":94.0,"fitbit":[],"crypto":{"lme":0,"gne":0,"xcoin":0,"shung":0},"dealerrep":0,"attachmentcraftingrep":0,"callsign":"NO CALLSIGN","armor":0,"injail":0,"thirst":94.0,"licences":{"weapon":false,"driver":true,"business":false},"tracker":false,"bloodtype":"O+","ishandcuffed":false,"isdead":false,"status":[],"jailitems":[]}', '[{"amount":1,"slot":1,"name":"water_bottle","type":"item","info":[]},{"amount":1,"slot":2,"name":"id_card","type":"item","info":{"firstname":"Susi","gender":0,"birthdate":"2005-12-22","citizenid":"RGC15616","nationality":"Afghanistan","lastname":"Susanti"}},{"amount":1,"slot":3,"name":"phone","type":"item","info":[]},{"amount":1,"slot":4,"name":"tosti","type":"item","info":[]}]', '2023-04-18 21:44:12', NULL, NULL, NULL, NULL, NULL);
 
 -- Dumping structure for table uuspack.playerskins
 CREATE TABLE IF NOT EXISTS `playerskins` (
@@ -703,9 +824,9 @@ CREATE TABLE IF NOT EXISTS `playerskins` (
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table uuspack.playerskins: ~9 rows (approximately)
+-- Dumping data for table uuspack.playerskins: ~12 rows (approximately)
 REPLACE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
 	(8, 'OSB60946', 'BabyFree', '{"tattoos":[],"props":[{"texture":-1,"drawable":-1,"prop_id":0},{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7}],"faceFeatures":{"jawBoneWidth":0,"chinBoneSize":0,"eyeBrownHigh":0,"noseWidth":0,"jawBoneBackSize":0,"lipsThickness":0,"noseBoneTwist":0,"neckThickness":0,"cheeksWidth":0,"nosePeakHigh":0,"chinHole":0,"chinBoneLowering":0,"chinBoneLenght":0,"nosePeakLowering":0,"nosePeakSize":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"noseBoneHigh":0,"eyeBrownForward":0,"eyesOpening":0},"model":"BabyFree","eyeColor":-1,"headBlend":{"shapeFirst":0,"shapeSecond":0,"skinSecond":0,"skinFirst":0,"thirdMix":0,"skinMix":0,"shapeMix":0,"skinThird":0,"shapeThird":0},"components":[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":0},{"texture":0,"component_id":3,"drawable":0},{"texture":0,"component_id":4,"drawable":0},{"texture":0,"component_id":5,"drawable":0},{"texture":0,"component_id":6,"drawable":0},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":0},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":0},{"texture":0,"component_id":11,"drawable":0}],"hair":{"style":0,"texture":0,"color":-1,"highlight":-1},"headOverlays":{"blush":{"style":0,"opacity":0,"secondColor":0,"color":0},"eyebrows":{"style":0,"opacity":0,"secondColor":0,"color":0},"beard":{"style":0,"opacity":0,"secondColor":0,"color":0},"lipstick":{"style":0,"opacity":0,"secondColor":0,"color":0},"bodyBlemishes":{"style":0,"opacity":0,"secondColor":0,"color":0},"moleAndFreckles":{"style":0,"opacity":0,"secondColor":0,"color":0},"makeUp":{"style":0,"opacity":0,"secondColor":0,"color":0},"chestHair":{"style":0,"opacity":0,"secondColor":0,"color":0},"ageing":{"style":0,"opacity":0,"secondColor":0,"color":0},"complexion":{"style":0,"opacity":0,"secondColor":0,"color":0},"blemishes":{"style":0,"opacity":0,"secondColor":0,"color":0},"sunDamage":{"style":0,"opacity":0,"secondColor":0,"color":0}}}', 0),
 	(9, 'OSB60946', 'child1', '{"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"eyeColor":-1,"headOverlays":{"blemishes":{"color":0,"secondColor":0,"style":0,"opacity":0},"ageing":{"color":0,"secondColor":0,"style":0,"opacity":0},"eyebrows":{"color":0,"secondColor":0,"style":0,"opacity":0},"bodyBlemishes":{"color":0,"secondColor":0,"style":0,"opacity":0},"complexion":{"color":0,"secondColor":0,"style":0,"opacity":0},"blush":{"color":0,"secondColor":0,"style":0,"opacity":0},"sunDamage":{"color":0,"secondColor":0,"style":0,"opacity":0},"moleAndFreckles":{"color":0,"secondColor":0,"style":0,"opacity":0},"chestHair":{"color":0,"secondColor":0,"style":0,"opacity":0},"makeUp":{"color":0,"secondColor":0,"style":0,"opacity":0},"beard":{"color":0,"secondColor":0,"style":0,"opacity":0},"lipstick":{"color":0,"secondColor":0,"style":0,"opacity":0}},"model":"child1","props":[{"drawable":-1,"prop_id":0,"texture":-1},{"drawable":-1,"prop_id":1,"texture":-1},{"drawable":-1,"prop_id":2,"texture":-1},{"drawable":-1,"prop_id":6,"texture":-1},{"drawable":-1,"prop_id":7,"texture":-1}],"headBlend":{"skinThird":0,"skinFirst":0,"skinMix":0,"shapeMix":0,"shapeThird":0,"shapeFirst":0,"thirdMix":0,"shapeSecond":0,"skinSecond":0},"tattoos":[],"faceFeatures":{"eyeBrownForward":0,"neckThickness":0,"jawBoneWidth":0,"eyeBrownHigh":0,"lipsThickness":0,"chinBoneSize":0,"nosePeakHigh":0,"noseBoneTwist":0,"cheeksWidth":0,"eyesOpening":0,"cheeksBoneHigh":0,"chinBoneLowering":0,"chinBoneLenght":0,"jawBoneBackSize":0,"chinHole":0,"noseWidth":0,"nosePeakSize":0,"nosePeakLowering":0,"noseBoneHigh":0,"cheeksBoneWidth":0},"hair":{"color":-1,"highlight":-1,"style":0,"texture":0}}', 0),
@@ -715,7 +836,10 @@ REPLACE INTO `playerskins` (`id`, `citizenid`, `model`, `skin`, `active`) VALUES
 	(16, 'OSB60946', 'BabyTasha_WWMods', '{"headBlend":{"skinSecond":0,"skinFirst":0,"shapeFirst":0,"shapeMix":0,"shapeThird":0,"skinThird":0,"thirdMix":0,"shapeSecond":0,"skinMix":0},"model":"BabyTasha_WWMods","components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"texture":-1,"prop_id":0,"drawable":-1},{"texture":-1,"prop_id":1,"drawable":-1},{"texture":-1,"prop_id":2,"drawable":-1},{"texture":-1,"prop_id":6,"drawable":-1},{"texture":-1,"prop_id":7,"drawable":-1}],"faceFeatures":{"nosePeakSize":0,"cheeksBoneWidth":0,"jawBoneBackSize":0,"nosePeakLowering":0,"eyeBrownHigh":0,"cheeksWidth":0,"jawBoneWidth":0,"noseBoneHigh":0,"lipsThickness":0,"chinBoneSize":0,"eyesOpening":0,"eyeBrownForward":0,"cheeksBoneHigh":0,"chinBoneLowering":0,"chinHole":0,"noseWidth":0,"chinBoneLenght":0,"noseBoneTwist":0,"nosePeakHigh":0,"neckThickness":0},"tattoos":[],"hair":{"highlight":-1,"texture":0,"color":-1,"style":0},"headOverlays":{"complexion":{"opacity":0,"secondColor":0,"color":0,"style":0},"makeUp":{"opacity":0,"secondColor":0,"color":0,"style":0},"ageing":{"opacity":0,"secondColor":0,"color":0,"style":0},"lipstick":{"opacity":0,"secondColor":0,"color":0,"style":0},"blemishes":{"opacity":0,"secondColor":0,"color":0,"style":0},"blush":{"opacity":0,"secondColor":0,"color":0,"style":0},"sunDamage":{"opacity":0,"secondColor":0,"color":0,"style":0},"beard":{"opacity":0,"secondColor":0,"color":0,"style":0},"chestHair":{"opacity":0,"secondColor":0,"color":0,"style":0},"moleAndFreckles":{"opacity":0,"secondColor":0,"color":0,"style":0},"eyebrows":{"opacity":0,"secondColor":0,"color":0,"style":0},"bodyBlemishes":{"opacity":0,"secondColor":0,"color":0,"style":0}},"eyeColor":-1}', 0),
 	(22, 'OSB60946', 'babyboy1', '{"hair":{"color":-1,"texture":0,"highlight":-1,"style":0},"headOverlays":{"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0}},"model":"babyboy1","faceFeatures":{"chinBoneLowering":0,"lipsThickness":0,"jawBoneBackSize":0,"cheeksWidth":0,"noseBoneTwist":0,"nosePeakSize":0,"noseWidth":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"eyeBrownHigh":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinHole":0,"eyesOpening":0,"neckThickness":0,"nosePeakLowering":0,"jawBoneWidth":0,"chinBoneSize":0,"chinBoneLenght":0,"nosePeakHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinThird":0,"shapeMix":0,"skinMix":0,"thirdMix":0,"shapeFirst":0,"skinSecond":0,"shapeThird":0,"skinFirst":0,"shapeSecond":0},"eyeColor":-1,"tattoos":[]}', 0),
 	(23, 'OSB60946', 'BabyBoyMatheusG_MILLERSTORE', '{"hair":{"color":-1,"texture":0,"highlight":-1,"style":0},"headOverlays":{"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0}},"model":"BabyBoyMatheusG_MILLERSTORE","faceFeatures":{"chinBoneLowering":0,"lipsThickness":0,"jawBoneBackSize":0,"cheeksWidth":0,"noseBoneTwist":0,"nosePeakSize":0,"noseWidth":0,"cheeksBoneHigh":0,"cheeksBoneWidth":0,"eyeBrownHigh":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinHole":0,"eyesOpening":0,"neckThickness":0,"nosePeakLowering":0,"jawBoneWidth":0,"chinBoneSize":0,"chinBoneLenght":0,"nosePeakHigh":0},"components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":0,"component_id":1},{"texture":0,"drawable":0,"component_id":2},{"texture":0,"drawable":0,"component_id":3},{"texture":0,"drawable":0,"component_id":4},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":6},{"texture":0,"drawable":0,"component_id":7},{"texture":0,"drawable":0,"component_id":8},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":0,"component_id":11}],"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinThird":0,"shapeMix":0,"skinMix":0,"thirdMix":0,"shapeFirst":0,"skinSecond":0,"shapeThird":0,"skinFirst":0,"shapeSecond":0},"eyeColor":-1,"tattoos":[]}', 0),
-	(24, 'OSB60946', 'mp_m_freemode_01', '{"eyeColor":0,"headBlend":{"skinMix":0,"skinFirst":0,"shapeSecond":0,"shapeMix":0,"skinThird":0,"thirdMix":0,"skinSecond":0,"shapeFirst":0,"shapeThird":0},"props":[{"prop_id":0,"drawable":-1,"texture":-1},{"prop_id":1,"drawable":-1,"texture":-1},{"prop_id":2,"drawable":-1,"texture":-1},{"prop_id":6,"drawable":-1,"texture":-1},{"prop_id":7,"drawable":-1,"texture":-1}],"faceFeatures":{"cheeksBoneHigh":0,"eyesOpening":0,"chinBoneLowering":0,"cheeksBoneWidth":0,"noseWidth":0,"chinHole":0,"nosePeakLowering":0,"neckThickness":0,"eyeBrownHigh":0,"chinBoneSize":0,"noseBoneHigh":0,"chinBoneLenght":0,"cheeksWidth":0,"eyeBrownForward":0,"noseBoneTwist":0,"nosePeakHigh":0,"nosePeakSize":0,"lipsThickness":0,"jawBoneWidth":0,"jawBoneBackSize":0},"model":"mp_m_freemode_01","hair":{"texture":0,"style":0,"highlight":0,"color":0},"headOverlays":{"eyebrows":{"secondColor":0,"style":0,"opacity":0,"color":0},"sunDamage":{"secondColor":0,"style":0,"opacity":0,"color":0},"bodyBlemishes":{"secondColor":0,"style":0,"opacity":0,"color":0},"beard":{"secondColor":0,"style":0,"opacity":0,"color":0},"makeUp":{"secondColor":0,"style":0,"opacity":0,"color":0},"complexion":{"secondColor":0,"style":0,"opacity":0,"color":0},"blush":{"secondColor":0,"style":0,"opacity":0,"color":0},"lipstick":{"secondColor":0,"style":0,"opacity":0,"color":0},"ageing":{"secondColor":0,"style":0,"opacity":0,"color":0},"blemishes":{"secondColor":0,"style":0,"opacity":0,"color":0},"moleAndFreckles":{"secondColor":0,"style":0,"opacity":0,"color":0},"chestHair":{"secondColor":0,"style":0,"opacity":0,"color":0}},"components":[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":0},{"texture":0,"component_id":3,"drawable":0},{"texture":0,"component_id":4,"drawable":0},{"texture":0,"component_id":5,"drawable":0},{"texture":0,"component_id":6,"drawable":0},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":0},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":0},{"texture":0,"component_id":11,"drawable":0}],"tattoos":[]}', 1);
+	(24, 'OSB60946', 'mp_m_freemode_01', '{"eyeColor":0,"headBlend":{"skinMix":0,"skinFirst":0,"shapeSecond":0,"shapeMix":0,"skinThird":0,"thirdMix":0,"skinSecond":0,"shapeFirst":0,"shapeThird":0},"props":[{"prop_id":0,"drawable":-1,"texture":-1},{"prop_id":1,"drawable":-1,"texture":-1},{"prop_id":2,"drawable":-1,"texture":-1},{"prop_id":6,"drawable":-1,"texture":-1},{"prop_id":7,"drawable":-1,"texture":-1}],"faceFeatures":{"cheeksBoneHigh":0,"eyesOpening":0,"chinBoneLowering":0,"cheeksBoneWidth":0,"noseWidth":0,"chinHole":0,"nosePeakLowering":0,"neckThickness":0,"eyeBrownHigh":0,"chinBoneSize":0,"noseBoneHigh":0,"chinBoneLenght":0,"cheeksWidth":0,"eyeBrownForward":0,"noseBoneTwist":0,"nosePeakHigh":0,"nosePeakSize":0,"lipsThickness":0,"jawBoneWidth":0,"jawBoneBackSize":0},"model":"mp_m_freemode_01","hair":{"texture":0,"style":0,"highlight":0,"color":0},"headOverlays":{"eyebrows":{"secondColor":0,"style":0,"opacity":0,"color":0},"sunDamage":{"secondColor":0,"style":0,"opacity":0,"color":0},"bodyBlemishes":{"secondColor":0,"style":0,"opacity":0,"color":0},"beard":{"secondColor":0,"style":0,"opacity":0,"color":0},"makeUp":{"secondColor":0,"style":0,"opacity":0,"color":0},"complexion":{"secondColor":0,"style":0,"opacity":0,"color":0},"blush":{"secondColor":0,"style":0,"opacity":0,"color":0},"lipstick":{"secondColor":0,"style":0,"opacity":0,"color":0},"ageing":{"secondColor":0,"style":0,"opacity":0,"color":0},"blemishes":{"secondColor":0,"style":0,"opacity":0,"color":0},"moleAndFreckles":{"secondColor":0,"style":0,"opacity":0,"color":0},"chestHair":{"secondColor":0,"style":0,"opacity":0,"color":0}},"components":[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":0},{"texture":0,"component_id":3,"drawable":0},{"texture":0,"component_id":4,"drawable":0},{"texture":0,"component_id":5,"drawable":0},{"texture":0,"component_id":6,"drawable":0},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":0},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":0},{"texture":0,"component_id":11,"drawable":0}],"tattoos":[]}', 0),
+	(42, 'RGC15616', 'mp_m_freemode_01', '{"hair":{"texture":0,"style":92,"highlight":0,"color":0},"model":"mp_m_freemode_01","components":[{"texture":0,"drawable":0,"component_id":0},{"texture":0,"drawable":92,"component_id":2},{"texture":0,"drawable":0,"component_id":5},{"texture":0,"drawable":0,"component_id":10},{"texture":0,"drawable":254,"component_id":11},{"texture":0,"drawable":10,"component_id":6},{"texture":4,"drawable":133,"component_id":8},{"texture":0,"drawable":209,"component_id":7},{"texture":0,"drawable":0,"component_id":9},{"texture":0,"drawable":65,"component_id":1},{"texture":0,"drawable":87,"component_id":3},{"texture":4,"drawable":27,"component_id":4}],"headOverlays":{"complexion":{"color":0,"style":0,"opacity":0,"secondColor":0},"ageing":{"color":0,"style":0,"opacity":0,"secondColor":0},"eyebrows":{"color":0,"style":12,"opacity":1,"secondColor":0},"blemishes":{"color":0,"style":0,"opacity":0,"secondColor":0},"moleAndFreckles":{"color":0,"style":0,"opacity":0,"secondColor":0},"sunDamage":{"color":0,"style":0,"opacity":0,"secondColor":0},"lipstick":{"color":1,"style":1,"opacity":0.4,"secondColor":0},"beard":{"color":0,"style":8,"opacity":1,"secondColor":0},"bodyBlemishes":{"color":0,"style":0,"opacity":0,"secondColor":0},"blush":{"color":0,"style":0,"opacity":0,"secondColor":0},"chestHair":{"color":0,"style":0,"opacity":0,"secondColor":0},"makeUp":{"color":0,"style":0,"opacity":0,"secondColor":0}},"faceFeatures":{"nosePeakSize":0,"cheeksBoneHigh":0,"nosePeakHigh":0,"eyesOpening":0,"chinBoneLenght":0,"cheeksBoneWidth":0,"chinBoneLowering":0,"jawBoneWidth":0,"noseBoneTwist":0,"jawBoneBackSize":0,"nosePeakLowering":0,"eyeBrownHigh":0,"neckThickness":0,"cheeksWidth":0,"noseWidth":0,"lipsThickness":0,"eyeBrownForward":0,"noseBoneHigh":0,"chinBoneSize":0,"chinHole":0},"eyeColor":3,"tattoos":[],"headBlend":{"skinSecond":0,"skinMix":0,"shapeFirst":44,"thirdMix":0,"skinFirst":9,"shapeMix":0,"shapeThird":0,"skinThird":0,"shapeSecond":2},"props":[{"texture":-1,"drawable":-1,"prop_id":1},{"texture":-1,"drawable":-1,"prop_id":2},{"texture":-1,"drawable":-1,"prop_id":6},{"texture":-1,"drawable":-1,"prop_id":7},{"texture":0,"drawable":-1,"prop_id":0}]}', 1),
+	(44, 'OSB60946', 'Marie', '{"faceFeatures":{"jawBoneBackSize":0,"neckThickness":0,"jawBoneWidth":0,"noseBoneTwist":0,"cheeksBoneWidth":0,"eyeBrownForward":0,"chinBoneLenght":0,"cheeksWidth":0,"nosePeakSize":0,"nosePeakLowering":0,"eyesOpening":0,"chinHole":0,"nosePeakHigh":0,"lipsThickness":0,"cheeksBoneHigh":0,"chinBoneLowering":0,"noseBoneHigh":0,"chinBoneSize":0,"eyeBrownHigh":0,"noseWidth":0},"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":-1,"drawable":-1},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinMix":0,"shapeSecond":0,"shapeMix":0,"skinSecond":0,"skinFirst":0,"skinThird":0,"thirdMix":0,"shapeThird":0,"shapeFirst":0},"headOverlays":{"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"lipstick":{"secondColor":0,"style":0,"color":0,"opacity":0},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0}},"hair":{"highlight":-1,"texture":0,"style":0,"color":-1},"components":[{"drawable":0,"texture":0,"component_id":0},{"drawable":0,"texture":0,"component_id":1},{"drawable":0,"texture":0,"component_id":2},{"drawable":0,"texture":0,"component_id":3},{"drawable":0,"texture":0,"component_id":4},{"drawable":0,"texture":0,"component_id":5},{"drawable":0,"texture":0,"component_id":6},{"drawable":0,"texture":0,"component_id":7},{"drawable":0,"texture":0,"component_id":8},{"drawable":0,"texture":0,"component_id":9},{"drawable":0,"texture":0,"component_id":10},{"drawable":0,"texture":0,"component_id":11}],"model":"Marie","eyeColor":-1,"tattoos":[]}', 0),
+	(50, 'OSB60946', 'mp_f_freemode_01', '{"faceFeatures":{"jawBoneBackSize":0,"neckThickness":0,"jawBoneWidth":0,"noseBoneTwist":0,"cheeksBoneWidth":0,"eyeBrownForward":0,"chinBoneLenght":0,"cheeksWidth":0,"nosePeakSize":0,"nosePeakLowering":0,"eyesOpening":0,"chinHole":0,"nosePeakHigh":0,"lipsThickness":0,"cheeksBoneHigh":0,"chinBoneLowering":0,"noseBoneHigh":0,"chinBoneSize":0,"eyeBrownHigh":0,"noseWidth":0},"props":[{"prop_id":0,"texture":-1,"drawable":-1},{"prop_id":1,"texture":-1,"drawable":-1},{"prop_id":2,"texture":0,"drawable":0},{"prop_id":6,"texture":-1,"drawable":-1},{"prop_id":7,"texture":-1,"drawable":-1}],"headBlend":{"skinMix":0,"shapeSecond":31,"shapeMix":0,"skinSecond":0,"skinFirst":45,"skinThird":0,"thirdMix":0,"shapeThird":0,"shapeFirst":31},"headOverlays":{"blemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"moleAndFreckles":{"secondColor":0,"style":0,"color":0,"opacity":0},"sunDamage":{"secondColor":0,"style":0,"color":0,"opacity":0},"eyebrows":{"secondColor":0,"style":0,"color":0,"opacity":0},"bodyBlemishes":{"secondColor":0,"style":0,"color":0,"opacity":0},"lipstick":{"secondColor":0,"style":1,"color":0,"opacity":0.6},"makeUp":{"secondColor":0,"style":0,"color":0,"opacity":0},"blush":{"secondColor":0,"style":0,"color":0,"opacity":0},"ageing":{"secondColor":0,"style":0,"color":0,"opacity":0},"beard":{"secondColor":0,"style":0,"color":0,"opacity":0},"complexion":{"secondColor":0,"style":0,"color":0,"opacity":0},"chestHair":{"secondColor":0,"style":0,"color":0,"opacity":0}},"hair":{"highlight":34,"texture":0,"style":2,"color":29},"components":[{"drawable":0,"texture":0,"component_id":0},{"drawable":0,"texture":0,"component_id":1},{"drawable":2,"texture":0,"component_id":2},{"drawable":0,"texture":0,"component_id":5},{"drawable":0,"texture":0,"component_id":9},{"drawable":251,"texture":0,"component_id":11},{"drawable":142,"texture":0,"component_id":3},{"drawable":149,"texture":0,"component_id":8},{"drawable":6,"texture":0,"component_id":4},{"drawable":0,"texture":0,"component_id":10},{"drawable":165,"texture":3,"component_id":6},{"drawable":179,"texture":0,"component_id":7}],"model":"mp_f_freemode_01","eyeColor":3,"tattoos":[]}', 1);
 
 -- Dumping structure for table uuspack.player_contacts
 CREATE TABLE IF NOT EXISTS `player_contacts` (
@@ -723,7 +847,6 @@ CREATE TABLE IF NOT EXISTS `player_contacts` (
   `citizenid` varchar(50) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `number` varchar(50) DEFAULT NULL,
-  `iban` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -768,370 +891,25 @@ CREATE TABLE IF NOT EXISTS `player_jobs` (
   `employees` text DEFAULT NULL,
   `maxEmployee` tinyint(11) DEFAULT 15,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=466 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_jobs: ~255 rows (approximately)
+-- Dumping data for table uuspack.player_jobs: ~15 rows (approximately)
 REPLACE INTO `player_jobs` (`id`, `jobname`, `employees`, `maxEmployee`) VALUES
-	(106, 'cardealer', '[]', 15),
-	(107, 'reporter', '[]', 15),
-	(108, 'judge', '[]', 15),
-	(109, 'garbage', '[]', 15),
-	(110, 'bus', '[]', 15),
-	(111, 'realestate', '[]', 15),
+	(106, 'police', '{"OSB60946":{"grade":4,"name":"Tasius Kenways","cid":"OSB60946"},"RGC15616":{"grade":8,"name":"Susi Susanti","cid":"RGC15616"}}', 15),
+	(107, 'hotdog', '[]', 15),
+	(108, 'garbage', '[]', 15),
+	(109, 'bus', '[]', 15),
+	(110, 'reporter', '[]', 15),
+	(111, 'lawyer', '[]', 15),
 	(112, 'tow', '[]', 15),
-	(113, 'mechanic', '[]', 15),
-	(114, 'hotdog', '[]', 15),
-	(115, 'trucker', '[]', 15),
+	(113, 'judge', '[]', 15),
+	(114, 'mechanic', '[]', 15),
+	(115, 'ambulance', '{"OSB60946":{"grade":4,"cid":"OSB60946","name":"Tasius Kenways"},"RGC15616":{"grade":1,"name":"Susi Susanti","cid":"RGC15616"}}', 15),
 	(116, 'taxi', '[]', 15),
-	(117, 'lawyer', '[]', 15),
-	(118, 'vineyard', '[]', 15),
-	(119, 'police', '[]', 15),
-	(120, 'ambulance', '[]', 15),
-	(121, 'ambulance', '[]', 15),
-	(122, 'bus', '[]', 15),
-	(123, 'mechanic', '[]', 15),
-	(124, 'taxi', '[]', 15),
-	(125, 'judge', '[]', 15),
-	(126, 'realestate', '[]', 15),
-	(127, 'cardealer', '[]', 15),
-	(128, 'reporter', '[]', 15),
-	(129, 'tow', '[]', 15),
-	(130, 'police', '[]', 15),
-	(131, 'lawyer', '[]', 15),
-	(132, 'vineyard', '[]', 15),
-	(133, 'garbage', '[]', 15),
-	(134, 'hotdog', '[]', 15),
-	(135, 'trucker', '[]', 15),
-	(136, 'hotdog', '[]', 15),
-	(137, 'judge', '[]', 15),
-	(138, 'bus', '[]', 15),
-	(139, 'garbage', '[]', 15),
-	(140, 'reporter', '[]', 15),
-	(141, 'trucker', '[]', 15),
-	(142, 'mechanic', '[]', 15),
-	(143, 'taxi', '[]', 15),
-	(144, 'tow', '[]', 15),
-	(145, 'police', '[]', 15),
-	(146, 'lawyer', '[]', 15),
-	(147, 'cardealer', '[]', 15),
-	(148, 'vineyard', '[]', 15),
-	(149, 'ambulance', '[]', 15),
-	(150, 'realestate', '[]', 15),
-	(151, 'tow', '[]', 15),
-	(152, 'bus', '[]', 15),
-	(153, 'mechanic', '[]', 15),
-	(154, 'vineyard', '[]', 15),
-	(155, 'hotdog', '[]', 15),
-	(156, 'taxi', '[]', 15),
-	(157, 'realestate', '[]', 15),
-	(158, 'reporter', '[]', 15),
-	(159, 'garbage', '[]', 15),
-	(160, 'police', '[]', 15),
-	(161, 'ambulance', '[]', 15),
-	(162, 'cardealer', '[]', 15),
-	(163, 'lawyer', '[]', 15),
-	(164, 'trucker', '[]', 15),
-	(165, 'judge', '[]', 15),
-	(166, 'taxi', '[]', 15),
-	(167, 'police', '[]', 15),
-	(168, 'ambulance', '[]', 15),
-	(169, 'hotdog', '[]', 15),
-	(170, 'judge', '[]', 15),
-	(171, 'bus', '[]', 15),
-	(172, 'mechanic', '[]', 15),
-	(173, 'tow', '[]', 15),
-	(174, 'garbage', '[]', 15),
-	(175, 'trucker', '[]', 15),
-	(176, 'cardealer', '[]', 15),
-	(177, 'lawyer', '[]', 15),
-	(178, 'vineyard', '[]', 15),
-	(179, 'reporter', '[]', 15),
-	(180, 'realestate', '[]', 15),
-	(181, 'ambulance', '[]', 15),
-	(182, 'trucker', '[]', 15),
-	(183, 'mechanic', '[]', 15),
-	(184, 'bus', '[]', 15),
-	(185, 'taxi', '[]', 15),
-	(186, 'garbage', '[]', 15),
-	(187, 'lawyer', '[]', 15),
-	(188, 'realestate', '[]', 15),
-	(189, 'tow', '[]', 15),
-	(190, 'hotdog', '[]', 15),
-	(191, 'cardealer', '[]', 15),
-	(192, 'police', '[]', 15),
-	(193, 'vineyard', '[]', 15),
-	(194, 'reporter', '[]', 15),
-	(195, 'judge', '[]', 15),
-	(196, 'judge', '[]', 15),
-	(197, 'garbage', '[]', 15),
-	(198, 'tow', '[]', 15),
-	(199, 'bus', '[]', 15),
-	(200, 'ambulance', '[]', 15),
-	(201, 'vineyard', '[]', 15),
-	(202, 'reporter', '[]', 15),
-	(203, 'realestate', '[]', 15),
-	(204, 'police', '{"OSB60946":{"cid":"OSB60946","name":"Tasius Kenways","grade":1}}', 15),
-	(205, 'trucker', '[]', 15),
-	(206, 'lawyer', '[]', 15),
-	(207, 'hotdog', '[]', 15),
-	(208, 'cardealer', '[]', 15),
-	(209, 'mechanic', '[]', 15),
-	(210, 'taxi', '[]', 15),
-	(211, 'realestate', '[]', 15),
-	(212, 'hotdog', '[]', 15),
-	(213, 'lawyer', '[]', 15),
-	(214, 'ambulance', '[]', 15),
-	(215, 'vineyard', '[]', 15),
-	(216, 'trucker', '[]', 15),
-	(217, 'reporter', '[]', 15),
-	(218, 'mechanic', '[]', 15),
-	(219, 'garbage', '[]', 15),
-	(220, 'police', '{"OSB60946":{"cid":"OSB60946","grade":1,"name":"Tasius Kenways"}}', 15),
-	(221, 'judge', '[]', 15),
-	(222, 'taxi', '[]', 15),
-	(223, 'tow', '[]', 15),
-	(224, 'bus', '[]', 15),
-	(225, 'cardealer', '[]', 15),
-	(226, 'garbage', '[]', 15),
-	(227, 'realestate', '[]', 15),
-	(228, 'trucker', '[]', 15),
-	(229, 'lawyer', '[]', 15),
-	(230, 'mechanic', '[]', 15),
-	(231, 'cardealer', '[]', 15),
-	(232, 'vineyard', '[]', 15),
-	(233, 'reporter', '[]', 15),
-	(234, 'taxi', '[]', 15),
-	(235, 'hotdog', '[]', 15),
-	(236, 'judge', '[]', 15),
-	(237, 'police', '{"OSB60946":{"cid":"OSB60946","grade":1,"name":"Tasius Kenways"}}', 15),
-	(238, 'bus', '[]', 15),
-	(239, 'tow', '[]', 15),
-	(240, 'ambulance', '[]', 15),
-	(241, 'police', '{"OSB60946":{"name":"Tasius Kenways","cid":"OSB60946","grade":1}}', 15),
-	(242, 'taxi', '[]', 15),
-	(243, 'vineyard', '[]', 15),
-	(244, 'bus', '[]', 15),
-	(245, 'realestate', '[]', 15),
-	(246, 'mechanic', '[]', 15),
-	(247, 'cardealer', '[]', 15),
-	(248, 'trucker', '[]', 15),
-	(249, 'judge', '[]', 15),
-	(250, 'lawyer', '[]', 15),
-	(251, 'tow', '[]', 15),
-	(252, 'reporter', '[]', 15),
-	(253, 'ambulance', '[]', 15),
-	(254, 'hotdog', '[]', 15),
-	(255, 'garbage', '[]', 15),
-	(256, 'mechanic', '[]', 15),
-	(257, 'lawyer', '[]', 15),
-	(258, 'judge', '[]', 15),
-	(259, 'reporter', '[]', 15),
-	(260, 'realestate', '[]', 15),
-	(261, 'tow', '[]', 15),
-	(262, 'hotdog', '[]', 15),
-	(263, 'taxi', '[]', 15),
-	(264, 'police', '{"OSB60946":{"cid":"OSB60946","name":"Tasius Kenways","grade":3}}', 15),
-	(265, 'trucker', '[]', 15),
-	(266, 'bus', '[]', 15),
-	(267, 'garbage', '[]', 15),
-	(268, 'cardealer', '[]', 15),
-	(269, 'vineyard', '[]', 15),
-	(270, 'ambulance', '[]', 15),
-	(271, 'ambulance', '[]', 15),
-	(272, 'mechanic', '[]', 15),
-	(273, 'hotdog', '[]', 15),
-	(274, 'judge', '[]', 15),
-	(275, 'realestate', '[]', 15),
-	(276, 'bus', '[]', 15),
-	(277, 'reporter', '[]', 15),
-	(278, 'cardealer', '[]', 15),
-	(279, 'lawyer', '[]', 15),
-	(280, 'trucker', '[]', 15),
-	(281, 'vineyard', '[]', 15),
-	(282, 'tow', '[]', 15),
-	(283, 'police', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
-	(284, 'garbage', '[]', 15),
-	(285, 'taxi', '[]', 15),
-	(286, 'ambulance', '{"OSB60946":{"name":"Tasius Kenways","cid":"OSB60946","grade":4}}', 15),
-	(287, 'cardealer', '[]', 15),
-	(288, 'hotdog', '[]', 15),
-	(289, 'tow', '[]', 15),
-	(290, 'lawyer', '[]', 15),
-	(291, 'garbage', '[]', 15),
-	(292, 'realestate', '[]', 15),
-	(293, 'trucker', '[]', 15),
-	(294, 'vineyard', '[]', 15),
-	(295, 'judge', '[]', 15),
-	(296, 'bus', '[]', 15),
-	(297, 'taxi', '[]', 15),
-	(298, 'mechanic', '[]', 15),
-	(299, 'police', '[]', 15),
-	(300, 'reporter', '[]', 15),
-	(301, 'reporter', '[]', 15),
-	(302, 'bus', '[]', 15),
-	(303, 'ambulance', '{"OSB60946":{"name":"Tasius Kenways","cid":"OSB60946","grade":4}}', 15),
-	(304, 'trucker', '[]', 15),
-	(305, 'cardealer', '[]', 15),
-	(306, 'hotdog', '[]', 15),
-	(307, 'judge', '[]', 15),
-	(308, 'tow', '[]', 15),
-	(309, 'police', '[]', 15),
-	(310, 'vineyard', '[]', 15),
-	(311, 'lawyer', '[]', 15),
-	(312, 'mechanic', '[]', 15),
-	(313, 'realestate', '[]', 15),
-	(314, 'taxi', '[]', 15),
-	(315, 'garbage', '[]', 15),
-	(316, 'taxi', '[]', 15),
-	(317, 'judge', '[]', 15),
-	(318, 'trucker', '[]', 15),
-	(319, 'tow', '[]', 15),
-	(320, 'cardealer', '[]', 15),
-	(321, 'hotdog', '[]', 15),
-	(322, 'reporter', '[]', 15),
-	(323, 'mechanic', '[]', 15),
-	(324, 'realestate', '[]', 15),
-	(325, 'vineyard', '[]', 15),
-	(326, 'bus', '[]', 15),
-	(327, 'police', '[]', 15),
-	(328, 'lawyer', '[]', 15),
-	(329, 'garbage', '[]', 15),
-	(330, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
-	(331, 'garbage', '[]', 15),
-	(332, 'judge', '[]', 15),
-	(333, 'lawyer', '[]', 15),
-	(334, 'ambulance', '{"OSB60946":{"grade":4,"cid":"OSB60946","name":"Tasius Kenways"}}', 15),
-	(335, 'police', '[]', 15),
-	(336, 'vineyard', '[]', 15),
-	(337, 'cardealer', '[]', 15),
-	(338, 'hotdog', '[]', 15),
-	(339, 'realestate', '[]', 15),
-	(340, 'mechanic', '[]', 15),
-	(341, 'tow', '[]', 15),
-	(342, 'reporter', '[]', 15),
-	(343, 'bus', '[]', 15),
-	(344, 'trucker', '[]', 15),
-	(345, 'taxi', '[]', 15),
-	(346, 'garbage', '[]', 15),
-	(347, 'taxi', '[]', 15),
-	(348, 'reporter', '[]', 15),
-	(349, 'police', '[]', 15),
-	(350, 'hotdog', '[]', 15),
-	(351, 'vineyard', '[]', 15),
-	(352, 'mechanic', '[]', 15),
-	(353, 'lawyer', '[]', 15),
-	(354, 'cardealer', '[]', 15),
-	(355, 'trucker', '[]', 15),
-	(356, 'realestate', '[]', 15),
-	(357, 'ambulance', '{"OSB60946":{"name":"Tasius Kenways","grade":4,"cid":"OSB60946"}}', 15),
-	(358, 'tow', '[]', 15),
-	(359, 'bus', '[]', 15),
-	(360, 'judge', '[]', 15),
-	(361, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
-	(362, 'realestate', '[]', 15),
-	(363, 'taxi', '[]', 15),
-	(364, 'reporter', '[]', 15),
-	(365, 'police', '[]', 15),
-	(366, 'tow', '[]', 15),
-	(367, 'lawyer', '[]', 15),
-	(368, 'hotdog', '[]', 15),
-	(369, 'judge', '[]', 15),
-	(370, 'mechanic', '[]', 15),
-	(371, 'garbage', '[]', 15),
-	(372, 'cardealer', '[]', 15),
-	(373, 'trucker', '[]', 15),
-	(374, 'bus', '[]', 15),
-	(375, 'vineyard', '[]', 15),
-	(376, 'vineyard', '[]', 15),
-	(377, 'hotdog', '[]', 15),
-	(378, 'mechanic', '[]', 15),
-	(379, 'police', '[]', 15),
-	(380, 'realestate', '[]', 15),
-	(381, 'taxi', '[]', 15),
-	(382, 'lawyer', '[]', 15),
-	(383, 'cardealer', '[]', 15),
-	(384, 'bus', '[]', 15),
-	(385, 'ambulance', '{"OSB60946":{"name":"Tasius Kenways","grade":4,"cid":"OSB60946"}}', 15),
-	(386, 'garbage', '[]', 15),
-	(387, 'reporter', '[]', 15),
-	(388, 'trucker', '[]', 15),
-	(389, 'tow', '[]', 15),
-	(390, 'judge', '[]', 15),
-	(391, 'trucker', '[]', 15),
-	(392, 'reporter', '[]', 15),
-	(393, 'tow', '[]', 15),
-	(394, 'bus', '[]', 15),
-	(395, 'realestate', '[]', 15),
-	(396, 'garbage', '[]', 15),
-	(397, 'mechanic', '[]', 15),
-	(398, 'judge', '[]', 15),
-	(399, 'taxi', '[]', 15),
-	(400, 'cardealer', '[]', 15),
-	(401, 'vineyard', '[]', 15),
-	(402, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
-	(403, 'hotdog', '[]', 15),
-	(404, 'lawyer', '[]', 15),
-	(405, 'police', '[]', 15),
-	(406, 'garbage', '[]', 15),
-	(407, 'mechanic', '[]', 15),
-	(408, 'police', '[]', 15),
-	(409, 'cardealer', '[]', 15),
-	(410, 'lawyer', '[]', 15),
-	(411, 'judge', '[]', 15),
-	(412, 'bus', '[]', 15),
-	(413, 'tow', '[]', 15),
-	(414, 'ambulance', '{"OSB60946":{"cid":"OSB60946","grade":4,"name":"Tasius Kenways"}}', 15),
-	(415, 'vineyard', '[]', 15),
-	(416, 'reporter', '[]', 15),
-	(417, 'hotdog', '[]', 15),
-	(418, 'trucker', '[]', 15),
-	(419, 'taxi', '[]', 15),
-	(420, 'realestate', '[]', 15),
-	(421, 'realestate', '[]', 15),
-	(422, 'hotdog', '[]', 15),
-	(423, 'reporter', '[]', 15),
-	(424, 'police', '[]', 15),
-	(425, 'lawyer', '[]', 15),
-	(426, 'taxi', '[]', 15),
-	(427, 'mechanic', '[]', 15),
-	(428, 'tow', '[]', 15),
-	(429, 'garbage', '[]', 15),
-	(430, 'cardealer', '[]', 15),
-	(431, 'judge', '[]', 15),
-	(432, 'trucker', '[]', 15),
-	(433, 'vineyard', '[]', 15),
-	(434, 'bus', '[]', 15),
-	(435, 'ambulance', '{"OSB60946":{"grade":4,"cid":"OSB60946","name":"Tasius Kenways"}}', 15),
-	(436, 'ambulance', '[]', 15),
-	(437, 'bus', '[]', 15),
-	(438, 'realestate', '[]', 15),
-	(439, 'mechanic', '[]', 15),
-	(440, 'hotdog', '[]', 15),
-	(441, 'vineyard', '[]', 15),
-	(442, 'reporter', '[]', 15),
-	(443, 'taxi', '[]', 15),
-	(444, 'judge', '[]', 15),
-	(445, 'lawyer', '[]', 15),
-	(446, 'police', '{"OSB60946":{"grade":4,"name":"Tasius Kenways","cid":"OSB60946"}}', 15),
-	(447, 'garbage', '[]', 15),
-	(448, 'tow', '[]', 15),
-	(449, 'trucker', '[]', 15),
-	(450, 'cardealer', '[]', 15),
-	(451, 'ambulance', '[]', 15),
-	(452, 'police', '{"OSB60946":{"cid":"OSB60946","name":"Tasius Kenways","grade":4}}', 15),
-	(453, 'garbage', '[]', 15),
-	(454, 'reporter', '[]', 15),
-	(455, 'tow', '[]', 15),
-	(456, 'hotdog', '[]', 15),
-	(457, 'realestate', '[]', 15),
-	(458, 'cardealer', '[]', 15),
-	(459, 'bus', '[]', 15),
-	(460, 'trucker', '[]', 15),
-	(461, 'judge', '[]', 15),
-	(462, 'vineyard', '[]', 15),
-	(463, 'lawyer', '[]', 15),
-	(464, 'mechanic', '[]', 15),
-	(465, 'taxi', '[]', 15);
+	(117, 'vineyard', '[]', 15),
+	(118, 'cardealer', '[]', 15),
+	(119, 'trucker', '[]', 15),
+	(120, 'realestate', '[]', 15);
 
 -- Dumping structure for table uuspack.player_mails
 CREATE TABLE IF NOT EXISTS `player_mails` (
@@ -1146,16 +924,11 @@ CREATE TABLE IF NOT EXISTS `player_mails` (
   `button` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_mails: ~6 rows (approximately)
+-- Dumping data for table uuspack.player_mails: ~0 rows (approximately)
 REPLACE INTO `player_mails` (`id`, `citizenid`, `sender`, `subject`, `message`, `read`, `mailid`, `date`, `button`) VALUES
-	(50, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 255370, '2023-04-16 05:51:56', '[]'),
-	(51, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 279273, '2023-04-16 05:55:47', '[]'),
-	(52, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 795472, '2023-04-16 05:56:34', '[]'),
-	(53, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 371838, '2023-04-16 05:57:33', '[]'),
-	(54, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 115065, '2023-04-16 06:02:19', '[]'),
-	(55, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 930733, '2023-04-16 06:04:02', '[]');
+	(49, 'OSB60946', 'Turner’s Auto Wrecking', 'Vehicle List', 'You Can Only Demolish A Number Of Vehicles.<br />You Can Keep Everything You Demolish For Yourself As Long As You Dont Bother Me.<br /><br /><strong>Vehicle List:</strong><br />Vapid Sandking SWB<br />Dinka Akuma<br />Obey Tailgater<br />Dundreary Landstalker<br />Vapid Slam Van<br />Vapid Stanier<br />Bravado Buffalo S<br />Fathom FQ2<br />Pfister Comet<br />Canis Seminole<br />Bravado Banshee<br />Vapid Dominator<br />Benefactor Feltzer<br />Albany Cavalcade II<br />Gallivanter Baller<br />Declasse Sabre GT Turbo<br />Ocelot F620<br />Dinka Blista Compact<br />Obey Rocoto<br />Bravado Buffalo<br />Albany Washington<br />Dinka Jester<br />Dewbauchee Exemplar<br />Übermacht Zion Cabrio<br />Bollokan Prairie<br />Maxwell Asbo<br />Dinka Thrust<br />Obey 9F<br />Grotti Turismo R<br />', 0, 825238, '2023-04-17 06:53:47', '[]');
 
 -- Dumping structure for table uuspack.player_notes
 CREATE TABLE IF NOT EXISTS `player_notes` (
@@ -1179,9 +952,11 @@ CREATE TABLE IF NOT EXISTS `player_outfits` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `citizenid_outfitname_model` (`citizenid`,`outfitname`,`model`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table uuspack.player_outfits: ~0 rows (approximately)
+REPLACE INTO `player_outfits` (`id`, `citizenid`, `outfitname`, `model`, `props`, `components`) VALUES
+	(26, 'OSB60946', 'Selo', 'mp_f_freemode_01', '[{"texture":-1,"prop_id":0,"drawable":-1},{"texture":0,"prop_id":1,"drawable":18},{"texture":0,"prop_id":2,"drawable":0},{"texture":-1,"prop_id":6,"drawable":-1},{"texture":-1,"prop_id":7,"drawable":-1}]', '[{"texture":0,"component_id":0,"drawable":0},{"texture":0,"component_id":1,"drawable":0},{"texture":0,"component_id":2,"drawable":199},{"texture":0,"component_id":3,"drawable":92},{"texture":0,"component_id":4,"drawable":57},{"texture":0,"component_id":5,"drawable":0},{"texture":2,"component_id":6,"drawable":51},{"texture":0,"component_id":7,"drawable":0},{"texture":0,"component_id":8,"drawable":15},{"texture":0,"component_id":9,"drawable":0},{"texture":0,"component_id":10,"drawable":16},{"texture":4,"component_id":11,"drawable":18}]');
 
 -- Dumping structure for table uuspack.player_outfit_codes
 CREATE TABLE IF NOT EXISTS `player_outfit_codes` (
@@ -1226,12 +1001,12 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   CONSTRAINT `FK_playervehicles_players` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_vehicles: ~2 rows (approximately)
+-- Dumping data for table uuspack.player_vehicles: ~5 rows (approximately)
 REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`) VALUES
 	(5, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontWheels":-1,"wheelSize":1.0,"model":-1848994066,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modTank":-1,"modSpeakers":-1,"modBackWheels":-1,"plateIndex":0,"modOrnaments":-1,"modBrakes":-1,"xenonColor":255,"modSideSkirt":-1,"modEngine":-1,"modCustomTiresF":false,"modSeats":-1,"modTrimA":-1,"modRightFender":-1,"modDoorSpeaker":-1,"modHood":-1,"modDashboard":-1,"color1":64,"modWindows":-1,"modExhaust":-1,"engineHealth":998.4705910484217,"modEngineBlock":-1,"modFrontBumper":-1,"modTrimB":-1,"modRearBumper":-1,"modFrame":-1,"modStruts":-1,"pearlescentColor":73,"modGrille":-1,"modSteeringWheel":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"liveryRoof":-1,"dirtLevel":2.38298470417284,"modAirFilter":-1,"modKit21":-1,"wheelColor":0,"modAPlate":-1,"modXenon":false,"tankHealth":1000.0592475178704,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modKit19":-1,"bodyHealth":998.4705910484217,"modFender":-1,"modCustomTiresR":false,"modShifterLeavers":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSpoilers":-1,"modSuspension":-1,"dashboardColor":65,"modPlateHolder":-1,"modKit47":-1,"plate":"03UGY881","modArchCover":-1,"modAerials":-1,"modVanityPlate":-1,"fuelLevel":96.90804463636234,"modDial":-1,"modKit49":-1,"modKit17":-1,"windowTint":-1,"modRoof":-1,"tyreSmokeColor":[255,255,255],"wheels":0,"modHydrolic":-1,"modArmor":-1,"oilLevel":4.76596940834568,"wheelWidth":1.0,"modTrunk":-1,"modTurbo":false,"interiorColor":93,"modTransmission":-1,"modHorns":-1,"modLivery":-1,"color2":0,"extras":[],"headlightColor":255,"neonColor":[255,0,255],"neonEnabled":[false,false,false,false],"modSmokeEnabled":false}', '03UGY881', NULL, 'pdgarage', 97, 999, 999, 1, 0, 2411, NULL, 0, 0, 0, 0),
 	(6, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modSteeringWheel":-1,"modSmokeEnabled":false,"neonEnabled":[false,false,false,false],"modTransmission":-1,"neonColor":[255,0,255],"modSideSkirt":-1,"modArchCover":-1,"tyreSmokeColor":[255,255,255],"wheelColor":156,"modEngine":-1,"modExhaust":-1,"modTrunk":-1,"plate":"41LWE226","extras":[],"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modBackWheels":-1,"modEngineBlock":-1,"modDoorSpeaker":-1,"wheelSize":1.0,"modHorns":-1,"modCustomTiresF":false,"modDashboard":-1,"modFender":-1,"modOrnaments":-1,"modFrame":-1,"modAirFilter":-1,"modFrontBumper":-1,"modSuspension":-1,"modSpeakers":-1,"color1":0,"engineHealth":1000.0592475178704,"fuelLevel":97.70237287108663,"modArmor":-1,"interiorColor":0,"modCustomTiresR":false,"modXenon":false,"modTrimA":-1,"modRightFender":-1,"modKit17":-1,"oilLevel":4.76596940834568,"modKit21":-1,"headlightColor":255,"modGrille":-1,"modTurbo":false,"modBrakes":-1,"liveryRoof":-1,"modLivery":2,"modStruts":-1,"modPlateHolder":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":0,"windowTint":-1,"wheels":6,"modKit47":-1,"tankHealth":1000.0592475178704,"wheelWidth":1.0,"modTrimB":-1,"modVanityPlate":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color2":0,"pearlescentColor":0,"dirtLevel":0.79432823472428,"modKit49":-1,"modHood":-1,"xenonColor":255,"dashboardColor":0,"modSpoilers":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modAPlate":-1,"modTank":-1,"modAerials":-1,"model":788045382,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modWindows":-1,"modDial":-1,"modSeats":-1,"modRearBumper":-1,"modKit19":-1,"modFrontWheels":-1,"modHydrolic":-1}', '41LWE226', NULL, 'apartments', 97, 1000, 1000, 1, 0, 870196, NULL, 0, 0, 0, 0),
 	(7, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modHydrolic":-1,"interiorColor":0,"modPlateHolder":-1,"modSeats":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTank":-1,"modKit49":-1,"tyreSmokeColor":[255,255,255],"dirtLevel":0.0,"modArchCover":-1,"modAirFilter":-1,"modHorns":-1,"liveryRoof":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"plate":"21YGE174","dashboardColor":0,"modDial":-1,"modTrunk":-1,"modKit19":-1,"modSmokeEnabled":false,"modDoorSpeaker":-1,"modTurbo":false,"neonColor":[255,0,255],"wheelColor":156,"modBackWheels":-1,"xenonColor":255,"modSpoilers":-1,"modAPlate":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"modOrnaments":-1,"headlightColor":255,"wheels":6,"color2":0,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modHood":-1,"fuelLevel":45.27670937928404,"modRearBumper":-1,"plateIndex":3,"modStruts":-1,"modDashboard":-1,"modSteeringWheel":-1,"modBrakes":-1,"modAerials":-1,"tankHealth":1000.0592475178704,"pearlescentColor":0,"extras":[],"modCustomTiresR":false,"modKit21":-1,"modFender":-1,"modTrimA":-1,"modFrontWheels":-1,"modVanityPlate":-1,"modCustomTiresF":false,"windowTint":-1,"modLivery":2,"modFrontBumper":-1,"modExhaust":-1,"modSuspension":-1,"wheelSize":0.0,"modTrimB":-1,"modRoof":-1,"modArmor":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color1":0,"neonEnabled":[false,false,false,false],"modGrille":-1,"modWindows":-1,"modSpeakers":-1,"modSideSkirt":-1,"oilLevel":4.76596940834568,"modEngine":-1,"modEngineBlock":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modFrame":-1,"modKit47":-1,"modTransmission":-1,"modRightFender":-1,"model":788045382,"engineHealth":1000.0592475178704}', '21YGE174', NULL, NULL, 45, 1000, 1000, 0, 0, 178749, NULL, 0, 0, 0, 0),
-	(8, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontBumper":-1,"modCustomTiresF":false,"plateIndex":0,"modRoof":-1,"modHood":-1,"modHorns":-1,"modStruts":-1,"modSpoilers":-1,"modXenon":false,"modExhaust":-1,"modFrontWheels":-1,"modFrame":-1,"pearlescentColor":73,"tyreSmokeColor":[255,255,255],"modDoorSpeaker":-1,"modTrimB":-1,"modAPlate":-1,"interiorColor":93,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSteeringWheel":-1,"modKit17":-1,"modCustomTiresR":false,"modRearBumper":-1,"windowTint":-1,"modSeats":-1,"modTrimA":-1,"modVanityPlate":-1,"dirtLevel":0.0,"color1":64,"modTurbo":false,"bodyHealth":994.4989498748004,"modShifterLeavers":-1,"modEngineBlock":-1,"oilLevel":4.76596940834568,"modBackWheels":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modRightFender":-1,"model":-1848994066,"modGrille":-1,"engineHealth":972.2577593025205,"dashboardColor":65,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"wheelColor":0,"modHydrolic":-1,"neonColor":[255,0,255],"modArchCover":-1,"xenonColor":255,"neonEnabled":[false,false,false,false],"modOrnaments":-1,"fuelLevel":42.8937246751112,"modSuspension":-1,"modAirFilter":-1,"modKit49":-1,"modLivery":-1,"modWindows":-1,"modTank":-1,"headlightColor":255,"modSideSkirt":-1,"plate":"24JDG097","modKit21":-1,"modSmokeEnabled":false,"modSpeakers":-1,"modEngine":-1,"wheelWidth":1.0,"modArmor":-1,"wheelSize":1.0,"extras":[],"modPlateHolder":-1,"modKit19":-1,"modTrunk":-1,"modAerials":-1,"modDial":-1,"color2":0,"modKit47":-1,"wheels":0,"modBrakes":-1,"tankHealth":996.8819345789732,"modTransmission":-1,"modFender":-1,"modDashboard":-1,"liveryRoof":-1}', '24JDG097', NULL, 'pillbox_hospital', 43, 973, 995, 1, 0, 646901, NULL, 0, 0, 0, 0),
+	(8, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontBumper":-1,"modCustomTiresF":false,"plateIndex":0,"modRoof":-1,"modHood":-1,"modHorns":-1,"modStruts":-1,"modSpoilers":-1,"modXenon":false,"modExhaust":-1,"modFrontWheels":-1,"modFrame":-1,"pearlescentColor":73,"tyreSmokeColor":[255,255,255],"modDoorSpeaker":-1,"modTrimB":-1,"modAPlate":-1,"interiorColor":93,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSteeringWheel":-1,"modKit17":-1,"modCustomTiresR":false,"modRearBumper":-1,"windowTint":-1,"modSeats":-1,"modTrimA":-1,"modVanityPlate":-1,"dirtLevel":0.0,"color1":64,"modTurbo":false,"bodyHealth":994.4989498748004,"modShifterLeavers":-1,"modEngineBlock":-1,"oilLevel":4.76596940834568,"modBackWheels":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modRightFender":-1,"model":-1848994066,"modGrille":-1,"engineHealth":972.2577593025205,"dashboardColor":65,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"wheelColor":0,"modHydrolic":-1,"neonColor":[255,0,255],"modArchCover":-1,"xenonColor":255,"neonEnabled":[false,false,false,false],"modOrnaments":-1,"fuelLevel":42.8937246751112,"modSuspension":-1,"modAirFilter":-1,"modKit49":-1,"modLivery":-1,"modWindows":-1,"modTank":-1,"headlightColor":255,"modSideSkirt":-1,"plate":"24JDG097","modKit21":-1,"modSmokeEnabled":false,"modSpeakers":-1,"modEngine":-1,"wheelWidth":1.0,"modArmor":-1,"wheelSize":1.0,"extras":[],"modPlateHolder":-1,"modKit19":-1,"modTrunk":-1,"modAerials":-1,"modDial":-1,"color2":0,"modKit47":-1,"wheels":0,"modBrakes":-1,"tankHealth":996.8819345789732,"modTransmission":-1,"modFender":-1,"modDashboard":-1,"liveryRoof":-1}', '24JDG097', NULL, 'pillbox_hospital', 43, 973, 995, 0, 0, 11184, NULL, 0, 0, 0, 0),
 	(9, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"liveryRoof":-1,"modDoorSpeaker":-1,"modRightFender":-1,"dirtLevel":0.0,"fuelLevel":50.04267878762973,"modArmor":-1,"modTransmission":-1,"neonColor":[255,0,255],"model":-1848994066,"tyreSmokeColor":[255,255,255],"modKit19":-1,"modPlateHolder":-1,"modKit49":-1,"modTrimB":-1,"modTurbo":false,"modSpoilers":-1,"modSideSkirt":-1,"extras":[],"modHydrolic":-1,"modSmokeEnabled":false,"modFrontBumper":-1,"modSpeakers":-1,"modHood":-1,"modShifterLeavers":-1,"bodyHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAirFilter":-1,"engineHealth":1000.0592475178704,"modDashboard":-1,"tankHealth":1000.0592475178704,"xenonColor":255,"modOrnaments":-1,"modSuspension":-1,"wheelSize":1.0,"modTank":-1,"modAPlate":-1,"modEngine":-1,"modKit47":-1,"modTrimA":-1,"modBrakes":-1,"modBackWheels":-1,"modCustomTiresF":false,"modKit21":-1,"modFrame":-1,"modExhaust":-1,"color1":64,"modCustomTiresR":false,"modStruts":-1,"color2":0,"modArchCover":-1,"headlightColor":255,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"wheels":0,"plate":"82GGY937","modLivery":-1,"modVanityPlate":-1,"modHorns":-1,"modRearBumper":-1,"plateIndex":0,"windowTint":-1,"modXenon":false,"modEngineBlock":-1,"interiorColor":93,"modWindows":-1,"modRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modFender":-1,"dashboardColor":65,"pearlescentColor":73,"wheelWidth":1.0,"modSteeringWheel":-1,"modFrontWheels":-1,"modTrunk":-1,"wheelColor":0,"modGrille":-1,"modSeats":-1,"modAerials":-1,"modKit17":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false}}', '82GGY937', NULL, 'pdgarage', 50, 1000, 1000, 1, 0, 640319, NULL, 0, 0, 0, 0);
 
 -- Dumping structure for table uuspack.player_warns
@@ -1245,6 +1020,24 @@ CREATE TABLE IF NOT EXISTS `player_warns` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.player_warns: ~0 rows (approximately)
+
+-- Dumping structure for table uuspack.scenes
+CREATE TABLE IF NOT EXISTS `scenes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator` varchar(50) DEFAULT NULL,
+  `text` mediumtext DEFAULT NULL,
+  `color` mediumtext DEFAULT NULL,
+  `viewdistance` int(11) DEFAULT NULL,
+  `expiration` int(11) DEFAULT NULL,
+  `fontsize` decimal(10,1) DEFAULT NULL,
+  `fontstyle` int(11) DEFAULT NULL,
+  `coords` mediumtext DEFAULT NULL,
+  `date_creation` datetime DEFAULT NULL,
+  `date_deletion` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table uuspack.scenes: ~0 rows (approximately)
 
 -- Dumping structure for table uuspack.stashitems
 CREATE TABLE IF NOT EXISTS `stashitems` (

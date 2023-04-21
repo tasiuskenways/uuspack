@@ -2,21 +2,6 @@ var WhatsappSearchActive = false;
 var OpenedChatPicture = null;
 var ExtraButtonsOpen = false;
 
-$( "input[type=text], textarea, input[type=number]" ).focusin(function(e) {
-    e.preventDefault();
-    $.post('https://qb-phone/DissalowMoving');
-});
-$(".whatsapp-openedchat").focusin(function(e) {
-    e.preventDefault();
-    $.post('https://qb-phone/DissalowMoving');
-});
-
-$( "input[type=text], textarea, input[type=number]" ).focusout(function(e) {
-    e.preventDefault();
-    $.post('https://qb-phone/AllowMoving');
-});
-
-
 $(document).ready(function(){
     $("#whatsapp-contact-search").on("keyup", function() {
         var value = $(this).val().toLowerCase();
@@ -248,12 +233,8 @@ $(document).on('click', '#whatsapp-openedchat-send', function(e){
     var urlDetect = detectURLs(Message)
 
     if (urlDetect != null){
-        if (/(jpg|jpeg|gif|png)$/i.test(urlDetect)) {
-            var NewMessage = Message.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-            ConfirmationFrame()
-        }else{
-            var NewMessage = $("#whatsapp-openedchat-message").val();
-        }
+        var NewMessage = Message.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+        ConfirmationFrame()
     } else {
         var NewMessage = $("#whatsapp-openedchat-message").val();
     }
@@ -269,16 +250,14 @@ $(document).on('click', '#whatsapp-openedchat-send', function(e){
     }
 
     if (urlDetect != null){
-        if (/(jpg|jpeg|gif|png)$/i.test(urlDetect)) {
-            $.post('https://qb-phone/SendMessage', JSON.stringify({
-                ChatNumber: OpenedChatData.number,
-                ChatDate: GetCurrentDateKey(),
-                ChatMessage: null,
-                ChatTime: FormatMessageTime(),
-                ChatType: "picture",
-                url : urlDetect
-            }));
-        }
+        $.post('https://qb-phone/SendMessage', JSON.stringify({
+            ChatNumber: OpenedChatData.number,
+            ChatDate: GetCurrentDateKey(),
+            ChatMessage: null,
+            ChatTime: FormatMessageTime(),
+            ChatType: "picture",
+            url : urlDetect
+        }));
     }
     $(".emojionearea-editor").html("");
     $("#whatsapp-openedchat-message").val("");

@@ -9,6 +9,7 @@ RegisterNetEvent('qb-phone:server:wenmo_givemoney_toID', function(data)
 
     if src == tonumber(data.ID) then return end
 
+
     if not OtherPly then return TriggerClientEvent('QBCore:Notify', src, 'Player not Online', "error") end
 
     local txt = "Wenmo: "..Reason

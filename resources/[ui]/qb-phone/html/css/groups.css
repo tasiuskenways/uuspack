@@ -12,10 +12,10 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 
 .jobcenter-app {
     display: none;
-    height: 100%;
+    height: 108%;
     width: 100%;
     overflow: hidden;
-    background: #242833;
+    background: #ffffff;
 }
 
 .jobcenter-header {
@@ -26,7 +26,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
     top: 16%;
     left: 6%;
     right: 0;
-    color: white;
+    color: rgb(0, 0, 0);
     /* font-family: 'Poppins', sans-serif; */
     font-size: 1.3vh;
     /* margin: 0 auto; */
@@ -44,7 +44,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
     left: 9vh;
     font-size: 1.2vh;
     height: 2vh;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .jobcenter-list {
@@ -72,14 +72,14 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 
 .jobcenter-btn-create-group{
     display: inline;
-    background: #8ee074;
+    background: #0095ff;
     padding: 2% 4%;
     transition: 0.2s;
     border-radius: 4px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .jobcenter-btn-create-group:hover{
-    background: #6cac59;
+    background: #41affe;
 }
 
 .jobcenter-div-active-stage{
@@ -88,7 +88,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.5vh;
     position: relative;
     height: auto;
@@ -103,14 +103,14 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
     margin-left: 1%;
     margin-bottom: 2%;
     padding-left: 5%;
-    background-color: #2c465f;
+    background-color: #ffffff;
     transition: 0.2s;
-    color: whitesmoke;
-    border-bottom: 2px solid #f5f5f5ad;
+    color: #0095ff;
+    border-bottom: 2px solid #585858ad;
     border-radius: 2px;
 }
 .jobcenter-div-job-group:hover{
-    background-color: #2e4d6a;
+    background-color: #f8f8f8;
 }
 
 .jobcenter-div-job-group-image{
@@ -134,24 +134,24 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
     font-size: 110%;
 }
 #jobcenter-join-grouped:hover{
-    color: #8ee074;
+    color: #41affe;
 }
 
 #jobcenter-leave-grouped{
     display: block;
     position: absolute;
     font-size: 110%;
-    color: #f5a15b;
+    color: #ed3e3b;
 }
 #jobcenter-leave-grouped:hover{
-    color: #c27e47;
+    color: #ff2824;
 }
 
 #jobcenter-block-grouped{
     display: block;
     position: absolute;
     font-size: 110%;
-    color: rgb(255, 255, 255);
+    color: #0095ff;
 }
 
 .jobcenter-option-class-body{
@@ -159,11 +159,11 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 }
 
 #jobcenter-delete-group:hover{
-    color: #f5a15b;
+    color: #ed3e3b;
 }
 
 #jobcenter-list-group:hover{
-    color: #8ee074;
+    color: #41affe;
 }
 
 .jobcenter-Groupjob {
@@ -188,33 +188,33 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
  .jobcenter-Groupjob::-webkit-scrollbar {
     display: none;
   }
-
+ 
  .jobcenter-div-active-stagee {
     width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.5vh;
     position: relative;
     height: auto;
     word-break: break-word;
  }
-
+ 
  .isDone {
     text-decoration: line-through;
-    background: #2c465f !important;
+    background: #ffffff !important;
     position: relative;
  }
  .isDone::after {
     height: 30px;
-    background: #008685 !important;
+    background: #ececec !important;
  }
  .jobcenter-div-active-stagee::after {
     content: '';
     height: 12px;
-    background: #4155C0;
+    background: #dcdcdc;
     left: -23px;
     top: -3px;
     width: 12px;
@@ -224,7 +224,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
  .jobcenter-div-active-stagee::before {
     content: '';
     height: 90%;
-    background: white;
+    background: rgb(0, 0, 0);
     left: -18px;
     top: 15px;
     width: 2px;
@@ -232,20 +232,20 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
  }
 
  .jobcenter-div-active-stagee {
-    background: #2c465f;
+    background: #ffffff;
     border-radius: 3px 3px 0px 0px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.671);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.671);
 }
 
 .jobcenter-Groupjob-background {
-    background: black;
+    background: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
 }
 
 .jobcenter-text-header {
     font-size: 1.5vh;
-    color: white;
+    color: rgb(0, 0, 0);
     position: absolute;
     width: 90%;
     top: 6%;
@@ -255,7 +255,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 .jobcenter-playerlist {
     width: 100%;
     height: 74.5%;
-    background-color: #242833;
+    background-color: #ffffff;
     bottom: 0;
     position: absolute;
 }
@@ -263,7 +263,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 .jobcenter-playerlist2 {
     width: 100%;
     height: 74.5%;
-    background-color: #242833;
+    background-color: #ffffff;
     bottom: 0;
     position: absolute;
 }
@@ -272,12 +272,12 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 .jobcenter-playerlist-list {
     height: 6vh;
     font-size: 2vh;
-    border-bottom: 1px white solid;
-    background: #3D6285;
+    border-bottom: 1px rgb(0, 0, 0) solid;
+    background: #ffffff;
 }
 
 .jobcenter-playerlist-name {
-    color: white;
+    color: rgb(0, 0, 0);
     /* background-color: black; */
     height: 100%;
     font-size: 1.55vh;
@@ -288,7 +288,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 }
 
 .jobcenter-playerlist-header {
-    color: white;
+    color: rgb(0, 0, 0);
     margin-left: 6%;
     margin-top: 14%;
     font-size: 1.7vh;
@@ -304,7 +304,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 
 
 .jobcenter-playerlist-leave {
-    background: #95EF77;
+    background: #0095ff;
     margin-left: 36.5%;
     padding: 2.8% 5%;
     /* font-weight: 700; */
@@ -315,13 +315,13 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 
 .jobcenter-group-delete {
     display: none;
-    background: #95EF77;
+    background: #0095ff;
     margin-left: 30%;
     padding: 3.0% 5%;
     /* font-weight: 700; */
     bottom: 50%;
     position: absolute;
-    /* top: 0; */
+    /* top: 0; */   
 }
 
 .jobcenter-job-value {
@@ -332,7 +332,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
 
 .jobcenter-groupstatus {
     display: none;
-    color: white;
+    color: rgb(0, 0, 0);
     position: absolute;
     font-size: 30px;
 }
@@ -343,7 +343,7 @@ input.jobcenter-input-password, input.jobcenter-input-password2 {
     font-size: 25px;
     top: 0px;
     position: absolute;
-    color: white;
+    color: rgb(0, 0, 0);
     margin-top: 30px;
     margin-left: 190px;
 }

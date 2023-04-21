@@ -226,15 +226,12 @@ local function OpenPhone()
         PhoneData.PlayerData = PlayerData
         SetNuiFocus(true, true)
         
-        local hasVPN = QBCore.Functions.HasItem(Config.VPNItem)
-
         SendNUIMessage({
             action = "open",
             Tweets = PhoneData.Tweets,
             AppData = Config.PhoneApplications,
             CallData = PhoneData.CallData,
             PlayerData = PhoneData.PlayerData,
-            hasVPN = hasVPN,
         })
         PhoneData.isOpen = true
         if Config.AllowWalking then
@@ -984,14 +981,4 @@ RegisterNetEvent('qb-phone:client:updateContactInfo', function(contactInfo)
         action = "RefreshContacts",
         Contacts = PhoneData.Contacts
     })
-end)
-
-RegisterNetEvent('qb-phone:RefreshPhone', function()
-    LoadPhone()
-    SetTimeout(250, function()
-        SendNUIMessage({
-            action = "RefreshAlerts",
-            AppData = Config.PhoneApplications,
-        })
-    end)
 end)

@@ -14,12 +14,7 @@ end
 -- NUI Callback
 
 RegisterNUICallback('GetTweets', function(_, cb)
-    local hasVPN = QBCore.Functions.HasItem(Config.VPNItem)
-
-    cb({
-        TweetData = PhoneData.Tweets,
-        hasVPN = hasVPN,
-    })
+    cb(PhoneData.Tweets)
 end)
 
 RegisterNUICallback('PostNewTweet', function(data, cb)
@@ -40,8 +35,7 @@ RegisterNUICallback('PostNewTweet', function(data, cb)
         time = data.Date,
         tweetId = GenerateTweetId(),
         type = data.type,
-        url = URL,
-        showAnonymous = data.anonymous
+        url = URL
     }
 
     TriggerServerEvent('qb-phone:server:UpdateTweets', TweetMessage)
@@ -78,12 +72,9 @@ RegisterNetEvent('qb-phone:client:UpdateTweets', function(src, Tweets, delete)
         })
     end
 
-    local hasVPN = QBCore.Functions.HasItem(Config.VPNItem)
-
     SendNUIMessage({
         action = "UpdateTweets",
-        Tweets = PhoneData.Tweets,
-        hasVPN = hasVPN,
+        Tweets = PhoneData.Tweets
     })
 
     if delete then return end

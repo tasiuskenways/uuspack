@@ -2,15 +2,15 @@ QBShared = QBShared or {}
 
 QBShared.Vehicles = {
     --- Compacts
-    ['asbo'] = { -- This has to match the spawn code of the vehicle
-        ['name'] = 'Asbo', -- This is the display of the vehicle
-        ['brand'] = 'Maxwell', -- This is the vehicle's brand (Ford, Chevrolet, BMW, Mercedes, etc)
-        ['model'] = 'asbo', -- This must match the spawn code of the vehicle
-        ['price'] = 4000, -- The price that the vehicle sells for
-        ['category'] = 'compacts', -- This must match "VehicleClass" in vehicles.meta for the vehicle and must also exist in https://docs.fivem.net/natives/?_0x29439776AAA00A62
+    ['asbo'] = {                        -- This has to match the spawn code of the vehicle
+        ['name'] = 'Asbo',              -- This is the display of the vehicle
+        ['brand'] = 'Maxwell',          -- This is the vehicle's brand (Ford, Chevrolet, BMW, Mercedes, etc)
+        ['model'] = 'asbo',             -- This must match the spawn code of the vehicle
+        ['price'] = 4000,               -- The price that the vehicle sells for
+        ['category'] = 'compacts',      -- This must match "VehicleClass" in vehicles.meta for the vehicle and must also exist in https://docs.fivem.net/natives/?_0x29439776AAA00A62
         ['categoryLabel'] = 'Compacts', -- Customize for your Vehicle Shop headings (can even include spaces)
-        ['hash'] = `asbo`, -- This has to match the spawn code of the vehicle and must be surrounded by backticks. Example of a Backtick: `
-        ['shop'] = 'pdm', -- Can be a single shop or multiple shops. For multiple shops for example {'shopname1','shopname2','shopname3'}
+        ['hash'] = `asbo`,              -- This has to match the spawn code of the vehicle and must be surrounded by backticks. Example of a Backtick: `
+        ['shop'] = 'pdm',               -- Can be a single shop or multiple shops. For multiple shops for example {'shopname1','shopname2','shopname3'}
     },
     ['blista'] = {
         ['name'] = 'Blista',
@@ -92,7 +92,7 @@ QBShared.Vehicles = {
         ['hash'] = `issi3`,
         ['shop'] = 'pdm',
     },
-    ['issi4'] = {                            --DLC
+    ['issi4'] = { --DLC
         ['name'] = 'Issi Arena',
         ['brand'] = 'Weeny',
         ['model'] = 'issi4',
@@ -102,7 +102,7 @@ QBShared.Vehicles = {
         ['hash'] = `issi4`,
         ['shop'] = 'pdm',
     },
-    ['issi5'] = {                            --DLC
+    ['issi5'] = { --DLC
         ['name'] = 'Issi Future Shock',
         ['brand'] = 'Weeny',
         ['model'] = 'issi5',
@@ -112,7 +112,7 @@ QBShared.Vehicles = {
         ['hash'] = `issi5`,
         ['shop'] = 'pdm',
     },
-    ['issi6'] = {                            --DLC
+    ['issi6'] = { --DLC
         ['name'] = 'Issi Nightmare',
         ['brand'] = 'Weeny',
         ['model'] = 'issi6',
@@ -313,7 +313,7 @@ QBShared.Vehicles = {
         ['hash'] = `zion2`,
         ['shop'] = 'pdm',
     },
-    ['previon'] = {            --DLC +set sv_enforceGameBuild 2372
+    ['previon'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Previon',
         ['brand'] = 'Karin',
         ['model'] = 'previon',
@@ -323,7 +323,7 @@ QBShared.Vehicles = {
         ['hash'] = `previon`,
         ['shop'] = 'pdm',
     },
-    ['champion'] = {        --DLC +set sv_enforceGameBuild 2545
+    ['champion'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Champion',
         ['brand'] = 'Dewbauchee',
         ['model'] = 'champion',
@@ -333,7 +333,7 @@ QBShared.Vehicles = {
         ['hash'] = `champion`,
         ['shop'] = 'pdm',
     },
-    ['ignus'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['ignus'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Ignus',
         ['brand'] = 'Pegassi',
         ['model'] = 'ignus',
@@ -343,7 +343,7 @@ QBShared.Vehicles = {
         ['hash'] = `ignus`,
         ['shop'] = 'pdm',
     },
-    ['zeno'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['zeno'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Zeno',
         ['brand'] = 'Överflöd',
         ['model'] = 'zeno',
@@ -545,7 +545,7 @@ QBShared.Vehicles = {
         ['hash'] = `defiler`,
         ['shop'] = 'pdm',
     },
-    ['deathbike'] = {                            --DLC
+    ['deathbike'] = { --DLC
         ['name'] = 'Deathbike Apocalypse',
         ['brand'] = 'Deathbike',
         ['model'] = 'deathbike',
@@ -555,7 +555,7 @@ QBShared.Vehicles = {
         ['hash'] = `deathbike`,
         ['shop'] = 'pdm',
     },
-    ['deathbike2'] = {                            --DLC
+    ['deathbike2'] = { --DLC
         ['name'] = 'Deathbike Future Shock',
         ['brand'] = 'Deathbike',
         ['model'] = 'deathbike2',
@@ -565,7 +565,7 @@ QBShared.Vehicles = {
         ['hash'] = `deathbike2`,
         ['shop'] = 'pdm',
     },
-    ['deathbike3'] = {                            --DLC
+    ['deathbike3'] = { --DLC
         ['name'] = 'Deathbike Nightmare',
         ['brand'] = 'Deathbike',
         ['model'] = 'deathbike3',
@@ -945,7 +945,7 @@ QBShared.Vehicles = {
         ['hash'] = `manchez2`,
         ['shop'] = 'pdm',
     },
-    ['shinobi'] = {        --DLC +set sv_enforceGameBuild 2545
+    ['shinobi'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Shinobi',
         ['brand'] = 'Nagasaki',
         ['model'] = 'shinobi',
@@ -955,7 +955,7 @@ QBShared.Vehicles = {
         ['hash'] = `shinobi`,
         ['shop'] = 'pdm',
     },
-    ['reever'] = {        --DLC +set sv_enforceGameBuild 2545
+    ['reever'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Reever',
         ['brand'] = 'Western',
         ['model'] = 'reever',
@@ -1016,7 +1016,7 @@ QBShared.Vehicles = {
         ['hash'] = `chino2`,
         ['shop'] = 'pdm',
     },
-    ['clique'] = {                            --DLC
+    ['clique'] = { --DLC
         ['name'] = 'Clique',
         ['brand'] = 'Vapid',
         ['model'] = 'clique',
@@ -1036,7 +1036,7 @@ QBShared.Vehicles = {
         ['hash'] = `coquette3`,
         ['shop'] = 'pdm',
     },
-    ['deviant'] = {                            --DLC
+    ['deviant'] = { --DLC
         ['name'] = 'Deviant',
         ['brand'] = 'Schyster',
         ['model'] = 'deviant',
@@ -1076,7 +1076,7 @@ QBShared.Vehicles = {
         ['hash'] = `dominator3`,
         ['shop'] = 'pdm',
     },
-    ['dominator4'] = {                            --DLC
+    ['dominator4'] = { --DLC
         ['name'] = 'Dominator Arena',
         ['brand'] = 'Vapid',
         ['model'] = 'dominator4',
@@ -1086,7 +1086,7 @@ QBShared.Vehicles = {
         ['hash'] = `dominator4`,
         ['shop'] = 'pdm',
     },
-    ['dominator7'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['dominator7'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Dominator ASP',
         ['brand'] = 'Vapid',
         ['model'] = 'dominator7',
@@ -1096,7 +1096,7 @@ QBShared.Vehicles = {
         ['hash'] = `dominator7`,
         ['shop'] = 'pdm',
     },
-    ['dominator8'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['dominator8'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Dominator GTT',
         ['brand'] = 'Vapid',
         ['model'] = 'dominator8',
@@ -1196,7 +1196,7 @@ QBShared.Vehicles = {
         ['hash'] = `gauntlet2`,
         ['shop'] = 'pdm',
     },
-    ['gauntlet3'] = {                            --DLC
+    ['gauntlet3'] = { --DLC
         ['name'] = 'Classic Gauntlet',
         ['brand'] = 'Bravado',
         ['model'] = 'gauntlet3',
@@ -1206,7 +1206,7 @@ QBShared.Vehicles = {
         ['hash'] = `gauntlet3`,
         ['shop'] = 'pdm',
     },
-    ['gauntlet4'] = {                            --DLC
+    ['gauntlet4'] = { --DLC
         ['name'] = 'Gauntlet Hellfire',
         ['brand'] = 'Bravado',
         ['model'] = 'gauntlet4',
@@ -1256,7 +1256,7 @@ QBShared.Vehicles = {
         ['hash'] = `hustler`,
         ['shop'] = 'pdm',
     },
-    ['impaler'] = {                            --DLC
+    ['impaler'] = { --DLC
         ['name'] = 'Impaler',
         ['brand'] = 'Vapid',
         ['model'] = 'impaler',
@@ -1266,7 +1266,7 @@ QBShared.Vehicles = {
         ['hash'] = `impaler`,
         ['shop'] = 'pdm',
     },
-    ['impaler2'] = {                            --DLC
+    ['impaler2'] = { --DLC
         ['name'] = 'Impaler Arena',
         ['brand'] = 'Vapid',
         ['model'] = 'impaler2',
@@ -1276,7 +1276,7 @@ QBShared.Vehicles = {
         ['hash'] = `impaler2`,
         ['shop'] = 'pdm',
     },
-    ['impaler3'] = {                            --DLC
+    ['impaler3'] = { --DLC
         ['name'] = 'Impaler Future Shock',
         ['brand'] = 'Vapid',
         ['model'] = 'impaler3',
@@ -1286,7 +1286,7 @@ QBShared.Vehicles = {
         ['hash'] = `impaler3`,
         ['shop'] = 'pdm',
     },
-    ['impaler4'] = {                            --DLC
+    ['impaler4'] = { --DLC
         ['name'] = 'Impaler Nightmare',
         ['brand'] = 'Vapid',
         ['model'] = 'impaler4',
@@ -1296,7 +1296,7 @@ QBShared.Vehicles = {
         ['hash'] = `impaler4`,
         ['shop'] = 'pdm',
     },
-    ['imperator'] = {                            --DLC
+    ['imperator'] = { --DLC
         ['name'] = 'Imperator Arena',
         ['brand'] = 'Vapid',
         ['model'] = 'imperator',
@@ -1306,7 +1306,7 @@ QBShared.Vehicles = {
         ['hash'] = `imperator`,
         ['shop'] = 'pdm',
     },
-    ['imperator2'] = {                            --DLC
+    ['imperator2'] = { --DLC
         ['name'] = 'imperator Future Shock',
         ['brand'] = 'Vapid',
         ['model'] = 'imperator2',
@@ -1316,7 +1316,7 @@ QBShared.Vehicles = {
         ['hash'] = `imperator2`,
         ['shop'] = 'pdm',
     },
-    ['imperator3'] = {                            --DLC
+    ['imperator3'] = { --DLC
         ['name'] = 'Imperator Nightmare',
         ['brand'] = 'Vapid',
         ['model'] = 'imperator3',
@@ -1366,7 +1366,7 @@ QBShared.Vehicles = {
         ['hash'] = `nightshade`,
         ['shop'] = 'pdm',
     },
-    ['peyote2'] = {                            --DLC
+    ['peyote2'] = { --DLC
         ['name'] = 'Peyote Gasser',
         ['brand'] = 'Vapid',
         ['model'] = 'peyote2',
@@ -1506,7 +1506,7 @@ QBShared.Vehicles = {
         ['hash'] = `tampa`,
         ['shop'] = 'pdm',
     },
-    ['tulip'] = {                            --DLC
+    ['tulip'] = { --DLC
         ['name'] = 'Tulip',
         ['brand'] = 'Declasse',
         ['model'] = 'tulip',
@@ -1516,7 +1516,7 @@ QBShared.Vehicles = {
         ['hash'] = `tulip`,
         ['shop'] = 'pdm',
     },
-    ['vamos'] = {                            --DLC
+    ['vamos'] = { --DLC
         ['name'] = 'Vamos',
         ['brand'] = 'Declasse',
         ['model'] = 'vamos',
@@ -1606,7 +1606,7 @@ QBShared.Vehicles = {
         ['hash'] = `yosemite3`,
         ['shop'] = 'pdm',
     },
-    ['buffalo4'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['buffalo4'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Buffalo STX',
         ['brand'] = 'Bravado',
         ['model'] = 'buffalo4',
@@ -1707,7 +1707,7 @@ QBShared.Vehicles = {
         ['hash'] = `caracara`,
         ['shop'] = 'pdm',
     },
-    ['caracara2'] = {                            --DLC
+    ['caracara2'] = { --DLC
         ['name'] = 'Caracara 4x4',
         ['brand'] = 'Vapid',
         ['model'] = 'caracara2',
@@ -1747,7 +1747,7 @@ QBShared.Vehicles = {
         ['hash'] = `everon`,
         ['shop'] = 'pdm',
     },
-    ['freecrawler'] = {                            --DLC
+    ['freecrawler'] = { --DLC
         ['name'] = 'Freecrawler',
         ['brand'] = 'Canis',
         ['model'] = 'freecrawler',
@@ -1757,7 +1757,7 @@ QBShared.Vehicles = {
         ['hash'] = `freecrawler`,
         ['shop'] = 'pdm',
     },
-    ['hellion'] = {                            --DLC
+    ['hellion'] = { --DLC
         ['name'] = 'Hellion',
         ['brand'] = 'Annis',
         ['model'] = 'hellion',
@@ -2108,7 +2108,7 @@ QBShared.Vehicles = {
         ['hash'] = `mesa`,
         ['shop'] = 'pdm',
     },
-    ['novak'] = {                            --DLC
+    ['novak'] = { --DLC
         ['name'] = 'Novak',
         ['brand'] = 'Lampadati',
         ['model'] = 'novak',
@@ -2198,7 +2198,7 @@ QBShared.Vehicles = {
         ['hash'] = `serrano`,
         ['shop'] = 'pdm',
     },
-    ['toros'] = {                            --DLC
+    ['toros'] = { --DLC
         ['name'] = 'Toros',
         ['brand'] = 'Pegassi',
         ['model'] = 'toros',
@@ -2218,7 +2218,7 @@ QBShared.Vehicles = {
         ['hash'] = `xls`,
         ['shop'] = 'pdm',
     },
-    ['granger2'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['granger2'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Granger 3600LX',
         ['brand'] = 'Declasse',
         ['model'] = 'granger2',
@@ -2369,7 +2369,7 @@ QBShared.Vehicles = {
         ['hash'] = `regina`,
         ['shop'] = 'pdm',
     },
-    ['stafford'] = {                            --DLC
+    ['stafford'] = { --DLC
         ['name'] = 'Stafford',
         ['brand'] = 'Enus',
         ['model'] = 'stafford',
@@ -2459,7 +2459,7 @@ QBShared.Vehicles = {
         ['hash'] = `washington`,
         ['shop'] = 'pdm',
     },
-    ['tailgater2'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['tailgater2'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Tailgater S',
         ['brand'] = 'Obey',
         ['model'] = 'tailgater2',
@@ -2469,7 +2469,7 @@ QBShared.Vehicles = {
         ['hash'] = `tailgater2`,
         ['shop'] = 'pdm',
     },
-    ['cinquemila'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['cinquemila'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Lampadati',
         ['brand'] = 'Cinquemila',
         ['model'] = 'cinquemila',
@@ -2479,7 +2479,7 @@ QBShared.Vehicles = {
         ['hash'] = `cinquemila`,
         ['shop'] = 'pdm',
     },
-    ['iwagen'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['iwagen'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Obey',
         ['brand'] = 'I-Wagen',
         ['model'] = 'iwagen',
@@ -2489,7 +2489,7 @@ QBShared.Vehicles = {
         ['hash'] = `iwagen`,
         ['shop'] = 'pdm',
     },
-    ['astron'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['astron'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Astron',
         ['brand'] = 'Pfister',
         ['model'] = 'astron',
@@ -2499,7 +2499,7 @@ QBShared.Vehicles = {
         ['hash'] = `astron`,
         ['shop'] = 'pdm',
     },
-    ['baller7'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['baller7'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Baller ST',
         ['brand'] = 'Gallivanter',
         ['model'] = 'baller7',
@@ -2509,7 +2509,7 @@ QBShared.Vehicles = {
         ['hash'] = `baller7`,
         ['shop'] = 'pdm',
     },
-    ['comet7'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['comet7'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Comet',
         ['brand'] = 'S2 Cabrio',
         ['model'] = 'comet7',
@@ -2519,7 +2519,7 @@ QBShared.Vehicles = {
         ['hash'] = `comet7`,
         ['shop'] = 'pdm',
     },
-    ['deity'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['deity'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Deity',
         ['brand'] = 'Enus',
         ['model'] = 'deity',
@@ -2529,7 +2529,7 @@ QBShared.Vehicles = {
         ['hash'] = `deity`,
         ['shop'] = 'pdm',
     },
-    ['jubilee'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['jubilee'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Jubilee',
         ['brand'] = 'Enus',
         ['model'] = 'jubilee',
@@ -2539,7 +2539,7 @@ QBShared.Vehicles = {
         ['hash'] = `jubilee`,
         ['shop'] = 'pdm',
     },
-    ['patriot3'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['patriot3'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Patriot Military',
         ['brand'] = 'Mil-Spec',
         ['model'] = 'patriot3',
@@ -2700,7 +2700,7 @@ QBShared.Vehicles = {
         ['hash'] = `coquette4`,
         ['shop'] = 'luxury',
     },
-    ['drafter'] = {                            --DLC
+    ['drafter'] = { --DLC
         ['name'] = '8F Drafter',
         ['brand'] = 'Obey',
         ['model'] = 'drafter',
@@ -2710,7 +2710,7 @@ QBShared.Vehicles = {
         ['hash'] = `drafter`,
         ['shop'] = 'luxury',
     },
-    ['deveste'] = {                            --DLC
+    ['deveste'] = { --DLC
         ['name'] = 'Deveste',
         ['brand'] = 'Principe',
         ['model'] = 'deveste',
@@ -2720,7 +2720,7 @@ QBShared.Vehicles = {
         ['hash'] = `deveste`,
         ['shop'] = 'luxury',
     },
-    ['elegy'] = {                            --DLC
+    ['elegy'] = { --DLC
         ['name'] = 'Elegy Retro Custom',
         ['brand'] = 'Annis',
         ['model'] = 'elegy',
@@ -2810,7 +2810,7 @@ QBShared.Vehicles = {
         ['hash'] = `imorgon`,
         ['shop'] = 'luxury',
     },
-    ['issi7'] = {                            --DLC
+    ['issi7'] = { --DLC
         ['name'] = 'Issi Sport',
         ['brand'] = 'Weeny',
         ['model'] = 'issi7',
@@ -2820,7 +2820,7 @@ QBShared.Vehicles = {
         ['hash'] = `issi7`,
         ['shop'] = 'pdm',
     },
-    ['italigto'] = {                            --DLC
+    ['italigto'] = { --DLC
         ['name'] = 'Itali GTO',
         ['brand'] = 'Progen',
         ['model'] = 'italigto',
@@ -2830,7 +2830,7 @@ QBShared.Vehicles = {
         ['hash'] = `italigto`,
         ['shop'] = 'luxury',
     },
-    ['jugular'] = {                            --DLC
+    ['jugular'] = { --DLC
         ['name'] = 'Jugular',
         ['brand'] = 'Ocelot',
         ['model'] = 'jugular',
@@ -2900,7 +2900,7 @@ QBShared.Vehicles = {
         ['hash'] = `kuruma2`,
         ['shop'] = 'luxury',
     },
-    ['locust'] = {                            --DLC
+    ['locust'] = { --DLC
         ['name'] = 'Locust',
         ['brand'] = 'Ocelot',
         ['model'] = 'locust',
@@ -2940,7 +2940,7 @@ QBShared.Vehicles = {
         ['hash'] = `massacro2`,
         ['shop'] = 'luxury',
     },
-    ['neo'] = {                            --DLC
+    ['neo'] = { --DLC
         ['name'] = 'Neo',
         ['brand'] = 'Vysser',
         ['model'] = 'neo',
@@ -2950,7 +2950,7 @@ QBShared.Vehicles = {
         ['hash'] = `neo`,
         ['shop'] = 'luxury',
     },
-    ['neon'] = {                            --DLC
+    ['neon'] = { --DLC
         ['name'] = 'Neon',
         ['brand'] = 'Pfister',
         ['model'] = 'neon',
@@ -2990,7 +2990,7 @@ QBShared.Vehicles = {
         ['hash'] = `omnis`,
         ['shop'] = 'luxury',
     },
-    ['paragon'] = {                            --DLC
+    ['paragon'] = { --DLC
         ['name'] = 'Paragon',
         ['brand'] = 'Enus',
         ['model'] = 'paragon',
@@ -3110,7 +3110,7 @@ QBShared.Vehicles = {
         ['hash'] = `schafter4`,
         ['shop'] = 'luxury',
     },
-    ['schlagen'] = {                            --DLC
+    ['schlagen'] = { --DLC
         ['name'] = 'Schlagen GT',
         ['brand'] = 'Benefactor',
         ['model'] = 'schlagen',
@@ -3260,7 +3260,7 @@ QBShared.Vehicles = {
         ['hash'] = `italirsx`,
         ['shop'] = 'luxury',
     },
-    ['zr350'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['zr350'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'ZR350',
         ['brand'] = 'Annis',
         ['model'] = 'zr350',
@@ -3270,7 +3270,7 @@ QBShared.Vehicles = {
         ['hash'] = `zr350`,
         ['shop'] = 'luxury',
     },
-    ['calico'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['calico'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Calico GTF',
         ['brand'] = 'Karin',
         ['model'] = 'calico',
@@ -3280,7 +3280,7 @@ QBShared.Vehicles = {
         ['hash'] = `calico`,
         ['shop'] = 'luxury',
     },
-    ['futo2'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['futo2'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Futo GTX',
         ['brand'] = 'Karin',
         ['model'] = 'futo2',
@@ -3290,7 +3290,7 @@ QBShared.Vehicles = {
         ['hash'] = `futo2`,
         ['shop'] = 'luxury',
     },
-    ['euros'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['euros'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Euros',
         ['brand'] = 'Annis',
         ['model'] = 'euros',
@@ -3300,7 +3300,7 @@ QBShared.Vehicles = {
         ['hash'] = `euros`,
         ['shop'] = 'luxury',
     },
-    ['jester4'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['jester4'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Jester RR',
         ['brand'] = 'Dinka',
         ['model'] = 'jester4',
@@ -3310,7 +3310,7 @@ QBShared.Vehicles = {
         ['hash'] = `jester4`,
         ['shop'] = 'luxury',
     },
-    ['remus'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['remus'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Remus',
         ['brand'] = 'Annis',
         ['model'] = 'remus',
@@ -3320,7 +3320,7 @@ QBShared.Vehicles = {
         ['hash'] = `remus`,
         ['shop'] = 'luxury',
     },
-    ['comet6'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['comet6'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Comet S2',
         ['brand'] = 'Pfister',
         ['model'] = 'comet6',
@@ -3330,7 +3330,7 @@ QBShared.Vehicles = {
         ['hash'] = `comet6`,
         ['shop'] = 'luxury',
     },
-    ['growler'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['growler'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Growler',
         ['brand'] = 'Pfister',
         ['model'] = 'growler',
@@ -3340,7 +3340,7 @@ QBShared.Vehicles = {
         ['hash'] = `growler`,
         ['shop'] = 'luxury',
     },
-    ['vectre'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['vectre'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Vectre',
         ['brand'] = 'Emperor',
         ['model'] = 'vectre',
@@ -3350,7 +3350,7 @@ QBShared.Vehicles = {
         ['hash'] = `vectre`,
         ['shop'] = 'luxury',
     },
-    ['cypher'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['cypher'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Cypher',
         ['brand'] = 'Übermacht',
         ['model'] = 'cypher',
@@ -3360,7 +3360,7 @@ QBShared.Vehicles = {
         ['hash'] = `cypher`,
         ['shop'] = 'luxury',
     },
-    ['sultan3'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['sultan3'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Sultan Classic Custom',
         ['brand'] = 'Karin',
         ['model'] = 'sultan3',
@@ -3370,7 +3370,7 @@ QBShared.Vehicles = {
         ['hash'] = `sultan3`,
         ['shop'] = 'luxury',
     },
-    ['rt3000'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['rt3000'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'RT3000',
         ['brand'] = 'Dinka',
         ['model'] = 'rt3000',
@@ -3391,7 +3391,7 @@ QBShared.Vehicles = {
         ['hash'] = `ardent`,
         ['shop'] = 'pdm',
     },
-    ['btype'] = {              --meme car that goes pretty fast
+    ['btype'] = { --meme car that goes pretty fast
         ['name'] = 'Roosevelt',
         ['brand'] = 'Albany',
         ['model'] = 'btype',
@@ -3451,7 +3451,7 @@ QBShared.Vehicles = {
         ['hash'] = `deluxo`,
         ['shop'] = 'pdm',
     },
-    ['dynasty'] = {                            --DLC
+    ['dynasty'] = { --DLC
         ['name'] = 'Dynasty',
         ['brand'] = 'Weeny',
         ['model'] = 'dynasty',
@@ -3471,7 +3471,7 @@ QBShared.Vehicles = {
         ['hash'] = `fagaloa`,
         ['shop'] = 'pdm',
     },
-    ['feltzer3'] = {                            --DLC
+    ['feltzer3'] = { --DLC
         ['name'] = 'Stirling GT',
         ['brand'] = 'Benefactor',
         ['model'] = 'feltzer3',
@@ -3571,7 +3571,7 @@ QBShared.Vehicles = {
         ['hash'] = `monroe`,
         ['shop'] = 'pdm',
     },
-    ['nebula'] = {                            --DLC
+    ['nebula'] = { --DLC
         ['name'] = 'Nebula',
         ['brand'] = 'Vulcar',
         ['model'] = 'nebula',
@@ -3681,7 +3681,7 @@ QBShared.Vehicles = {
         ['hash'] = `stromberg`,
         ['shop'] = 'pdm',
     },
-    ['swinger'] = {                            --DLC
+    ['swinger'] = { --DLC
         ['name'] = 'Swinger',
         ['brand'] = 'Ocelot',
         ['model'] = 'swinger',
@@ -3771,7 +3771,7 @@ QBShared.Vehicles = {
         ['hash'] = `ztype`,
         ['shop'] = 'pdm',
     },
-    ['zion3'] = {                            --DLC
+    ['zion3'] = { --DLC
         ['name'] = 'Zion Classic',
         ['brand'] = 'Übermacht',
         ['model'] = 'zion3',
@@ -3852,7 +3852,7 @@ QBShared.Vehicles = {
         ['hash'] = `cheetah`,
         ['shop'] = 'luxury',
     },
-    ['cyclone'] = {         --might be too overpowered
+    ['cyclone'] = { --might be too overpowered
         ['name'] = 'Cyclone',
         ['brand'] = 'Coil',
         ['model'] = 'cyclone',
@@ -3882,7 +3882,7 @@ QBShared.Vehicles = {
         ['hash'] = `entityxf`,
         ['shop'] = 'luxury',
     },
-    ['emerus'] = {                            --DLC
+    ['emerus'] = { --DLC
         ['name'] = 'Emerus',
         ['brand'] = 'Progen',
         ['model'] = 'emerus',
@@ -3952,7 +3952,7 @@ QBShared.Vehicles = {
         ['hash'] = `italigtb2`,
         ['shop'] = 'luxury',
     },
-    ['krieger'] = {                            --DLC
+    ['krieger'] = { --DLC
         ['name'] = 'Krieger',
         ['brand'] = 'Benefactor',
         ['model'] = 'krieger',
@@ -4042,7 +4042,7 @@ QBShared.Vehicles = {
         ['hash'] = `reaper`,
         ['shop'] = 'luxury',
     },
-    ['s80'] = {                            --DLC
+    ['s80'] = { --DLC
         ['name'] = 'S80RR',
         ['brand'] = 'Annis',
         ['model'] = 's80',
@@ -4062,7 +4062,7 @@ QBShared.Vehicles = {
         ['hash'] = `sc1`,
         ['shop'] = 'luxury',
     },
-    ['sheava'] = {                            --DLC
+    ['sheava'] = { --DLC
         ['name'] = 'ETR1',
         ['brand'] = 'Emperor',
         ['model'] = 'sheava',
@@ -4122,7 +4122,7 @@ QBShared.Vehicles = {
         ['hash'] = `tezeract`,
         ['shop'] = 'luxury',
     },
-    ['thrax'] = {                            --DLC
+    ['thrax'] = { --DLC
         ['name'] = 'Thrax',
         ['brand'] = 'Truffade',
         ['model'] = 'thrax',
@@ -4242,7 +4242,7 @@ QBShared.Vehicles = {
         ['hash'] = `zentorno`,
         ['shop'] = 'luxury',
     },
-    ['zorrusso'] = {                            --DLC
+    ['zorrusso'] = { --DLC
         ['name'] = 'Zorrusso',
         ['brand'] = 'Pegassi',
         ['model'] = 'zorrusso',
@@ -4413,7 +4413,7 @@ QBShared.Vehicles = {
         ['hash'] = `youga2`,
         ['shop'] = 'pdm',
     },
-    ['youga4'] = {          --DLC +set sv_enforceGameBuild 2545
+    ['youga4'] = { --DLC +set sv_enforceGameBuild 2545
         ['name'] = 'Youga Custom',
         ['brand'] = 'Bravado',
         ['model'] = 'youga4',
@@ -4444,7 +4444,7 @@ QBShared.Vehicles = {
         ['hash'] = `slamtruck`,
         ['shop'] = 'pdm',
     },
-    ['warrener2'] = {                            --DLC +set sv_enforceGameBuild 2372
+    ['warrener2'] = { --DLC +set sv_enforceGameBuild 2372
         ['name'] = 'Warrener HKR',
         ['brand'] = 'Vulcar',
         ['model'] = 'warrener2',
@@ -4454,7 +4454,7 @@ QBShared.Vehicles = {
         ['hash'] = `warrener2`,
         ['shop'] = 'pdm',
     },
-        -- Boats
+    -- Boats
     ['squalo'] = {
         ['name'] = 'Squalo',
         ['brand'] = 'Shitzu',
@@ -4897,7 +4897,7 @@ QBShared.Vehicles = {
         ['hash'] = `nimbus`,
         ['shop'] = 'air',
     },
-    ['brioso3'] = {          --DLC +set sv_enforceGameBuild 2699 (and below)
+    ['brioso3'] = { --DLC +set sv_enforceGameBuild 2699 (and below)
         ['name'] = 'Brioso 300 Widebody',
         ['brand'] = 'Grotti',
         ['model'] = 'brioso3',
@@ -5396,5 +5396,95 @@ QBShared.Vehicles = {
         ["categoryLabel"] = 'Industrial',
         ['hash'] = `tiptruck2`,
         ['shop'] = 'truck',
+    },
+    ['npolblazer'] = {
+        ['name'] = 'Blazer',
+        ['brand'] = 'Aqua',
+        ['model'] = 'npolblazer',
+        ['price'] = 1500,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolblazer`,
+        ['shop'] = 'pol',
+    },
+    ['npolchal'] = {
+        ['name'] = 'Challanger',
+        ['brand'] = 'Dodge',
+        ['model'] = 'npolchal',
+        ['price'] = 150000,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolchal`,
+        ['shop'] = 'pol',
+    },
+    ['npolchar'] = {
+        ['name'] = 'Charger',
+        ['brand'] = 'Dodge',
+        ['model'] = 'npolchar',
+        ['price'] = 1500,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolchar`,
+        ['shop'] = 'pol',
+    },
+    ['npolcoach'] = {
+        ['name'] = 'Bus',
+        ['brand'] = 'Bus',
+        ['model'] = 'npolcoach',
+        ['price'] = 1500,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolcoach`,
+        ['shop'] = 'pol',
+    },
+    ['npolexp'] = {
+        ['name'] = 'Explorer',
+        ['brand'] = 'Ford',
+        ['model'] = 'npolexp',
+        ['price'] = 1500,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolexp`,
+        ['shop'] = 'pol',
+    },
+    ['npolmm'] = {
+        ['name'] = 'GS R1200',
+        ['brand'] = 'BMW',
+        ['model'] = 'npolmm',
+        ['price'] = 1500,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolmm`,
+        ['shop'] = 'pol',
+    },
+    ['npolstang'] = {
+        ['name'] = 'Mustang',
+        ['brand'] = 'Ford',
+        ['model'] = 'npolstang',
+        ['price'] = 150000,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolblazer`,
+        ['shop'] = 'pol',
+    },
+    ['npolvette'] = {
+        ['name'] = 'Corvette',
+        ['brand'] = 'Corvette',
+        ['model'] = 'npolvette',
+        ['price'] = 150000,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolvette`,
+        ['shop'] = 'pol',
+    },
+    ['npolvic'] = {
+        ['name'] = 'Victoria',
+        ['brand'] = 'Ford',
+        ['model'] = 'npolvic',
+        ['price'] = 1500,
+        ['category'] = 'emergency',
+        ["categoryLabel"] = 'Emergency',
+        ['hash'] = `npolvic`,
+        ['shop'] = 'pol',
     },
 }

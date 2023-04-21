@@ -1,15 +1,16 @@
-Config = {}
-Config.UseTarget = true--GetConvar('UseTarget', 'false') == 'true'
-Config.Debug = true
+Config                       = {}
+Config.UseTarget             = true --GetConvar('UseTarget', 'false') == 'true'
+Config.Debug                 = true
 
-Config.PlateLetters  = 4
-Config.PlateNumbers  = 4
-Config.PlateUseSpace = false
+Config.PlateLetters          = 4
+Config.PlateNumbers          = 4
+Config.PlateUseSpace         = false
 
-Config.SpawnVehicle = true  -- TRUE if you want spawn vehicle when purchased (If set to false, MAKE SURE to provide a garage in the shop's config)
-Config.FuelSystem = "cdn-fuel"
+Config.SpawnVehicle          = true -- TRUE if you want spawn vehicle when purchased (If set to false, MAKE SURE to provide a garage in the shop's config)
+Config.FuelSystem            = "cdn-fuel"
 
-Config.BlacklistedVehicles = { -- These vehicles won't show up in the shop
+Config.BlacklistedVehicles   = {
+    -- These vehicles won't show up in the shop
     ['akula'] = true,
     ['alkonost'] = true,
     ['annihilator'] = true,
@@ -107,14 +108,12 @@ Config.BlacklistedVehicles = { -- These vehicles won't show up in the shop
     ['viseris'] = true,
     ['volatol'] = true,
     ['zr380'] = true,
-
     -- OTHER
     ['firetruk'] = true,
     ['ambulance'] = true,
     ['blimp'] = true,
     ['blimp2'] = true,
     ['blimp3'] = true,
-
     ['frogger'] = true,
     ['swift'] = true,
     ['cargobob'] = true,
@@ -122,16 +121,13 @@ Config.BlacklistedVehicles = { -- These vehicles won't show up in the shop
     ['monster'] = true,
     ['polmav'] = true,
     ['policeb'] = true,
-
     ['seasparrow'] = true,
     ['havok'] = true,
     ['volatus'] = true,
     ['supervolito'] = true,
     ['supervolito2'] = true,
-
     ['riot2'] = true,
     ['voltic2'] = true,
-
     ['airtug'] = true,
     ['camper'] = true,
     ['luxor'] = true,
@@ -146,15 +142,16 @@ Config.LimitQuantityVehicles = { -- These vehicles will be limited to the number
     --["blista"] = 1, -- vehicle/quantity
 }
 
-Config.PriceDiscount = {
+Config.PriceDiscount         = {
     --["blista"] = 1500 -- vehicle/price change (a positive number adds to the base value, while a negative number removes from the base value qb-core/shared/vehicles.lua)
 }
 
-Config.Shops = {
-    ['pdm'] = { -- The Shop identifier.
-        garage = "pillboxgarage", -- Value is not required. Used to set primary garage after purchase
-        coord = vector4(-56.5, -1096.58, 26.42-1, 28.94), -- used for the NPC and blip
-        blip = { -- Table is not required
+Config.Shops                 = {
+    ['pdm'] = {                                          -- The Shop identifier.
+        garage = "apartment",                            -- Value is not required. Used to set primary garage after purchase
+        coord = vector4(-31.16, -1097.69, 26.27, 71.23), -- used for the NPC and blip
+        blip = {
+            -- Table is not required
             sprite = 326,
             scale = 0.75,
             display = 4,
@@ -162,15 +159,16 @@ Config.Shops = {
             shortrange = true,
             label = "Premium Deluxe Motorsport"
         },
-        target = { -- Table is REQUIRED if Config.UseTarget is true
+        target = {
+            -- Table is REQUIRED if Config.UseTarget is true
             -- For peds
-            usePed = true, -- if you want to use a ped instead of a boxzone
+            usePed = true,                -- if you want to use a ped instead of a boxzone
             pedModel = `a_m_m_indian_01`, -- the ped model
-            pedAnimation = "", -- the ped animation (not required)
+            pedAnimation = "",            -- the ped animation (not required)
             -- For boxzones
             length = 1,
             width = 1,
-            minZ = 26.42,
+            minZ = 25.42,
             maxZ = 27.42,
             debugPoly = false,
             -- For both
@@ -178,19 +176,66 @@ Config.Shops = {
             properties = {
                 icon = "fas fa-car",
                 label = "Purchase a Vehicle",
-                job = "" -- if you want to set the interaction of the taget to a job. Can be job = "police" or job = {["police"] = 0, ["ambulance"] = 2}
+                job =
+                "" -- if you want to set the interaction of the taget to a job. Can be job = "police" or job = {["police"] = 0, ["ambulance"] = 2}
             }
         },
-        setupStore = { -- Table is REQUIRED
-            allowTestDrive = { -- Table is not required
-                spawnTestLoc = vector4(-11.87, -1080.87, 25.71, 132.0), -- Where the test vehicle will spawn
-                testDriveTime = 30 -- in seconds
+        setupStore = {
+            -- Table is REQUIRED
+            allowTestDrive = {
+                -- Table is not required
+                spawnTestLoc = vector4(-11.87, -1080.87, 25.71, 132.0),  -- Where the test vehicle will spawn
+                testDriveTime = 30                                       -- in seconds
             },
-            spawnPurchaseLoc = vector4(-56.79, -1109.85, 26.43, 71.5), -- where a purchased vehicle will spawn
-            shopVehicleLoc = vector4(-49.66, -1095.51, 26.11, 114.06), -- where the preview vehicle will spawn
-            shopCameraLoc = {-55.66, -1095.51, 28.21, 114.06, 0.0, 0.0} --posx,posy,poz,rotx,roty,rotz | this is where the camera will be
+            spawnPurchaseLoc = vector4(-56.79, -1109.85, 26.43, 71.5),   -- where a purchased vehicle will spawn
+            shopVehicleLoc = vector4(404.72, -964.53, -99.53, 115.24),   -- where the preview vehicle will spawn
+            shopCameraLoc = { 404.31, -969.03, -99.0, 357.83, 0.0, 0.0 } --posx,posy,poz,rotx,roty,rotz | this is where the camera will be
         },
-        showVehicles = { -- Table is not required
+        showVehicles = {
+            -- Table is not required
+            [1] = { model = `gtr`, livery = 0, location = vector4(-42.34, -1101.44, 26.95, 23.17) },
+            [2] = { model = `r1`, location = vector4(-47.49, -1092.15, 26.95, 112.74) },
+            [3] = { model = `s15rb`, location = vector4(-54.52, -1097.38, 26.95, 278.24) },
+            [4] = { model = `tsgr20`, location = vector4(-50.05, -1083.6, 26.95, 115.18) },
+            [5] = { model = `zx10`, location = vector4(-37.28, -1092.95, 26.95, 165.78) },
+        }
+    },
+    ['pol'] = {                                          -- The Shop identifier.
+        garage = "police",                               -- Value is not required. Used to set primary garage after purchase
+        coord = vector4(425.37, -982.37, 24.14, 266.67), -- used for the NPC and blip
+        target = {
+            -- Table is REQUIRED if Config.UseTarget is true
+            -- For peds
+            usePed = true,                  -- if you want to use a ped instead of a boxzone
+            pedModel = `s_m_m_autoshop_02`, -- the ped model
+            pedAnimation = "",              -- the ped animation (not required)
+            -- For boxzones
+            length = 1,
+            width = 1,
+            minZ = 22.42,
+            maxZ = 25.42,
+            debugPoly = false,
+            -- For both
+            distance = 2.5,
+            properties = {
+                icon = "fas fa-car",
+                label = "Purchase a Vehicle",
+                job =
+                "police" -- if you want to set the interaction of the taget to a job. Can be job = "police" or job = {["police"] = 0, ["ambulance"] = 2}
+            }
+        },
+        setupStore = {
+            -- Table is REQUIRED
+            allowTestDrive = {
+                -- Table is not required
+                spawnTestLoc = vector4(440.38, -1066.4, 28.69, 91.65),   -- Where the test vehicle will spawn
+                testDriveTime = 30                                       -- in seconds
+            },
+            spawnPurchaseLoc = vector4(440.38, -1066.4, 28.69, 91.65),   -- where a purchased vehicle will spawn
+            shopVehicleLoc = vector4(404.72, -964.53, -99.53, 115.24),   -- where the preview vehicle will spawn
+            shopCameraLoc = { 404.31, -969.03, -99.0, 357.83, 0.0, 0.0 } --posx,posy,poz,rotx,roty,rotz | this is where the camera will be
+        },
+        showVehicles = {                                                 -- Table is not required
             -- [1] = {model = `granger2`, livery = 0, location = vector4(-43.22, -1094.51, 25.87, 218.0)},
             -- [2] = {model = `windsor`, location = vector4(-45.92, -1102.95, 25.87, 293.39)},
             -- [3] = {model = `vigero`, location = vector4(-39.54, -1095.73, 26.09, 212.0)},

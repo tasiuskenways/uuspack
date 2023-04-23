@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CWeaponModelInfo__InitDataList>
+	<InitDatas>
+    <Item>
+      <modelName>w_ar_ak74ms</modelName>
+      <txdName>w_ar_ak74ms</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_ar_ak74ms_mag1</modelName>
+      <txdName>w_ar_ak74ms_mag1</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_ak74ms_flsh</modelName>
+      <txdName>w_at_ak74ms_flsh</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_ak74ms_supp</modelName>
+      <txdName>w_at_ak74ms_supp</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+      <modelName>w_at_scope_ak74ms</modelName>
+      <txdName>w_at_scope_ak74ms</txdName>
+      <ptfxAssetName>null</ptfxAssetName>
+      <lodDist value="500"/>
+    </Item>
+    <Item>
+			<modelName>w_at_ak74ms_afgrip</modelName>
+			<txdName>w_at_ak74ms_afgrip</txdName>
+			<ptfxAssetName>null</ptfxAssetName>
+			<lodDist value="500"/>
+		</Item>
+  </InitDatas>
+</CWeaponModelInfo__InitDataList>

@@ -1,9 +1,11 @@
 Config = {}
-Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
-Config.MinimalDoctors = 2 -- How many players with the ambulance job to prevent the hospital check-in system from being used
-Config.DocCooldown = 1 -- Cooldown between doctor calls allowed, in minutes
+Config.UseTarget = GetConvar('UseTarget', 'false') ==
+    'true'                           -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
+Config.MinimalDoctors = 2            -- How many players with the ambulance job to prevent the hospital check-in system from being used
+Config.DocCooldown = 1               -- Cooldown between doctor calls allowed, in minutes
 Config.WipeInventoryOnRespawn = true -- Enable or disable removing all the players items when they respawn at the hospital
-Config.Helicopter = "emsaw139"       -- Helicopter model that players with the ambulance job can use
+Config.Helicopter =
+"emsaw139"                           -- Helicopter model that players with the ambulance job can use
 Config.BillCost = 500                -- Price that players are charged for using the hospital check-in system
 Config.DeathTime = 300               -- How long the timer is for players to bleed out completely and respawn at the hospital
 Config.ReviveInterval = 360          -- How long the timer is for players to revive a player in laststand
@@ -36,55 +38,73 @@ Config.MaxInjuryChanceMulti = 3     -- How many times the HealthDamage value abo
 Config.DamageMinorToMajor = 35      -- How much damage would have to be applied for a minor weapon to be considered a major damage event. Put this at 100 if you want to disable it
 Config.AlertShowInfo = 2            -- How many injuries a player must have before being alerted about them
 
+--[[
+Model Name:	v_res_tt_pharm2
+Model Hash:	1547095841
+
+Heading:	295.0
+Coords:		vector3(1777.54, 3650.96, 35.0)
+Rotation:	vector3(0.0, 0.0, -65.0)
+]]
+--
+
 Config.Locations = {
     -- Edit the various interaction points for players or create new ones
     ["checking"] = {
-        [1] = vector3(307.76, -595.38, 43.28),
-        [2] = vector3(-254.54, 6331.78, 32.43), -- paleto
+        [1] = vector3(310.85, -582.96, 43.46),
+        [2] = vector3(1768.16, 3640.9, 34.87), -- paleto
     },
     ["duty"] = {
-        [1] = vector3(311.76, -593.38, 43.18),
-        [2] = vector3(-254.88, 6324.5, 32.58),
+        [1] = vector3(313.39, -586.58, 43.54),
+        [2] = vector3(1766.59, 3642.45, 34.75),
     },
     ["vehicle"] = {
-        [1] = vector4(333.51, -574.5, 28.82, 337.17),
-        [2] = vector4(-234.28, 6329.16, 32.15, 222.5),
+        [1] = vector4(359.48, -566.21, 28.85, 64.02),
+        [2] = vector4(1775.19, 3632.99, 34.67, 121.38),
     },
     ["helicopter"] = {
         [1] = vector4(351.58, -587.45, 74.16, 160.5),
         [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
     },
     ["armory"] = {
-        [1] = vector3(306.64, -602.3, 43.3),
-        [2] = vector3(-245.13, 6315.71, 32.82),
+        [1] = vector3(325.31, -590.47, 43.32),
+        [2] = vector3(1777.54, 3650.96, 35.0),
     },
     ["roof"] = {
-        [1] = vector4(338.5, -583.85, 74.16, 245.5),
+        -- [1] = vector4(338.5, -583.85, 74.16, 245.5),
     },
     ["main"] = {
-        [1] = vector3(332.37, -595.81, 43.28),
+        -- [1] = vector3(332.37, -595.81, 43.28),
     },
     ["stash"] = {
-        [1] = vector3(311.88, -598.05, 43.2),
+        [1] = vector3(327.94, -591.27, 42.94),
+        [2] = vector3(1783.92, 3652.71, 34.35)
     },
     ["beds"] = {
         --[[
 Model Name:	Unknown
-Model Hash:	-1519439119
+Model Hash:	-421052012
 
-Heading:	340.0
-Coords:		vector3(315.34, -566.45, 42.31)
-Rotation:	vector3(0.0, 0.0, -20.0)
+Heading:	160.0
+Coords:		vector3(316.9, -584.56, 42.27)
+Rotation:	vector3(0.0, 0.0, 160.0)
         ]] --
-        [1] = { coords = vector4(307.72, -581.75, 42.84, 340.0), taken = false, model = 1631638868 },
-        [2] = { coords = vector4(311.06, -582.96, 42.84, 340.0), taken = false, model = 1631638868 },
-        [3] = { coords = vector4(314.47, -584.2, 42.84, 340.0), taken = false, model = 1631638868 },
-        [4] = { coords = vector4(317.67, -585.37, 42.84, 340.0), taken = false, model = 1631638868 },
-        [5] = { coords = vector4(322.62, -587.17, 42.84, 340.0), taken = false, model = 1631638868 },
-        [6] = { coords = vector4(324.26, -582.8, 42.84, 160.0), taken = false, model = 1631638868 },
-        [7] = { coords = vector4(319.41, -581.04, 42.84, 160.0), taken = false, model = 1631638868 },
-        [8] = { coords = vector4(313.93, -579.04, 42.84, 160.0), taken = false, model = 1631638868 },
-        [9] = { coords = vector4(309.35, -577.38, 42.84, 160.0), taken = false, model = 1631638868 },
+        [1] = { coords = vector4(316.9, -584.56, 42.27, 340.0), taken = false, model = -421052012 },
+        [2] = { coords = vector4(319.78, -585.6, 42.27, 340.0), taken = false, model = -421052012 },
+        [3] = { coords = vector4(322.64, -586.71, 42.27, 340.0), taken = false, model = -421052012 },
+        [4] = { coords = vector4(325.6, -587.79, 42.27, 340.0), taken = false, model = -421052012 },
+        [5] = { coords = vector4(328.44, -588.82, 42.27, 340.0), taken = false, model = -421052012 },
+        [6] = { coords = vector4(330.68, -584.9, 42.27, 160.0), taken = false, model = -421052012 },
+        [7] = { coords = vector4(327.57, -583.75, 42.27, 160.0), taken = false, model = -421052012 },
+        [8] = { coords = vector4(321.27, -581.55, 42.27, 160.0), taken = false, model = -421052012 },
+        [9] = { coords = vector4(318.39, -580.5, 42.27, 160.0), taken = false, model = -421052012 },
+        -- ShandyShores
+        [11] = { coords = vector4(1741.22, 3624.59, 33.84, 300.0), taken = false, model = 835950247 },
+        [12] = { coords = vector4(1739.98, 3626.73, 33.84, 300.0), taken = false, model = 835950247 },
+        [13] = { coords = vector4(1738.46, 3629.35, 33.84, 300.0), taken = false, model = 835950247 },
+        [14] = { coords = vector4(1736.8, 3632.24, 33.84, 300.0), taken = false, model = 835950247 },
+        [15] = { coords = vector4(1735.29, 3634.89, 33.84, 300.0), taken = false, model = 835950247 },
+        [16] = { coords = vector4(1733.74, 3637.54, 33.84, 300.0), taken = false, model = 835950247 },
     },
     ["jailbeds"] = {
         [1] = { coords = vector4(1761.96, 2597.74, 45.66, 270.14), taken = false, model = 2117668672 },
@@ -93,7 +113,8 @@ Rotation:	vector3(0.0, 0.0, -20.0)
         [4] = { coords = vector4(1771.85, 2591.85, 45.66, 91.51), taken = false, model = 2117668672 },
     },
     ["stations"] = {
-        [1] = { label = Lang:t('info.pb_hospital'), coords = vector4(304.27, -600.33, 43.28, 272.249) }
+        [1] = { label = Lang:t('info.pb_hospital'), coords = vector4(304.27, -600.33, 43.28, 272.249) },
+        [2] = { label = "Shandy Shores Hospital", coords = vector4(1766.14, 3640.9, 34.85, 216.64) }
     }
 }
 

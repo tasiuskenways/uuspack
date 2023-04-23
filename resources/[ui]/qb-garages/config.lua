@@ -53,15 +53,14 @@ Config = Config or {}
         }
     },
 ]]
-
 -- NEW ---
 Config.SharedHouseGarage = true -- Allow shared house garages, if false, the player can only access their own vehicles
 -- NEW ---
 
 -- NEW ---
-Config.AllowParkingAnyonesVehicle = false -- Allow anyones vehicle to be stored in the garage, if false, only vehicles you own can be stored in the garage (supports only public garages)
+Config.AllowParkingAnyonesVehicle = false    -- Allow anyones vehicle to be stored in the garage, if false, only vehicles you own can be stored in the garage (supports only public garages)
 Config.AllowParkingFromOutsideVehicle = true -- Allow parking from outside the vehicle, if false, you have to be inside the vehicle to park it
-Config.VehicleParkDistance = 2.0 -- Distance from the player to the vehicle to park it, radial option will dissapear beyond this distance
+Config.VehicleParkDistance = 2.0             -- Distance from the player to the vehicle to park it, radial option will dissapear beyond this distance
 -- NEW --
 
 -- NEW
@@ -70,29 +69,30 @@ Config.GlobalParking = false -- if true, you can access your cars from any garag
 
 -- NEW
 Config.SpawnVehiclesServerside = true -- REQUIRES THE ABSOLUTE LATEST VERSION OF QBCORE, OR MAKE SURE YOU HAVE THESE: https://github.com/qbcore-framework/qb-core/blob/81ffd872319d2eb8e496c3b3faaf37e791912c84/server/events.lua#L252
--- NEW 
+-- NEW
 
 -- NEW -- Only relevant if AllowSpawningFromAnywhere = false
 Config.SpawnAtFreeParkingSpot = false -- Will spawn at the closest free parking spot if you walk up to a occupied parking spot (basically you have to walk up close to a parking lot but it does not matter if there is a vehicle blocking the spawn as it will spawn at the closest free parking spot)
 -- NEW --
 
-Config.StoreDamageAccuratly = false -- Do not use, if on latest qb-core, if set to true, make sure to apply / run patch1.sql
-Config.StoreParkinglotAccuratly = false  -- store the last parking lot in the DB, if set to true, make sure to apply / run patch1.sql, I recommend applying the tracking snippet for qb-phone from the ReadMe to the phone so you can track the vehicle to the exact parking lot
-Config.SpawnAtLastParkinglot = false -- spawn the vehicle at the last parked location if StoreParkinglotAccuratly = true, if set to true, make sure to apply / run patch1.sql, I recommend applying the tracking snippet from the ReadMe to the phone so you can track the vehicle to the exact parking lot
-Config.GarageNameAsBlipName = true -- if set to true, the blips name will match the garage name
-Config.FuelScript = 'cdn-fuel' -- change to lj-fuel / cdn-fuel if you use lj-fuel / cdn-fuel or something else if you use any other LegcyFuel compatible script
-Config.AllowSpawningFromAnywhere = true -- if set to true, the car can be spawned from anywhere inside the zone on the closest parking lot, if set to false you will have to walk up to a parking lot 
-Config.AutoRespawn = false --True == auto respawn cars that are outside into your garage on script restart, false == does not put them into your garage and players have to go to the impound
-Config.WarpPlayerIntoVehicle = false -- True == Will Warp Player Into their vehicle after pulling it out of garage. False It will spawn on the parking lot / in front of them  (Global, can be overriden by each garage)
+Config.StoreDamageAccuratly = false     -- Do not use, if on latest qb-core, if set to true, make sure to apply / run patch1.sql
+Config.StoreParkinglotAccuratly = false -- store the last parking lot in the DB, if set to true, make sure to apply / run patch1.sql, I recommend applying the tracking snippet for qb-phone from the ReadMe to the phone so you can track the vehicle to the exact parking lot
+Config.SpawnAtLastParkinglot = false    -- spawn the vehicle at the last parked location if StoreParkinglotAccuratly = true, if set to true, make sure to apply / run patch1.sql, I recommend applying the tracking snippet from the ReadMe to the phone so you can track the vehicle to the exact parking lot
+Config.GarageNameAsBlipName = true      -- if set to true, the blips name will match the garage name
+Config.FuelScript =
+'cdn-fuel'                              -- change to lj-fuel / cdn-fuel if you use lj-fuel / cdn-fuel or something else if you use any other LegcyFuel compatible script
+Config.AllowSpawningFromAnywhere = true -- if set to true, the car can be spawned from anywhere inside the zone on the closest parking lot, if set to false you will have to walk up to a parking lot
+Config.AutoRespawn = false              --True == auto respawn cars that are outside into your garage on script restart, false == does not put them into your garage and players have to go to the impound
+Config.WarpPlayerIntoVehicle = false    -- True == Will Warp Player Into their vehicle after pulling it out of garage. False It will spawn on the parking lot / in front of them  (Global, can be overriden by each garage)
 Config.HouseParkingDrawText = 'Parking' -- text when driving on to the HOUSE parking lot
-Config.ParkingDistance = 2.0 -- Distance to the parking lot when trying to park the vehicle  (Global, can be overriden by each garage)
-Config.SpawnDistance = 4.5 -- The maximum distance you can be from a parking spot, to spawn a car (Global, can be overriden by each garage)
-Config.DepotPrice = 60.0 -- The price to take out a despawned vehicle from impound.
-Config.DrawTextPosition = 'left' -- location of drawtext: left, top, right
+Config.ParkingDistance = 2.0            -- Distance to the parking lot when trying to park the vehicle  (Global, can be overriden by each garage)
+Config.SpawnDistance = 4.5              -- The maximum distance you can be from a parking spot, to spawn a car (Global, can be overriden by each garage)
+Config.DepotPrice = 60.0                -- The price to take out a despawned vehicle from impound.
+Config.DrawTextPosition = 'left'        -- location of drawtext: left, top, right
 
 -- set useVehicleSpawner = true for each garage that has type job and should use the vehicle spawner instead of personal vehicles
 Config.JobVehicles = {
-	['pd1'] = { -- jobGarageIdentifier
+    ['pd1'] = { -- jobGarageIdentifier
         label = "Police Vehicles",
         job = 'police',
         -- Grade 0
@@ -177,7 +177,7 @@ Config.VehicleCategories = {
     -- you can also create new / delete or update categories, and use them below in the config.
 }
 
-Config.HouseGarageCategories = {'car', 'motorcycle', 'other'} -- Which categories are allowed to be parked at a house garage
+Config.HouseGarageCategories = { 'car', 'motorcycle', 'other' } -- Which categories are allowed to be parked at a house garage
 
 
 Config.VehicleHeading = 'driverside' -- only used when NO parking spots are defined in the garage config
@@ -187,7 +187,6 @@ Config.VehicleHeading = 'driverside' -- only used when NO parking spots are defi
     'hood' = will face the hood towards ped
     'passengerside' = will put the passenger door closets to the ped
 ]]
-
 Config.SharedJobGarages = { -- define the job garages which are shared
     --'pdgarage',
 }
@@ -245,7 +244,7 @@ Config.Garages = {
         blipName = 'Public Parking',
         blipNumber = 357,
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
+        vehicleCategories = { 'car', 'motorcycle', 'other' },
         drawText = 'Parking',
         debug = false,
         ['ParkingSpots'] = {
@@ -335,7 +334,7 @@ Config.Garages = {
         blipName = 'Public Parking',
         blipNumber = 357,
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
+        vehicleCategories = { 'car', 'motorcycle', 'other' },
         drawText = 'Parking',
         debug = false,
         ['ParkingSpots'] = {
@@ -346,7 +345,7 @@ Config.Garages = {
             vector4(859.57, -67.92, 78.34, 326.45),
             vector4(856.54, -66.59, 78.34, 326.94),
             vector4(853.6, -64.76, 78.34, 329.96),
-            vector4(850.98, -62.23, 78.34, 315.33);
+            vector4(850.98, -62.23, 78.34, 315.33),
             vector4(848.28, -60.42, 78.34, 316.25),
             vector4(845.29, -58.06, 78.34, 316.99),
             vector4(843.2, -55.19, 78.34, 315.68),
@@ -522,29 +521,29 @@ Config.Garages = {
                 vector2(68.208351135254, 6355.2939453125),
                 vector2(117.06902313232, 6378.890625)
             },
-            ['minZ'] = 30.00,  -- min height of the parking zone
-            ['maxZ'] = 33.38,  -- max height of the parking zone
+            ['minZ'] = 30.00, -- min height of the parking zone
+            ['maxZ'] = 33.38, -- max height of the parking zone
         },
         label = "Bell Farms Parking",
         showBlip = true,
         blipcoords = vector3(78.34, 6418.74, 31.28),
         blipName = "Public Parking",
         blipNumber = 357,
-        type = 'public',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',                 --car, air, sea
+        type = 'public',      --public, job, gang, depot
+        vehicleCategories = { 'car', 'motorcycle', 'other' },
+        drawText = 'Parking', --car, air, sea
         debug = false
     },
     ['impoundlot'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(-128.76565551758, -1186.7231445312),
-            vector2(-128.95680236816, -1158.9990234375),
-            vector2(-155.75888061524, -1158.6616210938),
-            vector2(-155.84657287598, -1186.7335205078)
+                vector2(-128.76565551758, -1186.7231445312),
+                vector2(-128.95680236816, -1158.9990234375),
+                vector2(-155.75888061524, -1158.6616210938),
+                vector2(-155.84657287598, -1186.7335205078)
             },
-            ['minZ'] = 22.25,  -- min height of the parking zone
-            ['maxZ'] = 26.31,  -- max height of the parking zone
+            ['minZ'] = 22.25, -- min height of the parking zone
+            ['maxZ'] = 26.31, -- max height of the parking zone
             debug = false,
         },
         label = "Impound Lot",
@@ -552,9 +551,9 @@ Config.Garages = {
         blipcoords = vector3(-143.15, -1175.06, 23.77),
         blipName = "Impound Lot",
         blipNumber = 68,
-        type = 'depot',                --public, job, gang, depot
-        vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Impound',                 --car, air, sea
+        type = 'depot',       --public, job, gang, depot
+        vehicleCategories = { 'car', 'motorcycle', 'other' },
+        drawText = 'Impound', --car, air, sea
         debug = false,
         ['ParkingSpots'] = {
             vector4(-152.91, -1170.13, 23.14, 270.11),
@@ -572,33 +571,33 @@ Config.Garages = {
     ['police'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(424.04116821289, -996.57763671875),
-            vector2(424.06527709961, -989.26031494141),
-            vector2(425.71801757812, -989.09265136719),
-            vector2(425.81674194336, -976.69262695312),
-            vector2(435.88687133789, -976.69598388672),
-            vector2(435.67416381836, -988.36956787109),
-            vector2(460.57388305664, -988.056640625),
-            vector2(460.57315063477, -994.22918701172),
-            vector2(469.37850952148, -994.19567871094),
-            vector2(469.57803344727, -996.009765625),
-            vector2(475.79782104492, -996.11297607422),
-            vector2(475.79791259766, -1003.6975708008),
-            vector2(464.75442504883, -1003.6976318359),
-            vector2(463.52410888672, -998.36700439453),
-            vector2(454.23962402344, -998.45220947266),
-            vector2(454.173828125, -996.06066894531)
+                vector2(424.04116821289, -996.57763671875),
+                vector2(424.06527709961, -989.26031494141),
+                vector2(425.71801757812, -989.09265136719),
+                vector2(425.81674194336, -976.69262695312),
+                vector2(435.88687133789, -976.69598388672),
+                vector2(435.67416381836, -988.36956787109),
+                vector2(460.57388305664, -988.056640625),
+                vector2(460.57315063477, -994.22918701172),
+                vector2(469.37850952148, -994.19567871094),
+                vector2(469.57803344727, -996.009765625),
+                vector2(475.79782104492, -996.11297607422),
+                vector2(475.79791259766, -1003.6975708008),
+                vector2(464.75442504883, -1003.6976318359),
+                vector2(463.52410888672, -998.36700439453),
+                vector2(454.23962402344, -998.45220947266),
+                vector2(454.173828125, -996.06066894531)
             },
-            ['minZ'] = 22.10,  -- min height of the parking zone
-            ['maxZ'] = 26.97,  -- max height of the parking zone
+            ['minZ'] = 22.10, -- min height of the parking zone
+            ['maxZ'] = 26.97, -- max height of the parking zone
         },
         label = "Police",
         showBlip = false,
         blipName = "Police",
         blipNumber = 357,
-        type = 'job',                --public, job, gang, depot
-        vehicleCategories = {'emergency'},
-        drawText = 'Parking',              --car, air, sea
+        type = 'job',         --public, job, gang, depot
+        vehicleCategories = { 'emergency' },
+        drawText = 'Parking', --car, air, sea
         job = "police",
         debug = false,
         ['ParkingSpots'] = {
@@ -629,8 +628,8 @@ Config.Garages = {
                 vector2(-296.0697631836, -994.66876220704),
                 vector2(-364.01559448242, -969.91552734375)
             },
-            ['minZ'] = 30.0,  -- min height of the parking zone
-            ['maxZ'] = 33.0,  -- max height of the parking zone
+            ['minZ'] = 30.0, -- min height of the parking zone
+            ['maxZ'] = 33.0, -- max height of the parking zone
 
         },
         label = 'Alta Apartments',
@@ -639,7 +638,7 @@ Config.Garages = {
         blipName = "Public Parking",
         blipNumber = 357,
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
+        vehicleCategories = { 'car', 'motorcycle', 'other' },
         drawText = 'Parking',
         ["ParkingSpots"] = {
             vector4(-297.71, -990.11, 30.76, 338.79),
@@ -760,43 +759,43 @@ Config.Garages = {
     ['pdgarage'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(431.99456787109, -1030.3159179688),
-            vector2(429.21585083008, -1011.6477661133),
-            vector2(459.07495117188, -1012.0342407227),
-            vector2(459.05596923828, -1026.5767822266)
+                vector2(431.99456787109, -1030.3159179688),
+                vector2(429.21585083008, -1011.6477661133),
+                vector2(459.07495117188, -1012.0342407227),
+                vector2(459.05596923828, -1026.5767822266)
             },
-            ['minZ'] = 26.0,  -- min height of the parking zone
-            ['maxZ'] = 30.0,  -- max height of the parking zone
+            ['minZ'] = 26.0, -- min height of the parking zone
+            ['maxZ'] = 30.0, -- max height of the parking zone
         },
         label = 'MRPD Garage',
         type = 'job',
         job = "police",
         --useVehicleSpawner = false,
         --jobGarageIdentifier = 'pd1',
-        vehicleCategories = {'emergency', 'car', 'motorcycle', 'other'},
+        vehicleCategories = { 'emergency', 'car', 'motorcycle', 'other' },
         drawText = 'Parking',
         ["ParkingSpots"] = {
             vector4(445.88, -1020.02, 28.2, 93.17)
         },
         debug = false
-    },    
+    },
     ['pillbox_hospital'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(285.91815185547, -617.24877929688),
-            vector2(292.50628662109, -598.53607177734),
-            vector2(303.13314819336, -602.99102783203),
-            vector2(295.79602050781, -617.80078125),
-            vector2(290.91641235352, -616.05999755859),
-            vector2(289.79968261719, -618.69445800781)
+                vector2(285.91815185547, -617.24877929688),
+                vector2(292.50628662109, -598.53607177734),
+                vector2(303.13314819336, -602.99102783203),
+                vector2(295.79602050781, -617.80078125),
+                vector2(290.91641235352, -616.05999755859),
+                vector2(289.79968261719, -618.69445800781)
             },
-            ['minZ'] = 40.261405944824,  -- min height of the parking zone
+            ['minZ'] = 40.261405944824, -- min height of the parking zone
             ['maxZ'] = 45.35277557373,  -- max height of the parking zone
 
         },
         label = 'Pillbox Hospital',
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        vehicleCategories = { 'car', 'motorcycle', 'other', 'emergency' },
         drawText = 'Parking',
         ["ParkingSpots"] = {
             vector4(296.01, -610.95, 42.91, 69.3),
@@ -807,22 +806,105 @@ Config.Garages = {
         debug = false
 
     },
+    ['ss_hospital'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(1739.8819580078, 3604.556640625),
+                vector2(1736.8078613281, 3610.2202148438),
+                vector2(1753.6733398438, 3619.8352050781),
+                vector2(1756.8801269531, 3613.9375)
+            },
+            ['minZ'] = 33.261405944824, -- min height of the parking zone
+            ['maxZ'] = 35.35277557373,  -- max height of the parking zone
+
+        },
+        label = 'Shandy Hospital',
+        type = 'public',
+        vehicleCategories = { 'car', 'motorcycle', 'other', 'emergency' },
+        drawText = 'Parking',
+        ["ParkingSpots"] = {
+            vector4(1753.8, 3616.59, 34.46, 211.59),
+            vector4(1750.08, 3613.71, 34.46, 209.5),
+            vector4(1746.83, 3612.26, 34.47, 210.79),
+            vector4(1743.92, 3610.36, 34.46, 209.14),
+            vector4(1740.3, 3608.21, 34.46, 209.44)
+        },
+        debug = false
+
+    },
+    ['sspolice'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(1802.5747070312, 3681.9477539062),
+                vector2(1815.3441162109, 3689.5051269531),
+                vector2(1827.0230712891, 3670.8540039062),
+                vector2(1813.6628417969, 3662.9208984375)
+            },
+            ['minZ'] = 33.261405944824, -- min height of the parking zone
+            ['maxZ'] = 35.35277557373,  -- max height of the parking zone
+
+        },
+        label = 'Sheriff Office',
+        type = 'public',
+        vehicleCategories = { 'car', 'motorcycle', 'other', 'emergency' },
+        drawText = 'Parking',
+        ["ParkingSpots"] = {
+            vector4(1805.52, 3682.2, 33.84, 301.18),
+            vector4(1807.31, 3678.78, 33.84, 301.35),
+            vector4(1809.42, 3675.42, 33.84, 298.1),
+            vector4(1811.54, 3672.02, 33.84, 299.19),
+            vector4(1813.12, 3668.72, 33.84, 301.16),
+            vector4(1814.9, 3665.05, 33.82, 299.42)
+        },
+        debug = false
+
+    },
+    ['sspolicegarage'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(1846.1208496094, 3707.4584960938),
+                vector2(1861.9906005859, 3681.1618652344),
+                vector2(1873.2333984375, 3687.3559570312),
+                vector2(1861.6240234375, 3707.5715332031),
+                vector2(1851.3715820312, 3710.4111328125)
+            },
+            ['minZ'] = 33.261405944824, -- min height of the parking zone
+            ['maxZ'] = 35.35277557373,  -- max height of the parking zone
+
+        },
+        label = 'Sheriff Private Garage',
+        type = 'job',
+        job = 'police',
+        vehicleCategories = { 'emergency' },
+        drawText = 'Parking',
+        ["ParkingSpots"] = {
+            vector4(1860.28, 3704.27, 33.01, 121.88),
+            vector4(1862.11, 3700.98, 33.02, 121.09),
+            vector4(1864.22, 3697.29, 33.02, 119.18),
+            vector4(1866.41, 3694.17, 33.01, 117.21),
+            vector4(1868.24, 3691.0, 33.01, 121.31),
+            vector4(1869.88, 3687.56, 32.98, 119.5),
+            vector4(1860.68, 3692.53, 33.09, 32.86)
+        },
+        debug = false
+
+    },
     ['mechanic'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(846.28271484375, -2107.2751464844),
-            vector2(847.32403564453, -2096.1076660156),
-            vector2(858.75408935547, -2097.4619140625),
-            vector2(855.53039550781, -2132.5942382812),
-            vector2(844.02380371094, -2132.494140625)
+                vector2(846.28271484375, -2107.2751464844),
+                vector2(847.32403564453, -2096.1076660156),
+                vector2(858.75408935547, -2097.4619140625),
+                vector2(855.53039550781, -2132.5942382812),
+                vector2(844.02380371094, -2132.494140625)
             },
-            ['minZ'] = 28.0,  -- min height of the parking zone
-            ['maxZ'] = 32.0,  -- max height of the parking zone
+            ['minZ'] = 28.0, -- min height of the parking zone
+            ['maxZ'] = 32.0, -- max height of the parking zone
 
         },
         label = 'Mechanic',
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        vehicleCategories = { 'car', 'motorcycle', 'other', 'emergency' },
         drawText = 'Parking',
         ["ParkingSpots"] = {
             vector4(850.2, -2105.33, 30.18, 267.88),
@@ -840,18 +922,18 @@ Config.Garages = {
     ['rs_kanpol_ss'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(1868.2653808594, 3687.4372558594),
-            vector2(1872.0260009766, 3680.5764160156),
-            vector2(1820.9058837891, 3650.0981445312),
-            vector2(1816.3238525391, 3657.8671875)
+                vector2(1868.2653808594, 3687.4372558594),
+                vector2(1872.0260009766, 3680.5764160156),
+                vector2(1820.9058837891, 3650.0981445312),
+                vector2(1816.3238525391, 3657.8671875)
             },
-            ['minZ'] = 31.0,  -- min height of the parking zone
-            ['maxZ'] = 35.0,  -- max height of the parking zone
+            ['minZ'] = 31.0, -- min height of the parking zone
+            ['maxZ'] = 35.0, -- max height of the parking zone
 
         },
         label = 'Shandy PDHS',
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        vehicleCategories = { 'car', 'motorcycle', 'other', 'emergency' },
         drawText = 'Parking',
         ["ParkingSpots"] = {
             vector4(1819.31, 3654.84, 33.79, 209.71),
@@ -871,18 +953,18 @@ Config.Garages = {
     ['paletopd'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(-450.36346435547, 6041.3549804688),
-            vector2(-478.63851928711, 6014.708984375),
-            vector2(-488.33721923828, 6024.4287109375),
-            vector2(-460.89953613281, 6051.8676757812)
+                vector2(-450.36346435547, 6041.3549804688),
+                vector2(-478.63851928711, 6014.708984375),
+                vector2(-488.33721923828, 6024.4287109375),
+                vector2(-460.89953613281, 6051.8676757812)
             },
-            ['minZ'] = 31.0,  -- min height of the parking zone
-            ['maxZ'] = 35.0,  -- max height of the parking zone
+            ['minZ'] = 31.0, -- min height of the parking zone
+            ['maxZ'] = 35.0, -- max height of the parking zone
 
         },
         label = 'Paleto PD',
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
+        vehicleCategories = { 'car', 'motorcycle', 'other', 'emergency' },
         drawText = 'Parking',
         ["ParkingSpots"] = {
             vector4(-482.28, 6024.05, 30.99, 223.32),

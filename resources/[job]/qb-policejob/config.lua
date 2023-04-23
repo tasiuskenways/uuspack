@@ -1,5 +1,15 @@
 Config = {}
 
+--[[
+Model Name:	prop_fib_clipboard
+Model Hash:	176137803
+
+Heading:	90.0
+Coords:		vector3(1829.64, 3683.2, 34.13)
+Rotation:	vector3(-90.0, 0.0, 115.0)
+]]
+--
+
 Config.Objects = {
     ["cone"] = { model = `prop_roadcone02a`, freeze = false },
     ["barrier"] = { model = `prop_barrier_work06a`, freeze = true },
@@ -19,7 +29,8 @@ Config.Locations = {
     ["duty"] = {
         [1] = vector3(452.54, -973.79, 30.55),
         [2] = vector3(-449.811, 6012.909, 31.815),
-        [3] = vector3(1852.39, 3690.37, 34.51)
+        [3] = vector3(1829.64, 3683.2, 34.13)
+
     },
     ["vehicle"] = {
         -- [1] = vector4(448.159, -1017.41, 28.562, 90.654),
@@ -28,7 +39,7 @@ Config.Locations = {
     },
     ["stash"] = {
         [1] = vector3(469.51, -990.63, 35.06),
-        [2] = vector3(1846.9, 3687.54, 34.53)
+        [2] = vector3(1838.97, 3679.99, 38.88)
     },
     ["impound"] = {
         [1] = vector3(459.81, -1019.71, 28.08),
@@ -37,20 +48,22 @@ Config.Locations = {
     ["helicopter"] = {
         [1] = vector4(449.08, -981.48, 43.69, 85.93),
         [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
+        [3] = vector4(1833.5, 3669.17, 38.93, 211.71)
     },
     ["armory"] = {
         [1] = vector3(1864.41, 3694.09, 34.56),
-        [2] = vector3(453.07, -994.74, 35.04)
+        [2] = vector3(1839.62, 3682.8, 38.32)
     },
     ["trash"] = {
         -- [1] = vector3(439.0907, -976.746, 30.776),
     },
     ["fingerprint"] = {
         [1] = vector3(484.54, -1014.16, 25.15),
+        [2] = vector3(1844.59, 3688.95, 34.32)
     },
     ["evidence"] = {
         [1] = vector3(464.69, -1002.22, 30.46),
-        [2] = vector3(1873.22, 3695.44, 34.58),
+        [2] = vector3(1855.95, 3679.66, 34.33),
         [3] = vector3(455.1456, -985.462, 30.689),
     },
     ["stations"] = {

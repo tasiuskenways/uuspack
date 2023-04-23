@@ -84,7 +84,7 @@ AddEventHandler('playerDropped', function(reason)
     local lastName = PlayerData.charinfo.lastname:sub(1,1):upper()..PlayerData.charinfo.lastname:sub(2)
 
     -- Auto clock out if the player is off duty
-    if PlayerData.job.onduty then
+     if IsPoliceOrEms(job) and PlayerData.job.onduty then
 		MySQL.query('UPDATE mdt_clocking SET clock_out_time = NOW(), total_time = TIMESTAMPDIFF(SECOND, clock_in_time, NOW()) WHERE user_id = @user_id ORDER BY id DESC LIMIT 1', {
 			['@user_id'] = PlayerData.citizenid
 		})
@@ -1671,31 +1671,25 @@ QBCore.Functions.CreateCallback('mdt:server:GetPlayerSourceId', function(source,
 end)
 
 QBCore.Functions.CreateCallback('getWeaponInfo', function(source, cb)
-	local Player = QBCore.Functions.GetPlayer(source)
-	local weaponInfo = nil
-	for _, item in pairs(Player.PlayerData.items) do
-	if item.type == "weapon" then
-		local invImage = ("https://cfx-nui-%s/html/images/%s"):format(Config.InventoryForWeaponsImages, item.image)
-		if invImage then
-			weaponInfo = {
-				serialnumber = item.info.serie,
-				owner = Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname,
-				weaponmodel = QBCore.Shared.Items[item.name].label,
-				weaponurl = invImage,
-				notes = "Self Registered",
-				weapClass = "Class 1",
-			}
-			break
-		end
-	end
-end
-	if weaponInfo then
-			TriggerClientEvent('QBCore:Notify', source, "Weapon has been added to police database. ")
-	else
-			TriggerClientEvent('QBCore:Notify', source, "Weapon already registered on database.")
-	end
-
-	cb(weaponInfo)
+    local Player = QBCore.Functions.GetPlayer(source)
+    local weaponInfos = {}
+    for _, item in pairs(Player.PlayerData.items) do
+        if item.type == "weapon" then
+            local invImage = ("https://cfx-nui-%s/html/images/%s"):format(Config.InventoryForWeaponsImages, item.image)
+            if invImage then
+                local weaponInfo = {
+                    serialnumber = item.info.serie,
+                    owner = Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname,
+                    weaponmodel = QBCore.Shared.Items[item.name].label,
+                    weaponurl = invImage,
+                    notes = "Self Registered",
+                    weapClass = "Class 1",
+                }
+                table.insert(weaponInfos, weaponInfo)
+            end
+        end
+    end
+    cb(weaponInfos)
 end)
 
 RegisterNetEvent('mdt:server:registerweapon', function(serial, imageurl, notes, owner, weapClass, weapModel) 
@@ -1711,7 +1705,7 @@ end)
 
 function getTopOfficers(callback)
     local result = {}
-    local query = 'SELECT * FROM mdt_clocking ORDER BY total_time DESC LIMIT 10'
+    local query = 'SELECT * FROM mdt_clocking ORDER BY total_time DESC LIMIT 25'
     MySQL.Async.fetchAll(query, {}, function(officers)
         for k, officer in ipairs(officers) do
             table.insert(result, {
@@ -1749,8 +1743,25 @@ function sendToDiscord(color, name, message, footer)
 end
 
 function format_time(time)
+    local days = math.floor(time / 86400)
+    time = time % 86400
     local hours = math.floor(time / 3600)
-    local minutes = math.floor((time % 3600) / 60)
+    time = time % 3600
+    local minutes = math.floor(time / 60)
     local seconds = time % 60
-    return string.format('%02d:%02d:%02d', hours, minutes, seconds)
+
+    local formattedTime = ""
+    if days > 0 then
+        formattedTime = string.format("%d day%s ", days, days == 1 and "" or "s")
+    end
+    if hours > 0 then
+        formattedTime = formattedTime .. string.format("%d hour%s ", hours, hours == 1 and "" or "s")
+    end
+    if minutes > 0 then
+        formattedTime = formattedTime .. string.format("%d minute%s ", minutes, minutes == 1 and "" or "s")
+    end
+    if seconds > 0 then
+        formattedTime = formattedTime .. string.format("%d second%s", seconds, seconds == 1 and "" or "s")
+    end
+    return formattedTime
 end

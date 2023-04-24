@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `apartments` (
   KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.apartments: ~2 rows (approximately)
+-- Dumping data for table uuspack.apartments: ~0 rows (approximately)
 REPLACE INTO `apartments` (`id`, `name`, `type`, `label`, `citizenid`) VALUES
 	(5, 'apartment38816', 'apartment1', 'Alta Street', 'OSB60946');
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `crypto` (
 
 -- Dumping data for table uuspack.crypto: ~0 rows (approximately)
 REPLACE INTO `crypto` (`crypto`, `worth`, `history`) VALUES
-	('qbit', 1000, '[{"PreviousWorth":1010,"NewWorth":1005},{"PreviousWorth":1010,"NewWorth":1005},{"PreviousWorth":1010,"NewWorth":1005},{"PreviousWorth":1005,"NewWorth":1000}]');
+	('qbit', 1037, '[{"PreviousWorth":1046,"NewWorth":1045},{"PreviousWorth":1046,"NewWorth":1045},{"PreviousWorth":1046,"NewWorth":1045},{"PreviousWorth":1045,"NewWorth":1037}]');
 
 -- Dumping structure for table uuspack.crypto_transactions
 CREATE TABLE IF NOT EXISTS `crypto_transactions` (
@@ -317,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `keeppaycheck_account` (
 
 -- Dumping data for table uuspack.keeppaycheck_account: ~0 rows (approximately)
 REPLACE INTO `keeppaycheck_account` (`id`, `citizenid`, `money`) VALUES
-	(1, 'OSB60946', 1735);
+	(1, 'OSB60946', 3495);
 
 -- Dumping structure for table uuspack.keeppaycheck_logs
 CREATE TABLE IF NOT EXISTS `keeppaycheck_logs` (
@@ -329,9 +329,9 @@ CREATE TABLE IF NOT EXISTS `keeppaycheck_logs` (
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table uuspack.keeppaycheck_logs: ~12 rows (approximately)
+-- Dumping data for table uuspack.keeppaycheck_logs: ~42 rows (approximately)
 REPLACE INTO `keeppaycheck_logs` (`id`, `citizenid`, `state`, `amount`, `metadata`, `created`) VALUES
 	(1, 'OSB60946', 1, 150, '{"account":{"current_value":150,"old_value":0},"desc":{"type":"from","source":{"job":"ambulance"}}}', '2023-04-20 08:36:08'),
 	(2, 'OSB60946', 1, 150, '{"account":{"current_value":300,"old_value":150},"desc":{"type":"from","source":{"job":"ambulance"}}}', '2023-04-20 08:46:08'),
@@ -344,7 +344,37 @@ REPLACE INTO `keeppaycheck_logs` (`id`, `citizenid`, `state`, `amount`, `metadat
 	(9, 'OSB60946', 1, 10, '{"desc":{"source":{"job":"unemployed"},"type":"from"},"account":{"current_value":1210,"old_value":1200}}', '2023-04-20 13:30:25'),
 	(10, 'OSB60946', 1, 150, '{"desc":{"source":{"job":"ambulance"},"type":"from"},"account":{"old_value":1210,"current_value":1360}}', '2023-04-21 03:49:15'),
 	(11, 'OSB60946', 1, 150, '{"desc":{"source":{"job":"ambulance"},"type":"from"},"account":{"old_value":1360,"current_value":1510}}', '2023-04-21 03:59:15'),
-	(12, 'OSB60946', 1, 225, '{"desc":{"source":{"job":"police"},"type":"from"},"account":{"old_value":1510,"current_value":1735}}', '2023-04-21 04:09:15');
+	(12, 'OSB60946', 1, 225, '{"desc":{"source":{"job":"police"},"type":"from"},"account":{"old_value":1510,"current_value":1735}}', '2023-04-21 04:09:15'),
+	(13, 'OSB60946', 1, 10, '{"desc":{"source":{"job":"unemployed"},"type":"from"},"account":{"current_value":1745,"old_value":1735}}', '2023-04-21 05:50:24'),
+	(14, 'OSB60946', 1, 10, '{"desc":{"type":"from","source":{"job":"unemployed"}},"account":{"current_value":1755,"old_value":1745}}', '2023-04-21 16:35:04'),
+	(15, 'OSB60946', 1, 10, '{"desc":{"type":"from","source":{"job":"unemployed"}},"account":{"current_value":1765,"old_value":1755}}', '2023-04-23 02:23:58'),
+	(16, 'OSB60946', 1, 10, '{"desc":{"type":"from","source":{"job":"unemployed"}},"account":{"old_value":1765,"current_value":1775}}', '2023-04-23 02:42:10'),
+	(17, 'OSB60946', 1, 10, '{"desc":{"type":"from","source":{"job":"unemployed"}},"account":{"old_value":1775,"current_value":1785}}', '2023-04-23 02:52:10'),
+	(18, 'OSB60946', 1, 10, '{"account":{"old_value":1785,"current_value":1795},"desc":{"source":{"job":"unemployed"},"type":"from"}}', '2023-04-23 08:16:22'),
+	(19, 'OSB60946', 1, 10, '{"account":{"current_value":1805,"old_value":1795},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 09:00:02'),
+	(20, 'OSB60946', 1, 10, '{"account":{"current_value":1815,"old_value":1805},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 09:51:46'),
+	(21, 'OSB60946', 1, 10, '{"account":{"current_value":1825,"old_value":1815},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 10:01:46'),
+	(22, 'OSB60946', 1, 10, '{"account":{"current_value":1835,"old_value":1825},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 10:11:46'),
+	(23, 'OSB60946', 1, 10, '{"account":{"current_value":1845,"old_value":1835},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 10:21:46'),
+	(24, 'OSB60946', 1, 10, '{"account":{"current_value":1855,"old_value":1845},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 10:31:46'),
+	(25, 'OSB60946', 1, 10, '{"account":{"current_value":1865,"old_value":1855},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 10:41:46'),
+	(26, 'OSB60946', 1, 10, '{"account":{"current_value":1875,"old_value":1865},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 10:51:46'),
+	(27, 'OSB60946', 1, 10, '{"account":{"old_value":1875,"current_value":1885},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 11:21:09'),
+	(28, 'OSB60946', 1, 10, '{"account":{"old_value":1885,"current_value":1895},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 11:31:09'),
+	(29, 'OSB60946', 1, 10, '{"account":{"old_value":1895,"current_value":1905},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 11:41:09'),
+	(30, 'OSB60946', 1, 10, '{"account":{"old_value":1905,"current_value":1915},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 11:51:10'),
+	(31, 'OSB60946', 1, 10, '{"account":{"old_value":1915,"current_value":1925},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 12:01:10'),
+	(32, 'OSB60946', 1, 10, '{"desc":{"source":{"job":"unemployed"},"type":"from"},"account":{"old_value":1925,"current_value":1935}}', '2023-04-23 14:43:18'),
+	(33, 'OSB60946', 1, 75, '{"desc":{"source":{"job":"ambulance"},"type":"from"},"account":{"old_value":1935,"current_value":2010}}', '2023-04-23 14:53:18'),
+	(34, 'OSB60946', 1, 125, '{"desc":{"source":{"job":"ambulance"},"type":"from"},"account":{"old_value":2010,"current_value":2135}}', '2023-04-23 15:03:18'),
+	(35, 'OSB60946', 1, 150, '{"desc":{"source":{"job":"ambulance"},"type":"from"},"account":{"old_value":2135,"current_value":2285}}', '2023-04-23 15:13:18'),
+	(36, 'OSB60946', 1, 225, '{"account":{"current_value":2510,"old_value":2285},"desc":{"source":{"job":"police"},"type":"from"}}', '2023-04-23 15:51:14'),
+	(37, 'OSB60946', 1, 225, '{"account":{"current_value":2735,"old_value":2510},"desc":{"source":{"job":"police"},"type":"from"}}', '2023-04-23 16:01:14'),
+	(38, 'OSB60946', 1, 150, '{"account":{"current_value":2885,"old_value":2735},"desc":{"source":{"job":"ambulance"},"type":"from"}}', '2023-04-23 16:11:14'),
+	(39, 'OSB60946', 1, 150, '{"account":{"current_value":3035,"old_value":2885},"desc":{"source":{"job":"ambulance"},"type":"from"}}', '2023-04-23 16:21:14'),
+	(40, 'OSB60946', 1, 225, '{"account":{"current_value":3260,"old_value":3035},"desc":{"source":{"job":"police"},"type":"from"}}', '2023-04-23 16:31:14'),
+	(41, 'OSB60946', 1, 225, '{"account":{"current_value":3485,"old_value":3260},"desc":{"source":{"job":"police"},"type":"from"}}', '2023-04-23 16:41:14'),
+	(42, 'OSB60946', 1, 10, '{"account":{"current_value":3495,"old_value":3485},"desc":{"type":"from","source":{"job":"unemployed"}}}', '2023-04-23 16:58:59');
 
 -- Dumping structure for table uuspack.lapraces
 CREATE TABLE IF NOT EXISTS `lapraces` (
@@ -382,12 +412,12 @@ CREATE TABLE IF NOT EXISTS `management_funds` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `job_name` (`job_name`),
   KEY `type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.management_funds: ~12 rows (approximately)
 REPLACE INTO `management_funds` (`id`, `job_name`, `amount`, `type`) VALUES
 	(1, 'police', 0, 'boss'),
-	(2, 'ambulance', 3000, 'boss'),
+	(2, 'ambulance', 4000, 'boss'),
 	(3, 'realestate', 0, 'boss'),
 	(4, 'taxi', 0, 'boss'),
 	(5, 'cardealer', 0, 'boss'),
@@ -469,15 +499,15 @@ CREATE TABLE IF NOT EXISTS `mdt_clocking` (
   `lastname` varchar(255) NOT NULL DEFAULT '',
   `clock_in_time` varchar(255) NOT NULL DEFAULT '',
   `clock_out_time` varchar(50) DEFAULT NULL,
-  `total_time` varchar(50) NOT NULL DEFAULT '0',
+  `total_time` int(10) NOT NULL DEFAULT 0,
   PRIMARY KEY (`user_id`) USING BTREE,
   KEY `id` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table uuspack.mdt_clocking: ~2 rows (approximately)
 REPLACE INTO `mdt_clocking` (`id`, `user_id`, `firstname`, `lastname`, `clock_in_time`, `clock_out_time`, `total_time`) VALUES
-	(8, 'OSB60946', 'Tasius', 'Kenways', '2023-04-21 11:06:52', '2023-04-21 11:10:30', '218'),
-	(7, 'XLJ25355', 'Tasius', 'Kenways', '2023-04-14 19:54:07', '2023-04-14 20:13:41', '1174');
+	(8, 'OSB60946', 'Tasius', 'Kenways', '2023-04-23 23:30:25', '2023-04-23 22:45:49', 99),
+	(7, 'XLJ25355', 'Tasius', 'Kenways', '2023-04-14 19:54:07', '2023-04-14 20:13:41', 1174);
 
 -- Dumping structure for table uuspack.mdt_convictions
 CREATE TABLE IF NOT EXISTS `mdt_convictions` (
@@ -663,9 +693,9 @@ CREATE TABLE IF NOT EXISTS `phone_chatrooms` (
 
 -- Dumping data for table uuspack.phone_chatrooms: ~3 rows (approximately)
 REPLACE INTO `phone_chatrooms` (`id`, `room_code`, `room_name`, `room_owner_id`, `room_owner_name`, `room_members`, `room_pin`, `unpaid_balance`, `is_pinned`, `created`) VALUES
-	(1, '411', '411', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-17 13:41:36'),
-	(2, 'lounge', 'The Lounge', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-17 13:41:36'),
-	(3, 'events', 'Events', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-17 13:41:36');
+	(1, '411', '411', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-21 12:37:37'),
+	(2, 'lounge', 'The Lounge', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-21 12:37:37'),
+	(3, 'events', 'Events', 'official', 'Government', '{}', NULL, 0.00, 1, '2023-04-21 12:37:37');
 
 -- Dumping structure for table uuspack.phone_chatroom_messages
 CREATE TABLE IF NOT EXISTS `phone_chatroom_messages` (
@@ -700,7 +730,7 @@ CREATE TABLE IF NOT EXISTS `phone_gallery` (
 
 -- Dumping data for table uuspack.phone_gallery: ~0 rows (approximately)
 REPLACE INTO `phone_gallery` (`citizenid`, `image`, `date`) VALUES
-	('OSB60946', 'https://media.discordapp.net/attachments/1097149177697415228/1097414162147201114/screenshot.jpg', '2023-04-17 06:52:05');
+	('OSB60946', 'https://media.discordapp.net/attachments/1097149177697415228/1098848954185166858/screenshot.jpg', '2023-04-21 05:53:19');
 
 -- Dumping structure for table uuspack.phone_invoices
 CREATE TABLE IF NOT EXISTS `phone_invoices` (
@@ -770,7 +800,7 @@ CREATE TABLE IF NOT EXISTS `phone_tweets` (
   `date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `citizenid` (`citizenid`)
-) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=291 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.phone_tweets: ~0 rows (approximately)
 
@@ -798,11 +828,11 @@ CREATE TABLE IF NOT EXISTS `players` (
   KEY `id` (`id`),
   KEY `last_updated` (`last_updated`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=467 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=557 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.players: ~1 rows (approximately)
 REPLACE INTO `players` (`id`, `citizenid`, `cid`, `license`, `name`, `money`, `charinfo`, `job`, `gang`, `position`, `metadata`, `inventory`, `last_updated`, `apps`, `widget`, `bt`, `cryptocurrency`, `cryptocurrencytransfers`) VALUES
-	(88, 'OSB60946', 1, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Biji Kembar', '{"crypto":0,"cash":991578.0,"bank":1012739}', '{"card":5698001533673539,"lastname":"Kenways","nationality":"United States","firstname":"Tasius","account":"US02QBCore3255543371","gender":0,"phone":"2083394297","birthdate":"2000-12-29","backstory":"placeholder backstory","cid":1}', '{"onduty":true,"grade":{"name":"Chief of Police","level":8},"label":"LSPD","name":"police","payment":225,"isboss":true,"type":"leo"}', '{"name":"none","grade":{"name":"none","level":0},"isboss":false,"label":"No Gang Affiliaton"}', '{"x":261.25714111328127,"y":-965.6703491210938,"z":29.1787109375}', '{"phone":[],"status":[],"commandbinds":[],"hunger":98.5,"attachmentcraftingrep":0,"stress":3,"jailitems":[],"injail":0,"thirst":98.5,"dealerrep":0,"inside":{"apartment":[]},"fitbit":[],"isdead":false,"callsign":"NO CALLSIGN","criminalrecord":{"hasRecord":false},"bloodtype":"O-","inlaststand":false,"tracker":false,"craftingrep":0,"crypto":{"gne":0,"xcoin":0,"lme":0,"shung":0},"jobrep":{"hotdog":0,"trucker":0,"taxi":0,"tow":0},"licences":{"business":false,"driver":true,"weapon":false},"fingerprint":"Yz640d86WFB3579","walletid":"QB-48205093","armor":0,"ishandcuffed":false,"phonedata":{"SerialNumber":20329124,"InstalledApps":[]}}', '[{"amount":1,"type":"weapon","info":{"serie":"23Sgf3MK448wWea","ammo":190,"quality":100},"name":"weapon_usm4","slot":2},{"amount":1,"type":"weapon","info":{"serie":"16jYR3ae137sZei","ammo":0,"quality":100},"name":"weapon_m16a2","slot":3},{"amount":1,"type":"weapon","info":{"quality":100,"serie":"46cDB2xy943YLRg"},"name":"weapon_incendiary","slot":4},{"amount":1,"type":"weapon","info":{"serie":"92Erk8Hv959OIEw","ammo":65,"quality":100},"name":"weapon_mk47","slot":5},{"amount":1,"type":"item","info":[],"name":"phone","slot":6},{"amount":1,"type":"weapon","info":{"quality":100,"serie":"61Oeu8ql884NCQM"},"name":"weapon_mp5a2","slot":8},{"amount":1,"type":"weapon","info":{"serie":"21TwO6Vr210ygvv","ammo":0,"quality":100},"name":"weapon_usm16","slot":9}]', '2023-04-21 04:10:30', NULL, NULL, NULL, NULL, NULL);
+	(88, 'OSB60946', 1, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'Biji Kembar', '{"bank":1011536,"crypto":0,"cash":991578.0}', '{"gender":0,"account":"US02QBCore3255543371","phone":"2083394297","lastname":"Kenways","card":5698001533673539,"birthdate":"2000-12-29","firstname":"Tasius","backstory":"placeholder backstory","cid":1,"nationality":"United States"}', '{"payment":225,"isboss":true,"onduty":false,"name":"police","grade":{"name":"Chief of Police","level":8},"label":"LSPD","type":"leo"}', '{"isboss":false,"grade":{"name":"none","level":0},"label":"No Gang Affiliaton","name":"none"}', '{"x":-377.010986328125,"y":6067.912109375,"z":31.4871826171875}', '{"hunger":100,"status":[],"injail":0,"phone":[],"walletid":"QB-48205093","dealerrep":0,"inlaststand":false,"armor":0,"jobrep":{"trucker":0,"taxi":0,"tow":0,"hotdog":0},"fingerprint":"Yz640d86WFB3579","isdead":false,"craftingrep":0,"tracker":false,"phonedata":{"SerialNumber":20329124,"InstalledApps":[]},"jailitems":[],"attachmentcraftingrep":0,"inside":{"apartment":[]},"crypto":{"gne":0,"xcoin":0,"shung":0,"lme":0},"thirst":100,"fitbit":[],"commandbinds":[],"stress":0,"ishandcuffed":false,"licences":{"driver":true,"weapon":false,"business":false},"criminalrecord":{"hasRecord":false},"callsign":"NO CALLSIGN","bloodtype":"O-"}', '[{"type":"weapon","amount":1,"name":"weapon_flashbang","slot":1,"info":{"ammo":20,"quality":100,"serie":"93VSa5ez128ALAv"}},{"type":"weapon","amount":1,"name":"weapon_usm4","slot":2,"info":{"ammo":77,"quality":100,"serie":"24gQC2yV165MSij"}},{"type":"weapon","amount":1,"name":"weapon_ak74ms","slot":3,"info":{"ammo":-1,"quality":100,"serie":"76sQm1YC842uEAM"}},{"type":"item","amount":1,"name":"phone","slot":6,"info":[]}]', '2023-04-23 17:03:15', NULL, NULL, NULL, NULL, NULL);
 
 -- Dumping structure for table uuspack.playerskins
 CREATE TABLE IF NOT EXISTS `playerskins` (
@@ -880,25 +910,9 @@ CREATE TABLE IF NOT EXISTS `player_jobs` (
   `employees` text DEFAULT NULL,
   `maxEmployee` tinyint(11) DEFAULT 15,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_jobs: ~15 rows (approximately)
-REPLACE INTO `player_jobs` (`id`, `jobname`, `employees`, `maxEmployee`) VALUES
-	(106, 'police', '{"OSB60946":{"grade":4,"name":"Tasius Kenways","cid":"OSB60946"},"RGC15616":{"grade":8,"name":"Susi Susanti","cid":"RGC15616"}}', 15),
-	(107, 'hotdog', '[]', 15),
-	(108, 'garbage', '[]', 15),
-	(109, 'bus', '[]', 15),
-	(110, 'reporter', '[]', 15),
-	(111, 'lawyer', '[]', 15),
-	(112, 'tow', '[]', 15),
-	(113, 'judge', '[]', 15),
-	(114, 'mechanic', '[]', 15),
-	(115, 'ambulance', '{"OSB60946":{"grade":4,"cid":"OSB60946","name":"Tasius Kenways"},"RGC15616":{"grade":1,"name":"Susi Susanti","cid":"RGC15616"}}', 15),
-	(116, 'taxi', '[]', 15),
-	(117, 'vineyard', '[]', 15),
-	(118, 'cardealer', '[]', 15),
-	(119, 'trucker', '[]', 15),
-	(120, 'realestate', '[]', 15);
+-- Dumping data for table uuspack.player_jobs: ~0 rows (approximately)
 
 -- Dumping structure for table uuspack.player_mails
 CREATE TABLE IF NOT EXISTS `player_mails` (
@@ -915,9 +929,10 @@ CREATE TABLE IF NOT EXISTS `player_mails` (
   KEY `citizenid` (`citizenid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table uuspack.player_mails: ~0 rows (approximately)
+-- Dumping data for table uuspack.player_mails: ~2 rows (approximately)
 REPLACE INTO `player_mails` (`id`, `citizenid`, `sender`, `subject`, `message`, `read`, `mailid`, `date`, `button`) VALUES
-	(50, 'OSB60946', '[66HOU761]', 'Neon Pfister<br>', 'Neon Pfister<br>Plates: [66HOU761]<br><br>Amount of changes: 1<br> ------------------------------ <br><br>Primary - [ Brushed Aluminium (Metals) ]', 0, 613987, '2023-04-20 12:08:51', '[]');
+	(49, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 734492, '2023-04-23 14:59:32', '[]'),
+	(50, 'OSB60946', 'Pillbox Hospital', 'Hospital Costs', 'Dear Mr. Kenways, <br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$500</strong><br /><br />We wish you a quick recovery!', 0, 565408, '2023-04-23 16:17:44', '[]');
 
 -- Dumping structure for table uuspack.player_notes
 CREATE TABLE IF NOT EXISTS `player_notes` (
@@ -992,7 +1007,7 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   KEY `citizenid` (`citizenid`),
   KEY `license` (`license`),
   CONSTRAINT `FK_playervehicles_players` FOREIGN KEY (`citizenid`) REFERENCES `players` (`citizenid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.player_vehicles: ~5 rows (approximately)
 REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`, `mods`, `plate`, `fakeplate`, `garage`, `fuel`, `engine`, `body`, `state`, `depotprice`, `drivingdistance`, `status`, `balance`, `paymentamount`, `paymentsleft`, `financetime`, `nosColour`, `traveldistance`, `noslevel`, `hasnitro`) VALUES
@@ -1000,7 +1015,8 @@ REPLACE INTO `player_vehicles` (`id`, `license`, `citizenid`, `vehicle`, `hash`,
 	(6, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modSteeringWheel":-1,"modSmokeEnabled":false,"neonEnabled":[false,false,false,false],"modTransmission":-1,"neonColor":[255,0,255],"modSideSkirt":-1,"modArchCover":-1,"tyreSmokeColor":[255,255,255],"wheelColor":156,"modEngine":-1,"modExhaust":-1,"modTrunk":-1,"plate":"41LWE226","extras":[],"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modBackWheels":-1,"modEngineBlock":-1,"modDoorSpeaker":-1,"wheelSize":1.0,"modHorns":-1,"modCustomTiresF":false,"modDashboard":-1,"modFender":-1,"modOrnaments":-1,"modFrame":-1,"modAirFilter":-1,"modFrontBumper":-1,"modSuspension":-1,"modSpeakers":-1,"color1":0,"engineHealth":1000.0592475178704,"fuelLevel":97.70237287108663,"modArmor":-1,"interiorColor":0,"modCustomTiresR":false,"modXenon":false,"modTrimA":-1,"modRightFender":-1,"modKit17":-1,"oilLevel":4.76596940834568,"modKit21":-1,"headlightColor":255,"modGrille":-1,"modTurbo":false,"modBrakes":-1,"liveryRoof":-1,"modLivery":2,"modStruts":-1,"modPlateHolder":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"plateIndex":0,"windowTint":-1,"wheels":6,"modKit47":-1,"tankHealth":1000.0592475178704,"wheelWidth":1.0,"modTrimB":-1,"modVanityPlate":-1,"modRoof":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color2":0,"pearlescentColor":0,"dirtLevel":0.79432823472428,"modKit49":-1,"modHood":-1,"xenonColor":255,"dashboardColor":0,"modSpoilers":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"modAPlate":-1,"modTank":-1,"modAerials":-1,"model":788045382,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modWindows":-1,"modDial":-1,"modSeats":-1,"modRearBumper":-1,"modKit19":-1,"modFrontWheels":-1,"modHydrolic":-1}', '41LWE226', NULL, 'apartments', 97, 1000, 1000, 1, 0, 870196, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
 	(7, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'sanchez', '788045382', '{"modHydrolic":-1,"interiorColor":0,"modPlateHolder":-1,"modSeats":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTank":-1,"modKit49":-1,"tyreSmokeColor":[255,255,255],"dirtLevel":0.0,"modArchCover":-1,"modAirFilter":-1,"modHorns":-1,"liveryRoof":-1,"windowStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"0":false},"plate":"21YGE174","dashboardColor":0,"modDial":-1,"modTrunk":-1,"modKit19":-1,"modSmokeEnabled":false,"modDoorSpeaker":-1,"modTurbo":false,"neonColor":[255,0,255],"wheelColor":156,"modBackWheels":-1,"xenonColor":255,"modSpoilers":-1,"modAPlate":-1,"modXenon":false,"modKit17":-1,"wheelWidth":0.0,"modOrnaments":-1,"headlightColor":255,"wheels":6,"color2":0,"tireHealth":{"1":1000.0,"2":0.0,"3":0.0,"0":1000.0},"modHood":-1,"fuelLevel":45.27670937928404,"modRearBumper":-1,"plateIndex":3,"modStruts":-1,"modDashboard":-1,"modSteeringWheel":-1,"modBrakes":-1,"modAerials":-1,"tankHealth":1000.0592475178704,"pearlescentColor":0,"extras":[],"modCustomTiresR":false,"modKit21":-1,"modFender":-1,"modTrimA":-1,"modFrontWheels":-1,"modVanityPlate":-1,"modCustomTiresF":false,"windowTint":-1,"modLivery":2,"modFrontBumper":-1,"modExhaust":-1,"modSuspension":-1,"wheelSize":0.0,"modTrimB":-1,"modRoof":-1,"modArmor":-1,"bodyHealth":1000.0592475178704,"modShifterLeavers":-1,"color1":0,"neonEnabled":[false,false,false,false],"modGrille":-1,"modWindows":-1,"modSpeakers":-1,"modSideSkirt":-1,"oilLevel":4.76596940834568,"modEngine":-1,"modEngineBlock":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modFrame":-1,"modKit47":-1,"modTransmission":-1,"modRightFender":-1,"model":788045382,"engineHealth":1000.0592475178704}', '21YGE174', NULL, NULL, 45, 1000, 1000, 0, 0, 3224, '{"axle":100.0,"radiator":100.0,"fuel":100.0,"clutch":100.0,"brakes":100.0}', 0, 0, 0, 0, NULL, 633, 0, 0),
 	(8, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modFrontBumper":-1,"modCustomTiresF":false,"plateIndex":0,"modRoof":-1,"modHood":-1,"modHorns":-1,"modStruts":-1,"modSpoilers":-1,"modXenon":false,"modExhaust":-1,"modFrontWheels":-1,"modFrame":-1,"pearlescentColor":73,"tyreSmokeColor":[255,255,255],"modDoorSpeaker":-1,"modTrimB":-1,"modAPlate":-1,"interiorColor":93,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modSteeringWheel":-1,"modKit17":-1,"modCustomTiresR":false,"modRearBumper":-1,"windowTint":-1,"modSeats":-1,"modTrimA":-1,"modVanityPlate":-1,"dirtLevel":0.0,"color1":64,"modTurbo":false,"bodyHealth":994.4989498748004,"modShifterLeavers":-1,"modEngineBlock":-1,"oilLevel":4.76596940834568,"modBackWheels":-1,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modRightFender":-1,"model":-1848994066,"modGrille":-1,"engineHealth":972.2577593025205,"dashboardColor":65,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"wheelColor":0,"modHydrolic":-1,"neonColor":[255,0,255],"modArchCover":-1,"xenonColor":255,"neonEnabled":[false,false,false,false],"modOrnaments":-1,"fuelLevel":42.8937246751112,"modSuspension":-1,"modAirFilter":-1,"modKit49":-1,"modLivery":-1,"modWindows":-1,"modTank":-1,"headlightColor":255,"modSideSkirt":-1,"plate":"24JDG097","modKit21":-1,"modSmokeEnabled":false,"modSpeakers":-1,"modEngine":-1,"wheelWidth":1.0,"modArmor":-1,"wheelSize":1.0,"extras":[],"modPlateHolder":-1,"modKit19":-1,"modTrunk":-1,"modAerials":-1,"modDial":-1,"color2":0,"modKit47":-1,"wheels":0,"modBrakes":-1,"tankHealth":996.8819345789732,"modTransmission":-1,"modFender":-1,"modDashboard":-1,"liveryRoof":-1}', '24JDG097', NULL, 'pillbox_hospital', 43, 973, 995, 0, 0, 11184, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
-	(9, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"liveryRoof":-1,"modDoorSpeaker":-1,"modRightFender":-1,"dirtLevel":0.0,"fuelLevel":50.04267878762973,"modArmor":-1,"modTransmission":-1,"neonColor":[255,0,255],"model":-1848994066,"tyreSmokeColor":[255,255,255],"modKit19":-1,"modPlateHolder":-1,"modKit49":-1,"modTrimB":-1,"modTurbo":false,"modSpoilers":-1,"modSideSkirt":-1,"extras":[],"modHydrolic":-1,"modSmokeEnabled":false,"modFrontBumper":-1,"modSpeakers":-1,"modHood":-1,"modShifterLeavers":-1,"bodyHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAirFilter":-1,"engineHealth":1000.0592475178704,"modDashboard":-1,"tankHealth":1000.0592475178704,"xenonColor":255,"modOrnaments":-1,"modSuspension":-1,"wheelSize":1.0,"modTank":-1,"modAPlate":-1,"modEngine":-1,"modKit47":-1,"modTrimA":-1,"modBrakes":-1,"modBackWheels":-1,"modCustomTiresF":false,"modKit21":-1,"modFrame":-1,"modExhaust":-1,"color1":64,"modCustomTiresR":false,"modStruts":-1,"color2":0,"modArchCover":-1,"headlightColor":255,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"wheels":0,"plate":"82GGY937","modLivery":-1,"modVanityPlate":-1,"modHorns":-1,"modRearBumper":-1,"plateIndex":0,"windowTint":-1,"modXenon":false,"modEngineBlock":-1,"interiorColor":93,"modWindows":-1,"modRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modFender":-1,"dashboardColor":65,"pearlescentColor":73,"wheelWidth":1.0,"modSteeringWheel":-1,"modFrontWheels":-1,"modTrunk":-1,"wheelColor":0,"modGrille":-1,"modSeats":-1,"modAerials":-1,"modKit17":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false}}', '82GGY937', NULL, 'pdgarage', 50, 1000, 1000, 1, 0, 640319, NULL, 0, 0, 0, 0, NULL, 0, 0, 0);
+	(9, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"liveryRoof":-1,"modDoorSpeaker":-1,"modRightFender":-1,"dirtLevel":0.0,"fuelLevel":50.04267878762973,"modArmor":-1,"modTransmission":-1,"neonColor":[255,0,255],"model":-1848994066,"tyreSmokeColor":[255,255,255],"modKit19":-1,"modPlateHolder":-1,"modKit49":-1,"modTrimB":-1,"modTurbo":false,"modSpoilers":-1,"modSideSkirt":-1,"extras":[],"modHydrolic":-1,"modSmokeEnabled":false,"modFrontBumper":-1,"modSpeakers":-1,"modHood":-1,"modShifterLeavers":-1,"bodyHealth":1000.0592475178704,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modAirFilter":-1,"engineHealth":1000.0592475178704,"modDashboard":-1,"tankHealth":1000.0592475178704,"xenonColor":255,"modOrnaments":-1,"modSuspension":-1,"wheelSize":1.0,"modTank":-1,"modAPlate":-1,"modEngine":-1,"modKit47":-1,"modTrimA":-1,"modBrakes":-1,"modBackWheels":-1,"modCustomTiresF":false,"modKit21":-1,"modFrame":-1,"modExhaust":-1,"color1":64,"modCustomTiresR":false,"modStruts":-1,"color2":0,"modArchCover":-1,"headlightColor":255,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"wheels":0,"plate":"82GGY937","modLivery":-1,"modVanityPlate":-1,"modHorns":-1,"modRearBumper":-1,"plateIndex":0,"windowTint":-1,"modXenon":false,"modEngineBlock":-1,"interiorColor":93,"modWindows":-1,"modRoof":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"neonEnabled":[false,false,false,false],"modFender":-1,"dashboardColor":65,"pearlescentColor":73,"wheelWidth":1.0,"modSteeringWheel":-1,"modFrontWheels":-1,"modTrunk":-1,"wheelColor":0,"modGrille":-1,"modSeats":-1,"modAerials":-1,"modKit17":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"oilLevel":4.76596940834568,"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false}}', '82GGY937', NULL, 'pdgarage', 50, 1000, 1000, 1, 0, 640319, NULL, 0, 0, 0, 0, NULL, 0, 0, 0),
+	(10, 'license:3546f28c8e7963ed927b5f63f7276e28603aa798', 'OSB60946', 'neon', '-1848994066', '{"modSeats":-1,"modAPlate":-1,"modRightFender":-1,"modSmokeEnabled":false,"modDoorSpeaker":-1,"modCustomTiresR":false,"modFender":-1,"tireHealth":{"1":1000.0,"2":1000.0,"3":1000.0,"0":1000.0},"modDashboard":-1,"modStruts":-1,"modLivery":-1,"modAirFilter":-1,"modDrift":false,"extras":[],"modSideSkirt":-1,"modTurbo":false,"modOrnaments":-1,"liveryRoof":-1,"tankHealth":994.4989498748004,"modKit21":-1,"modKit49":-1,"modGrille":-1,"modSuspension":-1,"modSteeringWheel":-1,"modTrunk":-1,"modBackWheels":-1,"modWindows":-1,"modDial":-1,"tireBurstCompletely":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modTrimB":-1,"modArchCover":-1,"modTransmission":-1,"wheelSize":1.0,"modEngine":-1,"pearlescentColor":73,"modBrakes":-1,"doorStatus":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modFrame":-1,"modBProofTires":false,"modHood":-1,"modRoof":-1,"modHydrolic":-1,"modFrontBumper":-1,"wheelWidth":1.0,"windowTint":-1,"color1":64,"modKit17":-1,"modEngineBlock":-1,"xenonColor":255,"model":-1848994066,"dashboardColor":65,"modKit19":-1,"plate":"40ZFQ885","headlightColor":255,"dirtLevel":0.0,"modSpoilers":-1,"modTank":-1,"neonColor":[255,0,255],"tireBurstState":{"1":false,"2":false,"3":false,"4":false,"5":false,"0":false},"modAerials":-1,"interiorColor":93,"modFrontWheels":-1,"modTrimA":-1,"wheels":0,"oilLevel":4.76596940834568,"modXenon":false,"fuelLevel":64.3405870126668,"modSpeakers":-1,"engineHealth":950.8108969649649,"modExhaust":-1,"modKit47":-1,"color2":0,"modArmor":-1,"windowStatus":{"1":true,"2":true,"3":true,"4":false,"5":false,"6":true,"7":true,"0":true},"modShifterLeavers":-1,"neonEnabled":[false,false,false,false],"plateIndex":0,"tyreSmokeColor":[255,255,255],"modCustomTiresF":false,"modRearBumper":-1,"modHorns":-1,"wheelColor":0,"modPlateHolder":-1,"bodyHealth":984.967011058109,"modVanityPlate":-1}', '40ZFQ885', NULL, 'ss_hospital', 64, 951, 985, 0, 0, 684621, '{"brakes":94.0,"clutch":97.0,"axle":97.0,"fuel":95.0,"radiator":98.0}', 0, 0, 0, 0, NULL, 496, 0, 0);
 
 -- Dumping structure for table uuspack.player_warns
 CREATE TABLE IF NOT EXISTS `player_warns` (
@@ -1039,7 +1055,7 @@ CREATE TABLE IF NOT EXISTS `stashitems` (
   `items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`stash`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Dumping data for table uuspack.stashitems: ~2 rows (approximately)
 REPLACE INTO `stashitems` (`id`, `stash`, `items`) VALUES

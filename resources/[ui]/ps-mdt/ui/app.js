@@ -90,8 +90,29 @@ function getFormattedDate(date, prefomattedDate = false, hideYear = false) {
 
 var quotes = [
   'Project Sloth On Top!',
-  'A Discord rewrite fixes everything.',
+  'A Discord rewrite fixes everything...',
   'Does anyone even read these?',
+  'The best way to predict your future is to create it.',
+  'Believe you can and you\'re halfway there.',
+  'In three words I can sum up everything I\'ve learned about life: it goes on.',
+  'The only way to do great work is to love what you do.',
+  'Success is not final, failure is not fatal: it is the courage to continue that counts.',
+  'Life is 10% what happens to us and 90% how we react to it.',
+  'The only true wisdom is in knowing you know nothing.',
+  'If you want to live a happy life, tie it to a goal, not to people or things.',
+  'Happiness is not something ready-made. It comes from your own actions.',
+  'The greatest glory in living lies not in never falling, but in rising every time we fall.',
+  'The only thing necessary for the triumph of evil is for good men to do nothing.',
+  'It does not matter how slowly you go as long as you do not stop.',
+  'The best time to plant a tree was 20 years ago. The second best time is now.',
+  'Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.',
+  'Don\'t watch the clock; do what it does. Keep going.',
+  'You miss 100% of the shots you don\'t take.',
+  'You can\'t go back and change the beginning, but you can start where you are and change the ending.',
+  'It\'s not the years in your life that count. It\'s the life in your years.',
+  'The greatest glory in living lies not in never falling, but in rising every time we fall.',
+  'The two most important days in your life are the day you are born and the day you find out why.',
+  'Success is not how high you have climbed, but how you make a positive difference to the world.',
 ]
 
 function randomizeQuote() {
@@ -171,6 +192,14 @@ $(document).ready(() => {
 
   $(".profile-items").on("click", ".profile-item", async function () {
     let id = $(this).data("id");
+    let profileFingerprint = $(this).data("fingerprint");
+  
+    if (profileFingerprint && profileFingerprint !== "") {
+      $(".manage-profile-fingerprint-input").val(profileFingerprint);
+    } else {
+      $(".manage-profile-fingerprint-input").val("");
+    }
+    
     let result = await $.post(
       `https://${GetParentResourceName()}/getProfileData`,
       JSON.stringify({
@@ -201,24 +230,13 @@ $(document).ready(() => {
         .addClass("fa-plus");
     }
 
-    const { vehicles, tags, gallery, convictions, incidents, properties } = result
+    const { vehicles, tags, gallery, convictions, incidents, properties, fingerprint } = result;
 
     $(".manage-profile-editing-title").html(`You are currently editing ${result["firstname"]} ${result["lastname"]}`);
     $(".manage-profile-citizenid-input").val(result['cid']);
     $(".manage-profile-name-input-1").val(result["firstname"]);
     $(".manage-profile-name-input-2").val(result["lastname"]);
     $(".manage-profile-dob-input").val(result["dob"]);
-    if (AmbulanceJobs[playerJob] !== undefined) {
-      $(".manage-profile-fingerprint-input").val(result["fingerprint"]);
-    }
-    else {
-      if (convictions.length >= 1) {
-        $(".manage-profile-fingerprint-input").val(result["fingerprint"]);
-      }
-      else {
-        $(".manage-profile-fingerprint-input").val("No Fingerprints found!");
-      }
-    }
     $(".manage-profile-phonenumber-input").val(result["phone"]);
     $(".manage-profile-job-input").val(`${result.job}, ${result.grade}`);
     $(".manage-profile-apartment-input").val(`${result.apartment}`);
@@ -332,7 +350,6 @@ $(document).ready(() => {
     $(".gallery-inner-container").html(galleryHTML);
     $(".houses-holder").html(propertyHTML);
   });
-  // <div class="bulletin-id">ID: ${BulletinId}</div>
 
   $(".bulletin-add-btn").click(function () {
     if (canCreateBulletin == 0) {
@@ -567,7 +584,8 @@ $(document).ready(() => {
             sName: sName,
             tags: tags,
             gallery: gallery,
-            licenses: licenses
+            licenses: licenses,
+            fingerprint: $(".manage-profile-fingerprint-input").val()
           })
         );
         $(".manage-profile-pic").attr("src", newpfp);
@@ -749,7 +767,23 @@ $(document).ready(() => {
     "click",
     ".manage-incidents-create",
     function () {
-      let template = '<p><strong>📝 Summary:</strong></p><p><em>[Insert Report Summary Here]</em></p><p>&nbsp;</p><p><strong>🧍 Hostage:</strong> [Name Here]</p><p>&nbsp;</p><p><strong>🔪 Weapons/Items Confiscated:</strong></p><p><em>· [Insert List Here]</em></p><p>&nbsp;</p><p>-----</p><p><strong style="background-color: var(--color-1);">💸 Fine:</strong></p><p>&nbsp;</p><p><strong>⌚ Sentence:</strong></p><p>-----</p>';
+      let template = `
+      <div style="color: white;">
+          <p><strong>📝 Summary:</strong></p>
+          <p><em>[Insert Report Summary Here]</em></p>
+          <p>&nbsp;</p>
+          <p><strong>🧍 Hostage:</strong> [Name Here]</p>
+          <p>&nbsp;</p>
+          <p><strong>🔪 Weapons/Items Confiscated:</strong></p>
+          <p><em>· [Insert List Here]</em></p>
+          <p>&nbsp;</p>
+          <p>-----</p>
+          <p><strong style="background-color: var(--color-1);">💸 Fine:</strong></p>
+          <p>&nbsp;</p>
+          <p><strong>⌚ Sentence:</strong></p>
+          <p>-----</p>
+      </div>
+  `;
       $("#manage-incidents-title-input").val(
         "Name - Charge - " + $(".date").html()
       );
@@ -1317,12 +1351,29 @@ $(document).ready(() => {
     "click",
     ".manage-bolos-new",
     function () {
-      //if ($(".manage-bolos-editing-title").html() == 'You are currently creating a new BOLO') {
-      //$(".manage-bolos-new").effect("shake", { times: 2, distance: 2 }, 500)
-      //} else {
       var template = "";
       if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
-        template = '<p><strong>📝 ICU Room #: [ # ]</strong></p><p><strong>Report ID: [ Report ID ]</strong></p><p><em><br></em></p><p><strong>🧍Time Admitted: [ Date and Time Here ]</strong>&nbsp;</p><p><strong>Surgery: [Yes/No]</strong></p><p><strong>Injuries/Ailments:</strong></p><p><em>· [Enter List Of Injuries Here]</em><br></p><p>&nbsp;</p><p>-----</p><p><strong style="background-color: var(--color-1);">Additional Attending:</strong><br></p><p><em>· [ List Any Other Staff Here ]</em></p><p><strong style="background-color: var(--color-1);">🧑‍🤝‍🧑 Additional Emergency Contacts:</strong><br></p><p><em>· [ Name And Number ]</em></p><p><strong style="background-color: var(--color-1);">Notes:</strong><br></p><p><em>· [Additional Notes Here]</em></p><p>-----</p>'}
+        template = `
+        <div style="color: white;">
+            <p><strong>📝 ICU Room #: [ # ]</strong></p>
+            <p><strong>Report ID: [ Report ID ]</strong></p>
+            <p><em><br></em></p>
+            <p><strong>🧍Time Admitted: [ Date and Time Here ]</strong>&nbsp;</p>
+            <p><strong>Surgery: [Yes/No]</strong></p>
+            <p><strong>Injuries/Ailments:</strong></p>
+            <p><em>· [Enter List Of Injuries Here]</em><br></p>
+            <p>&nbsp;</p>
+            <p>-----</p>
+            <p><strong style="background-color: var(--color-1);">Additional Attending:</strong><br></p>
+            <p><em>· [ List Any Other Staff Here ]</em></p>
+            <p><strong style="background-color: var(--color-1);">🧑‍🤝‍🧑 Additional Emergency Contacts:</strong><br></p>
+            <p><em>· [ Name And Number ]</em></p>
+            <p><strong style="background-color: var(--color-1);">Notes:</strong><br></p>
+            <p><em>· [Additional Notes Here]</em></p>
+            <p>-----</p>
+        </div>
+    `;
+      }
       $(".manage-bolos-editing-title").html(
         "You are currently creating a new BOLO"
       );
@@ -1918,7 +1969,8 @@ $(document).ready(() => {
     const citizenId = $(this).data("id");
     const fine = $(".fine-amount").filter(`[data-id=${citizenId}]`).val();
     const recommendFine = $(".fine-recommended-amount").filter(`[data-id=${citizenId}]`).val();
-    sendFine(citizenId, fine, recommendFine);
+    const incidentId = $(".manage-incidents-editing-title").data("id");
+    sendFine(citizenId, fine, recommendFine, incidentId);
   });
 
   $('.incidents-ghost-holder').on('click', '#community-service-button', function() {
@@ -2021,6 +2073,7 @@ $(document).ready(() => {
                     <div class="associated-incidents-user-tag red-tag" data-id="${$(this).data("cid")}">Processed</div>
                     <div class="associated-incidents-user-tag red-tag" data-id="${$(this).data("cid")}">Associated</div>
                 </div>
+                <div class="modify-charges-label"><span class="fas fa-solid fa-info"></span> Right click below to add and/or modify charges.</div>
                 <div class="associated-incidents-user-holder" data-name="${$(this).data("cid")}"></div>
                 <div class="manage-incidents-title-tag" data-id="${$(this).data("cid")}">Recommended Fine</div>
                 <div class="associated-incidents-fine-input" data-id="${$(this).data("cid")}"><img src="img/h7S5f9J.webp"> <input disabled placeholder="0" class="fine-recommended-amount" id="fine-recommended-amount" data-id="${$(this).data("cid")}" type="number"></div>
@@ -2378,13 +2431,28 @@ $(document).ready(() => {
     "click",
     ".manage-reports-new",
     function () {
-      //if ($(".manage-bolos-editing-title").html() == 'You are currently creating a new BOLO') {
-      //$(".manage-bolos-new").effect("shake", { times: 2, distance: 2 }, 500)
-      //} else {
       let template = "";
       if ($(".badge-logo").attr("src") == "img/ems_badge.webp") {
-        template =
-        "<p><strong>Submitted to ICU?: [Yes/No]</strong></p><p><strong>Incident Report:</strong></p><p><em>· [ Brief summary of what happened and who did what while on scene. Note anything that stood out about the scene as well as what was done to treat the patient ]</em></p><p><strong>List of Injuries:</strong></p><p><em>· [ State what injury or injuries occurred ]</em></p> Surgical Report:<p><em>· [ Full report on what was done in surgery, list any complications or anything that was found while in operation. Note who was attending and what they did during the surgery. At the end of the report be sure to note the state of the patient after ]</em></p><p>-----</p><p><strong>Attending:</strong></p><p><em>· [ List Any Attending Here ]</em></p><p><strong>Medications Applied:</strong></p><p><em>· [ List Any Attending Here ]</em></p><p>-----</p><br></br><p><strong>Notes:</strong></p><p><em>[ Additional Notes Here ]</em></p>"}
+        template = `
+    <div style="color: white;">
+        <p><strong>Submitted to ICU?: [Yes/No]</strong></p>
+        <p><strong>Incident Report:</strong></p>
+        <p><em>· [ Brief summary of what happened and who did what while on scene. Note anything that stood out about the scene as well as what was done to treat the patient ]</em></p>
+        <p><strong>List of Injuries:</strong></p>
+        <p><em>· [ State what injury or injuries occurred ]</em></p>
+        <p><strong>Surgical Report:</strong></p>
+        <p><em>· [ Full report on what was done in surgery, list any complications or anything that was found while in operation. Note who was attending and what they did during the surgery. At the end of the report be sure to note the state of the patient after ]</em></p>
+        <p>-----</p>
+        <p><strong>Attending:</strong></p>
+        <p><em>· [ List Any Attending Here ]</em></p>
+        <p><strong>Medications Applied:</strong></p>
+        <p><em>· [ List Any Attending Here ]</em></p>
+        <p>-----</p>
+        <br>
+        <p><strong>Notes:</strong></p>
+        <p><em>[ Additional Notes Here ]</em></p>
+    </div>
+`;}
       $(".manage-reports-editing-title").html(
         "You are currently creating a new report"
       );
@@ -4018,6 +4086,7 @@ $(document).ready(() => {
         $(".manage-incidents-title ").css("margin-right", "0px")
         $(".manage-reports-title").css("margin-right", "0px").css("width", "66%");
       } else if (AmbulanceJobs[sentJob] !== undefined) {
+        $(".weapons-nav-item").hide()
         $("#home-warrants-container").fadeOut(0);
         $("#home-reports-container").fadeIn(0);
         if (sentJob == "ambulance") {
@@ -4113,7 +4182,7 @@ $(document).ready(() => {
     }
   }
 {/* <div class="bulletin-id">ID: ${value.id}</div> */}
-  window.addEventListener("message", function (event) {
+window.addEventListener("message", function (event) {
     let eventData = event.data;
     $(".dispatch-msg-notif").fadeIn(500);
     if (eventData.type == "show") {
@@ -4128,26 +4197,6 @@ $(document).ready(() => {
           $(".manage-profile-vehs-container").removeClass("display_hidden");
           $(".manage-profile-houses-container").removeClass("display_hidden");
         }
-
-        /* if (PoliceJobs[playerJob] !== undefined || AmbulanceJobs[playerJob] !== undefined) {
-          $(".manage-profile-save").css("display", "block");
-          $(".manage-profile-editing-title").css("display", "block");
-          $(".manage-incidents-create").css("display", "block");
-          $(".manage-incidents-save").css("display", "block");
-          $(".manage-incidents-editing-title").css("display", "block");
-          $(".manage-reports-new").css("display", "block");
-          $(".manage-reports-save").css("display", "block");
-          $(".manage-reports-editing-title").css("display", "block");
-        } else if (DojJobs[playerJob] !== undefined) {
-          $(".manage-profile-save").css("display", "none");
-          $(".manage-profile-editing-title").css("display", "none");
-          $(".manage-incidents-create").css("display", "none");
-          $(".manage-incidents-save").css("display", "none");
-          $(".manage-incidents-editing-title").css("display", "none");
-          $(".manage-reports-new").css("display", "none");
-          $(".manage-reports-save").css("display", "none");
-          $(".manage-reports-editing-title").css("display", "none");
-        } */
 
         $("body").fadeIn(0);
         $(".close-all").css("filter", "none");
@@ -4233,9 +4282,6 @@ $(document).ready(() => {
         } else if (AmbulanceJobs[unit.unitType] !== undefined) {
           activeInfoJob = `<div class="unit-job active-info-job-ambulance">Ambulance</div>`
           emsCount++;
-        /* } else if  (DojJobs[unit.unitType] !== undefined) {
-          activeInfoJob = `<div class="unit-job active-info-job-fire">FIRE</div>`
-          fireCount++; */
         } else if (DojJobs[unit.unitType] !== undefined) {
           activeInfoJob = `<div class="unit-job active-info-job-doj">DOJ</div>`
           dojCount++;
@@ -4259,22 +4305,7 @@ $(document).ready(() => {
       $("#bcso-count").html(bcsoCount);
       $("#ems-count").html(emsCount);
       $("#doj-count").html(dojCount);
-      /* $("#fire-count").html(fireCount); */
-    /* } else if (eventData.type == "bulletin") {
-      $(".bulletin-items-continer").empty();
-      $.each(eventData.data, function (index, value) {
-        $(
-          ".bulletin-items-continer"
-        ).prepend(`<div class="bulletin-item" data-id=${value.id}>
-                <div class="bulletin-item-title">${value.title}</div>
-                <div class="bulletin-item-info">${value.desc}</div>
-                <div class="bulletin-bottom-info">
-                    <div class="bulletin-id">ID: ${value.id}</div>
-                    <div class="bulletin-date">${value.author
-          } - ${timeAgo(Number(value.time))}</div>
-                </div>
-                </div>`);
-      }); */
+
     } else if (eventData.type == "newBulletin") {
       const value = eventData.data;
       $(".bulletin-items-continer")
@@ -4861,6 +4892,7 @@ $(document).ready(() => {
                   <div class="associated-incidents-user-tag ${processedTag}" data-id="${cid}">Processed</div>
                   <div class="associated-incidents-user-tag ${associatedTag}" data-id="${cid}">Associated</div>
               </div>
+              <div class="modify-charges-label"><span class="fas fa-solid fa-info"></span> Right click below to add and/or modify charges.</div>
               ${associatedIncidentsContainer}
           </div>`
         );
@@ -5403,15 +5435,15 @@ function sendToCommunityService(citizenId, customSentence, recommendedSentence) 
 
 // Use the customFine if defined, otherwise use the recommendedFine
 // This uses the assumption that customFine will be 0 if not defined
-function sendFine(citizenId, customFine, recommendedFine) {
+function sendFine(citizenId, customFine, recommendedFine, incidentId) {
   const fine = Number(customFine) || Number(recommendedFine);
 
   $.post(`https://${GetParentResourceName()}/sendFine`, JSON.stringify({
     citizenId,
     fine,
+    incidentId,
   }));
 }
-
 // Context menu
 
 var menu = document.querySelector(".contextmenu");
@@ -5622,33 +5654,40 @@ function searchProfilesResults(result) {
     }
 
     profileHTML += `
-                  <div class="profile-item" data-id="${value.citizenid}">
-                      <img src="${value.pp}" class="profile-image">
-                      <div style="display: flex; flex-direction: column; margin-top: 2.5px; margin-left: 5px; width: 100%; padding: 5px;">
-                      <div style="display: flex; flex-direction: column;">
-                          <div class="profile-item-title">${name}</div>
-                              <div class="profile-tags">
-                                  ${licences}
-                              </div>
-                              <div class="profile-criminal-tags">
-                                  <span class="license-tag ${warrant}">${value.warrant ? "Active" : "No"} Warrant</span>
-                                  <span class="license-tag ${convictions}">${value.convictions} Convictions </span>
-                              </div>
-                          </div>
-                          <div class="profile-bottom-info">
-                              <div class="profile-id"><span class="fas fa-id-card"></span> Citizen ID: ${value.citizenid}</div>&nbsp;
-                          </div>
-                      </div>
-                  </div>
-              `;
+    <div class="profile-item" data-id="${value.citizenid}" data-fingerprint="${value.fingerprint}">
+        <img src="${value.pp}" class="profile-image">
+        <div style="display: flex; flex-direction: column; margin-top: 2.5px; margin-left: 5px; width: 100%; padding: 5px;">
+        <div style="display: flex; flex-direction: column;">
+            <div class="profile-item-title">${name}</div>
+            <div class="profile-tags">
+                ${licences}
+            </div>
+            <div class="profile-criminal-tags">
+                <span class="license-tag ${warrant}">${value.warrant ? "Active" : "No"} Warrant</span>
+                <span class="license-tag ${convictions}">${value.convictions} Convictions </span>
+            </div>
+        </div>
+        <div class="profile-bottom-info">
+            <div class="profile-id"><span class="fas fa-id-card"></span> Citizen ID: ${value.citizenid}</div>&nbsp;
+        </div>
+        </div>
+    </div>
+`;
   });
 
   $(".profile-items").html(profileHTML);
 }
 
-window.addEventListener('message', (event) => {
-  if (event.data.action === 'updateOfficerData') {
-      updateOfficerData(event.data.data);
+window.addEventListener("message", (event) => {
+  if (event.data.action === "updateOfficerData") {
+    updateOfficerData(event.data.data);
+  } else if (event.data.action === "updateFingerprintData") {
+    const { fingerprint } = event.data;
+    if (fingerprint && fingerprint !== "") {
+      $(".manage-profile-fingerprint-input").val(fingerprint);
+    } else {
+      $(".manage-profile-fingerprint-input").val("");
+    }
   }
 });
 

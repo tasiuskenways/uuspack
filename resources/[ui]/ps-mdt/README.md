@@ -8,13 +8,12 @@ For all support questions, ask in our [Discord](https://www.discord.gg/projectsl
 - [ps-dispatch](https://github.com/Project-Sloth/ps-dispatch)
 - [oxmysql](https://github.com/overextended/oxmysql)
 - [qb-apartments](https://github.com/qbcore-framework/qb-apartments) | [Config](https://github.com/Project-Sloth/ps-mdt/blob/0ce2ab88d2ca7b0a49abfb3f7f8939d0769c7b73/shared/config.lua#L3) available to enable or disable. 
+- [qb-communityservice](https://github.com/Zepherlah/qb-community-service) - If you're planning on sending to community service. 
 
 # Installation
 * Download ZIP
 * Drag and drop resource into your server files, make sure to remove -main in the folder name
 * Run the attached SQL script (mdt.sql)
-* Start resource through server.cfg
-* Restart your server.
 
 # Weapon Info Export
 
@@ -49,11 +48,36 @@ Config.MugPhotos = 1
 * Create a Discord Webhook and paste it here: (Line 11 in Config.lua)
 ```lua
 -- Images for mug shots will be uploaded here. Add a Discord webhook. 
-Config.Webhook = ''
+Config.MugShotWebhook = ''
 ```
+# Fine & Citation via item
+
+* Add the item to your shared.lua > items.lua 
+```
+	['mdtcitation'] 				 = {['name'] = 'mdtcitation', 			  	  	['label'] = 'Citation', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'citation.png', 			['unique'] = true, 		['useable'] = false, ['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Citation from a police officer!'},
+```
+* Add the below code to your inventory > app.js. Should be somewhere around markedbills, see below for reference. 
+```
+        } else if (itemData.name == "mdtcitation") {
+    $(".item-info-title").html("<p>" + itemData.label + "</p>");
+    $(".item-info-description").html(
+        '<p><strong>Citizen ID: </strong><span>' + itemData.info.citizenId + '</span></p>' +
+        '<p><strong>Fine: </strong><span>' + itemData.info.fine + '</span></p>' +
+        '<p><strong>Citation Date: </strong><span>' + itemData.info.date + '</span></p>' +
+        '<p><strong>Incident ID: </strong><span>' + itemData.info.incidentId + '</span></p>' +
+        '<p><strong>Involved Officer: </strong><span>' + itemData.info.officer + '</span></p>'
+    );
+```
+* Reference for proper placement. 
+
+![image](https://user-images.githubusercontent.com/82112471/234807680-c943fac6-0da7-42f4-b815-d85769fe3779.png)
 
 # Clock In/Out & Leaderboard
 * Triggers when officers Toggle Duty from inside the mdt.
+* Create a Discord Webhook and paste it on your config.lua
+```
+Config.ClockinWebhook
+```
 ![image](https://user-images.githubusercontent.com/82112471/228130546-6366ed1e-f5a8-428c-8680-0c384d2cff52.png)
 ![image](https://user-images.githubusercontent.com/82112471/228330602-1a914461-5d61-4e12-80d4-154c8da3dee1.png)
 

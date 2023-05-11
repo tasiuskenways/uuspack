@@ -67,7 +67,7 @@ Config.ReloadSkinCooldown = 5000
 Config.AutomaticFade = false -- Enables automatic fading and hides the Fade section from Hair
 
 -- ACE Permissions Config
-Config.EnableACEPermissions = false
+Config.EnableACEPermissions = true
 Config.ACEResetCooldown = 5000
 Config.ACEListCooldown = 60 * 60 * 1000 -- 1 Hour
 

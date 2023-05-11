@@ -1,1 +1,0 @@
-AddTextEntry("WEAPON_ALPHAAK", "AK-105")

@@ -28,9 +28,9 @@ Config.OutfitCodeLength = 10
 
 Config.UseRadialMenu = true
 
-Config.EnablePedsForShops = true
-Config.EnablePedsForClothingRooms = true
-Config.EnablePedsForPlayerOutfitRooms = true
+Config.EnablePedsForShops = false
+Config.EnablePedsForClothingRooms = false
+Config.EnablePedsForPlayerOutfitRooms = false
 
 Config.EnablePedMenu = true
 Config.PedMenuGroup = "group.admin"

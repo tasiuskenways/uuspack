@@ -4,7 +4,7 @@ Config.Debug                 = true
 
 Config.PlateLetters          = 4
 Config.PlateNumbers          = 4
-Config.PlateUseSpace         = false
+Config.PlateUseSpace         = true
 
 Config.SpawnVehicle          = true -- TRUE if you want spawn vehicle when purchased (If set to false, MAKE SURE to provide a garage in the shop's config)
 Config.FuelSystem            = "cdn-fuel"
@@ -193,11 +193,11 @@ Config.Shops                 = {
         },
         showVehicles = {
             -- Table is not required
-            [1] = { model = `gtr`, livery = 0, location = vector4(-42.34, -1101.44, 26.95, 23.17) },
-            [2] = { model = `r1`, location = vector4(-47.49, -1092.15, 26.95, 112.74) },
-            [3] = { model = `s15rb`, location = vector4(-54.52, -1097.38, 26.95, 278.24) },
-            [4] = { model = `tsgr20`, location = vector4(-50.05, -1083.6, 26.95, 115.18) },
-            [5] = { model = `zx10`, location = vector4(-37.28, -1092.95, 26.95, 165.78) },
+            -- [1] = { model = `gtr`, livery = 0, location = vector4(-42.34, -1101.44, 26.95, 23.17) },
+            -- [2] = { model = `r1`, location = vector4(-47.49, -1092.15, 26.95, 112.74) },
+            -- [3] = { model = `s15rb`, location = vector4(-54.52, -1097.38, 26.95, 278.24) },
+            -- [4] = { model = `tsgr20`, location = vector4(-50.05, -1083.6, 26.95, 115.18) },
+            -- [5] = { model = `zx10`, location = vector4(-37.28, -1092.95, 26.95, 165.78) },
         }
     },
     ['pol'] = {                                          -- The Shop identifier.

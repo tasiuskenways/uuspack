@@ -276,6 +276,7 @@ local function EnableTarget()
 			DisableAllControlActions(0)
 			EnableControlAction(0, 30, true)
 			EnableControlAction(0, 31, true)
+			EnableControlAction(0, 21, true)
 
 			if not hasFocus then
 				EnableControlAction(0, 1, true)

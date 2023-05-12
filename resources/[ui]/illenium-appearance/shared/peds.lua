@@ -5,6 +5,10 @@ Config.Peds = {
                 "mp_m_freemode_01",
                 "mp_f_freemode_01",
             }
-        }
+        },
+        {
+            peds = {"ally"},
+            aces = {"kelly"}
+        },
     }
 }
